@@ -1,0 +1,9563 @@
+{
+  "_meta": {
+    "description": "LLM-compiled structured officer abilities, derived from the free-text descriptions in profiles/player_profile.json. Each officer has a captain maneuver (cm) OR below-deck ability (bda), plus an officer ability (oa).",
+    "compiled": "2026-07-10",
+    "roles": {
+      "off": "offense - kills faster",
+      "def": "defense - survive longer",
+      "amp": "amplifier - boosts crew/maneuver",
+      "util": "utility - economy/mining/loot, no combat value"
+    },
+    "scopes": [
+      "any",
+      "pvp",
+      "pve",
+      "armada",
+      "station",
+      "node",
+      "mining",
+      "wave_defense"
+    ],
+    "targets_note": "hostile types, factions, or enemy ship classes the ability is conditional on; empty = unconditional",
+    "works_in_source": "Ground truth from STFC Cheat Sheet M92 (quasel/JulesVern/Lightbull), RawOfficers tab, retrieved 2026-07-11. Lists contexts where the ability actually applies per exported game data; overrides the inferred scope.",
+    "values_note": "values = per-rank ability magnitudes (rank 1-5) from M92 RawOfficers game export"
+  },
+  "officers": {
+    "0718": {
+      "cm": {
+        "effect": "crit_chance",
+        "role": "off",
+        "scope": "station"
+      },
+      "oa": {
+        "effect": "officer_defense",
+        "role": "def",
+        "scope": "any"
+      }
+    },
+    "Ahvix": {
+      "cm": {
+        "effect": "crit_chance",
+        "role": "off",
+        "scope": "pve",
+        "targets": [
+          "eclipse"
+        ],
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.2,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "enemy_mitigation_down",
+        "role": "off",
+        "scope": "pve",
+        "targets": [
+          "eclipse"
+        ],
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ]
+      }
+    },
+    "Airiam": {
+      "cm": {
+        "effect": "mining_speed",
+        "role": "util",
+        "scope": "mining",
+        "works_in": [],
+        "values": [
+          0.4,
+          0.1,
+          0.2
+        ]
+      },
+      "oa": {
+        "effect": "burning",
+        "role": "off",
+        "scope": "node",
+        "works_in": [
+          "pvp"
+        ],
+        "conditional": true,
+        "values": [
+          0.6,
+          0.7,
+          0.8,
+          0.9,
+          0.95
+        ]
+      }
+    },
+    "Alok Sahar": {
+      "bda": {
+        "effect": "apex_barrier",
+        "role": "def",
+        "scope": "pve",
+        "targets": [
+          "explorer"
+        ],
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          1000.0,
+          1200.0,
+          1500.0,
+          2000.0,
+          3000.0
+        ]
+      },
+      "oa": {
+        "effect": "apex_shred",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.15,
+          0.25,
+          0.35,
+          0.5,
+          0.7
+        ]
+      }
+    },
+    "Alonzo Freeman": {
+      "bda": {
+        "effect": "reputation",
+        "role": "util",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve"
+        ],
+        "conditional": true,
+        "values": [
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5
+        ]
+      },
+      "oa": {
+        "effect": "cargo",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.2,
+          0.35,
+          0.4,
+          0.45,
+          0.55
+        ]
+      }
+    },
+    "Andy Billups": {
+      "bda": {
+        "effect": "isolytic_defense",
+        "role": "def",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.4,
+          0.5,
+          0.65,
+          0.85,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "isolytic_damage",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.6,
+          0.75,
+          0.9,
+          1.1,
+          1.3
+        ]
+      }
+    },
+    "Annorax": {
+      "cm": {
+        "effect": "loot",
+        "role": "util",
+        "scope": "pve",
+        "works_in": [
+          "pve"
+        ],
+        "conditional": true,
+        "values": [
+          0.3,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "apex_barrier",
+        "role": "def",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          2000.0,
+          2300.0,
+          2600.0,
+          2900.0,
+          3200.0
+        ]
+      }
+    },
+    "Arix": {
+      "cm": {
+        "effect": "burning",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "armor",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.15,
+          0.2,
+          0.3,
+          0.4,
+          0.5
+        ]
+      }
+    },
+    "Arkady": {
+      "cm": {
+        "effect": "morale",
+        "role": "amp",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "shield_health",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.1,
+          0.12,
+          0.14,
+          0.16,
+          0.2
+        ]
+      }
+    },
+    "Arrock": {
+      "cm": {
+        "effect": "mining_speed",
+        "role": "util",
+        "scope": "mining",
+        "works_in": [],
+        "values": [
+          65.0,
+          12.0,
+          30.0
+        ]
+      },
+      "oa": {
+        "effect": "mining_speed",
+        "role": "util",
+        "scope": "mining",
+        "works_in": [],
+        "values": [
+          0.25,
+          0.3,
+          0.4,
+          0.45,
+          0.5
+        ]
+      }
+    },
+    "Azetbur": {
+      "cm": {
+        "effect": "hull_breach",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "piercing",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.1,
+          0.15,
+          0.2,
+          0.3,
+          0.4
+        ]
+      }
+    },
+    "B'Elanna Torres": {
+      "bda": {
+        "effect": "hull_breach",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "piercing",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          2.5,
+          4.0,
+          6.0,
+          9.0,
+          15.0
+        ]
+      }
+    },
+    "B'Etor": {
+      "cm": {
+        "effect": "cloaking",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.2,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "loot",
+        "role": "util",
+        "scope": "any",
+        "works_in": [
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.1,
+          0.14,
+          0.22,
+          0.34,
+          0.5
+        ]
+      }
+    },
+    "Ba'el": {
+      "cm": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.25,
+          0.025,
+          0.05
+        ]
+      },
+      "oa": {
+        "effect": "armor",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          2.0,
+          5.0,
+          8.0,
+          11.0,
+          14.0
+        ]
+      }
+    },
+    "Badgey": {
+      "bda": {
+        "effect": "piercing",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.15,
+          0.225,
+          0.3,
+          0.45,
+          0.65
+        ]
+      },
+      "oa": {
+        "effect": "enemy_stats_down",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.05,
+          0.12,
+          0.15,
+          0.18,
+          0.2
+        ]
+      }
+    },
+    "Barot": {
+      "cm": {
+        "effect": "mining_speed",
+        "role": "util",
+        "scope": "mining",
+        "works_in": [],
+        "values": [
+          0.4,
+          0.2,
+          0.3
+        ]
+      },
+      "oa": {
+        "effect": "enemy_hull_down",
+        "role": "off",
+        "scope": "mining",
+        "works_in": [
+          "pvp"
+        ],
+        "conditional": true,
+        "values": [
+          0.1,
+          0.15,
+          0.2,
+          0.25,
+          0.3
+        ]
+      }
+    },
+    "Beckett Mariner": {
+      "bda": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.7,
+          0.95,
+          1.15,
+          1.4,
+          1.8
+        ]
+      },
+      "oa": {
+        "effect": "officer_attack",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.05,
+          0.1,
+          0.15,
+          0.25,
+          0.3
+        ]
+      }
+    },
+    "Benjamin Sisko": {
+      "cm": {
+        "effect": "mitigation",
+        "role": "def",
+        "scope": "armada",
+        "works_in": [
+          "armada"
+        ],
+        "values": [
+          4.0,
+          1.0,
+          5.0
+        ]
+      },
+      "oa": {
+        "effect": "crit_chance",
+        "role": "off",
+        "scope": "armada",
+        "works_in": [
+          "armada"
+        ],
+        "values": [
+          0.03,
+          0.04,
+          0.06,
+          0.08,
+          0.12
+        ]
+      }
+    },
+    "Beverly Crusher": {
+      "cm": {
+        "effect": "shield_repair",
+        "role": "def",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          2.0,
+          0.5,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "mitigation",
+        "role": "def",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          3.5
+        ]
+      }
+    },
+    "Bones": {
+      "cm": {
+        "effect": "ability_boost",
+        "role": "amp",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.2,
+          0.07,
+          0.15
+        ]
+      },
+      "oa": {
+        "effect": "officer_defense",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.1,
+          0.15,
+          0.2,
+          0.25,
+          0.3
+        ]
+      }
+    },
+    "Borg Queen": {
+      "bda": {
+        "effect": "piercing",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          1.5,
+          2.0,
+          3.0,
+          4.0,
+          5.0
+        ]
+      },
+      "oa": {
+        "effect": "crit_chance",
+        "role": "off",
+        "scope": "armada",
+        "targets": [
+          "borg"
+        ],
+        "works_in": [
+          "armada"
+        ],
+        "conditional": true,
+        "values": [
+          0.02,
+          0.03,
+          0.04,
+          0.05,
+          0.07
+        ]
+      }
+    },
+    "Brad Boimler": {
+      "bda": {
+        "effect": "stats_triple",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.5,
+          0.675,
+          0.85,
+          1.075,
+          1.3
+        ]
+      },
+      "oa": {
+        "effect": "piercing",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.3,
+          0.35,
+          0.4,
+          0.45,
+          0.5
+        ]
+      }
+    },
+    "Byr Ch'Kelrer": {
+      "bda": {
+        "effect": "loot",
+        "role": "util",
+        "scope": "pve",
+        "works_in": [
+          "pve"
+        ],
+        "values": [
+          0.15,
+          0.25,
+          0.4,
+          0.65,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "crit_damage",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.05,
+          0.08,
+          0.12,
+          0.17,
+          0.25
+        ]
+      }
+    },
+    "Cadet Kirk": {
+      "cm": {
+        "effect": "officer_stats",
+        "role": "amp",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.08,
+          0.03,
+          0.06
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.05,
+          0.08,
+          0.12,
+          0.15,
+          0.2
+        ]
+      }
+    },
+    "Cadet McCoy": {
+      "cm": {
+        "effect": "officer_health",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.1,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "maneuver_boost",
+        "role": "amp",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.04,
+          0.06,
+          0.08,
+          0.1,
+          0.12
+        ]
+      }
+    },
+    "Cadet Scotty": {
+      "cm": {
+        "effect": "hull_health",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.1,
+          0.02,
+          0.05
+        ]
+      },
+      "oa": {
+        "effect": "warp",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          1.0,
+          2.0,
+          3.0,
+          4.0,
+          5.0
+        ]
+      }
+    },
+    "Cadet Sulu": {
+      "cm": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.05,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "officer_attack",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.05,
+          0.08,
+          0.1,
+          0.12,
+          0.15
+        ]
+      }
+    },
+    "Cadet Uhura": {
+      "cm": {
+        "effect": "enemy_damage_down",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.1,
+          0.02,
+          0.05
+        ]
+      },
+      "oa": {
+        "effect": "shield_health",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.05,
+          0.07,
+          0.09,
+          0.11,
+          0.14
+        ]
+      }
+    },
+    "Captain Tilly": {
+      "cm": {
+        "effect": "mitigation",
+        "role": "def",
+        "scope": "node"
+      },
+      "oa": {
+        "effect": "mitigation",
+        "role": "def",
+        "scope": "any"
+      }
+    },
+    "Carol": {
+      "cm": {
+        "effect": "enemy_damage_down",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.4,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.2,
+          0.25,
+          0.3,
+          0.35,
+          0.4
+        ]
+      }
+    },
+    "Carol Freeman": {
+      "cm": {
+        "effect": "shots",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "values": [
+          1.0,
+          0.01,
+          0.05
+        ]
+      },
+      "oa": {
+        "effect": "isolytic_damage",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.6,
+          0.75,
+          0.9,
+          1.1,
+          1.3
+        ]
+      }
+    },
+    "Cath": {
+      "cm": {
+        "effect": "repair",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.4,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "enemy_damage_down",
+        "role": "def",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.12,
+          0.15,
+          0.18,
+          0.21,
+          0.25
+        ]
+      }
+    },
+    "Chakotay": {
+      "cm": {
+        "effect": "shots",
+        "role": "off",
+        "scope": "armada",
+        "works_in": [
+          "armada"
+        ],
+        "values": [
+          0.4,
+          0.3,
+          0.3
+        ]
+      },
+      "oa": {
+        "effect": "crit_chance",
+        "role": "off",
+        "scope": "armada",
+        "works_in": [
+          "armada"
+        ],
+        "values": [
+          0.08,
+          0.12,
+          0.16,
+          0.22,
+          0.3
+        ]
+      }
+    },
+    "Chang": {
+      "cm": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.1,
+          0.1,
+          0.2
+        ]
+      },
+      "oa": {
+        "effect": "delay",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "Changeling Kira": {
+      "cm": {
+        "effect": "enemy_crit_down",
+        "role": "def",
+        "scope": "armada",
+        "targets": [
+          "cardassian"
+        ],
+        "works_in": [
+          "armada"
+        ],
+        "conditional": true,
+        "values": [
+          0.02,
+          0.01,
+          0.02
+        ]
+      },
+      "oa": {
+        "effect": "enemy_stats_down",
+        "role": "off",
+        "scope": "armada",
+        "works_in": [
+          "armada"
+        ],
+        "values": [
+          0.1,
+          0.13,
+          0.18,
+          0.25,
+          0.35
+        ]
+      }
+    },
+    "Charvanek": {
+      "cm": {
+        "effect": "burning",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "piercing",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          1.0,
+          2.0,
+          4.0,
+          8.0,
+          16.0
+        ]
+      }
+    },
+    "Chen": {
+      "cm": {
+        "effect": "mitigation",
+        "role": "def",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.2,
+          0.1,
+          0.15
+        ]
+      },
+      "oa": {
+        "effect": "enemy_damage_down",
+        "role": "def",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.1,
+          0.15,
+          0.2,
+          0.25,
+          0.3
+        ]
+      }
+    },
+    "Culber": {
+      "cm": {
+        "effect": "armor",
+        "role": "def",
+        "scope": "node",
+        "works_in": [
+          "pvp"
+        ],
+        "conditional": true,
+        "values": [
+          0.5,
+          0.25,
+          0.5
+        ]
+      },
+      "oa": {
+        "effect": "cost_efficiency",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.05,
+          0.1,
+          0.15,
+          0.2,
+          0.25
+        ]
+      }
+    },
+    "D'Jaoki": {
+      "cm": {
+        "effect": "officer_health",
+        "role": "util",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.1,
+          0.02,
+          0.05
+        ]
+      },
+      "oa": {
+        "effect": "mitigation",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.2,
+          0.4,
+          1.0,
+          2.5,
+          5.0
+        ]
+      }
+    },
+    "D'Vana Tendi": {
+      "bda": {
+        "effect": "hull_health",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.75,
+          1.0,
+          1.35,
+          1.7,
+          2.15
+        ]
+      },
+      "oa": {
+        "effect": "officer_health",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.05,
+          0.1,
+          0.15,
+          0.25,
+          0.3
+        ]
+      }
+    },
+    "Dajash Tolra": {
+      "cm": {
+        "effect": "loot",
+        "role": "util",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve"
+        ],
+        "values": [
+          0.6,
+          0.2,
+          0.4
+        ]
+      },
+      "oa": {
+        "effect": "shots",
+        "role": "off",
+        "scope": "armada",
+        "works_in": [
+          "armada"
+        ],
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "Damar": {
+      "cm": {
+        "effect": "crit_chance",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.02,
+          0.02,
+          0.03,
+          1.0,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "crit_mitigation",
+        "role": "def",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.25,
+          0.29,
+          0.35,
+          0.42,
+          0.5
+        ]
+      }
+    },
+    "Dane": {
+      "bda": {
+        "effect": "impulse",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          20.0,
+          25.0,
+          35.0,
+          45.0,
+          60.0
+        ]
+      },
+      "oa": {
+        "effect": "loot",
+        "role": "util",
+        "scope": "pve",
+        "targets": [
+          "mirror"
+        ],
+        "works_in": [
+          "pve"
+        ],
+        "conditional": true,
+        "values": [
+          1.0,
+          1.2,
+          1.4,
+          1.6,
+          2.0
+        ]
+      }
+    },
+    "Darwin": {
+      "cm": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.1,
+          0.02,
+          0.05
+        ]
+      },
+      "oa": {
+        "effect": "xp",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6
+        ]
+      }
+    },
+    "Data": {
+      "cm": {
+        "effect": "crit_chance",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.17,
+          0.03,
+          0.04
+        ]
+      },
+      "oa": {
+        "effect": "piercing",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.6,
+          1.2,
+          1.8,
+          2.4,
+          3.0
+        ]
+      }
+    },
+    "Deanna Troi": {
+      "cm": {
+        "effect": "enemy_crit_down",
+        "role": "def",
+        "scope": "armada",
+        "works_in": [
+          "armada"
+        ],
+        "values": [
+          0.15,
+          0.02,
+          0.05
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "pve",
+        "targets": [
+          "romulan"
+        ],
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0
+        ]
+      }
+    },
+    "Decius": {
+      "cm": {
+        "effect": "piercing",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.06,
+          0.07,
+          0.08,
+          0.09,
+          0.1
+        ]
+      }
+    },
+    "DeMarco": {
+      "bda": {
+        "effect": "isolytic_damage",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.3,
+          0.4,
+          0.5,
+          0.65,
+          0.8
+        ]
+      },
+      "oa": {
+        "effect": "isolytic_damage",
+        "role": "off",
+        "scope": "armada",
+        "works_in": [
+          "armada"
+        ],
+        "values": [
+          0.7,
+          0.9,
+          1.1,
+          1.3,
+          1.5
+        ]
+      }
+    },
+    "Dezoc": {
+      "bda": {
+        "effect": "assimilate",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "officer_stats",
+        "role": "amp",
+        "scope": "armada",
+        "targets": [
+          "borg"
+        ],
+        "works_in": [
+          "armada"
+        ],
+        "conditional": true,
+        "values": [
+          0.1,
+          0.14,
+          0.2,
+          0.3,
+          0.5
+        ]
+      }
+    },
+    "Dixon Hill": {
+      "bda": {
+        "effect": "mining_speed",
+        "role": "util",
+        "scope": "mining",
+        "works_in": [],
+        "values": [
+          0.3,
+          0.45,
+          0.6,
+          0.85,
+          1.2
+        ]
+      },
+      "oa": {
+        "effect": "enemy_mitigation_down",
+        "role": "off",
+        "scope": "node",
+        "works_in": [
+          "pvp"
+        ],
+        "conditional": true,
+        "values": [
+          0.05,
+          0.07,
+          0.1,
+          0.15,
+          0.2
+        ]
+      }
+    },
+    "Doctor T'Ana": {
+      "bda": {
+        "effect": "isolytic_defense",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "values": [
+          0.5,
+          0.8,
+          1.2,
+          1.8,
+          2.5
+        ]
+      },
+      "oa": {
+        "effect": "state_apply",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "Domitia": {
+      "cm": {
+        "effect": "mining_speed",
+        "role": "util",
+        "scope": "mining",
+        "works_in": [],
+        "values": [
+          0.4,
+          0.2,
+          0.3
+        ]
+      },
+      "oa": {
+        "effect": "warp",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.25,
+          0.5,
+          0.75,
+          1.0,
+          1.3
+        ]
+      }
+    },
+    "Dupont": {
+      "cm": {
+        "effect": "mining_speed",
+        "role": "util",
+        "scope": "mining",
+        "works_in": [],
+        "values": [
+          0.35,
+          0.1,
+          0.2
+        ]
+      },
+      "oa": {
+        "effect": "protected_cargo",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.5,
+          1.0,
+          1.5,
+          2.0,
+          3.0
+        ]
+      }
+    },
+    "Eight Of Eleven": {
+      "cm": {
+        "effect": "crit_chance",
+        "role": "off",
+        "scope": "pve",
+        "targets": [
+          "borg"
+        ],
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.1,
+          0.05,
+          0.2
+        ]
+      },
+      "oa": {
+        "effect": "officer_attack",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.45,
+          0.55,
+          0.65,
+          0.75,
+          0.85
+        ]
+      }
+    },
+    "Eleven Of Eleven": {
+      "cm": {
+        "effect": "mining_speed",
+        "role": "util",
+        "scope": "mining",
+        "works_in": [],
+        "values": [
+          0.6,
+          0.3,
+          0.45
+        ]
+      },
+      "oa": {
+        "effect": "warp",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.3,
+          0.35,
+          0.4,
+          0.45,
+          0.5
+        ]
+      }
+    },
+    "Emperor Georgiou": {
+      "cm": {
+        "effect": "enemy_officer_down",
+        "role": "off",
+        "scope": "pvp"
+      },
+      "oa": {
+        "effect": "shots",
+        "role": "off",
+        "scope": "node"
+      }
+    },
+    "Ent-E Data": {
+      "bda": {
+        "effect": "cargo",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.2,
+          0.3,
+          0.4,
+          0.55,
+          0.7
+        ]
+      },
+      "oa": {
+        "effect": "isolytic_damage",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.1,
+          0.15,
+          0.2,
+          0.3,
+          0.4
+        ]
+      }
+    },
+    "Ent-E Picard": {
+      "cm": {
+        "effect": "loot",
+        "role": "util",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve"
+        ],
+        "values": [
+          0.6,
+          0.2,
+          0.4
+        ]
+      },
+      "oa": {
+        "effect": "isolytic_damage",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.03,
+          0.05,
+          0.07,
+          0.1,
+          0.15
+        ]
+      }
+    },
+    "Ent-E Riker": {
+      "cm": {
+        "effect": "impulse",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.5,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "crit_chance",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.02,
+          0.04,
+          0.06,
+          0.08,
+          0.1
+        ]
+      }
+    },
+    "Ent-E Troi": {
+      "bda": {
+        "effect": "crit_damage",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.2,
+          0.3,
+          0.45,
+          0.65,
+          0.9
+        ]
+      },
+      "oa": {
+        "effect": "enemy_shield_down",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          4.0,
+          6.0,
+          8.0,
+          12.0,
+          16.0
+        ]
+      }
+    },
+    "Eurydice": {
+      "cm": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.1,
+          0.02,
+          0.05
+        ]
+      },
+      "oa": {
+        "effect": "shield_repair",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05
+        ]
+      }
+    },
+    "Ezri Dax": {
+      "cm": {
+        "effect": "isolytic_damage",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          15.0,
+          0.0,
+          0.0
+        ]
+      },
+      "oa": {
+        "effect": "isolytic_damage",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          1.0,
+          1.3,
+          1.6,
+          1.8,
+          2.0
+        ]
+      }
+    },
+    "Fess": {
+      "cm": {
+        "effect": "mining_speed",
+        "role": "util",
+        "scope": "mining",
+        "works_in": [],
+        "values": [
+          0.55,
+          0.2,
+          0.35
+        ]
+      },
+      "oa": {
+        "effect": "protected_cargo",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.3,
+          0.25,
+          0.2,
+          0.15,
+          0.1
+        ]
+      }
+    },
+    "Five Of Eleven": {
+      "cm": {
+        "effect": "mitigation",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          2.0,
+          2.0,
+          4.0
+        ]
+      },
+      "oa": {
+        "effect": "loot",
+        "role": "util",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve"
+        ],
+        "values": [
+          0.2,
+          0.4,
+          0.6,
+          0.8,
+          1.0
+        ]
+      }
+    },
+    "Four Of Eleven": {
+      "cm": {
+        "effect": "mining_speed",
+        "role": "util",
+        "scope": "mining",
+        "works_in": [],
+        "values": [
+          0.6,
+          0.3,
+          0.45
+        ]
+      },
+      "oa": {
+        "effect": "cargo",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.4,
+          0.45,
+          0.5,
+          0.55,
+          0.6
+        ]
+      }
+    },
+    "French Marshal Q": {
+      "bda": {
+        "effect": "hull_repair",
+        "role": "def",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.05,
+          0.07,
+          0.1,
+          0.14,
+          0.2
+        ]
+      },
+      "oa": {
+        "effect": "shots",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.25,
+          0.3,
+          0.35,
+          0.4,
+          0.5
+        ]
+      }
+    },
+    "Gaila": {
+      "cm": {
+        "effect": "loot",
+        "role": "util",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.25,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "crit_mitigation",
+        "role": "def",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5
+        ]
+      }
+    },
+    "Garak": {
+      "cm": {
+        "effect": "crit_mitigation",
+        "role": "def",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.05,
+          0.05,
+          0.1,
+          1.0,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "crit_chance",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.3,
+          0.35,
+          0.42,
+          0.5,
+          0.6
+        ]
+      }
+    },
+    "Geordi La Forge": {
+      "cm": {
+        "effect": "loot",
+        "role": "util",
+        "scope": "armada",
+        "works_in": [
+          "armada"
+        ],
+        "values": [
+          0.5,
+          0.1,
+          0.15
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "pve",
+        "targets": [
+          "klingon"
+        ],
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0
+        ]
+      }
+    },
+    "Georgiou": {
+      "cm": {
+        "effect": "enemy_officer_down",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          1.0,
+          0.15,
+          0.25
+        ]
+      },
+      "oa": {
+        "effect": "burning",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.5,
+          0.6,
+          0.7,
+          0.75,
+          0.8
+        ]
+      }
+    },
+    "Ghalenar": {
+      "bda": {
+        "effect": "loot",
+        "role": "util",
+        "scope": "pve",
+        "targets": [
+          "borg",
+          "actian"
+        ],
+        "works_in": [
+          "pve"
+        ],
+        "conditional": true,
+        "values": [
+          0.1,
+          0.15,
+          0.2,
+          0.3,
+          0.5
+        ]
+      },
+      "oa": {
+        "effect": "reputation",
+        "role": "util",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve"
+        ],
+        "conditional": true,
+        "values": [
+          0.05,
+          0.07,
+          0.09,
+          0.15,
+          0.2
+        ]
+      }
+    },
+    "Ghrush": {
+      "cm": {
+        "effect": "protected_cargo",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          1.0,
+          0.25,
+          0.5
+        ]
+      },
+      "oa": {
+        "effect": "warp",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.06,
+          0.08,
+          0.1,
+          0.12,
+          0.15
+        ]
+      }
+    },
+    "Gonzales": {
+      "cm": {
+        "effect": "crit_chance",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.08,
+          0.01,
+          0.02
+        ]
+      },
+      "oa": {
+        "effect": "crit_damage",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.05,
+          0.1,
+          0.15,
+          0.2,
+          0.3
+        ]
+      }
+    },
+    "Goon": {
+      "cm": {
+        "effect": "crit_chance",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.2,
+          0.15,
+          0.2
+        ]
+      },
+      "oa": {
+        "effect": "xp",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.15,
+          0.2,
+          0.25,
+          0.35,
+          0.5
+        ]
+      }
+    },
+    "Gorkon": {
+      "cm": {
+        "effect": "crit_chance",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.1,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "hull_breach",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.7,
+          0.75,
+          0.8,
+          0.85,
+          0.9
+        ]
+      }
+    },
+    "Gossa": {
+      "bda": {
+        "effect": "stats_triple",
+        "role": "def",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          1.25,
+          1.5,
+          1.75,
+          2.25,
+          3.0
+        ]
+      },
+      "oa": {
+        "effect": "enemy_damage_down",
+        "role": "def",
+        "scope": "armada",
+        "targets": [
+          "borg"
+        ],
+        "works_in": [
+          "armada"
+        ],
+        "conditional": true,
+        "values": [
+          0.05,
+          0.07,
+          0.1,
+          0.15,
+          0.25
+        ]
+      }
+    },
+    "Gowron": {
+      "cm": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.5,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "shield_health",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          2.0,
+          5.0,
+          8.0,
+          11.0,
+          14.0
+        ]
+      }
+    },
+    "Gul Dukat": {
+      "cm": {
+        "effect": "hull_breach",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "shots",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.25,
+          0.29,
+          0.35,
+          0.42,
+          0.5
+        ]
+      }
+    },
+    "Hadley": {
+      "cm": {
+        "effect": "warp",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.15,
+          0.1,
+          0.15
+        ]
+      },
+      "oa": {
+        "effect": "xp",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6
+        ]
+      }
+    },
+    "Harrison": {
+      "cm": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "targets": [
+          "explorer"
+        ],
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.2,
+          0.1,
+          0.2
+        ]
+      },
+      "oa": {
+        "effect": "enemy_shield_down",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.6,
+          0.7,
+          0.8,
+          0.9,
+          1.0
+        ]
+      }
+    },
+    "Harry Kim": {
+      "bda": {
+        "effect": "morale",
+        "role": "amp",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "reputation",
+        "role": "util",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve"
+        ],
+        "conditional": true,
+        "values": [
+          0.07,
+          0.1,
+          0.15,
+          0.2,
+          0.3
+        ]
+      }
+    },
+    "Harry Mudd": {
+      "cm": {
+        "effect": "mitigation",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.18,
+          0.0,
+          0.0
+        ]
+      },
+      "oa": {
+        "effect": "shots",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "Helvia": {
+      "cm": {
+        "effect": "mining_speed",
+        "role": "util",
+        "scope": "mining",
+        "works_in": [],
+        "values": [
+          0.4,
+          0.2,
+          0.3
+        ]
+      },
+      "oa": {
+        "effect": "warp",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.25,
+          0.5,
+          0.75,
+          1.0,
+          1.25
+        ]
+      }
+    },
+    "Hendorff": {
+      "cm": {
+        "effect": "mitigation",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.2,
+          0.1,
+          0.2
+        ]
+      },
+      "oa": {
+        "effect": "xp",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6
+        ]
+      }
+    },
+    "Honorguard Worf": {
+      "cm": {
+        "effect": "piercing",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "values": [
+          0.3,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "crit_chance",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "values": [
+          0.45,
+          0.5,
+          0.6,
+          0.75,
+          1.0
+        ]
+      }
+    },
+    "Hoshi Sato": {
+      "bda": {
+        "effect": "mining_speed",
+        "role": "util",
+        "scope": "mining",
+        "works_in": [],
+        "values": [
+          0.5,
+          1.0,
+          2.0,
+          3.0,
+          5.0
+        ]
+      },
+      "oa": {
+        "effect": "cargo",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.2,
+          0.3,
+          0.35,
+          0.45,
+          0.55
+        ]
+      }
+    },
+    "Hugh": {
+      "bda": {
+        "effect": "crit_chance",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ]
+      },
+      "oa": {
+        "effect": "impulse",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.05,
+          0.07,
+          0.09,
+          0.12,
+          0.15
+        ]
+      }
+    },
+    "Icheb": {
+      "cm": {
+        "effect": "ability_boost",
+        "role": "amp",
+        "scope": "any"
+      },
+      "oa": {
+        "effect": "apex_barrier",
+        "role": "def",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          5500.0,
+          6500.0,
+          8000.0,
+          10000.0,
+          12500.0
+        ]
+      }
+    },
+    "Ikat'ika": {
+      "cm": {
+        "effect": "mitigation",
+        "role": "def",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.2,
+          0.15,
+          0.25
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.53,
+          0.55,
+          0.62,
+          0.7,
+          0.8
+        ]
+      }
+    },
+    "Infiltrator Tuvok": {
+      "bda": {
+        "effect": "apex_barrier",
+        "role": "def",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          12000.0,
+          14500.0,
+          17500.0,
+          21000.0,
+          25000.0
+        ]
+      },
+      "oa": {
+        "effect": "isolytic_damage",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.28,
+          0.34,
+          0.42,
+          0.52,
+          0.65
+        ]
+      }
+    },
+    "Instructor Spock": {
+      "cm": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any"
+      },
+      "oa": {
+        "effect": "mitigation",
+        "role": "def",
+        "scope": "any"
+      }
+    },
+    "Jack Ransom": {
+      "bda": {
+        "effect": "isolytic_defense",
+        "role": "def",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.4,
+          0.5,
+          0.65,
+          0.85,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "isolytic_damage",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.6,
+          0.75,
+          0.9,
+          1.1,
+          1.3
+        ]
+      }
+    },
+    "Jadzia Dax": {
+      "cm": {
+        "effect": "piercing",
+        "role": "off",
+        "scope": "armada",
+        "works_in": [
+          "armada"
+        ],
+        "values": [
+          7.0,
+          1.75,
+          3.5
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "armada",
+        "works_in": [
+          "armada"
+        ],
+        "values": [
+          3.0,
+          4.5,
+          6.5,
+          9.0,
+          12.0
+        ]
+      }
+    },
+    "Javaid": {
+      "cm": {
+        "effect": "piercing",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.2,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "armor",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.15,
+          0.2,
+          0.25,
+          0.3,
+          0.4
+        ]
+      }
+    },
+    "Jaylah": {
+      "cm": {
+        "effect": "loot",
+        "role": "util",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve"
+        ],
+        "conditional": true,
+        "values": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      "oa": {
+        "effect": "shots",
+        "role": "off",
+        "scope": "pve",
+        "targets": [
+          "swarm"
+        ],
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          1.0,
+          2.0,
+          3.0,
+          4.0,
+          5.0
+        ]
+      }
+    },
+    "Jean-Luc Picard": {
+      "cm": {
+        "effect": "ability_boost",
+        "role": "amp",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.2,
+          1.0,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "crit_damage",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.05,
+          0.1,
+          0.15,
+          0.2,
+          0.25
+        ]
+      }
+    },
+    "Joachim": {
+      "cm": {
+        "effect": "mitigation",
+        "role": "def",
+        "scope": "station",
+        "works_in": [
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          10000000.0,
+          0.0,
+          0.0
+        ]
+      },
+      "oa": {
+        "effect": "enemy_damage_down",
+        "role": "def",
+        "scope": "station",
+        "works_in": [
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.1,
+          0.15,
+          0.2,
+          0.25,
+          0.3
+        ]
+      }
+    },
+    "Joaquin": {
+      "cm": {
+        "effect": "protected_cargo",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.5,
+          0.15,
+          0.25
+        ]
+      },
+      "oa": {
+        "effect": "mining_speed",
+        "role": "util",
+        "scope": "mining",
+        "works_in": [],
+        "values": [
+          0.4,
+          0.6,
+          0.8,
+          1.0,
+          1.25
+        ]
+      }
+    },
+    "Jonathan Archer": {
+      "cm": {
+        "effect": "loot",
+        "role": "util",
+        "scope": "pve",
+        "targets": [
+          "xindi"
+        ],
+        "works_in": [
+          "pve"
+        ],
+        "conditional": true,
+        "values": [
+          3.0,
+          0.5,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "crit_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.05,
+          0.1,
+          0.2,
+          0.3,
+          0.5
+        ]
+      }
+    },
+    "Julian Bashir": {
+      "cm": {
+        "effect": "crit_damage",
+        "role": "off",
+        "scope": "armada",
+        "works_in": [
+          "armada"
+        ],
+        "values": [
+          0.5,
+          0.25,
+          0.5
+        ]
+      },
+      "oa": {
+        "effect": "crit_chance",
+        "role": "off",
+        "scope": "armada",
+        "works_in": [
+          "armada"
+        ],
+        "values": [
+          0.2,
+          0.25,
+          0.35,
+          0.45,
+          0.6
+        ]
+      }
+    },
+    "K'Bisch": {
+      "cm": {
+        "effect": "mining_speed",
+        "role": "util",
+        "scope": "mining",
+        "works_in": [],
+        "values": [
+          0.4,
+          0.2,
+          0.3
+        ]
+      },
+      "oa": {
+        "effect": "enemy_damage_down",
+        "role": "def",
+        "scope": "mining",
+        "works_in": [
+          "pvp"
+        ],
+        "conditional": true,
+        "values": [
+          0.1,
+          0.12,
+          0.14,
+          0.16,
+          0.2
+        ]
+      }
+    },
+    "Kang": {
+      "cm": {
+        "effect": "hull_breach",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "accuracy",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          1.0,
+          2.0,
+          4.0,
+          8.0,
+          16.0
+        ]
+      }
+    },
+    "Kathryn Janeway": {
+      "cm": {
+        "effect": "mitigation",
+        "role": "def",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.06,
+          0.07,
+          0.07
+        ]
+      },
+      "oa": {
+        "effect": "isolytic_damage",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.1,
+          0.15,
+          0.2,
+          0.3,
+          0.5
+        ]
+      }
+    },
+    "Kati": {
+      "cm": {
+        "effect": "crit_chance",
+        "role": "off",
+        "scope": "station",
+        "works_in": [
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.04,
+          0.02,
+          0.03
+        ]
+      },
+      "oa": {
+        "effect": "crit_damage",
+        "role": "off",
+        "scope": "station",
+        "works_in": [
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.15,
+          0.2,
+          0.25,
+          0.3,
+          0.4
+        ]
+      }
+    },
+    "Keenser": {
+      "cm": {
+        "effect": "hull_health",
+        "role": "def",
+        "scope": "station",
+        "works_in": [
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.2,
+          0.07,
+          0.15
+        ]
+      },
+      "oa": {
+        "effect": "shield_health",
+        "role": "def",
+        "scope": "station",
+        "works_in": [
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.2,
+          0.25,
+          0.3,
+          0.35,
+          0.4
+        ]
+      }
+    },
+    "Kerla": {
+      "cm": {
+        "effect": "dodge",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.5,
+          0.1,
+          0.25
+        ]
+      },
+      "oa": {
+        "effect": "crit_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.2,
+          0.25,
+          0.3,
+          0.4,
+          0.5
+        ]
+      }
+    },
+    "Khan": {
+      "cm": {
+        "effect": "enemy_mitigation_down",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          10.0,
+          0.0,
+          0.0
+        ]
+      },
+      "oa": {
+        "effect": "crit_chance",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.01,
+          0.02,
+          0.03,
+          0.04,
+          0.05
+        ]
+      }
+    },
+    "Kira Nerys": {
+      "bda": {
+        "effect": "enemy_crit_down",
+        "role": "def",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "values": [
+          0.1,
+          0.15,
+          0.2,
+          0.25,
+          0.35
+        ]
+      },
+      "oa": {
+        "effect": "enemy_mitigation_down",
+        "role": "off",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.04,
+          0.05,
+          0.06,
+          0.08,
+          0.1
+        ]
+      }
+    },
+    "Kirk": {
+      "cm": {
+        "effect": "officer_stats",
+        "role": "amp",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.4,
+          0.1,
+          0.2
+        ]
+      },
+      "oa": {
+        "effect": "morale",
+        "role": "amp",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.5,
+          0.6,
+          0.7,
+          0.75,
+          0.8
+        ]
+      }
+    },
+    "Klaa": {
+      "cm": {
+        "effect": "impulse",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.25,
+          0.03,
+          0.05
+        ]
+      },
+      "oa": {
+        "effect": "crit_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.08,
+          0.1,
+          0.13,
+          0.17,
+          0.2
+        ]
+      }
+    },
+    "Komal": {
+      "cm": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.2,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "enemy_damage_down",
+        "role": "def",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.05,
+          0.07,
+          0.1,
+          0.15,
+          0.2
+        ]
+      }
+    },
+    "Koth": {
+      "cm": {
+        "effect": "repair",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.2,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.05,
+          0.1,
+          0.15,
+          0.2,
+          0.25
+        ]
+      }
+    },
+    "Kras": {
+      "cm": {
+        "effect": "enemy_officer_down",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "values": [
+          0.2,
+          0.1,
+          0.15
+        ]
+      },
+      "oa": {
+        "effect": "enemy_officer_down",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "values": [
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6
+        ]
+      }
+    },
+    "Krell": {
+      "cm": {
+        "effect": "hull_breach",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "targets": [
+          "federation"
+        ],
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.25,
+          0.35,
+          0.75,
+          1.75,
+          5.0
+        ]
+      }
+    },
+    "Kumak": {
+      "cm": {
+        "effect": "officer_stats",
+        "role": "amp",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.05,
+          0.02,
+          0.05
+        ]
+      },
+      "oa": {
+        "effect": "mitigation",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.4,
+          0.5,
+          0.6,
+          0.8,
+          1.0
+        ]
+      }
+    },
+    "Kuron": {
+      "cm": {
+        "effect": "recharge",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          100.0,
+          0.0,
+          0.0
+        ]
+      },
+      "oa": {
+        "effect": "impulse",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.25,
+          0.3,
+          0.35,
+          0.4,
+          0.5
+        ]
+      }
+    },
+    "L'Nar": {
+      "cm": {
+        "effect": "officer_health",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.2,
+          0.1,
+          0.2
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "targets": [
+          "klingon"
+        ],
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.25,
+          0.35,
+          0.75,
+          1.75,
+          5.0
+        ]
+      }
+    },
+    "Laliari": {
+      "bda": {
+        "effect": "apex_barrier",
+        "role": "def",
+        "scope": "wave_defense",
+        "works_in": [
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          1000.0,
+          1500.0,
+          2000.0,
+          2700.0,
+          3500.0
+        ]
+      },
+      "oa": {
+        "effect": "ship_ability",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.66,
+          1.0,
+          1.5,
+          2.35,
+          4.0
+        ]
+      }
+    },
+    "Leslie": {
+      "cm": {
+        "effect": "hull_repair",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.05,
+          0.02,
+          0.05
+        ]
+      },
+      "oa": {
+        "effect": "xp",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6
+        ]
+      }
+    },
+    "Lieutenant Picard": {
+      "cm": {
+        "effect": "apex_barrier",
+        "role": "def",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          4000.0,
+          1000.0,
+          3500.0
+        ]
+      },
+      "oa": {
+        "effect": "shield_health",
+        "role": "def",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.1,
+          0.14,
+          0.18,
+          0.22,
+          0.28
+        ]
+      }
+    },
+    "Linkasa": {
+      "cm": {
+        "effect": "officer_defense",
+        "role": "util",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.1,
+          0.02,
+          0.05
+        ]
+      },
+      "oa": {
+        "effect": "armor",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.25,
+          0.35,
+          0.75,
+          1.75,
+          5.0
+        ]
+      }
+    },
+    "Livis": {
+      "cm": {
+        "effect": "repair",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.1,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "hull_health",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6
+        ]
+      }
+    },
+    "Lorca": {
+      "cm": {
+        "effect": "enemy_damage_down",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          1.0,
+          0.25,
+          0.5
+        ]
+      },
+      "oa": {
+        "effect": "hull_breach",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.5,
+          0.6,
+          0.7,
+          0.75,
+          0.8
+        ]
+      }
+    },
+    "Lursa": {
+      "cm": {
+        "effect": "cloaking",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.3,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "enemy_damage_down",
+        "role": "def",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "values": [
+          0.25,
+          0.3,
+          0.4,
+          0.55,
+          0.7
+        ]
+      }
+    },
+    "M'Benga": {
+      "cm": {
+        "effect": "piercing",
+        "role": "off",
+        "scope": "station",
+        "works_in": [
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.1,
+          0.02,
+          0.05
+        ]
+      },
+      "oa": {
+        "effect": "mitigation",
+        "role": "def",
+        "scope": "station",
+        "works_in": [
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.1,
+          0.16,
+          0.22,
+          0.3,
+          0.4
+        ]
+      }
+    },
+    "M'Ral": {
+      "cm": {
+        "effect": "piercing",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.2,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "officer_attack",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.1,
+          0.15,
+          0.2,
+          0.25,
+          0.3
+        ]
+      }
+    },
+    "Mäkinen": {
+      "cm": {
+        "effect": "mining_speed",
+        "role": "util",
+        "scope": "mining",
+        "works_in": [],
+        "values": [
+          0.1,
+          0.1,
+          0.2
+        ]
+      },
+      "oa": {
+        "effect": "mining_speed",
+        "role": "util",
+        "scope": "mining",
+        "works_in": [],
+        "values": [
+          0.2,
+          0.4,
+          0.6,
+          0.8,
+          1.0
+        ]
+      }
+    },
+    "Mara": {
+      "cm": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "targets": [
+          "interceptor"
+        ],
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.2,
+          0.1,
+          0.2
+        ]
+      },
+      "oa": {
+        "effect": "enemy_stats_down",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.2,
+          0.25,
+          0.3,
+          0.35,
+          0.4
+        ]
+      }
+    },
+    "Marcus": {
+      "cm": {
+        "effect": "morale",
+        "role": "amp",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "piercing",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          1.0,
+          2.0,
+          4.0,
+          8.0,
+          16.0
+        ]
+      }
+    },
+    "Mariachi Q": {
+      "bda": {
+        "effect": "apex_barrier",
+        "role": "def",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          7000.0,
+          8000.0,
+          10000.0,
+          12000.0,
+          15000.0
+        ]
+      },
+      "oa": {
+        "effect": "isolytic_damage",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.5,
+          0.6,
+          0.75,
+          0.95,
+          1.2
+        ]
+      }
+    },
+    "Marla": {
+      "cm": {
+        "effect": "repair",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.2,
+          0.05,
+          0.15
+        ]
+      },
+      "oa": {
+        "effect": "captain_stats",
+        "role": "amp",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.5,
+          0.6,
+          0.7,
+          0.8,
+          0.9
+        ]
+      }
+    },
+    "Martok": {
+      "cm": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.5,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "dodge",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          2.0,
+          5.0,
+          8.0,
+          11.0,
+          14.0
+        ]
+      }
+    },
+    "Masriad Vael": {
+      "bda": {
+        "effect": "crit_chance",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.04,
+          0.05,
+          0.06,
+          0.08,
+          0.12
+        ]
+      },
+      "oa": {
+        "effect": "apex_barrier",
+        "role": "def",
+        "scope": "armada",
+        "works_in": [],
+        "values": [
+          500.0,
+          1000.0,
+          1500.0,
+          2750.0,
+          5000.0
+        ]
+      }
+    },
+    "Mavery": {
+      "cm": {
+        "effect": "cargo",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.4,
+          0.1,
+          0.2
+        ]
+      },
+      "oa": {
+        "effect": "mining_speed",
+        "role": "util",
+        "scope": "mining",
+        "works_in": [],
+        "values": [
+          1.0,
+          1.25,
+          1.5,
+          1.75,
+          2.0
+        ]
+      }
+    },
+    "Michael Burnham": {
+      "cm": {
+        "effect": "impulse",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          15.0,
+          5.0,
+          10.0
+        ]
+      },
+      "oa": {
+        "effect": "enemy_shield_down",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "values": [
+          0.3,
+          0.55,
+          0.85,
+          3.0,
+          4.5
+        ]
+      }
+    },
+    "Miles O'Brien": {
+      "bda": {
+        "effect": "warp",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.7,
+          0.8,
+          1.0,
+          1.2,
+          1.5
+        ]
+      },
+      "oa": {
+        "effect": "shots",
+        "role": "off",
+        "scope": "armada",
+        "works_in": [
+          "armada"
+        ],
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "Mirek": {
+      "cm": {
+        "effect": "burning",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "targets": [
+          "federation"
+        ],
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.25,
+          0.35,
+          0.75,
+          1.75,
+          5.0
+        ]
+      }
+    },
+    "Mirror Data": {
+      "cm": {
+        "effect": "apex_barrier",
+        "role": "def",
+        "scope": "pvp",
+        "targets": [
+          "interceptor"
+        ],
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          7500.0,
+          3500.0,
+          18750.0
+        ]
+      },
+      "oa": {
+        "effect": "assimilate",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "Mirror Ezri": {
+      "cm": {
+        "effect": "apex_barrier",
+        "role": "def",
+        "scope": "pvp",
+        "targets": [
+          "battleship"
+        ],
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          7500.0,
+          3500.0,
+          18750.0
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          4.5,
+          8.5,
+          15.0,
+          23.0,
+          35.0
+        ]
+      }
+    },
+    "Mirror Kira": {
+      "cm": {
+        "effect": "apex_barrier",
+        "role": "def",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          1500.0,
+          1500.0,
+          1500.0
+        ]
+      },
+      "oa": {
+        "effect": "shots",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.15,
+          0.2,
+          0.25,
+          0.3,
+          0.4
+        ]
+      }
+    },
+    "Mirror Picard": {
+      "cm": {
+        "effect": "isolytic_damage",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "values": [
+          0.5,
+          0.25,
+          0.5
+        ]
+      },
+      "oa": {
+        "effect": "apex_barrier",
+        "role": "def",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          10000.0,
+          13000.0,
+          17000.0,
+          22000.0,
+          30000.0
+        ]
+      }
+    },
+    "Mirror Troi": {
+      "cm": {
+        "effect": "apex_barrier",
+        "role": "def",
+        "scope": "pvp",
+        "targets": [
+          "explorer"
+        ],
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          7500.0,
+          3500.0,
+          18750.0
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          4.5,
+          8.5,
+          15.0,
+          23.0,
+          35.0
+        ]
+      }
+    },
+    "Mirror Uhura": {
+      "bda": {
+        "effect": "apex_barrier",
+        "role": "def",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          700.0,
+          900.0,
+          1200.0,
+          1600.0,
+          2000.0
+        ]
+      },
+      "oa": {
+        "effect": "apex_barrier",
+        "role": "def",
+        "scope": "pvp",
+        "works_in": [
+          "pvp"
+        ],
+        "conditional": true,
+        "values": [
+          0.4,
+          0.5,
+          0.6,
+          0.8,
+          1.0
+        ]
+      }
+    },
+    "Miss Q": {
+      "bda": {
+        "effect": "apex_barrier",
+        "role": "def",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          7000.0,
+          8000.0,
+          10000.0,
+          12000.0,
+          15000.0
+        ]
+      },
+      "oa": {
+        "effect": "isolytic_damage",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.5,
+          0.6,
+          0.75,
+          0.95,
+          1.2
+        ]
+      }
+    },
+    "Mitchell": {
+      "cm": {
+        "effect": "officer_stats",
+        "role": "amp",
+        "scope": "station",
+        "works_in": [
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.2,
+          0.1,
+          0.2
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7
+        ]
+      }
+    },
+    "Moreau": {
+      "cm": {
+        "effect": "shield_repair",
+        "role": "util",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.4,
+          0.1,
+          0.2
+        ]
+      },
+      "oa": {
+        "effect": "enemy_piercing_down",
+        "role": "def",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7
+        ]
+      }
+    },
+    "Mudd": {
+      "cm": {
+        "effect": "enemy_damage_down",
+        "role": "def",
+        "scope": "armada",
+        "works_in": [
+          "armada"
+        ],
+        "conditional": true,
+        "values": [
+          0.1,
+          0.03,
+          0.05
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          2.0,
+          2.5,
+          3.0,
+          3.5,
+          4.0
+        ]
+      }
+    },
+    "Naga Delvos": {
+      "bda": {
+        "effect": "repair",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          1.5,
+          3.0,
+          4.5,
+          6.0,
+          7.5
+        ]
+      },
+      "oa": {
+        "effect": "ship_ability",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [],
+        "values": [
+          0.3,
+          0.6,
+          0.9,
+          1.2,
+          1.5
+        ]
+      }
+    },
+    "Navi": {
+      "cm": {
+        "effect": "crit_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.2,
+          0.1,
+          0.2
+        ]
+      },
+      "oa": {
+        "effect": "mitigation",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.5,
+          0.65,
+          0.85,
+          1.1,
+          1.4
+        ]
+      }
+    },
+    "Neelix": {
+      "bda": {
+        "effect": "burning",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "cost_efficiency",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.4,
+          0.55,
+          0.75,
+          1.0,
+          1.3
+        ]
+      }
+    },
+    "Nero": {
+      "cm": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.4,
+          0.1,
+          0.2
+        ]
+      },
+      "oa": {
+        "effect": "burning",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.25,
+          0.3,
+          0.35,
+          0.4,
+          0.5
+        ]
+      }
+    },
+    "Nesmith": {
+      "cm": {
+        "effect": "enemy_mitigation_down",
+        "role": "off",
+        "scope": "armada",
+        "works_in": [],
+        "values": [
+          0.3,
+          0.15,
+          0.15
+        ]
+      },
+      "oa": {
+        "effect": "apex_barrier",
+        "role": "def",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          2000.0,
+          2500.0,
+          3200.0,
+          4000.0,
+          5000.0
+        ]
+      }
+    },
+    "Next Gen Crusher": {
+      "cm": {
+        "effect": "officer_health",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.1,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "maneuver_boost",
+        "role": "amp",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.04,
+          0.06,
+          0.08,
+          0.1,
+          0.12
+        ]
+      }
+    },
+    "Next Gen Data": {
+      "cm": {
+        "effect": "officer_stats",
+        "role": "amp",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.08,
+          0.03,
+          0.06
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.05,
+          0.08,
+          0.12,
+          0.15,
+          0.2
+        ]
+      }
+    },
+    "Next Gen La Forge": {
+      "cm": {
+        "effect": "enemy_damage_down",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.1,
+          0.02,
+          0.05
+        ]
+      },
+      "oa": {
+        "effect": "shield_health",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.05,
+          0.07,
+          0.09,
+          0.11,
+          0.14
+        ]
+      }
+    },
+    "Next Gen Riker": {
+      "cm": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.05,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "officer_attack",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.05,
+          0.08,
+          0.1,
+          0.12,
+          0.15
+        ]
+      }
+    },
+    "Next Gen Troi": {
+      "cm": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.05,
+          0.02,
+          0.05
+        ]
+      },
+      "oa": {
+        "effect": "mitigation",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.05,
+          0.08,
+          0.12,
+          0.15,
+          0.2
+        ]
+      }
+    },
+    "Nine Of Eleven": {
+      "cm": {
+        "effect": "enemy_crit_down",
+        "role": "def",
+        "scope": "pve",
+        "targets": [
+          "borg"
+        ],
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.1,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "officer_defense",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.45,
+          0.55,
+          0.65,
+          0.75,
+          0.85
+        ]
+      }
+    },
+    "Nog": {
+      "cm": {
+        "effect": "apex_barrier",
+        "role": "def",
+        "scope": "station",
+        "works_in": [
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          20000.0,
+          0.0,
+          0.0
+        ]
+      },
+      "oa": {
+        "effect": "enemy_crit_down",
+        "role": "def",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.2,
+          0.35,
+          0.5,
+          0.6,
+          0.7
+        ]
+      }
+    },
+    "Odo": {
+      "bda": {
+        "effect": "crit_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.2,
+          0.25,
+          0.35,
+          0.45,
+          0.6
+        ]
+      },
+      "oa": {
+        "effect": "stats_triple",
+        "role": "def",
+        "scope": "armada",
+        "works_in": [
+          "armada"
+        ],
+        "values": [
+          0.4,
+          0.5,
+          0.6,
+          0.8,
+          1.0
+        ]
+      }
+    },
+    "One Of Eleven": {
+      "cm": {
+        "effect": "mitigation",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.05,
+          0.01,
+          0.02
+        ]
+      },
+      "oa": {
+        "effect": "protected_cargo",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.3,
+          0.35,
+          0.4,
+          0.45,
+          0.5
+        ]
+      }
+    },
+    "Origins Burnham": {
+      "cm": {
+        "effect": "officer_attack",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          15.0,
+          2.0,
+          5.0
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.07,
+          0.11,
+          0.16,
+          0.2,
+          0.25
+        ]
+      }
+    },
+    "Origins Saru": {
+      "cm": {
+        "effect": "officer_defense",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          10.0,
+          2.0,
+          5.0
+        ]
+      },
+      "oa": {
+        "effect": "hull_health",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.05,
+          0.07,
+          0.1,
+          0.12,
+          0.15
+        ]
+      }
+    },
+    "Origins Stamets": {
+      "cm": {
+        "effect": "officer_health",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          10.0,
+          2.0,
+          5.0
+        ]
+      },
+      "oa": {
+        "effect": "warp",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.3,
+          0.34,
+          0.38,
+          0.42,
+          0.45
+        ]
+      }
+    },
+    "Otto": {
+      "cm": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "station",
+        "works_in": [
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.2,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "officer_attack",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6
+        ]
+      }
+    },
+    "Pan": {
+      "cm": {
+        "effect": "impulse",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.2,
+          0.05,
+          0.15
+        ]
+      },
+      "oa": {
+        "effect": "self_state",
+        "role": "amp",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "Paul Stamets": {
+      "cm": {
+        "effect": "cost_efficiency",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.2,
+          0.02,
+          0.03
+        ]
+      },
+      "oa": {
+        "effect": "enemy_piercing_down",
+        "role": "def",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.4,
+          0.8,
+          1.2,
+          1.6,
+          2.0
+        ]
+      }
+    },
+    "Phellun": {
+      "bda": {
+        "effect": "protected_cargo",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          1.0,
+          1.75,
+          2.5,
+          4.0,
+          6.0
+        ]
+      },
+      "oa": {
+        "effect": "reputation",
+        "role": "util",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve"
+        ],
+        "conditional": true,
+        "values": [
+          0.5,
+          1.0,
+          1.75,
+          2.5,
+          4.0
+        ]
+      }
+    },
+    "Phlox": {
+      "bda": {
+        "effect": "ship_ability",
+        "role": "util",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.2,
+          0.4,
+          0.6,
+          0.8,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "enemy_crit_down",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "pve",
+          "pvp",
+          "wave_defense"
+        ],
+        "values": [
+          0.45,
+          0.5,
+          0.6,
+          0.75,
+          1.0
+        ]
+      }
+    },
+    "PIC Admiral Picard": {
+      "cm": {
+        "effect": "morale",
+        "role": "amp",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "pvp",
+        "targets": [
+          "explorer"
+        ],
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          5.0,
+          9.0,
+          15.0,
+          22.0,
+          30.0
+        ]
+      }
+    },
+    "PIC Beverly Crusher": {
+      "bda": {
+        "effect": "loot",
+        "role": "util",
+        "scope": "pve",
+        "works_in": [
+          "pve"
+        ],
+        "conditional": true,
+        "values": [
+          0.1,
+          0.15,
+          0.2,
+          0.3,
+          0.5
+        ]
+      },
+      "oa": {
+        "effect": "crit_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.03,
+          0.04,
+          0.05,
+          0.06,
+          0.08
+        ]
+      }
+    },
+    "PIC Hugh": {
+      "bda": {
+        "effect": "hull_repair",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.05,
+          0.1,
+          0.15,
+          0.2,
+          0.35
+        ]
+      },
+      "oa": {
+        "effect": "mining_speed",
+        "role": "util",
+        "scope": "mining",
+        "works_in": [],
+        "values": [
+          0.05,
+          0.07,
+          0.1,
+          0.15,
+          0.25
+        ]
+      }
+    },
+    "PIC Riker": {
+      "cm": {
+        "effect": "burning",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "pvp",
+        "targets": [
+          "battleship"
+        ],
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          5.0,
+          9.0,
+          15.0,
+          22.0,
+          30.0
+        ]
+      }
+    },
+    "PIC Worf": {
+      "cm": {
+        "effect": "hull_breach",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "pvp",
+        "targets": [
+          "interceptor"
+        ],
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          5.0,
+          9.0,
+          15.0,
+          22.0,
+          30.0
+        ]
+      }
+    },
+    "Pike": {
+      "cm": {
+        "effect": "ability_boost",
+        "role": "amp",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.4,
+          0.4,
+          0.8
+        ]
+      },
+      "oa": {
+        "effect": "xp",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6
+        ]
+      }
+    },
+    "Pon": {
+      "cm": {
+        "effect": "delay",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          3.0,
+          0.0,
+          0.0
+        ]
+      },
+      "oa": {
+        "effect": "enemy_crit_down",
+        "role": "def",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.52,
+          0.57,
+          0.63,
+          0.7,
+          0.78
+        ]
+      }
+    },
+    "Qa'Ug": {
+      "cm": {
+        "effect": "enemy_officer_down",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.35,
+          0.1,
+          0.2
+        ]
+      },
+      "oa": {
+        "effect": "accuracy",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7
+        ]
+      }
+    },
+    "Quark": {
+      "cm": {
+        "effect": "protected_cargo",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.9,
+          0.08,
+          0.15
+        ]
+      },
+      "oa": {
+        "effect": "mining_speed",
+        "role": "util",
+        "scope": "mining",
+        "works_in": [],
+        "values": [
+          0.8,
+          1.0,
+          1.2,
+          1.4,
+          1.6
+        ]
+      }
+    },
+    "Quasi": {
+      "bda": {
+        "effect": "apex_shred",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.25,
+          0.3,
+          0.4,
+          0.55,
+          0.75
+        ]
+      },
+      "oa": {
+        "effect": "apex_shred",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "values": [
+          0.5,
+          0.6,
+          0.8,
+          1.1,
+          1.5
+        ]
+      }
+    },
+    "Rachel Garrett": {
+      "bda": {
+        "effect": "apex_barrier",
+        "role": "def",
+        "scope": "pve",
+        "targets": [
+          "battleship"
+        ],
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          1000.0,
+          1200.0,
+          1500.0,
+          2000.0,
+          3000.0
+        ]
+      },
+      "oa": {
+        "effect": "loot",
+        "role": "util",
+        "scope": "pve",
+        "works_in": [
+          "pve"
+        ],
+        "values": [
+          0.3,
+          0.5,
+          0.8,
+          1.2,
+          2.0
+        ]
+      }
+    },
+    "Reginald Barclay": {
+      "bda": {
+        "effect": "protected_cargo",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.3,
+          0.45,
+          0.6,
+          0.8,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "officer_defense",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.05,
+          0.1,
+          0.15,
+          0.25,
+          0.3
+        ]
+      }
+    },
+    "Rima": {
+      "cm": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.4,
+          0.1,
+          0.2
+        ]
+      },
+      "oa": {
+        "effect": "crit_chance",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.05,
+          0.08,
+          0.1,
+          0.15,
+          0.2
+        ]
+      }
+    },
+    "Ro Mudd": {
+      "cm": {
+        "effect": "captain_stats",
+        "role": "amp",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.5,
+          0.25,
+          0.5
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          3.0,
+          3.0,
+          3.0,
+          3.0,
+          3.0
+        ]
+      }
+    },
+    "Rom": {
+      "cm": {
+        "effect": "delay",
+        "role": "off",
+        "scope": "station",
+        "works_in": [
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      "oa": {
+        "effect": "shots",
+        "role": "off",
+        "scope": "station",
+        "works_in": [
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.5,
+          0.7,
+          0.9,
+          1.2,
+          1.5
+        ]
+      }
+    },
+    "Romi": {
+      "bda": {
+        "effect": "apex_barrier",
+        "role": "def",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          7000.0,
+          8000.0,
+          10000.0,
+          12000.0,
+          15000.0
+        ]
+      },
+      "oa": {
+        "effect": "isolytic_defense",
+        "role": "def",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          1.0,
+          1.2,
+          1.4,
+          1.7,
+          2.0
+        ]
+      }
+    },
+    "Rukor": {
+      "cm": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.2,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.05,
+          0.07,
+          0.1,
+          0.15,
+          0.2
+        ]
+      }
+    },
+    "S31 Georgiou": {
+      "bda": {
+        "effect": "apex_shred",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "values": [
+          0.25,
+          0.35,
+          0.5,
+          0.7,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "apex_shred",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.5,
+          0.55,
+          0.7,
+          1.0,
+          1.5
+        ]
+      }
+    },
+    "Sam Rutherford": {
+      "bda": {
+        "effect": "hull_health",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.5,
+          0.7,
+          0.9,
+          1.1,
+          1.35
+        ]
+      },
+      "oa": {
+        "effect": "stats_triple",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.3,
+          0.35,
+          0.4,
+          0.45,
+          0.5
+        ]
+      }
+    },
+    "Saru": {
+      "cm": {
+        "effect": "enemy_crit_down",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "values": [
+          0.1,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "enemy_damage_down",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "values": [
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7
+        ]
+      }
+    },
+    "Scotty": {
+      "cm": {
+        "effect": "repair",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.1,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "hull_health",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.1,
+          0.12,
+          0.14,
+          0.16,
+          0.2
+        ]
+      }
+    },
+    "Sela": {
+      "cm": {
+        "effect": "crit_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.5,
+          0.1,
+          0.15
+        ]
+      },
+      "oa": {
+        "effect": "enemy_crit_down",
+        "role": "def",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "values": [
+          0.02,
+          0.03,
+          0.04,
+          0.05,
+          0.06
+        ]
+      }
+    },
+    "Sesha": {
+      "cm": {
+        "effect": "enemy_crit_down",
+        "role": "def",
+        "scope": "pve",
+        "targets": [
+          "eclipse"
+        ],
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.15,
+          0.0,
+          0.0
+        ]
+      },
+      "oa": {
+        "effect": "crit_damage",
+        "role": "off",
+        "scope": "pve",
+        "targets": [
+          "eclipse"
+        ],
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.2,
+          0.3,
+          0.5,
+          0.7,
+          0.9
+        ]
+      }
+    },
+    "Seska": {
+      "bda": {
+        "effect": "crit_damage",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.12,
+          0.16,
+          0.22,
+          0.3,
+          0.4
+        ]
+      },
+      "oa": {
+        "effect": "shield_repair",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.12,
+          0.16,
+          0.2,
+          0.25,
+          0.3
+        ]
+      }
+    },
+    "Seven Of Eleven": {
+      "cm": {
+        "effect": "shots",
+        "role": "off",
+        "scope": "pve",
+        "targets": [
+          "borg"
+        ],
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          2.0,
+          0.0,
+          0.0
+        ]
+      },
+      "oa": {
+        "effect": "officer_health",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.6,
+          0.7,
+          0.8,
+          0.9,
+          1.0
+        ]
+      }
+    },
+    "Seven Of Nine": {
+      "bda": {
+        "effect": "isolytic_damage",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "values": [
+          0.12,
+          0.18,
+          0.26,
+          0.36,
+          0.5
+        ]
+      },
+      "oa": {
+        "effect": "crit_damage",
+        "role": "off",
+        "scope": "armada",
+        "works_in": [
+          "armada"
+        ],
+        "values": [
+          0.8,
+          1.0,
+          1.3,
+          1.6,
+          2.0
+        ]
+      }
+    },
+    "Severus": {
+      "cm": {
+        "effect": "enemy_hull_down",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.1,
+          0.02,
+          0.05
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6
+        ]
+      }
+    },
+    "Shaxs": {
+      "bda": {
+        "effect": "isolytic_defense",
+        "role": "def",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.4,
+          0.5,
+          0.65,
+          0.85,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "isolytic_damage",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.6,
+          0.75,
+          0.9,
+          1.1,
+          1.3
+        ]
+      }
+    },
+    "Shev": {
+      "cm": {
+        "effect": "loot",
+        "role": "util",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.25,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.05,
+          0.07,
+          0.1,
+          0.15,
+          0.2
+        ]
+      }
+    },
+    "Shran": {
+      "bda": {
+        "effect": "mining_speed",
+        "role": "util",
+        "scope": "mining",
+        "works_in": [],
+        "values": [
+          0.5,
+          1.0,
+          2.0,
+          3.0,
+          5.0
+        ]
+      },
+      "oa": {
+        "effect": "warp",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.6,
+          0.9,
+          1.2,
+          1.6,
+          2.0
+        ]
+      }
+    },
+    "Six Of Eleven": {
+      "cm": {
+        "effect": "enemy_shield_down",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.2,
+          0.1,
+          0.4
+        ]
+      },
+      "oa": {
+        "effect": "piercing",
+        "role": "off",
+        "scope": "armada",
+        "works_in": [
+          "armada"
+        ],
+        "values": [
+          0.05,
+          0.1,
+          0.2,
+          0.3,
+          0.4
+        ]
+      }
+    },
+    "SNW Black Ops M'Benga": {
+      "bda": {
+        "effect": "shield_repair",
+        "role": "def",
+        "scope": "pve"
+      },
+      "oa": {
+        "effect": "isolytic_defense",
+        "role": "def",
+        "scope": "pve",
+        "targets": [
+          "suliban"
+        ]
+      }
+    },
+    "SNW Black Ops Nurse Chapel": {
+      "bda": {
+        "effect": "hull_health",
+        "role": "def",
+        "scope": "any"
+      },
+      "oa": {
+        "effect": "reputation",
+        "role": "util",
+        "scope": "pve"
+      }
+    },
+    "SNW D'Chok": {
+      "bda": {
+        "effect": "officer_health",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          7.0,
+          10.0,
+          15.0,
+          21.0,
+          30.0
+        ]
+      },
+      "oa": {
+        "effect": "mining_speed",
+        "role": "util",
+        "scope": "mining",
+        "works_in": [],
+        "values": [
+          10.0,
+          20.0,
+          35.0,
+          50.0,
+          75.0
+        ]
+      }
+    },
+    "SNW Hemmer": {
+      "bda": {
+        "effect": "officer_health",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.7,
+          0.8,
+          1.0,
+          1.2,
+          1.5
+        ]
+      },
+      "oa": {
+        "effect": "stats_triple",
+        "role": "def",
+        "scope": "any",
+        "targets": [
+          "survey"
+        ],
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          8.0,
+          10.0,
+          14.0,
+          19.0,
+          25.0
+        ]
+      }
+    },
+    "SNW James Kirk": {
+      "cm": {
+        "effect": "enemy_mitigation_down",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.4,
+          0.15,
+          0.3
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          2.0,
+          6.0,
+          12.0,
+          20.0,
+          35.0
+        ]
+      }
+    },
+    "SNW La'an": {
+      "bda": {
+        "effect": "cargo",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.25,
+          0.3,
+          0.35,
+          0.4,
+          0.5
+        ]
+      },
+      "oa": {
+        "effect": "warp",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.5,
+          0.7,
+          0.95,
+          1.25,
+          1.5
+        ]
+      }
+    },
+    "SNW M'Benga": {
+      "cm": {
+        "effect": "mitigation",
+        "role": "def",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          15.0,
+          15.0,
+          25.0
+        ]
+      },
+      "oa": {
+        "effect": "shield_repair",
+        "role": "def",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.02,
+          0.04,
+          0.06,
+          0.08,
+          0.15
+        ]
+      }
+    },
+    "SNW Nurse Chapel": {
+      "bda": {
+        "effect": "isolytic_damage",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.05,
+          0.1,
+          0.15,
+          0.25,
+          0.4
+        ]
+      },
+      "oa": {
+        "effect": "loot",
+        "role": "util",
+        "scope": "pve",
+        "targets": [
+          "gorn"
+        ],
+        "works_in": [
+          "pve"
+        ],
+        "conditional": true,
+        "values": [
+          0.25,
+          0.5,
+          0.9,
+          1.4,
+          2.0
+        ]
+      }
+    },
+    "SNW Ortegas": {
+      "cm": {
+        "effect": "crit_chance",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.15,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "stats_triple",
+        "role": "def",
+        "scope": "pve",
+        "targets": [
+          "explorer"
+        ],
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          5.0,
+          8.0,
+          11.0,
+          14.0,
+          18.0
+        ]
+      }
+    },
+    "SNW Pelia": {
+      "bda": {
+        "effect": "isolytic_defense",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.1,
+          0.25,
+          0.45,
+          0.7,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "isolytic_defense",
+        "role": "def",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.02,
+          0.05,
+          0.1,
+          0.15,
+          0.2
+        ]
+      }
+    },
+    "SNW Pike": {
+      "cm": {
+        "effect": "mitigation",
+        "role": "def",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.04,
+          0.02,
+          0.05
+        ]
+      },
+      "oa": {
+        "effect": "enemy_mitigation_down",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.1,
+          0.15,
+          0.2,
+          0.25,
+          0.35
+        ]
+      }
+    },
+    "SNW Sam Kirk": {
+      "cm": {
+        "effect": "enemy_shield_down",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.1,
+          0.05,
+          0.08
+        ]
+      },
+      "oa": {
+        "effect": "crit_damage",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.4,
+          0.9,
+          1.5,
+          2.3,
+          3.5
+        ]
+      }
+    },
+    "SNW Scotty": {
+      "bda": {
+        "effect": "shield_health",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          1.0,
+          2.0,
+          3.5,
+          5.0,
+          7.0
+        ]
+      },
+      "oa": {
+        "effect": "isolytic_damage",
+        "role": "off",
+        "scope": "pve",
+        "targets": [
+          "suliban"
+        ],
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.4,
+          0.55,
+          0.8,
+          1.1,
+          1.5
+        ]
+      }
+    },
+    "SNW Spock": {
+      "cm": {
+        "effect": "enemy_crit_down",
+        "role": "def",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.15,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "stats_triple",
+        "role": "def",
+        "scope": "pve",
+        "targets": [
+          "interceptor"
+        ],
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          5.0,
+          8.0,
+          11.0,
+          14.0,
+          18.0
+        ]
+      }
+    },
+    "SNW T'Pring": {
+      "bda": {
+        "effect": "mining_speed",
+        "role": "util",
+        "scope": "mining",
+        "works_in": [],
+        "values": [
+          0.05,
+          0.1,
+          0.15,
+          0.2,
+          0.3
+        ]
+      },
+      "oa": {
+        "effect": "stats_triple",
+        "role": "def",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          12.0,
+          15.0,
+          18.0,
+          21.0,
+          25.0
+        ]
+      }
+    },
+    "SNW Uhura": {
+      "cm": {
+        "effect": "crit_damage",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.15,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "stats_triple",
+        "role": "def",
+        "scope": "pve",
+        "targets": [
+          "battleship"
+        ],
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          5.0,
+          8.0,
+          11.0,
+          14.0,
+          18.0
+        ]
+      }
+    },
+    "SNW Una": {
+      "cm": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          1.0,
+          0.75,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "impulse",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          15.0,
+          20.0,
+          30.0,
+          40.0,
+          50.0
+        ]
+      }
+    },
+    "Soran": {
+      "cm": {
+        "effect": "burning",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "apex_barrier",
+        "role": "def",
+        "scope": "pvp",
+        "targets": [
+          "explorer"
+        ],
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          10000.0,
+          12000.0,
+          14000.0,
+          15000.0,
+          16000.0
+        ]
+      }
+    },
+    "Specialist Seven": {
+      "cm": {
+        "effect": "shots",
+        "role": "off",
+        "scope": "pvp",
+        "targets": [
+          "battleship"
+        ],
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.6,
+          0.1,
+          0.3
+        ]
+      },
+      "oa": {
+        "effect": "hull_breach",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "Spock": {
+      "cm": {
+        "effect": "accuracy",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.15,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "shield_repair",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.25,
+          0.5,
+          1.0,
+          4.0,
+          7.5
+        ]
+      }
+    },
+    "Starfleet Q": {
+      "cm": {
+        "effect": "morale",
+        "role": "amp",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "apex_barrier",
+        "role": "def",
+        "scope": "pvp",
+        "targets": [
+          "interceptor"
+        ],
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          10000.0,
+          12000.0,
+          14000.0,
+          15000.0,
+          16000.0
+        ]
+      }
+    },
+    "Stonn": {
+      "cm": {
+        "effect": "mining_speed",
+        "role": "util",
+        "scope": "mining",
+        "works_in": [],
+        "values": [
+          0.4,
+          0.2,
+          0.3
+        ]
+      },
+      "oa": {
+        "effect": "cargo",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.2,
+          0.25,
+          0.3,
+          0.35,
+          0.4
+        ]
+      }
+    },
+    "Strike Team La'an": {
+      "cm": {
+        "effect": "shots",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.1,
+          0.25,
+          0.65,
+          1.0,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "burning",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "Strike Team Ortegas": {
+      "cm": {
+        "effect": "burning",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "delay",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "Strike Team Una": {
+      "cm": {
+        "effect": "officer_stats",
+        "role": "amp",
+        "scope": "pvp",
+        "targets": [
+          "explorer"
+        ],
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          1.3,
+          0.05,
+          0.1,
+          1.0,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "enemy_mitigation_down",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.25,
+          0.27,
+          0.3,
+          0.34,
+          0.4
+        ]
+      }
+    },
+    "Suder": {
+      "bda": {
+        "effect": "crit_damage",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.3,
+          0.45,
+          0.65,
+          0.9,
+          1.2
+        ]
+      },
+      "oa": {
+        "effect": "hull_repair",
+        "role": "def",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.12,
+          0.15,
+          0.18,
+          0.21,
+          0.24
+        ]
+      }
+    },
+    "Sulu": {
+      "cm": {
+        "effect": "morale",
+        "role": "amp",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.15,
+          0.2,
+          0.25,
+          0.3,
+          0.4
+        ]
+      }
+    },
+    "T'Laan": {
+      "cm": {
+        "effect": "xp",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.15,
+          0.03,
+          0.05
+        ]
+      },
+      "oa": {
+        "effect": "enemy_damage_down",
+        "role": "def",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.05,
+          0.07,
+          0.1,
+          0.15,
+          0.2
+        ]
+      }
+    },
+    "T'Pol": {
+      "bda": {
+        "effect": "mining_speed",
+        "role": "util",
+        "scope": "mining",
+        "works_in": [],
+        "values": [
+          0.5,
+          1.0,
+          2.0,
+          3.0,
+          5.0
+        ]
+      },
+      "oa": {
+        "effect": "protected_cargo",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.7,
+          1.3,
+          2.0,
+          2.5,
+          3.5
+        ]
+      }
+    },
+    "T'Pring": {
+      "cm": {
+        "effect": "mining_speed",
+        "role": "util",
+        "scope": "mining",
+        "works_in": [],
+        "values": [
+          0.4,
+          0.2,
+          0.3
+        ]
+      },
+      "oa": {
+        "effect": "protected_cargo",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.5,
+          1.0,
+          1.5,
+          2.0,
+          3.0
+        ]
+      }
+    },
+    "Tal": {
+      "cm": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "targets": [
+          "battleship"
+        ],
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.2,
+          0.1,
+          0.2
+        ]
+      },
+      "oa": {
+        "effect": "enemy_hull_down",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.05,
+          0.06,
+          0.07,
+          0.08,
+          0.1
+        ]
+      }
+    },
+    "Tasha Yar": {
+      "cm": {
+        "effect": "enemy_crit_down",
+        "role": "def",
+        "scope": "pve",
+        "works_in": [],
+        "values": [
+          0.1,
+          0.02,
+          0.05
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5
+        ]
+      }
+    },
+    "Ten Of Eleven": {
+      "cm": {
+        "effect": "mining_speed",
+        "role": "util",
+        "scope": "mining",
+        "works_in": [],
+        "values": [
+          0.5,
+          0.25,
+          0.75
+        ]
+      },
+      "oa": {
+        "effect": "mining_speed",
+        "role": "util",
+        "scope": "mining",
+        "works_in": [],
+        "values": [
+          0.8,
+          1.0,
+          1.2,
+          1.4,
+          1.6
+        ]
+      }
+    },
+    "The Doctor": {
+      "bda": {
+        "effect": "loot",
+        "role": "util",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve"
+        ],
+        "values": [
+          0.15,
+          0.2,
+          0.3,
+          0.35,
+          0.5
+        ]
+      },
+      "oa": {
+        "effect": "stats_triple",
+        "role": "def",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          3.0,
+          5.0,
+          7.5,
+          12.5,
+          20.0
+        ]
+      }
+    },
+    "The Hierarch": {
+      "cm": {
+        "effect": "shots",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "values": [
+          1.2,
+          0.4,
+          0.4
+        ]
+      },
+      "oa": {
+        "effect": "state_apply",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "Three Of Eleven": {
+      "cm": {
+        "effect": "mining_speed",
+        "role": "util",
+        "scope": "mining",
+        "works_in": [],
+        "values": [
+          0.6,
+          0.3,
+          0.45
+        ]
+      },
+      "oa": {
+        "effect": "protected_cargo",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          3.0,
+          3.5,
+          4.0,
+          4.5,
+          5.0
+        ]
+      }
+    },
+    "Tilly": {
+      "cm": {
+        "effect": "enemy_shield_down",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.1,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "enemy_officer_down",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15
+        ]
+      }
+    },
+    "Tiza": {
+      "cm": {
+        "effect": "enemy_mitigation_down",
+        "role": "off",
+        "scope": "pve",
+        "targets": [
+          "eclipse"
+        ],
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.04,
+          0.01,
+          0.02
+        ]
+      },
+      "oa": {
+        "effect": "mitigation",
+        "role": "def",
+        "scope": "pve",
+        "targets": [
+          "eclipse"
+        ],
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "TMP Hikaru Sulu": {
+      "cm": {
+        "effect": "apex_barrier",
+        "role": "def",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          2000.0,
+          3000.0,
+          3000.0
+        ]
+      },
+      "oa": {
+        "effect": "crit_chance",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.02,
+          0.04,
+          0.06,
+          0.08,
+          0.1
+        ]
+      }
+    },
+    "TMP Nyota Uhura": {
+      "bda": {
+        "effect": "isolytic_damage",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5
+        ]
+      },
+      "oa": {
+        "effect": "hull_breach",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "Toli": {
+      "bda": {
+        "effect": "warp",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          1.0,
+          3.0,
+          6.0,
+          10.0,
+          15.0
+        ]
+      },
+      "oa": {
+        "effect": "enemy_mitigation_down",
+        "role": "off",
+        "scope": "armada",
+        "works_in": [
+          "armada"
+        ],
+        "values": [
+          1.0,
+          2.0,
+          4.0,
+          7.0,
+          11.0
+        ]
+      }
+    },
+    "Tom Paris": {
+      "bda": {
+        "effect": "stats_triple",
+        "role": "def",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0
+        ]
+      },
+      "oa": {
+        "effect": "crit_damage",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.05,
+          0.07,
+          0.1,
+          0.15,
+          0.25
+        ]
+      }
+    },
+    "Tomalak": {
+      "cm": {
+        "effect": "piercing",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          1.0,
+          0.25,
+          0.5
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "targets": [
+          "klingon"
+        ],
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.25,
+          0.35,
+          0.75,
+          1.75,
+          5.0
+        ]
+      }
+    },
+    "TOS Chekov": {
+      "cm": {
+        "effect": "impulse",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          10.0,
+          5.0,
+          10.0
+        ]
+      },
+      "oa": {
+        "effect": "enemy_damage_down",
+        "role": "def",
+        "scope": "node",
+        "works_in": [
+          "pvp"
+        ],
+        "conditional": true,
+        "values": [
+          0.3,
+          0.5,
+          0.75,
+          1.0,
+          1.5
+        ]
+      }
+    },
+    "TOS Kirk": {
+      "cm": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.5,
+          0.25,
+          0.5
+        ]
+      },
+      "oa": {
+        "effect": "morale",
+        "role": "amp",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.75,
+          0.8,
+          0.85,
+          0.9,
+          0.95
+        ]
+      }
+    },
+    "TOS McCoy": {
+      "cm": {
+        "effect": "mitigation",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          3.0,
+          0.5,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "officer_stats",
+        "role": "amp",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.2,
+          0.4,
+          0.6,
+          0.8,
+          1.0
+        ]
+      }
+    },
+    "TOS Scotty": {
+      "cm": {
+        "effect": "warp",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          4.0,
+          2.0,
+          3.0
+        ]
+      },
+      "oa": {
+        "effect": "repair",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5
+        ]
+      }
+    },
+    "TOS Spock": {
+      "cm": {
+        "effect": "shield_health",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          1.0,
+          0.5,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "crit_mitigation",
+        "role": "def",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.5,
+          0.75,
+          1.0,
+          1.25,
+          1.5
+        ]
+      }
+    },
+    "TOS Sulu": {
+      "cm": {
+        "effect": "morale",
+        "role": "amp",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "oa": {
+        "effect": "crit_chance",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.06,
+          0.08,
+          0.1,
+          0.12,
+          0.15
+        ]
+      }
+    },
+    "TOS Uhura": {
+      "cm": {
+        "effect": "enemy_crit_down",
+        "role": "def",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.1,
+          0.25,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "enemy_mitigation_down",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.08,
+          0.1,
+          0.12,
+          0.16,
+          0.2
+        ]
+      }
+    },
+    "Trip Tucker": {
+      "bda": {
+        "effect": "loot",
+        "role": "util",
+        "scope": "pve",
+        "targets": [
+          "species_8472",
+          "hirogen"
+        ],
+        "works_in": [
+          "pve"
+        ],
+        "conditional": true,
+        "values": [
+          0.3,
+          0.6,
+          0.8,
+          1.0,
+          1.5
+        ]
+      },
+      "oa": {
+        "effect": "crit_mitigation",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.5,
+          0.8,
+          1.2,
+          1.8,
+          2.5
+        ]
+      }
+    },
+    "Tuvok": {
+      "bda": {
+        "effect": "cargo",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          1.0,
+          1.5,
+          2.2,
+          3.0,
+          4.0
+        ]
+      },
+      "oa": {
+        "effect": "loot",
+        "role": "util",
+        "scope": "armada",
+        "works_in": [
+          "armada"
+        ],
+        "conditional": true,
+        "values": [
+          0.8,
+          1.0,
+          1.3,
+          1.6,
+          2.0
+        ]
+      }
+    },
+    "Two Of Eleven": {
+      "cm": {
+        "effect": "cargo",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.2,
+          0.05,
+          0.15
+        ]
+      },
+      "oa": {
+        "effect": "mining_speed",
+        "role": "util",
+        "scope": "mining",
+        "works_in": [],
+        "values": [
+          0.5,
+          0.55,
+          0.6,
+          0.65,
+          0.75
+        ]
+      }
+    },
+    "Tyler": {
+      "cm": {
+        "effect": "officer_attack",
+        "role": "off",
+        "scope": "node",
+        "works_in": [
+          "pvp"
+        ],
+        "conditional": true,
+        "values": [
+          0.6,
+          0.15,
+          0.3
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.5,
+          0.6,
+          0.7,
+          0.8,
+          1.0
+        ]
+      }
+    },
+    "Uhura": {
+      "cm": {
+        "effect": "delay",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      "oa": {
+        "effect": "accuracy",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8
+        ]
+      }
+    },
+    "V'ger Ilia": {
+      "bda": {
+        "effect": "crit_damage",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.4,
+          0.6,
+          0.8,
+          1.0,
+          1.2
+        ]
+      },
+      "oa": {
+        "effect": "isolytic_damage",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.03,
+          0.05,
+          0.07,
+          0.1,
+          0.15
+        ]
+      }
+    },
+    "Vartoq": {
+      "cm": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.2,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.05,
+          0.07,
+          0.1,
+          0.15,
+          0.2
+        ]
+      }
+    },
+    "Vel": {
+      "cm": {
+        "effect": "loot",
+        "role": "util",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.25,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.05,
+          0.07,
+          0.1,
+          0.15,
+          0.2
+        ]
+      }
+    },
+    "Vella": {
+      "cm": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "targets": [
+          "explorer"
+        ],
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.1,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "officer_health",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.05,
+          0.07,
+          0.09,
+          0.12,
+          0.15
+        ]
+      }
+    },
+    "Vemet": {
+      "cm": {
+        "effect": "resurrect",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.05,
+          0.02,
+          0.05
+        ]
+      },
+      "oa": {
+        "effect": "enemy_shield_down",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.25,
+          0.5,
+          1.0,
+          4.0,
+          7.5
+        ]
+      }
+    },
+    "VIL Gul Dukat": {
+      "bda": {
+        "effect": "enemy_crit_down",
+        "role": "def",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "values": [
+          0.1,
+          0.15,
+          0.2,
+          0.3,
+          0.5
+        ]
+      },
+      "oa": {
+        "effect": "shots",
+        "role": "off",
+        "scope": "station",
+        "works_in": [
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.6,
+          0.8,
+          1.2,
+          1.8,
+          3.0
+        ]
+      }
+    },
+    "VIL Winn Adami": {
+      "bda": {
+        "effect": "crit_mitigation",
+        "role": "def",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "values": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.5
+        ]
+      },
+      "oa": {
+        "effect": "enemy_shield_down",
+        "role": "off",
+        "scope": "station",
+        "works_in": [
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.6,
+          0.7,
+          0.8,
+          0.9,
+          1.0
+        ]
+      }
+    },
+    "Vixis": {
+      "cm": {
+        "effect": "delay",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      "oa": {
+        "effect": "enemy_damage_down",
+        "role": "def",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.1,
+          0.12,
+          0.15,
+          0.2,
+          0.3
+        ]
+      }
+    },
+    "Wesley Crusher": {
+      "cm": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          1.0,
+          0.25,
+          0.5
+        ]
+      },
+      "oa": {
+        "effect": "officer_stats",
+        "role": "amp",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.2,
+          0.4,
+          0.7,
+          1.0,
+          2.0
+        ]
+      }
+    },
+    "Weyoun": {
+      "cm": {
+        "effect": "morale",
+        "role": "amp",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "oa": {
+        "effect": "shots",
+        "role": "off",
+        "scope": "pvp",
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.76,
+          0.8,
+          0.88,
+          1.0,
+          1.2
+        ]
+      }
+    },
+    "William T. Riker": {
+      "cm": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "armada",
+        "works_in": [
+          "armada"
+        ],
+        "values": [
+          1.0,
+          0.1,
+          0.2
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "pve",
+        "targets": [
+          "federation"
+        ],
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0
+        ]
+      }
+    },
+    "WOK Carol": {
+      "bda": {
+        "effect": "mitigation",
+        "role": "def",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.05,
+          0.07,
+          0.1,
+          0.15,
+          0.25
+        ]
+      },
+      "oa": {
+        "effect": "loot",
+        "role": "util",
+        "scope": "pve",
+        "targets": [
+          "augment"
+        ],
+        "works_in": [
+          "pve"
+        ],
+        "conditional": true,
+        "values": [
+          1.5,
+          2.0,
+          3.5,
+          5.0,
+          7.0
+        ]
+      }
+    },
+    "WOK Joachim": {
+      "bda": {
+        "effect": "isolytic_defense",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          1.0,
+          1.5,
+          2.0,
+          3.0,
+          5.0
+        ]
+      },
+      "oa": {
+        "effect": "apex_barrier",
+        "role": "def",
+        "scope": "pvp",
+        "targets": [
+          "survey"
+        ],
+        "works_in": [
+          "pvp",
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          10000.0,
+          20000.0,
+          35000.0,
+          50000.0,
+          75000.0
+        ]
+      }
+    },
+    "WOK McCoy": {
+      "bda": {
+        "effect": "stats_triple",
+        "role": "def",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          3.0,
+          3.75,
+          4.5,
+          6.0,
+          8.0
+        ]
+      },
+      "oa": {
+        "effect": "stats_triple",
+        "role": "def",
+        "scope": "wave_defense",
+        "works_in": [
+          "wave_defense"
+        ],
+        "values": [
+          5.0,
+          7.5,
+          15.0,
+          30.0,
+          50.0
+        ]
+      }
+    },
+    "WOK Saavik": {
+      "bda": {
+        "effect": "isolytic_damage",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.15,
+          0.2,
+          0.3,
+          0.5,
+          0.7
+        ]
+      },
+      "oa": {
+        "effect": "isolytic_damage",
+        "role": "off",
+        "scope": "wave_defense",
+        "works_in": [
+          "wave_defense"
+        ],
+        "values": [
+          0.7,
+          0.9,
+          1.1,
+          1.3,
+          1.5
+        ]
+      }
+    },
+    "WOK Scotty": {
+      "bda": {
+        "effect": "enemy_mitigation_down",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.1,
+          0.15,
+          0.2,
+          0.3,
+          0.4
+        ]
+      },
+      "oa": {
+        "effect": "loot",
+        "role": "util",
+        "scope": "armada",
+        "works_in": [
+          "armada"
+        ],
+        "values": [
+          0.2,
+          0.4,
+          0.65,
+          0.9,
+          1.25
+        ]
+      }
+    },
+    "Worf": {
+      "cm": {
+        "effect": "warp",
+        "role": "util",
+        "scope": "any",
+        "works_in": [],
+        "values": [
+          0.7,
+          0.1,
+          0.15
+        ]
+      },
+      "oa": {
+        "effect": "mitigation",
+        "role": "def",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          0.2,
+          0.4,
+          0.6,
+          0.8,
+          1.0
+        ]
+      }
+    },
+    "Woteln": {
+      "cm": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "targets": [
+          "battleship"
+        ],
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.1,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "dodge",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.15,
+          0.2,
+          0.25,
+          0.3,
+          0.4
+        ]
+      }
+    },
+    "Yan'Agh": {
+      "cm": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.1,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "targets": [
+          "romulan"
+        ],
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.25,
+          0.35,
+          0.75,
+          1.75,
+          5.0
+        ]
+      }
+    },
+    "Yuki": {
+      "cm": {
+        "effect": "enemy_shield_down",
+        "role": "off",
+        "scope": "any",
+        "works_in": [
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.1,
+          0.02,
+          0.05
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "any",
+        "targets": [
+          "romulan"
+        ],
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.25,
+          0.35,
+          0.75,
+          1.75,
+          5.0
+        ]
+      }
+    },
+    "Zahra": {
+      "cm": {
+        "effect": "hull_health",
+        "role": "def",
+        "scope": "station",
+        "works_in": [
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.1,
+          0.05,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "weapon_damage",
+        "role": "off",
+        "scope": "station",
+        "works_in": [
+          "station"
+        ],
+        "conditional": true,
+        "values": [
+          0.05,
+          0.08,
+          0.1,
+          0.15,
+          0.2
+        ]
+      }
+    },
+    "Zeph": {
+      "bda": {
+        "effect": "apex_barrier",
+        "role": "def",
+        "scope": "pve",
+        "targets": [
+          "interceptor"
+        ],
+        "works_in": [
+          "pve",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          1000.0,
+          1200.0,
+          1500.0,
+          2000.0,
+          3000.0
+        ]
+      },
+      "oa": {
+        "effect": "state_apply",
+        "role": "off",
+        "scope": "pve",
+        "works_in": [
+          "armada",
+          "pve",
+          "wave_defense"
+        ],
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "Zhou": {
+      "cm": {
+        "effect": "officer_defense",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "values": [
+          0.15,
+          0.06,
+          0.1
+        ]
+      },
+      "oa": {
+        "effect": "mitigation",
+        "role": "def",
+        "scope": "any",
+        "works_in": [
+          "armada",
+          "pve",
+          "pvp",
+          "station",
+          "wave_defense"
+        ],
+        "conditional": true,
+        "values": [
+          0.3,
+          0.4,
+          0.8,
+          1.6,
+          3.0
+        ]
+      }
+    }
+  }
+}

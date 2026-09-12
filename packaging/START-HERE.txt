@@ -1,0 +1,37 @@
+STFC ADVISOR - WINDOWS 11
+
+1. Extract the entire ZIP to a folder you will keep, such as Documents\STFC Advisor.
+2. Open the extracted STFC-Advisor folder and double-click STFC-Advisor.exe.
+3. Your default browser opens the app. No Python installation is needed.
+4. Optional: double-click Create-Desktop-Shortcut.vbs to add a desktop shortcut.
+
+The app stays running in the Windows notification area (near the clock; it may
+be inside the hidden-icons arrow). Right-click its gold/cyan icon for Open app,
+Open data and logs, or Quit. Closing the browser tab leaves syncing running.
+Double-clicking the EXE again opens the existing app.
+
+FIRST SETUP
+The package starts with a blank account. In Account & research, paste your shared
+STFC Officers Tool Google Sheet link and choose Enable auto-sync, or restore an
+account JSON you have intentionally exported. Add your owned ships in My fleet;
+the officer sheet does not contain a complete owned-ship inventory.
+
+SYNC
+Google Sheet syncing checks every five minutes while the app runs and your PC
+is awake and online. The connection is remembered across launches. Quit stops
+syncing. This app does not add itself to Windows startup.
+
+DATA AND UPDATES
+Your account, sync settings, backups and app.log are stored separately at:
+%LOCALAPPDATA%\STFC Advisor\profiles
+Use Open data and logs in the tray menu to find them.
+Before replacing the app folder with an updated version, choose Quit. Your
+saved account remains in the data folder. Recreate the shortcut if you move
+the app folder. Do not copy app.log or your account to a public issue report.
+
+IF IT DOES NOT OPEN
+Check the tray first. Read app.log in the data folder, or share the error text
+with the person who supplied the app. This first build is not code-signed;
+Windows may ask you to verify its publisher. Do not disable Windows security.
+
+This is an estimated tactical advisor, not a complete STFC combat simulator.

@@ -1,0 +1,1069 @@
+[
+  {
+    "name": "Gorn Hunter",
+    "type": "Gorn",
+    "ship_class": "Battleship",
+    "level_range": [
+      45,
+      71
+    ],
+    "recommended_ship_class": "Explorer",
+    "iso_defense": 0.45,
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": false,
+    "base_damage": 32000,
+    "hp": 2800000,
+    "crit_chance": 0.2,
+    "crit_multiplier": 1.5,
+    "armor_piercing": 48000,
+    "shield_piercing": 36000,
+    "accuracy": 28000,
+    "special_abilities": [
+      {
+        "name": "Apex Resistance",
+        "description": "Reduces effectiveness of standard mitigation by 30%",
+        "counter": "isolytic_damage"
+      },
+      {
+        "name": "Isolytic Vulnerability",
+        "description": "Takes increased isolytic damage",
+        "counter": "maximize_iso_output"
+      }
+    ],
+    "priority_stats": [
+      "isolytic_damage",
+      "apex_barrier"
+    ],
+    "notes": "Standard mitigation is partially bypassed. Isolytic + Apex is mandatory. Eviscerator strongly preferred."
+  },
+  {
+    "name": "Gorn Devourer",
+    "type": "Gorn",
+    "ship_class": "Explorer",
+    "level_range": [
+      50,
+      68
+    ],
+    "recommended_ship_class": "Interceptor",
+    "iso_defense": 0.4,
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": false,
+    "base_damage": 38000,
+    "hp": 3200000,
+    "crit_chance": 0.22,
+    "crit_multiplier": 1.5,
+    "armor_piercing": 42000,
+    "shield_piercing": 55000,
+    "accuracy": 32000,
+    "special_abilities": [
+      {
+        "name": "Isolytic Vulnerability",
+        "description": "Takes increased isolytic damage",
+        "counter": "maximize_iso_output"
+      }
+    ],
+    "priority_stats": [
+      "isolytic_damage",
+      "dodge"
+    ],
+    "notes": "Explorer-class Gorn. Use Interceptor to maximise dodge-based mitigation."
+  },
+  {
+    "name": "Gorn Raider",
+    "type": "Gorn",
+    "ship_class": "Interceptor",
+    "level_range": [
+      42,
+      58
+    ],
+    "recommended_ship_class": "Battleship",
+    "iso_defense": 0.38,
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": false,
+    "base_damage": 28000,
+    "hp": 2200000,
+    "crit_chance": 0.25,
+    "crit_multiplier": 1.5,
+    "armor_piercing": 35000,
+    "shield_piercing": 42000,
+    "accuracy": 52000,
+    "special_abilities": [
+      {
+        "name": "Isolytic Vulnerability",
+        "description": "Takes increased isolytic damage",
+        "counter": "maximize_iso_output"
+      }
+    ],
+    "priority_stats": [
+      "isolytic_damage",
+      "armor"
+    ],
+    "notes": "Interceptor-class Gorn. Battleship recommended for armor mitigation."
+  },
+  {
+    "name": "Gorn Apex",
+    "type": "Gorn",
+    "ship_class": "Battleship",
+    "level_range": [
+      60,
+      80
+    ],
+    "recommended_ship_class": "Explorer",
+    "iso_defense": 0.55,
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": false,
+    "base_damage": 65000,
+    "hp": 8500000,
+    "crit_chance": 0.25,
+    "crit_multiplier": 1.8,
+    "armor_piercing": 75000,
+    "shield_piercing": 62000,
+    "accuracy": 48000,
+    "special_abilities": [
+      {
+        "name": "Apex Resistance",
+        "description": "Reduces standard mitigation by 40%",
+        "counter": "isolytic_damage"
+      },
+      {
+        "name": "Isolytic Vulnerability",
+        "description": "Takes increased isolytic damage",
+        "counter": "maximize_iso_output"
+      },
+      {
+        "name": "High Crit Output",
+        "description": "Deals heavy critical hits — survivability is priority",
+        "counter": "apex_barrier"
+      }
+    ],
+    "priority_stats": [
+      "isolytic_damage",
+      "apex_barrier",
+      "effective_hp"
+    ],
+    "notes": "End-game Gorn content. Maximize isolytic output and Apex Barrier simultaneously."
+  },
+  {
+    "name": "Borg Probe",
+    "type": "Borg",
+    "ship_class": "Battleship",
+    "level_range": [
+      20,
+      50
+    ],
+    "recommended_ship_class": "Explorer",
+    "iso_defense": 0.1,
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": false,
+    "base_damage": 12000,
+    "hp": 800000,
+    "crit_chance": 0.15,
+    "crit_multiplier": 1.5,
+    "armor_piercing": 18000,
+    "shield_piercing": 14000,
+    "accuracy": 12000,
+    "special_abilities": [
+      {
+        "name": "Borg Adaptation",
+        "description": "Reduces damage from non-Borg officers over time",
+        "counter": "borg_crew_officers"
+      }
+    ],
+    "priority_stats": [
+      "borg_crew_bonus",
+      "critical_hit_chance"
+    ],
+    "notes": "Borg officers (Hugh, Seven of Nine, Ghalenar) receive large bonuses vs Borg targets."
+  },
+  {
+    "name": "Borg Scout",
+    "type": "Borg",
+    "ship_class": "Explorer",
+    "level_range": [
+      30,
+      60
+    ],
+    "recommended_ship_class": "Interceptor",
+    "iso_defense": 0.12,
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": false,
+    "base_damage": 18000,
+    "hp": 1200000,
+    "crit_chance": 0.18,
+    "crit_multiplier": 1.5,
+    "armor_piercing": 22000,
+    "shield_piercing": 28000,
+    "accuracy": 18000,
+    "special_abilities": [
+      {
+        "name": "Borg Adaptation",
+        "description": "Reduces damage from non-Borg officers over time",
+        "counter": "borg_crew_officers"
+      }
+    ],
+    "priority_stats": [
+      "borg_crew_bonus",
+      "dodge"
+    ],
+    "notes": "Explorer-class Borg. Use Interceptor for dodge advantage."
+  },
+  {
+    "name": "Borg Interceptor",
+    "type": "Borg",
+    "ship_class": "Interceptor",
+    "level_range": [
+      40,
+      70
+    ],
+    "recommended_ship_class": "Battleship",
+    "iso_defense": 0.15,
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": false,
+    "base_damage": 24000,
+    "hp": 1600000,
+    "crit_chance": 0.2,
+    "crit_multiplier": 1.5,
+    "armor_piercing": 28000,
+    "shield_piercing": 20000,
+    "accuracy": 35000,
+    "special_abilities": [
+      {
+        "name": "Borg Adaptation",
+        "description": "Reduces damage from non-Borg officers over time",
+        "counter": "borg_crew_officers"
+      }
+    ],
+    "priority_stats": [
+      "borg_crew_bonus",
+      "armor"
+    ],
+    "notes": "Interceptor-class Borg. Battleship recommended for armor mitigation."
+  },
+  {
+    "name": "Borg Sphere",
+    "type": "Borg",
+    "ship_class": "Battleship",
+    "level_range": [
+      50,
+      75
+    ],
+    "recommended_ship_class": "Explorer",
+    "iso_defense": 0.2,
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": false,
+    "base_damage": 42000,
+    "hp": 4500000,
+    "crit_chance": 0.2,
+    "crit_multiplier": 1.6,
+    "armor_piercing": 45000,
+    "shield_piercing": 38000,
+    "accuracy": 28000,
+    "special_abilities": [
+      {
+        "name": "Borg Adaptation",
+        "description": "Reduces damage from non-Borg officers over time",
+        "counter": "borg_crew_officers"
+      },
+      {
+        "name": "Hull Damage Focus",
+        "description": "Prioritises hull damage over shield damage",
+        "counter": "apex_barrier"
+      }
+    ],
+    "priority_stats": [
+      "borg_crew_bonus",
+      "apex_barrier",
+      "effective_hp"
+    ],
+    "notes": "High-HP target. Borg crew mandatory. Apex Barrier extends survivability significantly."
+  },
+  {
+    "name": "Borg Tactical Cube",
+    "type": "Borg",
+    "ship_class": "Battleship",
+    "level_range": [
+      70,
+      90
+    ],
+    "recommended_ship_class": "Explorer",
+    "iso_defense": 0.25,
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": false,
+    "base_damage": 110000,
+    "hp": 25000000,
+    "crit_chance": 0.25,
+    "crit_multiplier": 2.0,
+    "armor_piercing": 95000,
+    "shield_piercing": 80000,
+    "accuracy": 65000,
+    "special_abilities": [
+      {
+        "name": "Borg Adaptation",
+        "description": "Reduces damage from non-Borg officers significantly",
+        "counter": "borg_crew_officers"
+      },
+      {
+        "name": "Cutting Beam",
+        "description": "Deals massive hull damage every 5 rounds",
+        "counter": "apex_barrier"
+      }
+    ],
+    "priority_stats": [
+      "borg_crew_bonus",
+      "apex_barrier",
+      "effective_hp",
+      "critical_hit_chance"
+    ],
+    "notes": "Endgame Borg content. Full Unimatrix crew and maximum Apex Barrier are mandatory."
+  },
+  {
+    "name": "Swarm Ship",
+    "type": "Swarm",
+    "ship_class": "Interceptor",
+    "level_range": [
+      20,
+      50
+    ],
+    "recommended_ship_class": "Battleship",
+    "iso_defense": 0.05,
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": true,
+    "base_damage": 9000,
+    "hp": 400000,
+    "crit_chance": 0.15,
+    "crit_multiplier": 1.4,
+    "armor_piercing": 12000,
+    "shield_piercing": 10000,
+    "accuracy": 20000,
+    "special_abilities": [
+      {
+        "name": "Hyperthermic Decay",
+        "description": "HP decays over time — kill quickly to maximise loot",
+        "counter": "fast_kill_crew"
+      }
+    ],
+    "priority_stats": [
+      "weapon_damage",
+      "critical_hit_chance"
+    ],
+    "notes": "Must kill before Hyperthermic Decay triggers. Maximise first-round damage output."
+  },
+  {
+    "name": "Swarm Harvester",
+    "type": "Swarm",
+    "ship_class": "Battleship",
+    "level_range": [
+      30,
+      55
+    ],
+    "recommended_ship_class": "Explorer",
+    "iso_defense": 0.05,
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": true,
+    "base_damage": 14000,
+    "hp": 700000,
+    "crit_chance": 0.18,
+    "crit_multiplier": 1.4,
+    "armor_piercing": 18000,
+    "shield_piercing": 16000,
+    "accuracy": 14000,
+    "special_abilities": [
+      {
+        "name": "Hyperthermic Decay",
+        "description": "HP decays over time — kill quickly to maximise loot",
+        "counter": "fast_kill_crew"
+      }
+    ],
+    "priority_stats": [
+      "weapon_damage",
+      "critical_hit_chance"
+    ],
+    "notes": "Higher-value Swarm target. Same fast-kill priority as standard Swarm Ship."
+  },
+  {
+    "name": "Xindi Aquatic",
+    "type": "Xindi",
+    "ship_class": "Explorer",
+    "level_range": [
+      48,
+      65
+    ],
+    "recommended_ship_class": "Interceptor",
+    "iso_defense": 0.2,
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": false,
+    "base_damage": 28000,
+    "hp": 2000000,
+    "crit_chance": 0.2,
+    "crit_multiplier": 1.5,
+    "armor_piercing": 32000,
+    "shield_piercing": 46000,
+    "accuracy": 25000,
+    "special_abilities": [
+      {
+        "name": "Xindi Council Bonus",
+        "description": "Xindi officers receive bonuses vs Xindi hostiles",
+        "counter": "xindi_crew_officers"
+      }
+    ],
+    "priority_stats": [
+      "weapon_damage",
+      "dodge"
+    ],
+    "notes": "Explorer-class. Interceptor recommended. Xindi-specific crew officers provide bonuses."
+  },
+  {
+    "name": "Xindi Insectoid",
+    "type": "Xindi",
+    "ship_class": "Interceptor",
+    "level_range": [
+      45,
+      62
+    ],
+    "recommended_ship_class": "Battleship",
+    "iso_defense": 0.18,
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": false,
+    "base_damage": 25000,
+    "hp": 1800000,
+    "crit_chance": 0.22,
+    "crit_multiplier": 1.5,
+    "armor_piercing": 28000,
+    "shield_piercing": 22000,
+    "accuracy": 40000,
+    "special_abilities": [
+      {
+        "name": "Xindi Council Bonus",
+        "description": "Xindi officers receive bonuses vs Xindi hostiles",
+        "counter": "xindi_crew_officers"
+      }
+    ],
+    "priority_stats": [
+      "weapon_damage",
+      "armor"
+    ],
+    "notes": "Interceptor-class. Battleship recommended for armor mitigation."
+  },
+  {
+    "name": "Xindi Reptilian",
+    "type": "Xindi",
+    "ship_class": "Battleship",
+    "level_range": [
+      50,
+      68
+    ],
+    "recommended_ship_class": "Explorer",
+    "iso_defense": 0.22,
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": false,
+    "base_damage": 32000,
+    "hp": 2400000,
+    "crit_chance": 0.2,
+    "crit_multiplier": 1.6,
+    "armor_piercing": 40000,
+    "shield_piercing": 32000,
+    "accuracy": 28000,
+    "special_abilities": [
+      {
+        "name": "Xindi Council Bonus",
+        "description": "Xindi officers receive bonuses vs Xindi hostiles",
+        "counter": "xindi_crew_officers"
+      }
+    ],
+    "priority_stats": [
+      "weapon_damage",
+      "shield_deflection"
+    ],
+    "notes": "Battleship-class Xindi. Explorer recommended."
+  },
+  {
+    "name": "Species 8472",
+    "type": "Species 8472",
+    "ship_class": "Battleship",
+    "level_range": [
+      55,
+      75
+    ],
+    "recommended_ship_class": "Explorer",
+    "iso_defense": 0.3,
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": false,
+    "base_damage": 48000,
+    "hp": 5000000,
+    "crit_chance": 0.22,
+    "crit_multiplier": 1.7,
+    "armor_piercing": 55000,
+    "shield_piercing": 48000,
+    "accuracy": 38000,
+    "special_abilities": [
+      {
+        "name": "Bio-Ship Hull",
+        "description": "Organic hull resists standard energy weapons",
+        "counter": "kinetic_damage"
+      },
+      {
+        "name": "Fluidic Space Origin",
+        "description": "Voyager crew officers receive bonuses vs Species 8472",
+        "counter": "voyager_crew_officers"
+      }
+    ],
+    "priority_stats": [
+      "weapon_damage",
+      "apex_barrier",
+      "effective_hp"
+    ],
+    "notes": "Voyager crew provides significant bonuses. High HP pool — Apex Barrier helps survivability."
+  },
+  {
+    "name": "Academy Training Drone",
+    "type": "Academy Drone",
+    "ship_class": "Battleship",
+    "level_range": [
+      35,
+      80
+    ],
+    "recommended_ship_class": "Explorer",
+    "iso_defense": 0.15,
+    "requires_crit_mitigation": true,
+    "hyperthermic_decay": false,
+    "base_damage": 22000,
+    "hp": 1500000,
+    "crit_chance": 0.35,
+    "crit_multiplier": 2.0,
+    "armor_piercing": 28000,
+    "shield_piercing": 24000,
+    "accuracy": 20000,
+    "special_abilities": [
+      {
+        "name": "High Crit Rate",
+        "description": "Deals frequent critical hits — crit mitigation mandatory",
+        "counter": "critical_mitigation"
+      }
+    ],
+    "priority_stats": [
+      "critical_mitigation",
+      "effective_hp"
+    ],
+    "notes": "CRITICAL: Requires Critical Mitigation (Remote Campus research). Without it, incoming crit damage is unmanageable."
+  },
+  {
+    "name": "Solo Wave Defense",
+    "type": "Wave Defense",
+    "ship_class": "Battleship",
+    "level_range": [
+      1,
+      100
+    ],
+    "recommended_ship_class": "Explorer",
+    "iso_defense": 0.2,
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": false,
+    "base_damage": 35000,
+    "hp": 3000000,
+    "crit_chance": 0.2,
+    "crit_multiplier": 1.5,
+    "armor_piercing": 40000,
+    "shield_piercing": 35000,
+    "accuracy": 28000,
+    "special_abilities": [
+      {
+        "name": "Wave Scaling",
+        "description": "Enemy stats scale with wave number",
+        "counter": "survivability_crew"
+      }
+    ],
+    "priority_stats": [
+      "effective_hp",
+      "apex_barrier",
+      "weapon_damage"
+    ],
+    "notes": "Balanced survivability and DPS build. Apex Barrier is highly effective here."
+  },
+  {
+    "name": "Duo Wave Defense",
+    "type": "Wave Defense",
+    "ship_class": "Battleship",
+    "level_range": [
+      1,
+      100
+    ],
+    "recommended_ship_class": "Explorer",
+    "iso_defense": 0.2,
+    "requires_crit_mitigation": true,
+    "hyperthermic_decay": false,
+    "base_damage": 55000,
+    "hp": 5000000,
+    "crit_chance": 0.4,
+    "crit_multiplier": 2.2,
+    "armor_piercing": 60000,
+    "shield_piercing": 52000,
+    "accuracy": 40000,
+    "special_abilities": [
+      {
+        "name": "High Crit Rate",
+        "description": "Extremely frequent critical hits — crit mitigation is MANDATORY",
+        "counter": "critical_mitigation"
+      },
+      {
+        "name": "Wave Scaling",
+        "description": "Enemy stats scale with wave number",
+        "counter": "survivability_crew"
+      }
+    ],
+    "priority_stats": [
+      "critical_mitigation",
+      "apex_barrier",
+      "effective_hp"
+    ],
+    "notes": "CRITICAL WARNING: Duo Wave Defense requires Critical Mitigation. Remote Campus research is MANDATORY. Without it, crit damage is fatal from wave 5+."
+  },
+  {
+    "name": "Galactic Anomaly Target",
+    "type": "Galactic Anomaly",
+    "ship_class": "Battleship",
+    "level_range": [
+      50,
+      80
+    ],
+    "recommended_ship_class": "Explorer",
+    "iso_defense": 0.25,
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": false,
+    "base_damage": 45000,
+    "hp": 6000000,
+    "crit_chance": 0.2,
+    "crit_multiplier": 1.6,
+    "armor_piercing": 52000,
+    "shield_piercing": 44000,
+    "accuracy": 35000,
+    "special_abilities": [
+      {
+        "name": "Anomaly Scaling",
+        "description": "Damage increases each round — fast kills are rewarded",
+        "counter": "fast_kill_crew"
+      }
+    ],
+    "priority_stats": [
+      "weapon_damage",
+      "critical_hit_chance",
+      "apex_barrier"
+    ],
+    "notes": "Prioritise burst DPS. Rounds spent in combat = more damage taken due to scaling."
+  },
+  {
+    "name": "G5 Dreadnought",
+    "type": "Dreadnought",
+    "ship_class": "Battleship",
+    "level_range": [
+      50,
+      60
+    ],
+    "recommended_ship_class": "Explorer",
+    "iso_defense": 0.35,
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": false,
+    "base_damage": 75000,
+    "hp": 15000000,
+    "crit_chance": 0.2,
+    "crit_multiplier": 1.8,
+    "armor_piercing": 70000,
+    "shield_piercing": 58000,
+    "accuracy": 48000,
+    "special_abilities": [
+      {
+        "name": "Dreadnought Armour",
+        "description": "Extremely high mitigation — penetration stats critical",
+        "counter": "armor_piercing"
+      }
+    ],
+    "priority_stats": [
+      "armor_piercing",
+      "shield_piercing",
+      "apex_barrier"
+    ],
+    "notes": "G5 Dreadnought. High HP and armour — penetration-focused crew essential."
+  },
+  {
+    "name": "G6 Dreadnought",
+    "type": "Dreadnought",
+    "ship_class": "Battleship",
+    "level_range": [
+      60,
+      70
+    ],
+    "recommended_ship_class": "Explorer",
+    "iso_defense": 0.4,
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": false,
+    "base_damage": 120000,
+    "hp": 35000000,
+    "crit_chance": 0.22,
+    "crit_multiplier": 1.9,
+    "armor_piercing": 100000,
+    "shield_piercing": 85000,
+    "accuracy": 70000,
+    "special_abilities": [
+      {
+        "name": "Dreadnought Armour",
+        "description": "Extremely high mitigation — penetration stats critical",
+        "counter": "armor_piercing"
+      },
+      {
+        "name": "Sustained Fire",
+        "description": "Increasing damage output over 10+ rounds",
+        "counter": "fast_kill_crew"
+      }
+    ],
+    "priority_stats": [
+      "armor_piercing",
+      "shield_piercing",
+      "isolytic_damage",
+      "apex_barrier"
+    ],
+    "notes": "G6 Dreadnought. Isolytic damage becomes relevant at this tier due to high armour values."
+  },
+  {
+    "name": "G7 Dreadnought",
+    "type": "Dreadnought",
+    "ship_class": "Battleship",
+    "level_range": [
+      70,
+      80
+    ],
+    "recommended_ship_class": "Explorer",
+    "iso_defense": 0.45,
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": false,
+    "base_damage": 200000,
+    "hp": 80000000,
+    "crit_chance": 0.25,
+    "crit_multiplier": 2.0,
+    "armor_piercing": 150000,
+    "shield_piercing": 130000,
+    "accuracy": 100000,
+    "special_abilities": [
+      {
+        "name": "Dreadnought Armour",
+        "description": "Extreme mitigation — only isolytic damage is reliable",
+        "counter": "isolytic_damage"
+      },
+      {
+        "name": "Sustained Fire",
+        "description": "Increasing damage output over 10+ rounds",
+        "counter": "fast_kill_crew"
+      }
+    ],
+    "priority_stats": [
+      "isolytic_damage",
+      "apex_barrier",
+      "armor_piercing"
+    ],
+    "notes": "G7 Dreadnought. Endgame content — isolytic damage is the primary damage source at this tier."
+  },
+  {
+    "name": "Federation Hostile (G7)",
+    "type": "Federation",
+    "ship_class": "Interceptor",
+    "level_range": [
+      70,
+      80
+    ],
+    "special_abilities": [],
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": false,
+    "iso_defense": 0.3,
+    "recommended_ship_class": null,
+    "priority_stats": [
+      "armor_piercing",
+      "hull_breach"
+    ],
+    "hp": 500000,
+    "base_damage": 50000,
+    "armor_piercing": 20000,
+    "shield_piercing": 20000,
+    "accuracy": 20000,
+    "crit_chance": 0.2,
+    "crit_multiplier": 1.5,
+    "notes": "G7 faction grind in The Veil/Margins: faction rep, raw G7 mats, broken ship parts. Counter-crew: Kang / Krell / Mara + Marcus, Khan, Lorca below deck."
+  },
+  {
+    "name": "Klingon Hostile (G7)",
+    "type": "Klingon",
+    "ship_class": "Explorer",
+    "level_range": [
+      70,
+      80
+    ],
+    "special_abilities": [],
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": false,
+    "iso_defense": 0.3,
+    "recommended_ship_class": null,
+    "priority_stats": [
+      "shield_piercing",
+      "burning"
+    ],
+    "hp": 500000,
+    "base_damage": 50000,
+    "armor_piercing": 20000,
+    "shield_piercing": 20000,
+    "accuracy": 20000,
+    "crit_chance": 0.2,
+    "crit_multiplier": 1.5,
+    "notes": "G7 faction grind: rep + G7 mats. Counter-crew: Charvanek / L'Nar / Tal + Hugh, PIC Hugh, Paris below deck (bypass explorer shields)."
+  },
+  {
+    "name": "Romulan Hostile (G7)",
+    "type": "Romulan",
+    "ship_class": "Battleship",
+    "level_range": [
+      70,
+      80
+    ],
+    "special_abilities": [],
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": false,
+    "iso_defense": 0.3,
+    "recommended_ship_class": null,
+    "priority_stats": [
+      "shield_piercing",
+      "enemy_shield_down"
+    ],
+    "hp": 500000,
+    "base_damage": 50000,
+    "armor_piercing": 20000,
+    "shield_piercing": 20000,
+    "accuracy": 20000,
+    "crit_chance": 0.2,
+    "crit_multiplier": 1.5,
+    "notes": "G7 faction grind: rep + G7 mats. Counter-crew: Kang / Yan'Agh / Yuki + Mara, Linkasa, S31 Georgiou (strip battleship shields fast)."
+  },
+  {
+    "name": "Forsaken Hostile (G7)",
+    "type": "Forsaken",
+    "ship_class": "Battleship",
+    "level_range": [
+      70,
+      80
+    ],
+    "special_abilities": [],
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": false,
+    "iso_defense": 0.3,
+    "recommended_ship_class": null,
+    "priority_stats": [
+      "isolytic_damage",
+      "apex_barrier"
+    ],
+    "hp": 500000,
+    "base_damage": 50000,
+    "armor_piercing": 20000,
+    "shield_piercing": 20000,
+    "accuracy": 20000,
+    "crit_chance": 0.2,
+    "crit_multiplier": 1.5,
+    "notes": "The Margins sub-faction (Fatu-Kray). Cruiser/Destroyer/Dreadnought/Scout variants L70-80. Core G7 progression grind."
+  },
+  {
+    "name": "Ganmadan Hostile (G7)",
+    "type": "Ganmadan",
+    "ship_class": "Interceptor",
+    "level_range": [
+      70,
+      80
+    ],
+    "special_abilities": [],
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": false,
+    "iso_defense": 0.3,
+    "recommended_ship_class": null,
+    "priority_stats": [
+      "isolytic_damage",
+      "apex_barrier"
+    ],
+    "hp": 500000,
+    "base_damage": 50000,
+    "armor_piercing": 20000,
+    "shield_piercing": 20000,
+    "accuracy": 20000,
+    "crit_chance": 0.2,
+    "crit_multiplier": 1.5,
+    "notes": "Order of Ganmadan (The Margins). Infiltrator/Patrol/Scout/Sentinel variants L70-80. Core G7 progression grind."
+  },
+  {
+    "name": "House Sov Hostile (G7)",
+    "type": "House Sov",
+    "ship_class": "Explorer",
+    "level_range": [
+      70,
+      80
+    ],
+    "special_abilities": [],
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": false,
+    "iso_defense": 0.3,
+    "recommended_ship_class": null,
+    "priority_stats": [
+      "isolytic_damage",
+      "apex_barrier"
+    ],
+    "hp": 500000,
+    "base_damage": 50000,
+    "armor_piercing": 20000,
+    "shield_piercing": 20000,
+    "accuracy": 20000,
+    "crit_chance": 0.2,
+    "crit_multiplier": 1.5,
+    "notes": "House Sov (The Margins). Pioneer/Scout/Sentry/Warship variants L70-80. Core G7 progression grind."
+  },
+  {
+    "name": "V'ger Hostile",
+    "type": "V'ger",
+    "ship_class": "Battleship",
+    "level_range": [
+      70,
+      80
+    ],
+    "special_abilities": [
+      {
+        "name": "Apex daily scoring",
+        "description": "Long fights build Apex Barrier mitigation points",
+        "counter": "apex_barrier"
+      }
+    ],
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": false,
+    "iso_defense": 0.4,
+    "recommended_ship_class": null,
+    "priority_stats": [
+      "apex_barrier",
+      "hull_repair",
+      "shield_repair"
+    ],
+    "hp": 500000,
+    "base_damage": 50000,
+    "armor_piercing": 20000,
+    "shield_piercing": 20000,
+    "accuracy": 20000,
+    "crit_chance": 0.2,
+    "crit_multiplier": 1.5,
+    "notes": "V'ger loop (~20 rounds for Apex daily scoring; USS Excelsior core ship). Crew: Janeway / Annorax / Trip Tucker + WOK Joachim, PIC Hugh, Neelix, Kim. Survivability over burst; apex mitigation is the scoring stat."
+  },
+  {
+    "name": "Static Krenim Warship",
+    "type": "Krenim",
+    "ship_class": "Battleship",
+    "level_range": [
+      70,
+      80
+    ],
+    "special_abilities": [
+      {
+        "name": "Static ramp",
+        "description": "Cumulative isolytic damage per round",
+        "counter": "isolytic_defense"
+      }
+    ],
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": false,
+    "iso_defense": 0.5,
+    "recommended_ship_class": null,
+    "priority_stats": [
+      "isolytic_defense",
+      "hull_repair"
+    ],
+    "hp": 500000,
+    "base_damage": 50000,
+    "armor_piercing": 20000,
+    "shield_piercing": 20000,
+    "accuracy": 20000,
+    "crit_chance": 0.2,
+    "crit_multiplier": 1.5,
+    "notes": "Krenim invading entity (Delta Quadrant edge, needs Temporal Incursion Directives). Ramps ISOLYTIC DAMAGE every round (max 50 rounds) — counter with Anti-Static Exocomp (DTI faction). Drops Static Wreckage."
+  },
+  {
+    "name": "Charged Krenim Warship",
+    "type": "Krenim",
+    "ship_class": "Battleship",
+    "level_range": [
+      70,
+      80
+    ],
+    "special_abilities": [
+      {
+        "name": "Charged ramp",
+        "description": "Cumulative apex barrier per round",
+        "counter": "apex_shred"
+      }
+    ],
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": false,
+    "iso_defense": 0.5,
+    "recommended_ship_class": null,
+    "priority_stats": [
+      "apex_shred",
+      "isolytic_damage"
+    ],
+    "hp": 500000,
+    "base_damage": 50000,
+    "armor_piercing": 20000,
+    "shield_piercing": 20000,
+    "accuracy": 20000,
+    "crit_chance": 0.2,
+    "crit_multiplier": 1.5,
+    "notes": "Krenim invading entity. Ramps APEX BARRIER every round (max 30 rounds) — counter with Anti-Charged Exocomp (DTI faction). Drops Charged Wreckage."
+  },
+  {
+    "name": "Surgewalker (Surge Event)",
+    "type": "Surge Event",
+    "ship_class": "Battleship",
+    "level_range": [
+      70,
+      80
+    ],
+    "special_abilities": [],
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": false,
+    "iso_defense": 0.3,
+    "recommended_ship_class": null,
+    "priority_stats": [
+      "weapon_damage",
+      "crit_damage",
+      "shots"
+    ],
+    "hp": 500000,
+    "base_damage": 50000,
+    "armor_piercing": 20000,
+    "shield_piercing": 20000,
+    "accuracy": 20000,
+    "crit_chance": 0.2,
+    "crit_multiplier": 1.5,
+    "notes": "Alliance Surge event (3-min window, triggered with 100 Veilshards from the Hostile Harbinger daily). Rewards: Surge Fragments (<71) / Primordial Plasma (71+) for G7 Surge Combat research. Score = raw damage + kills."
+  },
+  {
+    "name": "Mirror Universe Hostile",
+    "type": "Mirror Universe",
+    "ship_class": "Battleship",
+    "level_range": [
+      70,
+      80
+    ],
+    "special_abilities": [],
+    "requires_crit_mitigation": false,
+    "hyperthermic_decay": false,
+    "iso_defense": 0.3,
+    "recommended_ship_class": null,
+    "priority_stats": [
+      "weapon_damage",
+      "crit_chance"
+    ],
+    "hp": 500000,
+    "base_damage": 50000,
+    "armor_piercing": 20000,
+    "shield_piercing": 20000,
+    "accuracy": 20000,
+    "crit_chance": 0.2,
+    "crit_multiplier": 1.5,
+    "notes": "Mirror Universe grind (e.g. Terix): Sigma speedups + broken G6/G7 ship parts. Doc recommends >=2 trips daily — latinum speedups don't scale in G7."
+  }
+]

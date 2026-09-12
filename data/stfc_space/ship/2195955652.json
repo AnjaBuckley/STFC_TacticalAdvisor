@@ -1,0 +1,9453 @@
+{
+ "id": 2195955652,
+ "art_id": 106,
+ "loca_id": 35007,
+ "max_tier": 12,
+ "rarity": "Epic",
+ "grade": 5,
+ "scrap_level": null,
+ "build_time_in_seconds": 21600000,
+ "faction": {
+  "id": 4153667145,
+  "loca_id": 2
+ },
+ "blueprints_required": 650,
+ "blueprint_costs": [
+  {
+   "source": 1,
+   "count": 1,
+   "cost": {
+    "resource_id": 1002911149,
+    "amount": 3000
+   }
+  }
+ ],
+ "hull_type": 0,
+ "max_level": 60,
+ "build_cost": [
+  {
+   "resource_id": 743985951,
+   "amount": 2455200000000.0
+  },
+  {
+   "resource_id": 1499705342,
+   "amount": 1782.0
+  },
+  {
+   "resource_id": 2614028847,
+   "amount": 59400000000.0
+  },
+  {
+   "resource_id": 3301222353,
+   "amount": 5037.0
+  }
+ ],
+ "repair_cost": [
+  {
+   "resource_id": 743985951,
+   "amount": 155310000000.0
+  },
+  {
+   "resource_id": 2614028847,
+   "amount": 3006000000.0
+  }
+ ],
+ "repair_time": 421200,
+ "build_requirements": [
+  {
+   "requirement_type": "BuildingLevel",
+   "requirement_id": 15,
+   "requirement_level": 60
+  }
+ ],
+ "officer_bonus": {
+  "attack": [
+   {
+    "value": 2200,
+    "bonus": 0.65
+   },
+   {
+    "value": 4400,
+    "bonus": 1.3
+   },
+   {
+    "value": 7150,
+    "bonus": 1.95
+   },
+   {
+    "value": 9900,
+    "bonus": 2.6
+   },
+   {
+    "value": 13200,
+    "bonus": 3.25
+   },
+   {
+    "value": 17600,
+    "bonus": 3.9
+   },
+   {
+    "value": 24200,
+    "bonus": 4.55
+   },
+   {
+    "value": 33000,
+    "bonus": 5.2
+   },
+   {
+    "value": 44000,
+    "bonus": 5.8500000000000005
+   },
+   {
+    "value": 66000,
+    "bonus": 6.5
+   }
+  ],
+  "defense": [
+   {
+    "value": 2200,
+    "bonus": 0.65
+   },
+   {
+    "value": 4400,
+    "bonus": 1.3
+   },
+   {
+    "value": 7150,
+    "bonus": 1.95
+   },
+   {
+    "value": 9900,
+    "bonus": 2.6
+   },
+   {
+    "value": 13200,
+    "bonus": 3.25
+   },
+   {
+    "value": 17600,
+    "bonus": 3.9
+   },
+   {
+    "value": 24200,
+    "bonus": 4.55
+   },
+   {
+    "value": 33000,
+    "bonus": 5.2
+   },
+   {
+    "value": 44000,
+    "bonus": 5.8500000000000005
+   },
+   {
+    "value": 66000,
+    "bonus": 6.5
+   }
+  ],
+  "health": [
+   {
+    "value": 2200,
+    "bonus": 0.65
+   },
+   {
+    "value": 4400,
+    "bonus": 1.3
+   },
+   {
+    "value": 7150,
+    "bonus": 1.95
+   },
+   {
+    "value": 9900,
+    "bonus": 2.6
+   },
+   {
+    "value": 13200,
+    "bonus": 3.25
+   },
+   {
+    "value": 17600,
+    "bonus": 3.9
+   },
+   {
+    "value": 24200,
+    "bonus": 4.55
+   },
+   {
+    "value": 33000,
+    "bonus": 5.2
+   },
+   {
+    "value": 44000,
+    "bonus": 5.8500000000000005
+   },
+   {
+    "value": 66000,
+    "bonus": 6.5
+   }
+  ]
+ },
+ "crew_slots": [
+  {
+   "slots": "1",
+   "unlock_level": 5
+  },
+  {
+   "slots": "2",
+   "unlock_level": 10
+  },
+  {
+   "slots": "3",
+   "unlock_level": 20
+  },
+  {
+   "slots": "4",
+   "unlock_level": 30
+  },
+  {
+   "slots": "5",
+   "unlock_level": 40
+  },
+  {
+   "slots": "6",
+   "unlock_level": 45
+  },
+  {
+   "slots": "7",
+   "unlock_level": 55
+  }
+ ],
+ "tiers": [
+  {
+   "tier": 1,
+   "buffs": {
+    "cargo": 0,
+    "protected": 0
+   },
+   "duration": 3000000,
+   "components": [
+    {
+     "id": 1130067904,
+     "art_id": 5001,
+     "loca_id": 72001,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "speed": 4.9,
+      "distance": 585,
+      "abilities": [
+       {
+        "InstantWarp": {
+         "base_cost": 500,
+         "cost_resource_id": 514734139,
+         "cost_multiplier": 0
+        }
+       }
+      ],
+      "tag": "Warp"
+     },
+     "order": 7,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 3956309315,
+     "art_id": 4001,
+     "loca_id": 63001,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "impulse": 105,
+      "dodge": 287489,
+      "tag": "Impulse"
+     },
+     "order": 8,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2277555989,
+     "art_id": 3001,
+     "loca_id": 52003,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "absorption": 28637,
+      "mitigation": 0.8,
+      "hp": 4161257,
+      "regen_time": 40,
+      "tag": "Shield"
+     },
+     "order": 5,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 3503800659,
+     "art_id": 2001,
+     "loca_id": 42004,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "plating": 28637,
+      "hp": 4697806,
+      "tag": "Armor"
+     },
+     "order": 9,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2821665303,
+     "art_id": 8000,
+     "loca_id": 91002,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "tag": "Sensor"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 409142410,
+     "art_id": 9000,
+     "loca_id": 91003,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "deflection": 120,
+      "tag": "Deflector"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2443151286,
+     "art_id": 6001,
+     "loca_id": 82001,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "max_resources": 235000,
+      "protected": 15000,
+      "tag": "Cargo"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2477108118,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "shots": 2,
+      "warm_up": 1,
+      "cool_down": 1,
+      "accuracy": 56333,
+      "penetration": 563354,
+      "modulation": 56333,
+      "minimum_damage": 111744,
+      "maximum_damage": 145302,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.75,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2477108118,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "shots": 2,
+      "warm_up": 1,
+      "cool_down": 1,
+      "accuracy": 56333,
+      "penetration": 563354,
+      "modulation": 56333,
+      "minimum_damage": 111744,
+      "maximum_damage": 145302,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.75,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 3837751498,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "shots": 5,
+      "warm_up": 2,
+      "cool_down": 3,
+      "accuracy": 56333,
+      "penetration": 563354,
+      "modulation": 56333,
+      "minimum_damage": 198964,
+      "maximum_damage": 218852,
+      "crit_chance": 0.1,
+      "crit_modifier": 2,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 2,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 1420013517,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "shots": 5,
+      "warm_up": 3,
+      "cool_down": 3,
+      "accuracy": 56333,
+      "penetration": 563354,
+      "modulation": 56333,
+      "minimum_damage": 198964,
+      "maximum_damage": 218852,
+      "crit_chance": 0.1,
+      "crit_modifier": 2,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 3,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 552134014,
+     "art_id": 7001,
+     "loca_id": 91004,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "mining_speed": 0,
+      "tag": "Special"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    }
+   ]
+  },
+  {
+   "tier": 2,
+   "buffs": {
+    "cargo": 12000,
+    "protected": 800
+   },
+   "duration": 3000000,
+   "components": [
+    {
+     "id": 3623009114,
+     "art_id": 5001,
+     "loca_id": 72001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 1558000000000.0
+      },
+      {
+       "resource_id": 1371250883,
+       "amount": 11200.0
+      },
+      {
+       "resource_id": 1499705342,
+       "amount": 4700.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 39200000000.0
+      },
+      {
+       "resource_id": 2907888228,
+       "amount": 44800.0
+      },
+      {
+       "resource_id": 3301222353,
+       "amount": 25300.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 555437605.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 10750405.0
+      }
+     ],
+     "repair_time": 1500,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "speed": 5,
+      "distance": 610,
+      "abilities": [
+       {
+        "InstantWarp": {
+         "base_cost": 500,
+         "cost_resource_id": 514734139,
+         "cost_multiplier": 0
+        }
+       }
+      ],
+      "tag": "Warp"
+     },
+     "order": 7,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 3430591482,
+     "art_id": 4001,
+     "loca_id": 63001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 2078000000000.0
+      },
+      {
+       "resource_id": 1371250883,
+       "amount": 11200.0
+      },
+      {
+       "resource_id": 1499705342,
+       "amount": 3400.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 52300000000.0
+      },
+      {
+       "resource_id": 2907888228,
+       "amount": 62700.0
+      },
+      {
+       "resource_id": 3301222353,
+       "amount": 25300.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 555437605.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 10750405.0
+      }
+     ],
+     "repair_time": 1500,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "impulse": 105,
+      "dodge": 306173,
+      "tag": "Impulse"
+     },
+     "order": 8,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 1811078354,
+     "art_id": 3001,
+     "loca_id": 52003,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 2494000000000.0
+      },
+      {
+       "resource_id": 1499705342,
+       "amount": 3400.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 62800000000.0
+      },
+      {
+       "resource_id": 2907888228,
+       "amount": 53800.0
+      },
+      {
+       "resource_id": 3301222353,
+       "amount": 21100.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 2900.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 740583474.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 14333874.0
+      }
+     ],
+     "repair_time": 1980,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "absorption": 30495,
+      "mitigation": 0.8,
+      "hp": 4431710,
+      "regen_time": 40,
+      "tag": "Shield"
+     },
+     "order": 5,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 1913166870,
+     "art_id": 2001,
+     "loca_id": 42004,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 2494000000000.0
+      },
+      {
+       "resource_id": 1499705342,
+       "amount": 6700.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 62800000000.0
+      },
+      {
+       "resource_id": 2907888228,
+       "amount": 71700.0
+      },
+      {
+       "resource_id": 3301222353,
+       "amount": 42200.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 4400.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 740583474.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 14333874.0
+      }
+     ],
+     "repair_time": 1980,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "plating": 30495,
+      "hp": 5003129,
+      "tag": "Armor"
+     },
+     "order": 9,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2821665303,
+     "art_id": 8000,
+     "loca_id": 91002,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "tag": "Sensor"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 409142410,
+     "art_id": 9000,
+     "loca_id": 91003,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "deflection": 120,
+      "tag": "Deflector"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2443151286,
+     "art_id": 6001,
+     "loca_id": 82001,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "max_resources": 235000,
+      "protected": 15000,
+      "tag": "Cargo"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2474012691,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 2597000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 26200.0
+      },
+      {
+       "resource_id": 1371250883,
+       "amount": 16800.0
+      },
+      {
+       "resource_id": 1499705342,
+       "amount": 5400.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 65400000000.0
+      },
+      {
+       "resource_id": 3301222353,
+       "amount": 37900.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 925729342.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 17917342.0
+      }
+     ],
+     "repair_time": 2520,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 2,
+      "warm_up": 1,
+      "cool_down": 1,
+      "accuracy": 59995,
+      "penetration": 599968,
+      "modulation": 59995,
+      "minimum_damage": 119008,
+      "maximum_damage": 154744,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2474012691,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 2597000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 26200.0
+      },
+      {
+       "resource_id": 1371250883,
+       "amount": 16800.0
+      },
+      {
+       "resource_id": 1499705342,
+       "amount": 5400.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 65400000000.0
+      },
+      {
+       "resource_id": 3301222353,
+       "amount": 37900.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 925729342.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 17917342.0
+      }
+     ],
+     "repair_time": 2520,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 2,
+      "warm_up": 1,
+      "cool_down": 1,
+      "accuracy": 59995,
+      "penetration": 599968,
+      "modulation": 59995,
+      "minimum_damage": 119008,
+      "maximum_damage": 154744,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 817210052,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 3533000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 36100.0
+      },
+      {
+       "resource_id": 1371250883,
+       "amount": 22400.0
+      },
+      {
+       "resource_id": 1499705342,
+       "amount": 6700.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 89000000000.0
+      },
+      {
+       "resource_id": 3301222353,
+       "amount": 50600.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 1296021079.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 25084279.0
+      }
+     ],
+     "repair_time": 3480,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 5,
+      "warm_up": 2,
+      "cool_down": 3,
+      "accuracy": 59995,
+      "penetration": 599968,
+      "modulation": 59995,
+      "minimum_damage": 211895,
+      "maximum_damage": 233078,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 2,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2885101656,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 3429000000000.0
+      },
+      {
+       "resource_id": 1499705342,
+       "amount": 5400.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 86300000000.0
+      },
+      {
+       "resource_id": 2907888228,
+       "amount": 80700.0
+      },
+      {
+       "resource_id": 3301222353,
+       "amount": 33700.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 4400.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 1296021079.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 25084279.0
+      }
+     ],
+     "repair_time": 3480,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 5,
+      "warm_up": 3,
+      "cool_down": 3,
+      "accuracy": 59995,
+      "penetration": 599968,
+      "modulation": 59995,
+      "minimum_damage": 211895,
+      "maximum_damage": 233078,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 3,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 552134014,
+     "art_id": 7001,
+     "loca_id": 91004,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "mining_speed": 0,
+      "tag": "Special"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    }
+   ]
+  },
+  {
+   "tier": 3,
+   "buffs": {
+    "cargo": 12000,
+    "protected": 800
+   },
+   "duration": 6000000,
+   "components": [
+    {
+     "id": 2795214725,
+     "art_id": 5001,
+     "loca_id": 72001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 2625000000000.0
+      },
+      {
+       "resource_id": 1371250883,
+       "amount": 17300.0
+      },
+      {
+       "resource_id": 1499705342,
+       "amount": 7400.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 66100000000.0
+      },
+      {
+       "resource_id": 2907888228,
+       "amount": 75500.0
+      },
+      {
+       "resource_id": 3301222353,
+       "amount": 72500.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 1136036534.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 21987804.0
+      }
+     ],
+     "repair_time": 3060,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "speed": 5.1,
+      "distance": 635,
+      "abilities": [
+       {
+        "InstantWarp": {
+         "base_cost": 500,
+         "cost_resource_id": 514734139,
+         "cost_multiplier": 0
+        }
+       }
+      ],
+      "tag": "Warp"
+     },
+     "order": 7,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2548125173,
+     "art_id": 4001,
+     "loca_id": 63001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 3500000000000.0
+      },
+      {
+       "resource_id": 1371250883,
+       "amount": 17300.0
+      },
+      {
+       "resource_id": 1499705342,
+       "amount": 5300.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 88100000000.0
+      },
+      {
+       "resource_id": 2907888228,
+       "amount": 105700.0
+      },
+      {
+       "resource_id": 3301222353,
+       "amount": 72500.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 1136036534.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 21987804.0
+      }
+     ],
+     "repair_time": 3060,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "impulse": 105,
+      "dodge": 329135,
+      "tag": "Impulse"
+     },
+     "order": 8,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 1307158645,
+     "art_id": 3001,
+     "loca_id": 52003,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 4200000000000.0
+      },
+      {
+       "resource_id": 1499705342,
+       "amount": 5300.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 105800000000.0
+      },
+      {
+       "resource_id": 2907888228,
+       "amount": 90600.0
+      },
+      {
+       "resource_id": 3301222353,
+       "amount": 60400.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 2400.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 1514715379.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 29317072.0
+      }
+     ],
+     "repair_time": 4080,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "absorption": 32782,
+      "mitigation": 0.8,
+      "hp": 4764095,
+      "regen_time": 40,
+      "tag": "Shield"
+     },
+     "order": 5,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 684038239,
+     "art_id": 2001,
+     "loca_id": 42004,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 4200000000000.0
+      },
+      {
+       "resource_id": 1499705342,
+       "amount": 10600.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 105800000000.0
+      },
+      {
+       "resource_id": 2907888228,
+       "amount": 120800.0
+      },
+      {
+       "resource_id": 3301222353,
+       "amount": 120900.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 3500.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 1514715379.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 29317072.0
+      }
+     ],
+     "repair_time": 4080,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "plating": 32782,
+      "hp": 5378372,
+      "tag": "Armor"
+     },
+     "order": 9,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2821665303,
+     "art_id": 8000,
+     "loca_id": 91002,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "tag": "Sensor"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 409142410,
+     "art_id": 9000,
+     "loca_id": 91003,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "deflection": 120,
+      "tag": "Deflector"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2443151286,
+     "art_id": 6001,
+     "loca_id": 82001,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "max_resources": 235000,
+      "protected": 15000,
+      "tag": "Cargo"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2870777943,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 4375000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 44200.0
+      },
+      {
+       "resource_id": 1371250883,
+       "amount": 25900.0
+      },
+      {
+       "resource_id": 1499705342,
+       "amount": 9500.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 110200000000.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 3200.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 1893394223.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 36646340.0
+      }
+     ],
+     "repair_time": 5100,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 2,
+      "warm_up": 1,
+      "cool_down": 1,
+      "accuracy": 64495,
+      "penetration": 644966,
+      "modulation": 64495,
+      "minimum_damage": 127934,
+      "maximum_damage": 166349,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2870777943,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 4375000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 44200.0
+      },
+      {
+       "resource_id": 1371250883,
+       "amount": 25900.0
+      },
+      {
+       "resource_id": 1499705342,
+       "amount": 9500.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 110200000000.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 3200.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 1893394223.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 36646340.0
+      }
+     ],
+     "repair_time": 5100,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 2,
+      "warm_up": 1,
+      "cool_down": 1,
+      "accuracy": 64495,
+      "penetration": 644966,
+      "modulation": 64495,
+      "minimum_damage": 127934,
+      "maximum_damage": 166349,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 1943254483,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 5950000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 60700.0
+      },
+      {
+       "resource_id": 1371250883,
+       "amount": 34500.0
+      },
+      {
+       "resource_id": 1499705342,
+       "amount": 12700.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 149800000000.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 3900.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 2650751913.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 51304876.0
+      }
+     ],
+     "repair_time": 7140,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 5,
+      "warm_up": 2,
+      "cool_down": 3,
+      "accuracy": 64495,
+      "penetration": 644966,
+      "modulation": 64495,
+      "minimum_damage": 227786,
+      "maximum_damage": 250559,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 2,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 3337839158,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 5775000000000.0
+      },
+      {
+       "resource_id": 1499705342,
+       "amount": 8500.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 145400000000.0
+      },
+      {
+       "resource_id": 2907888228,
+       "amount": 135900.0
+      },
+      {
+       "resource_id": 3301222353,
+       "amount": 96700.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 3500.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 2650751913.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 51304876.0
+      }
+     ],
+     "repair_time": 7140,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 5,
+      "warm_up": 3,
+      "cool_down": 3,
+      "accuracy": 64495,
+      "penetration": 644966,
+      "modulation": 64495,
+      "minimum_damage": 227786,
+      "maximum_damage": 250559,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 3,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 552134014,
+     "art_id": 7001,
+     "loca_id": 91004,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "mining_speed": 0,
+      "tag": "Special"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    }
+   ]
+  },
+  {
+   "tier": 4,
+   "buffs": {
+    "cargo": 12000,
+    "protected": 800
+   },
+   "duration": 10000000,
+   "components": [
+    {
+     "id": 3366880904,
+     "art_id": 5001,
+     "loca_id": 72001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 3937000000000.0
+      },
+      {
+       "resource_id": 1371250883,
+       "amount": 23200.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 99100000000.0
+      },
+      {
+       "resource_id": 2907888228,
+       "amount": 220200.0
+      },
+      {
+       "resource_id": 3301222353,
+       "amount": 126900.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 3400.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 1742936594.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 33734257.0
+      }
+     ],
+     "repair_time": 4680,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "speed": 5.2,
+      "distance": 700,
+      "abilities": [
+       {
+        "InstantWarp": {
+         "base_cost": 500,
+         "cost_resource_id": 514734139,
+         "cost_multiplier": 0
+        }
+       }
+      ],
+      "tag": "Warp"
+     },
+     "order": 7,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 927256764,
+     "art_id": 4001,
+     "loca_id": 63001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 5250000000000.0
+      },
+      {
+       "resource_id": 1371250883,
+       "amount": 23200.0
+      },
+      {
+       "resource_id": 1499705342,
+       "amount": 18500.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 132200000000.0
+      },
+      {
+       "resource_id": 2907888228,
+       "amount": 308200.0
+      },
+      {
+       "resource_id": 3301222353,
+       "amount": 126900.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 1742936594.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 33734257.0
+      }
+     ],
+     "repair_time": 4680,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "impulse": 105,
+      "dodge": 357106,
+      "tag": "Impulse"
+     },
+     "order": 8,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 1996139145,
+     "art_id": 3001,
+     "loca_id": 52003,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 6300000000000.0
+      },
+      {
+       "resource_id": 1371250883,
+       "amount": 19300.0
+      },
+      {
+       "resource_id": 1499705342,
+       "amount": 18500.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 158600000000.0
+      },
+      {
+       "resource_id": 2907888228,
+       "amount": 264200.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 2900.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 2323915459.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 44979009.0
+      }
+     ],
+     "repair_time": 6240,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "absorption": 35571,
+      "mitigation": 0.8,
+      "hp": 5168975,
+      "regen_time": 40,
+      "tag": "Shield"
+     },
+     "order": 5,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2296037447,
+     "art_id": 2001,
+     "loca_id": 42004,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 6300000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 40600.0
+      },
+      {
+       "resource_id": 1499705342,
+       "amount": 36900.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 158600000000.0
+      },
+      {
+       "resource_id": 3301222353,
+       "amount": 211600.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 4400.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 2323915459.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 44979009.0
+      }
+     ],
+     "repair_time": 6240,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "plating": 35571,
+      "hp": 5835458,
+      "tag": "Armor"
+     },
+     "order": 9,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2821665303,
+     "art_id": 8000,
+     "loca_id": 91002,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "tag": "Sensor"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 409142410,
+     "art_id": 9000,
+     "loca_id": 91003,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "deflection": 120,
+      "tag": "Deflector"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2443151286,
+     "art_id": 6001,
+     "loca_id": 82001,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "max_resources": 235000,
+      "protected": 15000,
+      "tag": "Cargo"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2762265099,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 6562000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 40600.0
+      },
+      {
+       "resource_id": 1371250883,
+       "amount": 34700.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 165200000000.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 4400.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 2904894324.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 56223761.0
+      }
+     ],
+     "repair_time": 7800,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 2,
+      "warm_up": 1,
+      "cool_down": 1,
+      "accuracy": 69976,
+      "penetration": 699780,
+      "modulation": 69976,
+      "minimum_damage": 138806,
+      "maximum_damage": 180488,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2762265099,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 6562000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 40600.0
+      },
+      {
+       "resource_id": 1371250883,
+       "amount": 34700.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 165200000000.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 4400.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 2904894324.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 56223761.0
+      }
+     ],
+     "repair_time": 7800,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 2,
+      "warm_up": 1,
+      "cool_down": 1,
+      "accuracy": 69976,
+      "penetration": 699780,
+      "modulation": 69976,
+      "minimum_damage": 138806,
+      "maximum_damage": 180488,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 902514103,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 8924000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 55900.0
+      },
+      {
+       "resource_id": 1371250883,
+       "amount": 46300.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 224700000000.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 5800.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 4066852053.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 78713266.0
+      }
+     ],
+     "repair_time": 10980,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 5,
+      "warm_up": 2,
+      "cool_down": 3,
+      "accuracy": 69976,
+      "penetration": 699780,
+      "modulation": 69976,
+      "minimum_damage": 247146,
+      "maximum_damage": 271852,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 2,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 946984261,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 8662000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 45700.0
+      },
+      {
+       "resource_id": 1499705342,
+       "amount": 29500.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 218100000000.0
+      },
+      {
+       "resource_id": 3301222353,
+       "amount": 169200.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 4400.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 4066852053.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 78713266.0
+      }
+     ],
+     "repair_time": 10980,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 5,
+      "warm_up": 3,
+      "cool_down": 3,
+      "accuracy": 69976,
+      "penetration": 699780,
+      "modulation": 69976,
+      "minimum_damage": 247146,
+      "maximum_damage": 271852,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 3,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 552134014,
+     "art_id": 7001,
+     "loca_id": 91004,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "mining_speed": 0,
+      "tag": "Special"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    }
+   ]
+  },
+  {
+   "tier": 5,
+   "buffs": {
+    "cargo": 12000,
+    "protected": 800
+   },
+   "duration": 15000000,
+   "components": [
+    {
+     "id": 2755228034,
+     "art_id": 5001,
+     "loca_id": 72001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 5906000000000.0
+      },
+      {
+       "resource_id": 1371250883,
+       "amount": 27000.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 148700000000.0
+      },
+      {
+       "resource_id": 2907888228,
+       "amount": 330200.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 11300.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 5100.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 2377329227.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 46012824.0
+      }
+     ],
+     "repair_time": 6420,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "speed": 5.3,
+      "distance": 850,
+      "abilities": [
+       {
+        "InstantWarp": {
+         "base_cost": 500,
+         "cost_resource_id": 514734139,
+         "cost_multiplier": 0
+        }
+       }
+      ],
+      "tag": "Warp"
+     },
+     "order": 7,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 1384332139,
+     "art_id": 4001,
+     "loca_id": 63001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 7874000000000.0
+      },
+      {
+       "resource_id": 1371250883,
+       "amount": 27000.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 198300000000.0
+      },
+      {
+       "resource_id": 2907888228,
+       "amount": 462300.0
+      },
+      {
+       "resource_id": 3301222353,
+       "amount": 324600.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 3600.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 2377329227.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 46012824.0
+      }
+     ],
+     "repair_time": 6420,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "impulse": 105,
+      "dodge": 391028,
+      "tag": "Impulse"
+     },
+     "order": 8,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 3645364368,
+     "art_id": 3001,
+     "loca_id": 52003,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 9449000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 47900.0
+      },
+      {
+       "resource_id": 1371250883,
+       "amount": 22500.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 237900000000.0
+      },
+      {
+       "resource_id": 2907888228,
+       "amount": 396300.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 3600.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 3169772303.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 61350432.0
+      }
+     ],
+     "repair_time": 8520,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "absorption": 38948,
+      "mitigation": 0.8,
+      "hp": 5659957,
+      "regen_time": 40,
+      "tag": "Shield"
+     },
+     "order": 5,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 571263649,
+     "art_id": 2001,
+     "loca_id": 42004,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 9449000000000.0
+      },
+      {
+       "resource_id": 1499705342,
+       "amount": 86200.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 20700.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 237900000000.0
+      },
+      {
+       "resource_id": 3301222353,
+       "amount": 540900.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 6500.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 3169772303.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 61350432.0
+      }
+     ],
+     "repair_time": 8520,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "plating": 38948,
+      "hp": 6389744,
+      "tag": "Armor"
+     },
+     "order": 9,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2821665303,
+     "art_id": 8000,
+     "loca_id": 91002,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "tag": "Sensor"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 409142410,
+     "art_id": 9000,
+     "loca_id": 91003,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "deflection": 120,
+      "tag": "Deflector"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2443151286,
+     "art_id": 6001,
+     "loca_id": 82001,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "max_resources": 235000,
+      "protected": 15000,
+      "tag": "Cargo"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 1391228637,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 9843000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 63900.0
+      },
+      {
+       "resource_id": 1371250883,
+       "amount": 40500.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 247900000000.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 17000.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 5800.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 3962215379.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 76688040.0
+      }
+     ],
+     "repair_time": 10680,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 2,
+      "warm_up": 1,
+      "cool_down": 1,
+      "accuracy": 76622,
+      "penetration": 766247,
+      "modulation": 76622,
+      "minimum_damage": 151991,
+      "maximum_damage": 197632,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 1391228637,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 9843000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 63900.0
+      },
+      {
+       "resource_id": 1371250883,
+       "amount": 40500.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 247900000000.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 17000.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 5800.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 3962215379.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 76688040.0
+      }
+     ],
+     "repair_time": 10680,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 2,
+      "warm_up": 1,
+      "cool_down": 1,
+      "accuracy": 76622,
+      "penetration": 766247,
+      "modulation": 76622,
+      "minimum_damage": 151991,
+      "maximum_damage": 197632,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 3421234384,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 13387000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 87800.0
+      },
+      {
+       "resource_id": 1371250883,
+       "amount": 54000.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 337100000000.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 22600.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 7300.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 5547101530.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 107363255.0
+      }
+     ],
+     "repair_time": 14940,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 5,
+      "warm_up": 2,
+      "cool_down": 3,
+      "accuracy": 76622,
+      "penetration": 766247,
+      "modulation": 76622,
+      "minimum_damage": 270620,
+      "maximum_damage": 297676,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 2,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2057947298,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 12993000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 71900.0
+      },
+      {
+       "resource_id": 1371250883,
+       "amount": 36000.0
+      },
+      {
+       "resource_id": 1499705342,
+       "amount": 68900.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 327200000000.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 6500.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 5547101530.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 107363255.0
+      }
+     ],
+     "repair_time": 14940,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 5,
+      "warm_up": 3,
+      "cool_down": 3,
+      "accuracy": 76622,
+      "penetration": 766247,
+      "modulation": 76622,
+      "minimum_damage": 270620,
+      "maximum_damage": 297676,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 3,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 552134014,
+     "art_id": 7001,
+     "loca_id": 91004,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "mining_speed": 0,
+      "tag": "Special"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    }
+   ]
+  },
+  {
+   "tier": 6,
+   "buffs": {
+    "cargo": 12000,
+    "protected": 800
+   },
+   "duration": 20000000,
+   "components": [
+    {
+     "id": 566171184,
+     "art_id": 5001,
+     "loca_id": 72001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 8203000000000.0
+      },
+      {
+       "resource_id": 1371250883,
+       "amount": 108500.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 206600000000.0
+      },
+      {
+       "resource_id": 2907888228,
+       "amount": 750600.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 13500.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 12700.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 3040459847.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 58847610.0
+      }
+     ],
+     "repair_time": 8160,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "speed": 5.4,
+      "distance": 900,
+      "abilities": [
+       {
+        "InstantWarp": {
+         "base_cost": 500,
+         "cost_resource_id": 514734139,
+         "cost_multiplier": 0
+        }
+       }
+      ],
+      "tag": "Warp"
+     },
+     "order": 7,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2849998867,
+     "art_id": 4001,
+     "loca_id": 63001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 10937000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 77600.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 275400000000.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 13500.0
+      },
+      {
+       "resource_id": 3301222353,
+       "amount": 450800.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 9100.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 3040459847.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 58847610.0
+      }
+     ],
+     "repair_time": 8160,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "impulse": 105,
+      "dodge": 432087,
+      "tag": "Impulse"
+     },
+     "order": 8,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2098501683,
+     "art_id": 3001,
+     "loca_id": 52003,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 13124000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 6700.0
+      },
+      {
+       "resource_id": 1371250883,
+       "amount": 90400.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 330500000000.0
+      },
+      {
+       "resource_id": 2907888228,
+       "amount": 900700.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 9100.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 4053946462.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 78463480.0
+      }
+     ],
+     "repair_time": 10920,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "absorption": 43039,
+      "mitigation": 0.8,
+      "hp": 6254255,
+      "regen_time": 40,
+      "tag": "Shield"
+     },
+     "order": 5,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 1011653819,
+     "art_id": 2001,
+     "loca_id": 42004,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 13124000000000.0
+      },
+      {
+       "resource_id": 1499705342,
+       "amount": 215400.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 6600.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 330500000000.0
+      },
+      {
+       "resource_id": 3301222353,
+       "amount": 751300.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 16300.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 4053946462.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 78463480.0
+      }
+     ],
+     "repair_time": 10920,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "plating": 43039,
+      "hp": 7060676,
+      "tag": "Armor"
+     },
+     "order": 9,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2821665303,
+     "art_id": 8000,
+     "loca_id": 91002,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "tag": "Sensor"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 409142410,
+     "art_id": 9000,
+     "loca_id": 91003,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "deflection": 120,
+      "tag": "Deflector"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2443151286,
+     "art_id": 6001,
+     "loca_id": 82001,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "max_resources": 235000,
+      "protected": 15000,
+      "tag": "Cargo"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 92841987,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 13671000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 88700.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 6600.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 344300000000.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 20200.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 6900.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 5067433078.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 98079350.0
+      }
+     ],
+     "repair_time": 13620,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 2,
+      "warm_up": 1,
+      "cool_down": 1,
+      "accuracy": 84670,
+      "penetration": 846704,
+      "modulation": 84670,
+      "minimum_damage": 167948,
+      "maximum_damage": 218383,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 92841987,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 13671000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 88700.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 6600.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 344300000000.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 20200.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 6900.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 5067433078.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 98079350.0
+      }
+     ],
+     "repair_time": 13620,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 2,
+      "warm_up": 1,
+      "cool_down": 1,
+      "accuracy": 84670,
+      "penetration": 846704,
+      "modulation": 84670,
+      "minimum_damage": 167948,
+      "maximum_damage": 218383,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 3382271448,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 18593000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 110900.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 9000.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 468200000000.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 26900.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 9200.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 7094406309.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 137311090.0
+      }
+     ],
+     "repair_time": 19080,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 5,
+      "warm_up": 2,
+      "cool_down": 3,
+      "accuracy": 84670,
+      "penetration": 846704,
+      "modulation": 84670,
+      "minimum_damage": 299036,
+      "maximum_damage": 328931,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 2,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 3114592074,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 18046000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 10100.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 99800.0
+      },
+      {
+       "resource_id": 1371250883,
+       "amount": 144600.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 454400000000.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 14500.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 7094406309.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 137311090.0
+      }
+     ],
+     "repair_time": 19080,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 5,
+      "warm_up": 3,
+      "cool_down": 3,
+      "accuracy": 84670,
+      "penetration": 846704,
+      "modulation": 84670,
+      "minimum_damage": 299036,
+      "maximum_damage": 328931,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 3,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 552134014,
+     "art_id": 7001,
+     "loca_id": 91004,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "mining_speed": 0,
+      "tag": "Special"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    }
+   ]
+  },
+  {
+   "tier": 7,
+   "buffs": {
+    "cargo": 12000,
+    "protected": 800
+   },
+   "duration": 25000000,
+   "components": [
+    {
+     "id": 2444602836,
+     "art_id": 5001,
+     "loca_id": 72001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 10827000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 3100.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 80900.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 272600000000.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 29800.0
+      },
+      {
+       "resource_id": 3301222353,
+       "amount": 793300.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 3733630283.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 72263812.0
+      }
+     ],
+     "repair_time": 10080,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "speed": 5.5,
+      "distance": 950,
+      "abilities": [
+       {
+        "InstantWarp": {
+         "base_cost": 500,
+         "cost_resource_id": 514734139,
+         "cost_multiplier": 0
+        }
+       }
+      ],
+      "tag": "Warp"
+     },
+     "order": 7,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 1248625883,
+     "art_id": 4001,
+     "loca_id": 63001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 14437000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 113300.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 363500000000.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 29800.0
+      },
+      {
+       "resource_id": 3301222353,
+       "amount": 793300.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 18500.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 3733630283.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 72263812.0
+      }
+     ],
+     "repair_time": 10080,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "impulse": 105,
+      "dodge": 479613,
+      "tag": "Impulse"
+     },
+     "order": 8,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2301026232,
+     "art_id": 3001,
+     "loca_id": 52003,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 17324000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 2200.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 436200000000.0
+      },
+      {
+       "resource_id": 2859248631,
+       "amount": 5400.0
+      },
+      {
+       "resource_id": 2907888228,
+       "amount": 2179600.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 24900.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 4978173710.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 96351749.0
+      }
+     ],
+     "repair_time": 13380,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "absorption": 47772,
+      "mitigation": 0.8,
+      "hp": 6942181,
+      "regen_time": 40,
+      "tag": "Shield"
+     },
+     "order": 5,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 1510066827,
+     "art_id": 2001,
+     "loca_id": 42004,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 17324000000000.0
+      },
+      {
+       "resource_id": 1371250883,
+       "amount": 453400.0
+      },
+      {
+       "resource_id": 1499705342,
+       "amount": 284400.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 6900.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 436200000000.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 33200.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 4978173710.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 96351749.0
+      }
+     ],
+     "repair_time": 13380,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "plating": 47772,
+      "hp": 7837300,
+      "tag": "Armor"
+     },
+     "order": 9,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2821665303,
+     "art_id": 8000,
+     "loca_id": 91002,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "tag": "Sensor"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 409142410,
+     "art_id": 9000,
+     "loca_id": 91003,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "deflection": 120,
+      "tag": "Deflector"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2443151286,
+     "art_id": 6001,
+     "loca_id": 82001,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "max_resources": 235000,
+      "protected": 15000,
+      "tag": "Cargo"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 1073702007,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 18046000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 3900.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 129400.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 6900.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 454400000000.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 9100.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 6222717138.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 120439687.0
+      }
+     ],
+     "repair_time": 16740,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 2,
+      "warm_up": 1,
+      "cool_down": 1,
+      "accuracy": 93980,
+      "penetration": 939836,
+      "modulation": 93980,
+      "minimum_damage": 186422,
+      "maximum_damage": 242404,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 1073702007,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 18046000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 3900.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 129400.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 6900.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 454400000000.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 9100.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 6222717138.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 120439687.0
+      }
+     ],
+     "repair_time": 16740,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 2,
+      "warm_up": 1,
+      "cool_down": 1,
+      "accuracy": 93980,
+      "penetration": 939836,
+      "modulation": 93980,
+      "minimum_damage": 186422,
+      "maximum_damage": 242404,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 1432881967,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 24542000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 5200.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 161800.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 9500.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 618000000000.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 12100.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 8711803993.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 168615561.0
+      }
+     ],
+     "repair_time": 23460,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 5,
+      "warm_up": 2,
+      "cool_down": 3,
+      "accuracy": 93980,
+      "penetration": 939836,
+      "modulation": 93980,
+      "minimum_damage": 331928,
+      "maximum_damage": 365111,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 2,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2833031164,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 23820000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 3900.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 7700.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 599800000000.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 39800.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 29500.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 8711803993.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 168615561.0
+      }
+     ],
+     "repair_time": 23460,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 5,
+      "warm_up": 3,
+      "cool_down": 3,
+      "accuracy": 93980,
+      "penetration": 939836,
+      "modulation": 93980,
+      "minimum_damage": 331928,
+      "maximum_damage": 365111,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 3,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 552134014,
+     "art_id": 7001,
+     "loca_id": 91004,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "mining_speed": 0,
+      "tag": "Special"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    }
+   ]
+  },
+  {
+   "tier": 8,
+   "buffs": {
+    "cargo": 12000,
+    "protected": 800
+   },
+   "duration": 32500000,
+   "components": [
+    {
+     "id": 295700033,
+     "art_id": 5001,
+     "loca_id": 72001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 14437000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 3200.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 93200.0
+      },
+      {
+       "resource_id": 1371250883,
+       "amount": 302200.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 363500000000.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 28400.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 4458201340.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 86287768.0
+      }
+     ],
+     "repair_time": 12000,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "speed": 5.6,
+      "distance": 1000,
+      "abilities": [
+       {
+        "InstantWarp": {
+         "base_cost": 500,
+         "cost_resource_id": 514734139,
+         "cost_multiplier": 0
+        }
+       }
+      ],
+      "tag": "Warp"
+     },
+     "order": 7,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2484686786,
+     "art_id": 4001,
+     "loca_id": 63001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 19249000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 2300.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 130400.0
+      },
+      {
+       "resource_id": 1371250883,
+       "amount": 302200.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 484700000000.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 28400.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 4458201340.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 86287768.0
+      }
+     ],
+     "repair_time": 12000,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "impulse": 105,
+      "dodge": 529966,
+      "tag": "Impulse"
+     },
+     "order": 8,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 1349177666,
+     "art_id": 3001,
+     "loca_id": 52003,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 23099000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 2300.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 111800.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 581600000000.0
+      },
+      {
+       "resource_id": 2859248631,
+       "amount": 7300.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 23700.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 5944268453.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 115050357.0
+      }
+     ],
+     "repair_time": 16020,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "absorption": 52789,
+      "mitigation": 0.8,
+      "hp": 7671055,
+      "regen_time": 40,
+      "tag": "Shield"
+     },
+     "order": 5,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 286941011,
+     "art_id": 2001,
+     "loca_id": 42004,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 23099000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 4100.0
+      },
+      {
+       "resource_id": 1499705342,
+       "amount": 379200.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 9200.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 581600000000.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 47400.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 5944268453.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 115050357.0
+      }
+     ],
+     "repair_time": 16020,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "plating": 52789,
+      "hp": 8660155,
+      "tag": "Armor"
+     },
+     "order": 9,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2821665303,
+     "art_id": 8000,
+     "loca_id": 91002,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "tag": "Sensor"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 409142410,
+     "art_id": 9000,
+     "loca_id": 91003,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "deflection": 120,
+      "tag": "Deflector"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2443151286,
+     "art_id": 6001,
+     "loca_id": 82001,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "max_resources": 235000,
+      "protected": 15000,
+      "tag": "Cargo"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 3974555232,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 24061000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 4100.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 149000.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 9200.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 605900000000.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 12100.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 7430335567.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 143812946.0
+      }
+     ],
+     "repair_time": 19980,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 2,
+      "warm_up": 1,
+      "cool_down": 1,
+      "accuracy": 103847,
+      "penetration": 1038511,
+      "modulation": 103847,
+      "minimum_damage": 205993,
+      "maximum_damage": 267854,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 3974555232,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 24061000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 4100.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 149000.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 9200.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 605900000000.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 12100.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 7430335567.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 143812946.0
+      }
+     ],
+     "repair_time": 19980,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 2,
+      "warm_up": 1,
+      "cool_down": 1,
+      "accuracy": 103847,
+      "penetration": 1038511,
+      "modulation": 103847,
+      "minimum_damage": 205993,
+      "maximum_damage": 267854,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 1727835463,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 32723000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 5500.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 186300.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 12600.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 824000000000.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 16100.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 10402469793.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 201338125.0
+      }
+     ],
+     "repair_time": 28020,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 5,
+      "warm_up": 2,
+      "cool_down": 3,
+      "accuracy": 103847,
+      "penetration": 1038511,
+      "modulation": 103847,
+      "minimum_damage": 366776,
+      "maximum_damage": 403444,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 2,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 3557395118,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 31760000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 4100.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 10300.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 799800000000.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 37900.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 108300.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 10402469793.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 201338125.0
+      }
+     ],
+     "repair_time": 28020,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 5,
+      "warm_up": 3,
+      "cool_down": 3,
+      "accuracy": 103847,
+      "penetration": 1038511,
+      "modulation": 103847,
+      "minimum_damage": 366776,
+      "maximum_damage": 403444,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 3,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 552134014,
+     "art_id": 7001,
+     "loca_id": 91004,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "mining_speed": 0,
+      "tag": "Special"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    }
+   ]
+  },
+  {
+   "tier": 9,
+   "buffs": {
+    "cargo": 12000,
+    "protected": 800
+   },
+   "duration": 40000000,
+   "components": [
+    {
+     "id": 677678789,
+     "art_id": 5001,
+     "loca_id": 72001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 18866000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 4900.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 486900.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 475100000000.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 44800.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 8300.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 5215595466.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 100947009.0
+      }
+     ],
+     "repair_time": 14040,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "speed": 5.7,
+      "distance": 1010,
+      "abilities": [
+       {
+        "InstantWarp": {
+         "base_cost": 500,
+         "cost_resource_id": 514734139,
+         "cost_multiplier": 0
+        }
+       }
+      ],
+      "tag": "Warp"
+     },
+     "order": 7,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 521553408,
+     "art_id": 4001,
+     "loca_id": 63001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 25155000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 3500.0
+      },
+      {
+       "resource_id": 1371250883,
+       "amount": 789900.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 9100.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 633400000000.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 8300.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 5215595466.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 100947009.0
+      }
+     ],
+     "repair_time": 14040,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "impulse": 105,
+      "dodge": 577664,
+      "tag": "Impulse"
+     },
+     "order": 8,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 3717961613,
+     "art_id": 3001,
+     "loca_id": 52003,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 30186000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 584300.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 760100000000.0
+      },
+      {
+       "resource_id": 2859248631,
+       "amount": 1100.0
+      },
+      {
+       "resource_id": 2907888228,
+       "amount": 3797800.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 37300.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 6954127288.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 134596012.0
+      }
+     ],
+     "repair_time": 18720,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "absorption": 57539,
+      "mitigation": 0.8,
+      "hp": 8361439,
+      "regen_time": 40,
+      "tag": "Shield"
+     },
+     "order": 5,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 3885982495,
+     "art_id": 2001,
+     "loca_id": 42004,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 30186000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 6300.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 10400.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 760100000000.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 74700.0
+      },
+      {
+       "resource_id": 3329003172,
+       "amount": 141600.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 6954127288.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 134596012.0
+      }
+     ],
+     "repair_time": 18720,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "plating": 57539,
+      "hp": 9439555,
+      "tag": "Armor"
+     },
+     "order": 9,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2821665303,
+     "art_id": 8000,
+     "loca_id": 91002,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "tag": "Sensor"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 409142410,
+     "art_id": 9000,
+     "loca_id": 91003,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "deflection": 120,
+      "tag": "Deflector"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2443151286,
+     "art_id": 6001,
+     "loca_id": 82001,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "max_resources": 235000,
+      "protected": 15000,
+      "tag": "Cargo"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 282436631,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 31443000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 5600.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 10400.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 791800000000.0
+      },
+      {
+       "resource_id": 2859248631,
+       "amount": 1900.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 12400.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 8692659110.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 168245015.0
+      }
+     ],
+     "repair_time": 23400,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 2,
+      "warm_up": 1,
+      "cool_down": 1,
+      "accuracy": 113192,
+      "penetration": 1131976,
+      "modulation": 113192,
+      "minimum_damage": 224533,
+      "maximum_damage": 291960,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 282436631,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 31443000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 5600.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 10400.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 791800000000.0
+      },
+      {
+       "resource_id": 2859248631,
+       "amount": 1900.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 12400.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 8692659110.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 168245015.0
+      }
+     ],
+     "repair_time": 23400,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 2,
+      "warm_up": 1,
+      "cool_down": 1,
+      "accuracy": 113192,
+      "penetration": 1131976,
+      "modulation": 113192,
+      "minimum_damage": 224533,
+      "maximum_damage": 291960,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 3776386304,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 42763000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 7000.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 14200.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 1076800000000.0
+      },
+      {
+       "resource_id": 2859248631,
+       "amount": 2600.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 16500.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 12169722754.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 235543021.0
+      }
+     ],
+     "repair_time": 32760,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 5,
+      "warm_up": 2,
+      "cool_down": 3,
+      "accuracy": 113192,
+      "penetration": 1131976,
+      "modulation": 113192,
+      "minimum_damage": 399787,
+      "maximum_damage": 439754,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 2,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2838073465,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 41505000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 5600.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 11600.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 1045100000000.0
+      },
+      {
+       "resource_id": 2859248631,
+       "amount": 1900.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 59800.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 12169722754.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 235543021.0
+      }
+     ],
+     "repair_time": 32760,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 5,
+      "warm_up": 3,
+      "cool_down": 3,
+      "accuracy": 113192,
+      "penetration": 1131976,
+      "modulation": 113192,
+      "minimum_damage": 399787,
+      "maximum_damage": 439754,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 3,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 552134014,
+     "art_id": 7001,
+     "loca_id": 91004,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "mining_speed": 0,
+      "tag": "Special"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    }
+   ]
+  },
+  {
+   "tier": 10,
+   "buffs": {
+    "cargo": 12000,
+    "protected": 800
+   },
+   "duration": 50000000,
+   "components": [
+    {
+     "id": 589581254,
+     "art_id": 5001,
+     "loca_id": 72001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 24608000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 250800.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 6900.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 619700000000.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 141300.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 7000.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 6007299546.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 116270314.0
+      }
+     ],
+     "repair_time": 16140,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "speed": 5.8,
+      "distance": 1015,
+      "abilities": [
+       {
+        "InstantWarp": {
+         "base_cost": 500,
+         "cost_resource_id": 514734139,
+         "cost_multiplier": 0
+        }
+       }
+      ],
+      "tag": "Warp"
+     },
+     "order": 7,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 944259901,
+     "art_id": 4001,
+     "loca_id": 63001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 32810000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 11000.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 9700.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 826200000000.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 141300.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 7000.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 6007299546.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 116270314.0
+      }
+     ],
+     "repair_time": 16140,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "impulse": 105,
+      "dodge": 620990,
+      "tag": "Impulse"
+     },
+     "order": 8,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 3234199022,
+     "art_id": 3001,
+     "loca_id": 52003,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 39372000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 215000.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 8300.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 991400000000.0
+      },
+      {
+       "resource_id": 2859248631,
+       "amount": 1200.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 5800.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 8009732728.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 155027085.0
+      }
+     ],
+     "repair_time": 21540,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "absorption": 61855,
+      "mitigation": 0.8,
+      "hp": 8988584,
+      "regen_time": 40,
+      "tag": "Shield"
+     },
+     "order": 5,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 845941478,
+     "art_id": 2001,
+     "loca_id": 42004,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 39372000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 22000.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 11100.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 991400000000.0
+      },
+      {
+       "resource_id": 2859248631,
+       "amount": 2100.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 11600.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 8009732728.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 155027085.0
+      }
+     ],
+     "repair_time": 21540,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "plating": 61855,
+      "hp": 10147563,
+      "tag": "Armor"
+     },
+     "order": 9,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2821665303,
+     "art_id": 8000,
+     "loca_id": 91002,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "tag": "Sensor"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 409142410,
+     "art_id": 9000,
+     "loca_id": 91003,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "deflection": 120,
+      "tag": "Deflector"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2443151286,
+     "art_id": 6001,
+     "loca_id": 82001,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "max_resources": 235000,
+      "protected": 15000,
+      "tag": "Cargo"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 3236951402,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 41013000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 286600.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 11100.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 1032800000000.0
+      },
+      {
+       "resource_id": 2859248631,
+       "amount": 2100.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 10500.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 10012165910.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 193783856.0
+      }
+     ],
+     "repair_time": 26940,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 2,
+      "warm_up": 1,
+      "cool_down": 1,
+      "accuracy": 121686,
+      "penetration": 1216879,
+      "modulation": 121686,
+      "minimum_damage": 241373,
+      "maximum_damage": 313860,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 3236951402,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 41013000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 286600.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 11100.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 1032800000000.0
+      },
+      {
+       "resource_id": 2859248631,
+       "amount": 2100.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 10500.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 10012165910.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 193783856.0
+      }
+     ],
+     "repair_time": 26940,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 2,
+      "warm_up": 1,
+      "cool_down": 1,
+      "accuracy": 121686,
+      "penetration": 1216879,
+      "modulation": 121686,
+      "minimum_damage": 241373,
+      "maximum_damage": 313860,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 4191753742,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 55778000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 358300.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 15300.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 1404500000000.0
+      },
+      {
+       "resource_id": 2859248631,
+       "amount": 2800.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 13900.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 14017032273.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 271297399.0
+      }
+     ],
+     "repair_time": 37740,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 5,
+      "warm_up": 2,
+      "cool_down": 3,
+      "accuracy": 121686,
+      "penetration": 1216879,
+      "modulation": 121686,
+      "minimum_damage": 429774,
+      "maximum_damage": 472736,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 2,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 3639528944,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 54137000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 17600.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 12500.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 1363200000000.0
+      },
+      {
+       "resource_id": 2859248631,
+       "amount": 2100.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 9300.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 14017032273.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 271297399.0
+      }
+     ],
+     "repair_time": 37740,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 5,
+      "warm_up": 3,
+      "cool_down": 3,
+      "accuracy": 121686,
+      "penetration": 1216879,
+      "modulation": 121686,
+      "minimum_damage": 429774,
+      "maximum_damage": 472736,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 3,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 552134014,
+     "art_id": 7001,
+     "loca_id": 91004,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "mining_speed": 0,
+      "tag": "Special"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    }
+   ]
+  },
+  {
+   "tier": 11,
+   "buffs": {
+    "cargo": 12000,
+    "protected": 800
+   },
+   "duration": 65000000,
+   "components": [
+    {
+     "id": 1124060137,
+     "art_id": 5001,
+     "loca_id": 72001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 31170000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 317700.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 8800.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 784900000000.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 179000.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 8800.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 6834867820.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 132287764.0
+      }
+     ],
+     "repair_time": 18360,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "speed": 5.9,
+      "distance": 1020,
+      "abilities": [
+       {
+        "InstantWarp": {
+         "base_cost": 500,
+         "cost_resource_id": 514734139,
+         "cost_multiplier": 0
+        }
+       }
+      ],
+      "tag": "Warp"
+     },
+     "order": 7,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 3240268753,
+     "art_id": 4001,
+     "loca_id": 63001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 41560000000000.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 12300.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 1046500000000.0
+      },
+      {
+       "resource_id": 2859248631,
+       "amount": 1400.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 179000.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 8800.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 6834867820.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 132287764.0
+      }
+     ],
+     "repair_time": 18360,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "impulse": 105,
+      "dodge": 658248,
+      "tag": "Impulse"
+     },
+     "order": 8,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 925885721,
+     "art_id": 3001,
+     "loca_id": 52003,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 49872000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 272300.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 10600.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 1255800000000.0
+      },
+      {
+       "resource_id": 2859248631,
+       "amount": 1400.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 7400.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 9113157094.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 176383686.0
+      }
+     ],
+     "repair_time": 24540,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "absorption": 65567,
+      "mitigation": 0.8,
+      "hp": 9527896,
+      "regen_time": 40,
+      "tag": "Shield"
+     },
+     "order": 5,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2362272365,
+     "art_id": 2001,
+     "loca_id": 42004,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 49872000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 35600.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 14100.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 1255800000000.0
+      },
+      {
+       "resource_id": 2859248631,
+       "amount": 2400.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 14700.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 9113157094.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 176383686.0
+      }
+     ],
+     "repair_time": 24540,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "plating": 65567,
+      "hp": 10756415,
+      "tag": "Armor"
+     },
+     "order": 9,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2821665303,
+     "art_id": 8000,
+     "loca_id": 91002,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "tag": "Sensor"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 409142410,
+     "art_id": 9000,
+     "loca_id": 91003,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "deflection": 120,
+      "tag": "Deflector"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2443151286,
+     "art_id": 6001,
+     "loca_id": 82001,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "max_resources": 235000,
+      "protected": 15000,
+      "tag": "Cargo"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 1233095497,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 51950000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 363100.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 14100.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 1308200000000.0
+      },
+      {
+       "resource_id": 2859248631,
+       "amount": 2400.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 13200.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 11391446367.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 220479607.0
+      }
+     ],
+     "repair_time": 30660,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 2,
+      "warm_up": 1,
+      "cool_down": 1,
+      "accuracy": 128986,
+      "penetration": 1289892,
+      "modulation": 128986,
+      "minimum_damage": 255858,
+      "maximum_damage": 332690,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 1233095497,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 51950000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 363100.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 14100.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 1308200000000.0
+      },
+      {
+       "resource_id": 2859248631,
+       "amount": 2400.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 13200.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 11391446367.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 220479607.0
+      }
+     ],
+     "repair_time": 30660,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 2,
+      "warm_up": 1,
+      "cool_down": 1,
+      "accuracy": 128986,
+      "penetration": 1289892,
+      "modulation": 128986,
+      "minimum_damage": 255858,
+      "maximum_damage": 332690,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 1347651699,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 70652000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 453800.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 19300.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 1779100000000.0
+      },
+      {
+       "resource_id": 2859248631,
+       "amount": 3200.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 17700.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 15948024914.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 308671450.0
+      }
+     ],
+     "repair_time": 42900,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 5,
+      "warm_up": 2,
+      "cool_down": 3,
+      "accuracy": 128986,
+      "penetration": 1289892,
+      "modulation": 128986,
+      "minimum_damage": 455560,
+      "maximum_damage": 501100,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 2,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 3398140743,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 68574000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 28500.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 15800.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 1726800000000.0
+      },
+      {
+       "resource_id": 2859248631,
+       "amount": 2400.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 11800.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 15948024914.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 308671450.0
+      }
+     ],
+     "repair_time": 42900,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 5,
+      "warm_up": 3,
+      "cool_down": 3,
+      "accuracy": 128986,
+      "penetration": 1289892,
+      "modulation": 128986,
+      "minimum_damage": 455560,
+      "maximum_damage": 501100,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 3,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 552134014,
+     "art_id": 7001,
+     "loca_id": 91004,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "mining_speed": 0,
+      "tag": "Special"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    }
+   ]
+  },
+  {
+   "tier": 12,
+   "buffs": {
+    "cargo": 12000,
+    "protected": 800
+   },
+   "duration": 90000000,
+   "components": [
+    {
+     "id": 1786826176,
+     "art_id": 5001,
+     "loca_id": 72001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 41013000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 1358500.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 11600.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 1032800000000.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 74400.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 11600.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 7699924938.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 149030805.0
+      }
+     ],
+     "repair_time": 20700,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "speed": 6,
+      "distance": 1025,
+      "abilities": [
+       {
+        "InstantWarp": {
+         "base_cost": 500,
+         "cost_resource_id": 514734139,
+         "cost_multiplier": 0
+        }
+       }
+      ],
+      "tag": "Warp"
+     },
+     "order": 7,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 544741851,
+     "art_id": 4001,
+     "loca_id": 63001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 54684000000000.0
+      },
+      {
+       "resource_id": 830742010,
+       "amount": 970300.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 16200.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 1377000000000.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 74400.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 11600.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 7699924938.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 149030805.0
+      }
+     ],
+     "repair_time": 20700,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "impulse": 105,
+      "dodge": 694450,
+      "tag": "Impulse"
+     },
+     "order": 8,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2324101702,
+     "art_id": 3001,
+     "loca_id": 52003,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 65621000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 21100.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 13900.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 1652400000000.0
+      },
+      {
+       "resource_id": 2859248631,
+       "amount": 1900.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 9700.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 10266566584.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 198707740.0
+      }
+     ],
+     "repair_time": 27600,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "absorption": 69170,
+      "mitigation": 0.8,
+      "hp": 10051869,
+      "regen_time": 40,
+      "tag": "Shield"
+     },
+     "order": 5,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 3986979842,
+     "art_id": 2001,
+     "loca_id": 42004,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 65621000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 31600.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 18500.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 1652400000000.0
+      },
+      {
+       "resource_id": 2859248631,
+       "amount": 3900.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 19400.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 10266566584.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 198707740.0
+      }
+     ],
+     "repair_time": 27600,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "plating": 69170,
+      "hp": 11347951,
+      "tag": "Armor"
+     },
+     "order": 9,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2821665303,
+     "art_id": 8000,
+     "loca_id": 91002,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "tag": "Sensor"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 409142410,
+     "art_id": 9000,
+     "loca_id": 91003,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "deflection": 120,
+      "tag": "Deflector"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 2443151286,
+     "art_id": 6001,
+     "loca_id": 82001,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "max_resources": 235000,
+      "protected": 15000,
+      "tag": "Cargo"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 4010388692,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 68355000000000.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 18500.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 1721300000000.0
+      },
+      {
+       "resource_id": 2859248631,
+       "amount": 3500.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 99100.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 17400.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 12833208230.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 248384675.0
+      }
+     ],
+     "repair_time": 34500,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 2,
+      "warm_up": 1,
+      "cool_down": 1,
+      "accuracy": 136079,
+      "penetration": 1360828,
+      "modulation": 136079,
+      "minimum_damage": 269928,
+      "maximum_damage": 350987,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 4010388692,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 68355000000000.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 18500.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 1721300000000.0
+      },
+      {
+       "resource_id": 2859248631,
+       "amount": 3500.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 99100.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 17400.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 12833208230.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 248384675.0
+      }
+     ],
+     "repair_time": 34500,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 2,
+      "warm_up": 1,
+      "cool_down": 1,
+      "accuracy": 136079,
+      "penetration": 1360828,
+      "modulation": 136079,
+      "minimum_damage": 269928,
+      "maximum_damage": 350987,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 1,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 3021662716,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 92963000000000.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 25500.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 2340900000000.0
+      },
+      {
+       "resource_id": 2859248631,
+       "amount": 4700.0
+      },
+      {
+       "resource_id": 3053746170,
+       "amount": 123900.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 23200.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 17966491522.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 347738546.0
+      }
+     ],
+     "repair_time": 48300,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 5,
+      "warm_up": 2,
+      "cool_down": 3,
+      "accuracy": 136079,
+      "penetration": 1360828,
+      "modulation": 136079,
+      "minimum_damage": 480612,
+      "maximum_damage": 528659,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 2,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 1219213740,
+     "art_id": 1501,
+     "loca_id": 12001,
+     "build_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 90229000000000.0
+      },
+      {
+       "resource_id": 768674708,
+       "amount": 31600.0
+      },
+      {
+       "resource_id": 2195468906,
+       "amount": 20800.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 2272100000000.0
+      },
+      {
+       "resource_id": 2859248631,
+       "amount": 3100.0
+      },
+      {
+       "resource_id": 3939844739,
+       "amount": 15500.0
+      }
+     ],
+     "repair_cost": [
+      {
+       "resource_id": 743985951,
+       "amount": 17966491522.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 347738546.0
+      }
+     ],
+     "repair_time": 48300,
+     "scrap": [
+      {
+       "resource_id": 743985951,
+       "amount": 0.0
+      },
+      {
+       "resource_id": 2614028847,
+       "amount": 0.0
+      }
+     ],
+     "data": {
+      "shots": 5,
+      "warm_up": 3,
+      "cool_down": 3,
+      "accuracy": 136079,
+      "penetration": 1360828,
+      "modulation": 136079,
+      "minimum_damage": 480612,
+      "maximum_damage": 528659,
+      "crit_chance": 0.1,
+      "crit_modifier": 1.5,
+      "weapon_type": 2,
+      "tag": "Weapon"
+     },
+     "order": 3,
+     "build_time_in_seconds": 0
+    },
+    {
+     "id": 552134014,
+     "art_id": 7001,
+     "loca_id": 91004,
+     "build_cost": [],
+     "repair_cost": [],
+     "repair_time": -1,
+     "scrap": [],
+     "data": {
+      "mining_speed": 0,
+      "tag": "Special"
+     },
+     "order": -1,
+     "build_time_in_seconds": 0
+    }
+   ]
+  }
+ ],
+ "levels": [
+  {
+   "level": 1,
+   "xp": -1,
+   "shield": 0,
+   "health": 0
+  },
+  {
+   "level": 2,
+   "xp": 100000,
+   "shield": 6100.8,
+   "health": 6772.56
+  },
+  {
+   "level": 3,
+   "xp": 135000,
+   "shield": 12964.2,
+   "health": 14391.69
+  },
+  {
+   "level": 4,
+   "xp": 198315,
+   "shield": 19827.6,
+   "health": 22010.82
+  },
+  {
+   "level": 5,
+   "xp": 260784,
+   "shield": 26691.000000000004,
+   "health": 29629.950000000004
+  },
+  {
+   "level": 6,
+   "xp": 335629,
+   "shield": 34317,
+   "health": 38095.65
+  },
+  {
+   "level": 7,
+   "xp": 439003,
+   "shield": 41943,
+   "health": 46561.35
+  },
+  {
+   "level": 8,
+   "xp": 537340,
+   "shield": 50331.600000000006,
+   "health": 55873.62
+  },
+  {
+   "level": 9,
+   "xp": 642658,
+   "shield": 58720.2,
+   "health": 65185.89
+  },
+  {
+   "level": 10,
+   "xp": 777617,
+   "shield": 67871.4,
+   "health": 75344.73
+  },
+  {
+   "level": 11,
+   "xp": 897370,
+   "shield": 77022.6,
+   "health": 85503.57
+  },
+  {
+   "level": 12,
+   "xp": 1023001,
+   "shield": 86936.40000000001,
+   "health": 96508.98000000001
+  },
+  {
+   "level": 13,
+   "xp": 1194866,
+   "shield": 96850.2,
+   "health": 107514.39
+  },
+  {
+   "level": 14,
+   "xp": 1337055,
+   "shield": 106764.00000000001,
+   "health": 118519.80000000002
+  },
+  {
+   "level": 15,
+   "xp": 1486805,
+   "shield": 117440.4,
+   "health": 130371.78
+  },
+  {
+   "level": 16,
+   "xp": 1684550,
+   "shield": 128879.40000000001,
+   "health": 143070.33000000002
+  },
+  {
+   "level": 17,
+   "xp": 1849636,
+   "shield": 140318.4,
+   "health": 155768.88
+  },
+  {
+   "level": 18,
+   "xp": 2005005,
+   "shield": 152520,
+   "health": 169314
+  },
+  {
+   "level": 19,
+   "xp": 2243601,
+   "shield": 164721.6,
+   "health": 182859.12
+  },
+  {
+   "level": 20,
+   "xp": 2416358,
+   "shield": 176923.2,
+   "health": 196404.24000000002
+  },
+  {
+   "level": 21,
+   "xp": 2602418,
+   "shield": 189887.4,
+   "health": 210795.93
+  },
+  {
+   "level": 22,
+   "xp": 2875671,
+   "shield": 203614.2,
+   "health": 226034.19
+  },
+  {
+   "level": 23,
+   "xp": 3076968,
+   "shield": 217340.99999999997,
+   "health": 241272.44999999998
+  },
+  {
+   "level": 24,
+   "xp": 3270817,
+   "shield": 231067.8,
+   "health": 256510.71
+  },
+  {
+   "level": 25,
+   "xp": 3568462,
+   "shield": 245557.2,
+   "health": 272595.54
+  },
+  {
+   "level": 26,
+   "xp": 3768296,
+   "shield": 260046.6,
+   "health": 288680.37
+  },
+  {
+   "level": 27,
+   "xp": 3979320,
+   "shield": 275298.6,
+   "health": 305611.76999999996
+  },
+  {
+   "level": 28,
+   "xp": 4313583,
+   "shield": 290550.6,
+   "health": 322543.17
+  },
+  {
+   "level": 29,
+   "xp": 4555144,
+   "shield": 305802.60000000003,
+   "health": 339474.57
+  },
+  {
+   "level": 30,
+   "xp": 4778346,
+   "shield": 321054.6,
+   "health": 356405.97
+  },
+  {
+   "level": 31,
+   "xp": 5146278,
+   "shield": 337069.2,
+   "health": 374183.94
+  },
+  {
+   "level": 32,
+   "xp": 5398446,
+   "shield": 353083.8,
+   "health": 391961.91000000003
+  },
+  {
+   "level": 33,
+   "xp": 5662970,
+   "shield": 369098.39999999997,
+   "health": 409739.88
+  },
+  {
+   "level": 34,
+   "xp": 6099019,
+   "shield": 385875.6,
+   "health": 428364.42
+  },
+  {
+   "level": 35,
+   "xp": 6355177,
+   "shield": 401890.2,
+   "health": 446142.39
+  },
+  {
+   "level": 36,
+   "xp": 6622095,
+   "shield": 418667.4,
+   "health": 464766.93000000005
+  },
+  {
+   "level": 37,
+   "xp": 7085641,
+   "shield": 434681.99999999994,
+   "health": 482544.89999999997
+  },
+  {
+   "level": 38,
+   "xp": 7383238,
+   "shield": 451459.19999999995,
+   "health": 501169.44
+  },
+  {
+   "level": 39,
+   "xp": 7641652,
+   "shield": 467473.8,
+   "health": 518947.41
+  },
+  {
+   "level": 40,
+   "xp": 8123076,
+   "shield": 484251,
+   "health": 537571.95
+  },
+  {
+   "level": 41,
+   "xp": 8407383,
+   "shield": 500265.60000000003,
+   "health": 555349.92
+  },
+  {
+   "level": 42,
+   "xp": 8701642,
+   "shield": 516280.2,
+   "health": 573127.89
+  },
+  {
+   "level": 43,
+   "xp": 9249845,
+   "shield": 532294.7999999999,
+   "health": 590905.86
+  },
+  {
+   "level": 44,
+   "xp": 9573590,
+   "shield": 548309.4,
+   "health": 608683.83
+  },
+  {
+   "level": 45,
+   "xp": 9908666,
+   "shield": 563561.4,
+   "health": 625615.23
+  },
+  {
+   "level": 46,
+   "xp": 10463551,
+   "shield": 579576,
+   "health": 643393.2
+  },
+  {
+   "level": 47,
+   "xp": 10756530,
+   "shield": 594828,
+   "health": 660324.6
+  },
+  {
+   "level": 48,
+   "xp": 11057713,
+   "shield": 609317.4,
+   "health": 676409.43
+  },
+  {
+   "level": 49,
+   "xp": 11676945,
+   "shield": 623806.7999999999,
+   "health": 692494.26
+  },
+  {
+   "level": 50,
+   "xp": 12003899,
+   "shield": 638296.2,
+   "health": 708579.09
+  },
+  {
+   "level": 51,
+   "xp": 12340009,
+   "shield": 652023,
+   "health": 723817.35
+  },
+  {
+   "level": 52,
+   "xp": 13031049,
+   "shield": 665749.8,
+   "health": 739055.61
+  },
+  {
+   "level": 53,
+   "xp": 13395919,
+   "shield": 679476.6,
+   "health": 754293.87
+  },
+  {
+   "level": 54,
+   "xp": 13771004,
+   "shield": 692440.8,
+   "health": 768685.56
+  },
+  {
+   "level": 55,
+   "xp": 14445783,
+   "shield": 705405,
+   "health": 783077.25
+  },
+  {
+   "level": 56,
+   "xp": 14850265,
+   "shield": 717606.6,
+   "health": 796622.37
+  },
+  {
+   "level": 57,
+   "xp": 15266073,
+   "shield": 729045.6,
+   "health": 809320.9199999999
+  },
+  {
+   "level": 58,
+   "xp": 16014110,
+   "shield": 740484.6,
+   "health": 822019.47
+  },
+  {
+   "level": 59,
+   "xp": 16462505,
+   "shield": 751923.6,
+   "health": 834718.02
+  },
+  {
+   "level": 60,
+   "xp": 17269168,
+   "shield": 762600,
+   "health": 846570
+  }
+ ],
+ "ability": [
+  {
+   "id": 2195955652,
+   "value_is_percentage": false,
+   "values": [
+    {
+     "value": 0.1,
+     "chance": 1
+    },
+    {
+     "value": 0.1,
+     "chance": 1
+    },
+    {
+     "value": 0.1,
+     "chance": 1
+    },
+    {
+     "value": 0.1,
+     "chance": 1
+    },
+    {
+     "value": 0.11,
+     "chance": 1
+    },
+    {
+     "value": 0.11,
+     "chance": 1
+    },
+    {
+     "value": 0.11,
+     "chance": 1
+    },
+    {
+     "value": 0.11,
+     "chance": 1
+    },
+    {
+     "value": 0.11,
+     "chance": 1
+    },
+    {
+     "value": 0.11,
+     "chance": 1
+    },
+    {
+     "value": 0.11,
+     "chance": 1
+    },
+    {
+     "value": 0.11,
+     "chance": 1
+    },
+    {
+     "value": 0.11,
+     "chance": 1
+    },
+    {
+     "value": 0.11,
+     "chance": 1
+    },
+    {
+     "value": 0.12,
+     "chance": 1
+    },
+    {
+     "value": 0.12,
+     "chance": 1
+    },
+    {
+     "value": 0.12,
+     "chance": 1
+    },
+    {
+     "value": 0.12,
+     "chance": 1
+    },
+    {
+     "value": 0.12,
+     "chance": 1
+    },
+    {
+     "value": 0.12,
+     "chance": 1
+    },
+    {
+     "value": 0.12,
+     "chance": 1
+    },
+    {
+     "value": 0.12,
+     "chance": 1
+    },
+    {
+     "value": 0.12,
+     "chance": 1
+    },
+    {
+     "value": 0.12,
+     "chance": 1
+    },
+    {
+     "value": 0.13,
+     "chance": 1
+    },
+    {
+     "value": 0.13,
+     "chance": 1
+    },
+    {
+     "value": 0.13,
+     "chance": 1
+    },
+    {
+     "value": 0.13,
+     "chance": 1
+    },
+    {
+     "value": 0.13,
+     "chance": 1
+    },
+    {
+     "value": 0.14,
+     "chance": 1
+    },
+    {
+     "value": 0.14,
+     "chance": 1
+    },
+    {
+     "value": 0.14,
+     "chance": 1
+    },
+    {
+     "value": 0.14,
+     "chance": 1
+    },
+    {
+     "value": 0.14,
+     "chance": 1
+    },
+    {
+     "value": 0.15,
+     "chance": 1
+    },
+    {
+     "value": 0.15,
+     "chance": 1
+    },
+    {
+     "value": 0.15,
+     "chance": 1
+    },
+    {
+     "value": 0.15,
+     "chance": 1
+    },
+    {
+     "value": 0.15,
+     "chance": 1
+    },
+    {
+     "value": 0.16,
+     "chance": 1
+    },
+    {
+     "value": 0.16,
+     "chance": 1
+    },
+    {
+     "value": 0.16,
+     "chance": 1
+    },
+    {
+     "value": 0.16,
+     "chance": 1
+    },
+    {
+     "value": 0.16,
+     "chance": 1
+    },
+    {
+     "value": 0.17,
+     "chance": 1
+    },
+    {
+     "value": 0.17,
+     "chance": 1
+    },
+    {
+     "value": 0.17,
+     "chance": 1
+    },
+    {
+     "value": 0.17,
+     "chance": 1
+    },
+    {
+     "value": 0.17,
+     "chance": 1
+    },
+    {
+     "value": 0.18,
+     "chance": 1
+    },
+    {
+     "value": 0.18,
+     "chance": 1
+    },
+    {
+     "value": 0.18,
+     "chance": 1
+    },
+    {
+     "value": 0.18,
+     "chance": 1
+    },
+    {
+     "value": 0.18,
+     "chance": 1
+    },
+    {
+     "value": 0.19,
+     "chance": 1
+    },
+    {
+     "value": 0.19,
+     "chance": 1
+    },
+    {
+     "value": 0.19,
+     "chance": 1
+    },
+    {
+     "value": 0.19,
+     "chance": 1
+    },
+    {
+     "value": 0.19,
+     "chance": 1
+    },
+    {
+     "value": 0.2,
+     "chance": 1
+    },
+    {
+     "value": 0,
+     "chance": 1
+    },
+    {
+     "value": 0,
+     "chance": 1
+    },
+    {
+     "value": 0,
+     "chance": 1
+    },
+    {
+     "value": 0,
+     "chance": 1
+    },
+    {
+     "value": 0,
+     "chance": 1
+    },
+    {
+     "value": 0,
+     "chance": 1
+    },
+    {
+     "value": 0,
+     "chance": 1
+    },
+    {
+     "value": 0,
+     "chance": 1
+    },
+    {
+     "value": 0,
+     "chance": 1
+    },
+    {
+     "value": 0,
+     "chance": 1
+    },
+    {
+     "value": 0,
+     "chance": 1
+    },
+    {
+     "value": 0,
+     "chance": 1
+    },
+    {
+     "value": 0,
+     "chance": 1
+    },
+    {
+     "value": 0,
+     "chance": 1
+    },
+    {
+     "value": 0,
+     "chance": 1
+    },
+    {
+     "value": 0,
+     "chance": 1
+    },
+    {
+     "value": 0,
+     "chance": 1
+    },
+    {
+     "value": 0,
+     "chance": 1
+    },
+    {
+     "value": 0,
+     "chance": 1
+    },
+    {
+     "value": 0,
+     "chance": 1
+    },
+    {
+     "value": 0,
+     "chance": 1
+    },
+    {
+     "value": 0,
+     "chance": 1
+    },
+    {
+     "value": 0,
+     "chance": 1
+    },
+    {
+     "value": 0,
+     "chance": 1
+    },
+    {
+     "value": 0,
+     "chance": 1
+    },
+    {
+     "value": 0,
+     "chance": 1
+    },
+    {
+     "value": 0,
+     "chance": 1
+    },
+    {
+     "value": 0,
+     "chance": 1
+    },
+    {
+     "value": 0,
+     "chance": 1
+    },
+    {
+     "value": 0,
+     "chance": 1
+    }
+   ],
+   "art_id": 24,
+   "loca_id": 35007,
+   "show_percentage": false,
+   "value_type": false
+  }
+ ],
+ "scrap": [
+  {
+   "hull_id": 2195955652,
+   "scrap_time_seconds": 55572480,
+   "level": 0,
+   "resources": []
+  },
+  {
+   "hull_id": 2195955652,
+   "scrap_time_seconds": 59045760,
+   "level": 0,
+   "resources": []
+  },
+  {
+   "hull_id": 2195955652,
+   "scrap_time_seconds": 62519040,
+   "level": 0,
+   "resources": []
+  },
+  {
+   "hull_id": 2195955652,
+   "scrap_time_seconds": 65992320,
+   "level": 0,
+   "resources": []
+  },
+  {
+   "hull_id": 2195955652,
+   "scrap_time_seconds": 69465600,
+   "level": 0,
+   "resources": []
+  },
+  {
+   "hull_id": 2195955652,
+   "scrap_time_seconds": 72938880,
+   "level": 0,
+   "resources": []
+  },
+  {
+   "hull_id": 2195955652,
+   "scrap_time_seconds": 78148800,
+   "level": 0,
+   "resources": []
+  },
+  {
+   "hull_id": 2195955652,
+   "scrap_time_seconds": 83358720,
+   "level": 0,
+   "resources": []
+  },
+  {
+   "hull_id": 2195955652,
+   "scrap_time_seconds": 88568640,
+   "level": 0,
+   "resources": []
+  },
+  {
+   "hull_id": 2195955652,
+   "scrap_time_seconds": 93778560,
+   "level": 0,
+   "resources": []
+  },
+  {
+   "hull_id": 2195955652,
+   "scrap_time_seconds": 98988480,
+   "level": 0,
+   "resources": []
+  },
+  {
+   "hull_id": 2195955652,
+   "scrap_time_seconds": 104198400,
+   "level": 0,
+   "resources": []
+  }
+ ],
+ "base_scrap": [
+  {
+   "resource_id": 743985951,
+   "amount": 0.0
+  },
+  {
+   "resource_id": 2614028847,
+   "amount": 0.0
+  }
+ ],
+ "refits": [
+  {
+   "id": 1677513303,
+   "art_id": 106,
+   "loca_id": 48102,
+   "cost": [
+    {
+     "resource_id": 2391326055,
+     "amount": 120.0
+    }
+   ],
+   "buffs": [
+    {
+     "id": 3432946675,
+     "value_is_percentage": true,
+     "values": [
+      {
+       "value": 5,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      }
+     ],
+     "art_id": 999,
+     "loca_id": 48102,
+     "show_percentage": true,
+     "value_type": 0
+    }
+   ],
+   "type": 3
+  },
+  {
+   "id": 3864435950,
+   "art_id": 550,
+   "loca_id": 48070,
+   "cost": [
+    {
+     "resource_id": 3132908286,
+     "amount": 120.0
+    }
+   ],
+   "buffs": [
+    {
+     "id": 406875428,
+     "value_is_percentage": true,
+     "values": [
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      }
+     ],
+     "art_id": 999,
+     "loca_id": 48056,
+     "show_percentage": true,
+     "value_type": 0
+    }
+   ],
+   "type": 3
+  },
+  {
+   "id": 3274585615,
+   "art_id": 616,
+   "loca_id": 68107,
+   "cost": [
+    {
+     "resource_id": 1129642255,
+     "amount": 120.0
+    }
+   ],
+   "buffs": [
+    {
+     "id": 1493541960,
+     "value_is_percentage": true,
+     "values": [
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      },
+      {
+       "value": 0,
+       "chance": 1
+      }
+     ],
+     "art_id": 999,
+     "loca_id": 68107,
+     "show_percentage": true,
+     "value_type": 0
+    }
+   ],
+   "type": 3
+  },
+  {
+   "id": 1941971275,
+   "art_id": 637,
+   "loca_id": 78557,
+   "cost": [
+    {
+     "resource_id": 2661950046,
+     "amount": 80.0
+    }
+   ],
+   "buffs": [
+    {
+     "id": 435816802,
+     "value_is_percentage": true,
+     "values": [
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      },
+      {
+       "value": 15,
+       "chance": 1
+      }
+     ],
+     "art_id": 637,
+     "loca_id": 78557,
+     "show_percentage": true,
+     "value_type": 0
+    }
+   ],
+   "type": 3
+  }
+ ],
+ "xp_amount": 1097,
+ "asa": [
+  {
+   "id": 2213927294,
+   "art_id": 14,
+   "loca_id": 14
+  },
+  {
+   "id": 1497505567,
+   "art_id": 28,
+   "loca_id": 28
+  },
+  {
+   "id": 2260006304,
+   "art_id": 376,
+   "loca_id": 68003
+  }
+ ]
+}

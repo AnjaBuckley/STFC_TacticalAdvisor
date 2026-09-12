@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#101d2b"><title>STFC · Tactical Advisor</title><link rel="icon" href="/assets/insignia.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/style.css"><script type="module" src="/assets/app.js"></script></head>
+<body>
+<a class="skip-link" href="#main">Skip to mission planner</a>
+<div class="app-shell">
+<aside class="sidebar">
+<a class="brand" href="#planner" aria-label="Tactical Advisor home"><img src="/assets/insignia.svg" alt="" width="37" height="46"><div><strong>STFC</strong><span>Tactical advisor</span></div></a>
+<div class="nav-caption">Command console</div>
+<nav aria-label="Main navigation">
+<button class="nav-button active" data-view="planner"><span class="nav-icon">⌘</span> Mission planner</button>
+<button class="nav-button" data-view="fleet"><span class="nav-icon">◇</span> My fleet <span id="fleet-count" class="nav-count"></span></button>
+<button class="nav-button" data-view="roster"><span class="nav-icon">♙</span> Officer roster <span id="roster-count" class="nav-count"></span></button>
+<button class="nav-button" data-view="account"><span class="nav-icon">☷</span> Account & research</button>
+<button class="nav-button" data-view="rules"><span class="nav-icon">◎</span> Rules & sources</button>
+</nav>
+<div class="sidebar-bottom"><div class="local-status"><i></i> Local connection</div><p id="sheet-sync-indicator" aria-live="polite">Sheet sync: checking…</p><p>Your fleet. Your data.<br>Stored on this computer.</p><div class="account-chip"><div class="avatar-small">C</div><div><strong>Commander</strong><span id="account-ops">Loading account…</span></div><span class="status-dot"></span></div></div>
+</aside>
+<div class="workspace"><header class="topbar"><div class="breadcrumb">Command <span>/</span> <strong id="breadcrumb">Mission planner</strong></div><div class="topbar-end"><span class="version">Tactical console v3</span><button id="export-account" class="text-button">Export account <span aria-hidden="true">↗</span></button></div></header>
+<main id="main" tabindex="-1">
+<div id="global-error" role="alert" hidden></div>
+<div id="sheet-update-notice" class="notice" role="status" hidden><p>Your saved account has changed. Reload to show the latest data before editing. Reloading discards unsaved form changes.</p><button class="secondary-button" id="reload-synced-account">Reload account</button></div>
+<section id="view-planner" class="view">
+<div class="page-heading"><div><div class="heading-overline"><span></span> Ready for your next mission</div><h1>Make every crew count.</h1><p>Find the right ship and officers for the encounter ahead.</p></div><div class="ops-badge"><span>Operations</span><strong id="ops-number">—</strong></div></div>
+<div class="planner-layout">
+<form id="mission-form" class="mission-panel panel">
+<div class="panel-heading"><h2>Mission parameters</h2><span class="tiny-accent">Set your course</span></div>
+<label for="task">Mission type</label><select id="task" name="task"></select>
+<div id="hostile-control"><label for="target">Target hostile</label><select id="target" name="target"></select></div>
+<div id="enemy-control" hidden><label for="enemy-class">Opponent ship class</label><select id="enemy-class"><option>Battleship</option><option>Explorer</option><option>Interceptor</option></select></div>
+<div class="field-row"><div><label for="target-level">Target level</label><input id="target-level" type="number" min="1" max="100" value="60" required></div><div><label for="top-n">Recommendations</label><select id="top-n"><option>3</option><option>5</option><option>10</option><option>1</option></select></div></div>
+<label for="ship-select">Deploy from your fleet</label><select id="ship-select"></select>
+<div class="field-help" id="fleet-help">Only your available ships and officers are considered.</div>
+<details class="target-details"><summary>Target stats <span>Optional overrides</span></summary><p>Use values from your battle log. Blank fields use the target catalogue. Percentages use 0–100.</p><div class="stats-input-grid" id="target-stats"></div></details>
+<div class="form-divider"></div><button id="recommend-button" type="submit" class="primary-button"><span aria-hidden="true">✧</span> Find my best crew</button><div id="run-status" class="run-status" aria-live="polite">Based on your saved account</div>
+</form>
+<div class="briefing panel"><div class="briefing-top"><span class="pill">Tactical briefing</span><span id="target-class" class="briefing-class">Hostile intelligence</span></div>
+<div class="briefing-copy"><h2 id="briefing-name">Select your target</h2><p id="briefing-notes">Review the encounter, select your ship, and assemble a crew from your own roster.</p><div id="target-traits" class="trait-list"></div></div>
+<div class="tactical-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div><div class="crosshair horizontal"></div><div class="crosshair vertical"></div><svg class="starship" viewBox="0 0 520 310"><defs><linearGradient id="hull" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#56899f"/><stop offset=".5" stop-color="#203e55"/><stop offset="1" stop-color="#13293c"/></linearGradient></defs><g transform="translate(265 148) rotate(-24)"><path d="M-31 35 -48 117 -23 126 0 74 23 126 48 117 31 35" fill="url(#hull)" stroke="#6eacba"/><path d="M-59 29 -93 92 -87 113 -75 113 -33 49 M59 29 93 92 87 113 75 113 33 49" fill="#294f65" stroke="#639ab0"/><rect x="-112" y="33" width="20" height="105" rx="9" fill="url(#hull)" stroke="#8ac4d0"/><rect x="92" y="33" width="20" height="105" rx="9" fill="url(#hull)" stroke="#8ac4d0"/><path d="M-107 47V115 M107 47V115" stroke="#60e3ee" stroke-width="3"/><ellipse cy="-4" rx="110" ry="62" fill="url(#hull)" stroke="#9fc3cb" stroke-width="1.5"/><ellipse cy="-4" rx="94" ry="50" fill="none" stroke="#6592a7"/><ellipse cy="-4" rx="62" ry="32" fill="none" stroke="#507a93"/><path d="M0 -64V-23 M-105 -4H-36 M105 -4H36 M-75 -44 -32 -17 M75 -44 32 -17 M-76 38 -32 12 M76 38 32 12" stroke="#6c9bad" opacity=".6"/><ellipse cy="-4" rx="25" ry="15" fill="#25495e" stroke="#a4d7db"/><ellipse cy="-7" rx="10" ry="5" fill="#89c6d0"/><path d="M-15 56 -9 76H9L15 56" fill="#4887a4" stroke="#93d2de"/></g></svg><span class="art-coordinate coord-one">Sector scan / active</span><span class="art-coordinate coord-two">Ship schematic · illustrative</span><span class="scan-node"></span></div>
+<div class="briefing-footer"><div><i class="status-dot"></i><span id="briefing-data">Local target catalogue</span></div><button class="text-button" data-view="rules">View combat rules ↗</button></div>
+</div>
+</div>
+<div class="results-heading"><div><h2>Crew recommendations</h2><span id="results-subtitle">Your next advantage starts on the bridge.</span></div><button id="export-results" class="secondary-button" hidden>Export results</button></div>
+<div id="results" aria-live="polite"><div class="empty-state"><div class="empty-icon">✧</div><h3>The bridge is yours, Commander.</h3><p>Choose an encounter above. We’ll compare your available officers<br class="desktop-break"> and bring you a ship, a bridge crew, and a below-deck complement.</p><div class="empty-steps"><span>◇ Choose a mission</span><span>♙ Compare crews</span><span>◎ Review the reasoning</span></div></div></div>
+</section>
+<section id="view-fleet" class="view" hidden></section>
+<section id="view-roster" class="view" hidden></section>
+<section id="view-account" class="view" hidden></section>
+<section id="view-rules" class="view" hidden></section>
+<footer class="page-footer"><span>Independent STFC companion · Not affiliated with Scopely</span><span>Live long and prosper.</span></footer>
+</main></div></div>
+<div id="toast" role="status" hidden></div>
+<dialog id="edit-dialog"><form id="edit-form"><div class="dialog-heading"><h2 id="edit-title">Edit ship</h2><button type="button" id="close-dialog" class="icon-button" aria-label="Close dialog">×</button></div><div id="edit-fields"></div><div id="dialog-error" role="alert"></div><div class="dialog-actions"><button type="button" id="cancel-dialog" class="secondary-button">Cancel</button><button type="submit" class="primary-button">Save ship</button></div></form></dialog>
+</body></html>

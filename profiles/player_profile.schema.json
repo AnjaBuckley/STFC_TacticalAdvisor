@@ -1,0 +1,284 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "STFC Player Profile",
+  "description": "Schema for STFC Tactical Advisor player account state",
+  "type": "object",
+  "required": [
+    "ops_level",
+    "officers",
+    "ships"
+  ],
+  "properties": {
+    "ops_level": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100,
+      "description": "Player Operations level"
+    },
+    "buildings": {
+      "type": "object",
+      "description": "Building levels keyed by building name",
+      "additionalProperties": {
+        "type": "number"
+      }
+    },
+    "research": {
+      "type": "object",
+      "properties": {
+        "combat": {
+          "type": "object",
+          "additionalProperties": {
+            "type": [
+              "number",
+              "string"
+            ]
+          }
+        },
+        "mirror_tree": {
+          "type": "object",
+          "properties": {
+            "apex_barrier": {
+              "type": "number"
+            }
+          }
+        },
+        "star_path": {
+          "type": "object",
+          "properties": {
+            "isolytic_damage_bonus": {
+              "type": "number"
+            }
+          }
+        },
+        "critical_mitigation": {
+          "type": "object",
+          "properties": {
+            "remote_campus_bonus": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "programmable_matter_beam": {
+              "type": "boolean"
+            },
+            "programmable_matter_beam_value": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "remote_campus_points": {
+              "type": "number",
+              "minimum": 0,
+              "description": "In-game Critical Mitigation points. Takes precedence over legacy percentage."
+            },
+            "programmable_matter_beam_points": {
+              "type": "number",
+              "minimum": 0,
+              "description": "In-game Critical Mitigation points. Takes precedence over legacy percentage."
+            }
+          }
+        }
+      },
+      "description": "Structured additive research bonuses. Bonus fields are decimal fractions; fields ending in _points are game points."
+    },
+    "officers": {
+      "type": "array",
+      "description": "List of player-owned officers",
+      "items": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "rarity": {
+            "type": "string",
+            "enum": [
+              "C",
+              "U",
+              "R",
+              "E",
+              "Common",
+              "Uncommon",
+              "Rare",
+              "Epic",
+              "Legendary"
+            ]
+          },
+          "level": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "rank": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9
+          },
+          "attack": {
+            "type": "number"
+          },
+          "defense": {
+            "type": "number"
+          },
+          "health": {
+            "type": "number"
+          },
+          "group": {
+            "type": "string"
+          },
+          "class": {
+            "type": "string"
+          },
+          "cm_bda_value": {
+            "type": "string"
+          },
+          "oa_value": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "attack_bonus": {
+            "type": "number"
+          },
+          "pvp_relevant": {
+            "type": "boolean"
+          },
+          "pve_relevant": {
+            "type": "boolean"
+          },
+          "available": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "ships": {
+      "type": "array",
+      "description": "List of player-owned ships",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "ship_class",
+          "base_stats"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "ship_class": {
+            "type": "string",
+            "enum": [
+              "Explorer",
+              "Battleship",
+              "Interceptor",
+              "Survey"
+            ]
+          },
+          "tier": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "level": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "simulacrum_refit": {
+            "type": "boolean"
+          },
+          "crit_mitigation_bonus": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "below_deck_slots_by_tier": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer"
+            }
+          },
+          "base_stats": {
+            "type": "object",
+            "properties": {
+              "attack": {
+                "type": "number"
+              },
+              "defense": {
+                "type": "number"
+              },
+              "health": {
+                "type": "number"
+              },
+              "armor": {
+                "type": "number"
+              },
+              "shield_deflection": {
+                "type": "number"
+              },
+              "dodge": {
+                "type": "number"
+              },
+              "armor_piercing": {
+                "type": "number"
+              },
+              "shield_piercing": {
+                "type": "number"
+              },
+              "accuracy": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "attack",
+              "health",
+              "armor",
+              "shield_deflection",
+              "dodge"
+            ]
+          },
+          "available": {
+            "type": "boolean"
+          },
+          "below_deck_slots": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 20
+          },
+          "below_deck_slots_by_level": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "crit_mitigation_points": {
+            "type": "number",
+            "minimum": 0
+          },
+          "isolytic_damage_bonus": {
+            "type": "number",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "syndicate_level": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 200
+    },
+    "syndicate_pair": {
+      "type": "array",
+      "description": "Syndicate pair values [6, 13] for slot bonus calculation",
+      "items": {
+        "type": [
+          "number",
+          "null"
+        ]
+      }
+    }
+  }
+}
