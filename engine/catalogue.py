@@ -116,7 +116,12 @@ def ship_stats(ship, crew, profile, effects=None):
         ("accuracy", "ship_accuracy", "attack", "accuracy"),
     ]:
         multiplier = (
-            1 if displayed else 1 + c.get(research, 0) + bonuses.get(officer_stat, 0)
+            1
+            if displayed
+            else 1
+            + c.get(research, 0)
+            + ship.get("research_bonuses", {}).get(research, 0)
+            + bonuses.get(officer_stat, 0)
         )
         result[stat] = b.get(stat, 0) * max(0, multiplier + effects.get(effect, 0))
     for stat in ("armor", "shield_deflection", "dodge"):

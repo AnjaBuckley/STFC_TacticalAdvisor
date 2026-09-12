@@ -6,3 +6,5 @@
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important}}
 /* Allow the horizontally scrollable mobile navigation to shrink inside the grid. */
 .sidebar,.sidebar nav,.view,.panel{min-width:0}.rule-card .code-note{overflow-wrap:anywhere}
+
+#build-status, #build-reference { overflow-wrap: anywhere; margin: 12px 0; font-size: 12px; line-height: 1.6; color: var(--muted); }

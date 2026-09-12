@@ -61,3 +61,11 @@ Explorer PvP now evaluates captain morale before morale-dependent officer effect
 The planner offers Combat and Loot priority. Both sort kill and survival feasibility first. Loot then multiplies the relative combat score by `1 + supported loot bonus`; this is a documented product heuristic, not a game formula or a prediction of actual drops. Travel, cargo and full-flight yield are not simulated. API clients can send `objective: combat|loot`; default is combat, and PvP/raids reject loot mode.
 
 Explicit weapon schedules also accept optional `crit_chance` and `crit_multiplier`. Omitted/null values inherit the combatant values; zero chance remains zero. This preserves different critical profiles within one encounter. The saved Xindi export and remaining importer uncertainties are documented in [the specialist report](../reports/crew-benchmark-2026-09-12/SPECIALIST_FOLLOWUP.md). Raw component schedules are not automatically enabled by this change.
+
+## Ship catalogue builds and research
+
+The fleet editor now resolves base builds from exact level/tier/component choices using a bundled 115-ship snapshot, with per-weapon schedules and source version. Hull/shield level additions remain an export interpretation; no player research is inferred from level. Global and extra ship research totals are additive, and displayed-stat builds retain double-counting protection. See [ship data provenance](SHIP_DATA.md).
+
+### Research progression follow-up
+
+Spock's Club Current rows represent selected completed levels, not queued research (verified in its public research export JavaScript). Import joins the highest Yes/Current level to native catalogue buffs. The explicit 21-node mapping registry preserves faction, minimum grade, ship class and PvP conditions. Remaining sources require review; enabling mapped sources requires excluding their bonuses from manual totals. See [SHIP_DATA.md](SHIP_DATA.md). Vengeance ability/refit references are now visible, but catalogue visibility does not imply those effects are simulated.

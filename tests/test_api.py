@@ -308,3 +308,29 @@ def test_recommendation_objective_validation_and_forwarding(client, monkeypatch)
     assert (
         client.post("/api/recommend", json={"objective": "invented"}).status_code == 422
     )
+
+
+def test_research_mapping_activation_is_explicit_and_preview_only(client):
+    import csv
+    import io
+    from pathlib import Path
+
+    entry = json.loads(Path("data/research_effects.json").read_text())["mappings"][0]
+    output = io.StringIO()
+    writer = csv.writer(output)
+    writer.writerow(["Name", "Level", "Done", "id", ""])
+    writer.writerow(
+        ["Synthetic research", 1, "Current", entry["node_id"], entry["description"]]
+    )
+    original = client.get("/api/bootstrap").json()["profile"]
+    for enabled in (False, True):
+        response = client.post(
+            f"/api/import/preview?kind=research&enable_mapped={str(enabled).lower()}",
+            files={"file": ("synthetic.csv", output.getvalue().encode(), "text/csv")},
+        )
+        assert response.status_code == 200, response.text
+        updated = response.json()["profile"]
+        mapped = [s for s in updated["combat_sources"] if s.get("mapping_source")]
+        assert mapped and all(s["enabled"] == enabled for s in mapped)
+        assert updated["research"] == original["research"]
+        assert client.get("/api/bootstrap").json()["profile"] == original

@@ -24,15 +24,23 @@ def source_effects(profile, ship, task_type, target, round_number=1):
         checks = {
             "ship_class": ship.get("ship_class"),
             "ship_name": ship.get("name"),
+            "ship_faction": ship.get("faction"),
             "target_class": target.get("ship_class"),
             "target_family": target.get("catalogue_family", target.get("name")),
             "target_id": target.get("hostile_id"),
             "target_faction": target.get("faction_id"),
         }
+        minimum_grade = conditions.get("ship_grade_min")
+        if minimum_grade is not None and (
+            not isinstance(ship.get("grade"), (int, float))
+            or ship["grade"] < minimum_grade
+        ):
+            continue
         if any(
             key not in checks
             or checks[key] not in (values if isinstance(values, list) else [values])
             for key, values in conditions.items()
+            if key != "ship_grade_min"
         ):
             continue
         if source.get("duration") and round_number > source["duration"]:
@@ -113,6 +121,8 @@ def validate_sources(sources):
             not in {
                 "ship_class",
                 "ship_name",
+                "ship_faction",
+                "ship_grade_min",
                 "target_class",
                 "target_family",
                 "target_id",
@@ -121,6 +131,14 @@ def validate_sources(sources):
             for k in source.get("conditions", {})
         ):
             raise ValueError("Unsupported source condition.")
+        if "ship_grade_min" in source.get("conditions", {}):
+            grade = source["conditions"]["ship_grade_min"]
+            if (
+                isinstance(grade, bool)
+                or not isinstance(grade, int)
+                or not 1 <= grade <= 10
+            ):
+                raise ValueError("Minimum ship grade must be an integer 1–10.")
         if "duration" in source:
             duration = source["duration"]
             if (

@@ -82,3 +82,9 @@ The implementation disposition is in `docs/AUDIT_CORRECTIONS.md`. It supersedes 
 ## Specialist model boundaries
 
 See [specialist follow-up](reports/crew-benchmark-2026-09-12/SPECIALIST_FOLLOWUP.md). Preserve per-weapon critical overrides, received-weapon procs, explicit defending/ship-class conditions and the Combat/Loot objective distinction. Weyoun timing, Seven cadence and shot rounding remain provisional. Do not import raw hostile weapon components without verifying units and hostile abilities.
+
+## Ship data and autofill
+
+See [SHIP_DATA.md](docs/SHIP_DATA.md). `engine/ship_builds.py` resolves base builds; `refresh_ship_database.py` explicitly refreshes the public ship snapshot. Keep SHIP_SNAPSHOT.json separate from other dataset versions. Level is not enough to infer tier, components or account research. Preserve manual-build opt-in, component choices during level changes, native units, and global versus extra ship research totals. Static Ship Stats sheet references never confer ownership or enable unreviewed combat effects.
+
+Research imports: count Yes and Current, select the highest completed level once, and preserve manual totals. `data/research_effects.json` is the explicit node/buff scope registry. New mappings default disabled; activation is an import choice acknowledging overlapping totals. Never convert CSV Power or description regex matches into applied bonuses. Ship catalogue reference panels do not activate ownership-dependent abilities/refits.

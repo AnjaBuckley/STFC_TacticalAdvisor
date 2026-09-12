@@ -156,3 +156,13 @@ Read [the implementation disposition](docs/AUDIT_CORRECTIONS.md) and [calculatio
 ### Combat or loot priority
 
 The mission planner can rank combat outcomes or include supported hostile loot bonuses. Loot priority still puts kill/survival feasibility first; it does not simulate travel, cargo or full-flight yield. Borg officer-stat bonuses, Trip/Archer received-weapon effects and selected Explorer PvP morale effects are now modelled. See [mechanics and remaining assumptions](docs/RULES.md). API requests accept `objective: "combat"` (default) or `"loot"`; loot is unavailable for PvP/station encounters.
+
+## Ship stat autofill and research
+
+In **My fleet**, select an owned catalogue ship, enter its level and actual tier, and choose any next-tier components already installed. Autofill loads unbuffed hull/shield, mitigation and piercing stats, per-weapon damage/criticals/firing schedules, cargo and movement reference values from the bundled STFC Space snapshot. Level alone does not determine component upgrades. Existing manual builds stay manual until autofill is enabled.
+
+**Account & research** includes armor, shield deflection, dodge, armor/shield piercing and accuracy bonuses. Ship editing also has **Extra research bonuses for this ship** for additional ship/class-specific percentages. Do not repeat a bonus in both places. Actual research progress cannot be inferred from ship level.
+
+The bundle contains 115 public ship records and 102 static Officers Tool Ship Stats references as of 12 September 2026. It works offline; no ship database polling or private sheet connection is bundled. Source version is shown after autofill. See [data provenance and limitations](docs/SHIP_DATA.md).
+
+Research CSV imports now include Spock's Club `Current` levels. Preview preserves manual totals and retains unsupported effects for review. An optional checkbox activates the 21 explicitly mapped research nodes; use it only when manual totals exclude those bonuses. Ship autofill also displays ability, refit and crew references. See [ship and research data coverage](docs/SHIP_DATA.md).

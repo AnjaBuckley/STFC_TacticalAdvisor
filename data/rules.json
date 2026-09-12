@@ -121,11 +121,21 @@
       "coverage": "Probability separated from effect magnitude. Export morale timing, floor shot rounding and stacking need current logs.",
       "source": "Scopely Update 48/58; versioned export",
       "url": "https://startrekfleetcommand.com/news/update-58-lower-decks-ii-part-1/"
+    },
+    {
+      "title": "Ship level, components and account research are distinct",
+      "status": "Export-based estimate",
+      "description": "Autofill combines selected tier components with exported hull/shield level bonuses. Extra ship research adds to global research in the same stat category; actual research progress cannot be inferred from ship level.",
+      "formula": "Base stat × (1 + global bonus + extra ship bonus + eligible officer bonus)",
+      "coverage": "115 bundled ships with explicit weapon schedules; 102 static sheet references. Full live-game calibration and conditional ability coverage remain incomplete.",
+      "source": "STFC Space snapshot; see docs/SHIP_DATA.md",
+      "url": "https://stfc.space/ships"
     }
   ],
   "limitations": [
     "Results are partial combat-model outcomes, not live win probabilities. Confidence intervals describe random sampling only, not missing mechanics.",
     "The bounded search and greedy marginal below-deck selection do not prove global optimality. Loot per flight, complete raids, waves and anomaly rewards are not calculated.",
-    "Unknown data and unreviewed sources remain explicitly omitted."
+    "Unknown data and unreviewed sources remain explicitly omitted.",
+    "Research CSV imports include Yes and Current levels. Only 21 explicitly mapped nodes have reviewed effects; new mappings default disabled to prevent overlap with manual totals. Ship ability/refit references do not automatically activate their effects."
   ]
 }

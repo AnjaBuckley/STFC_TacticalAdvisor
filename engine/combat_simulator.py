@@ -267,10 +267,11 @@ def _single_combat_run(
                     if weapon_multiplier is None:
                         weapon_multiplier = owner.get("crit_multiplier", 1.5)
                     chance = (
-                        weapon_chance
-                        - current.get("enemy_crit_down", 0)
+                        weapon_chance - current.get("enemy_crit_down", 0)
                         if is_enemy
-                        else weapon_chance + current.get("crit_chance", 0)
+                        else weapon_chance
+                        + ship.get("crit_chance_bonus", 0)
+                        + current.get("crit_chance", 0)
                     )
                     crit = rng.random() < min(1, max(0, chance))
                     multiplier = (
@@ -283,6 +284,7 @@ def _single_combat_run(
                         else max(
                             ship.get("critical_floor", 1),
                             weapon_multiplier
+                            + ship.get("crit_damage_bonus", 0)
                             + current.get("crit_damage", 0),
                         )
                     )

@@ -183,6 +183,23 @@ def health():
     }
 
 
+class ShipBuildRequest(StrictModel):
+    name: str = Field(min_length=1, max_length=150)
+    level: int = Field(ge=1, le=200)
+    tier: int = Field(ge=1, le=30)
+    component_tiers: dict[str, int] = Field(default_factory=dict)
+
+
+@app.post("/api/ships/build")
+def preview_ship_build(body: ShipBuildRequest):
+    from engine.ship_builds import build_ship
+
+    try:
+        return build_ship(body.name, body.level, body.tier, body.component_tiers)
+    except (ValueError, KeyError) as exc:
+        raise HTTPException(422, str(exc)) from exc
+
+
 @app.put("/api/profile")
 def update_profile(body: ProfileUpdate):
     try:
@@ -312,6 +329,7 @@ def recommend(body: RecommendationRequest):
 def preview_import(
     kind: Literal["research", "officers", "profile"],
     file: Annotated[UploadFile, File()],
+    enable_mapped: bool = False,
 ):
     raw = file.file.read(12 * 1024 * 1024 + 1)
     if len(raw) > 12 * 1024 * 1024:
@@ -333,6 +351,17 @@ def preview_import(
                     )
                 report = compute_research_buffs(rows)
                 updated, diff = apply_to_profile(copy.deepcopy(profile), report)
+                if enable_mapped:
+                    for source in updated.get("combat_sources", []):
+                        if (
+                            source.get("origin") == "research_csv"
+                            and source.get("mapping_source")
+                            and not source.get("import_warning")
+                        ):
+                            source["enabled"] = True
+                    diff.append(
+                        "Enabled mapped research: manual global and ship totals must exclude these same bonuses."
+                    )
             elif kind == "officers":
                 from ingest.officer_tool_sheet import (
                     apply_to_profile,

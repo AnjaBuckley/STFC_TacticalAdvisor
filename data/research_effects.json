@@ -1,0 +1,445 @@
+{
+  "reviewed": "2026-09-12",
+  "notes": "Explicit node/buff mappings checked against catalogue values and descriptions. New imports are disabled until totals overlap is reviewed.",
+  "mappings": [
+    {
+      "node_id": "38076572",
+      "buff_id": 1419846647,
+      "name": "Romulan Persistence",
+      "description": "Increases base Hull Health of all Romulan ships.",
+      "effects": [
+        "hull_health"
+      ],
+      "conditions": {
+        "ship_faction": "Romulan"
+      },
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "unit": "fraction",
+      "source": "https://stfc.space/researches/38076572"
+    },
+    {
+      "node_id": "51827304",
+      "buff_id": 1249674165,
+      "name": "4★ Interceptor Armor Piercing",
+      "description": "Increases base Armor Piercing for all Grade 4+ Interceptors.",
+      "effects": [
+        "armor_piercing"
+      ],
+      "conditions": {
+        "ship_grade_min": 4,
+        "ship_class": "Interceptor"
+      },
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "unit": "fraction",
+      "source": "https://stfc.space/researches/51827304"
+    },
+    {
+      "node_id": "208174446",
+      "buff_id": 1728837131,
+      "name": "4★ Shield Efficiency",
+      "description": "Increases base Shield Deflection for all Grade 4+ ships.",
+      "effects": [
+        "shield_deflection"
+      ],
+      "conditions": {
+        "ship_grade_min": 4
+      },
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "unit": "fraction",
+      "source": "https://stfc.space/researches/208174446"
+    },
+    {
+      "node_id": "281104967",
+      "buff_id": 4084542106,
+      "name": "4★ Evasive Interceptors",
+      "description": "Increases base Dodge for all Grade 4+ Interceptors.",
+      "effects": [
+        "dodge"
+      ],
+      "conditions": {
+        "ship_grade_min": 4,
+        "ship_class": "Interceptor"
+      },
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "unit": "fraction",
+      "source": "https://stfc.space/researches/281104967"
+    },
+    {
+      "node_id": "331012121",
+      "buff_id": 2176757842,
+      "name": "Temporal Shield Health",
+      "description": "Increases base Shield Health for all ships",
+      "effects": [
+        "shield_health"
+      ],
+      "conditions": {},
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "unit": "fraction",
+      "source": "https://stfc.space/researches/331012121"
+    },
+    {
+      "node_id": "430986807",
+      "buff_id": 2437528670,
+      "name": "4★ Hull Density",
+      "description": "Increases base Hull Health for all Grade 4+ ships.",
+      "effects": [
+        "hull_health"
+      ],
+      "conditions": {
+        "ship_grade_min": 4
+      },
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "unit": "fraction",
+      "source": "https://stfc.space/researches/430986807"
+    },
+    {
+      "node_id": "436991862",
+      "buff_id": 2391638473,
+      "name": "Prime Hardened Shield Phasing",
+      "description": "Increases base Shield Health.",
+      "effects": [
+        "shield_health"
+      ],
+      "conditions": {},
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "unit": "fraction",
+      "source": "https://stfc.space/researches/436991862"
+    },
+    {
+      "node_id": "534869146",
+      "buff_id": 2372983668,
+      "name": "4★ Covariant Shields",
+      "description": "Increases base Shield Health for all ships Grade 4 and above.",
+      "effects": [
+        "shield_health"
+      ],
+      "conditions": {
+        "ship_grade_min": 4
+      },
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "unit": "fraction",
+      "source": "https://stfc.space/researches/534869146"
+    },
+    {
+      "node_id": "597519142",
+      "buff_id": 2580220592,
+      "name": "4★ Explorer Barriers",
+      "description": "Increases base Shield Deflection for all Grade 4+ Explorers.",
+      "effects": [
+        "shield_deflection"
+      ],
+      "conditions": {
+        "ship_grade_min": 4,
+        "ship_class": "Explorer"
+      },
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "unit": "fraction",
+      "source": "https://stfc.space/researches/597519142"
+    },
+    {
+      "node_id": "700850569",
+      "buff_id": 852438842,
+      "name": "5★ Hull Reinforcement",
+      "description": "Increases base Hull Health for all Grade 5+ ships.",
+      "effects": [
+        "hull_health"
+      ],
+      "conditions": {
+        "ship_grade_min": 5
+      },
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "unit": "fraction",
+      "source": "https://stfc.space/researches/700850569"
+    },
+    {
+      "node_id": "761917312",
+      "buff_id": 1356151866,
+      "name": "6⇵ Battleship Casing",
+      "description": "Increases base Hull Health of all 6⇵+ Battleships.",
+      "effects": [
+        "hull_health"
+      ],
+      "conditions": {
+        "ship_grade_min": 6,
+        "ship_class": "Battleship"
+      },
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "unit": "fraction",
+      "source": "https://stfc.space/researches/761917312"
+    },
+    {
+      "node_id": "872286238",
+      "buff_id": 4174465744,
+      "name": "6⇵ Interceptor Absorbers",
+      "description": "Increases base Shield Health of all 6⇵+ Interceptors.",
+      "effects": [
+        "shield_health"
+      ],
+      "conditions": {
+        "ship_grade_min": 6,
+        "ship_class": "Interceptor"
+      },
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "unit": "fraction",
+      "source": "https://stfc.space/researches/872286238"
+    },
+    {
+      "node_id": "908924236",
+      "buff_id": 3464583827,
+      "name": "Enhanced Hull",
+      "description": "Increases base Hull Health for all ships",
+      "effects": [
+        "hull_health"
+      ],
+      "conditions": {},
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "unit": "fraction",
+      "source": "https://stfc.space/researches/908924236"
+    },
+    {
+      "node_id": "1058411354",
+      "buff_id": 1703144111,
+      "name": "Offensive Strategies",
+      "description": "Increases base Weapon Damage of all ships against player ships.",
+      "effects": [
+        "weapon_damage"
+      ],
+      "conditions": {},
+      "contexts": [
+        "pvp"
+      ],
+      "unit": "fraction",
+      "source": "https://stfc.space/researches/1058411354"
+    },
+    {
+      "node_id": "1087431124",
+      "buff_id": 241682434,
+      "name": "Shield Health Boost",
+      "description": "Increases base Shield Health for all ships.",
+      "effects": [
+        "shield_health"
+      ],
+      "conditions": {},
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "unit": "fraction",
+      "source": "https://stfc.space/researches/1087431124"
+    },
+    {
+      "node_id": "1149881621",
+      "buff_id": 618925636,
+      "name": "4★ Explorer Targeting Array",
+      "description": "Increases base Accuracy for all Grade 4+ Explorers.",
+      "effects": [
+        "accuracy"
+      ],
+      "conditions": {
+        "ship_grade_min": 4,
+        "ship_class": "Explorer"
+      },
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "unit": "fraction",
+      "source": "https://stfc.space/researches/1149881621"
+    },
+    {
+      "node_id": "1193150384",
+      "buff_id": 1278978687,
+      "name": "Rare Hull Health",
+      "description": "Increases base Hull Health for all ships.",
+      "effects": [
+        "hull_health"
+      ],
+      "conditions": {},
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "unit": "fraction",
+      "source": "https://stfc.space/researches/1193150384"
+    },
+    {
+      "node_id": "2999437",
+      "buff_id": 1994654654,
+      "name": "4★ Direct Hit",
+      "description": "Increases base Armor Piercing, Shield Penetration, and Accuracy for all ships Grade 4 and above.",
+      "effects": [
+        "armor_piercing",
+        "shield_piercing",
+        "accuracy"
+      ],
+      "conditions": {
+        "ship_grade_min": 4
+      },
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "unit": "fraction",
+      "source": "https://stfc.space/researches/2999437"
+    },
+    {
+      "node_id": "384057185",
+      "buff_id": 3176722513,
+      "name": "Unstoppable Battleships",
+      "description": "Increases base armor, dodge, and shield deflection for battleships.",
+      "effects": [
+        "armor",
+        "shield_deflection",
+        "dodge"
+      ],
+      "conditions": {
+        "ship_class": "Battleship"
+      },
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "unit": "fraction",
+      "source": "https://stfc.space/researches/384057185"
+    },
+    {
+      "node_id": "699378899",
+      "buff_id": 2640187489,
+      "name": "Explorer Advanced Piercing",
+      "description": "Increases base armor piercing, shield penetration, and accuracy for explorers.",
+      "effects": [
+        "armor_piercing",
+        "shield_piercing",
+        "accuracy"
+      ],
+      "conditions": {
+        "ship_class": "Explorer"
+      },
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "unit": "fraction",
+      "source": "https://stfc.space/researches/699378899"
+    },
+    {
+      "node_id": "882518551",
+      "buff_id": 257133090,
+      "name": "Unstoppable Interceptors",
+      "description": "Increases base armor, dodge, and shield deflection for interceptors.",
+      "effects": [
+        "armor",
+        "shield_deflection",
+        "dodge"
+      ],
+      "conditions": {
+        "ship_class": "Interceptor"
+      },
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "unit": "fraction",
+      "source": "https://stfc.space/researches/882518551"
+    }
+  ]
+}

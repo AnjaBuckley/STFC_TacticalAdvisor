@@ -4,7 +4,7 @@ Spock's Club Research CSV Ingestion — STFC Tactical Advisor
 Reads a "Research Management" export from spocks.club (one row per research
 node level, with a Done flag and the stfc.space node id), joins it against
 the per-node buff values in data/stfc_space/research/, and computes the
-player's REAL research buffs — replacing the estimates in the profile.
+attributed research values for explicit scope review; manual totals are preserved.
 
 CSV columns: Name, Level, Tree, Col, Row, Power, Done, Min Ops, id, <description>
 
@@ -17,9 +17,7 @@ import csv
 import io
 import json
 import re
-import shutil
 import sys
-import time
 from collections import defaultdict
 from pathlib import Path
 
@@ -92,6 +90,8 @@ def parse_research_csv(source) -> list[dict]:
 
     reader = csv.reader(io.StringIO(text))
     header = next(reader)
+    if not {"Name", "Level", "Done", "id"}.issubset(header):
+        return []
     rows = []
     for raw_row in reader:
         row = dict(zip(header, raw_row))
@@ -105,7 +105,8 @@ def parse_research_csv(source) -> list[dict]:
                 "name": row.get("Name", "").strip(),
                 "level": int(row.get("Level", 0) or 0),
                 "tree": row.get("Tree", "").strip(),
-                "done": row.get("Done", "").strip().lower() == "yes",
+                "done": row.get("Done", "").strip().lower() in {"yes", "current"},
+                "status": row.get("Done", "").strip().lower(),
                 "description": desc.strip(),
             }
         )
@@ -146,7 +147,12 @@ def compute_research_buffs(rows: list[dict]) -> dict:
     # Preserve each buff's identity and native unit. Text classification is a
     # review hint, never authority to apply several distinct buffs globally.
     sources = []
+    registry = json.loads(
+        (_BASE / "data" / "research_effects.json").read_text(encoding="utf-8")
+    )
+    mappings = {(m["node_id"], m["buff_id"]): m for m in registry["mappings"]}
     missing_detail = 0
+    missing_values = 0
     for node_id, level in done_level.items():
         detail_path = _RESEARCH_DIR / f"{node_id}.json"
         if not detail_path.exists():
@@ -157,6 +163,7 @@ def compute_research_buffs(rows: list[dict]) -> dict:
         for index, buff in enumerate(detail.get("buffs", [])):
             values = buff.get("values", [])
             if not 1 <= level <= len(values):
+                missing_values += 1
                 continue
             value = values[level - 1].get("value", 0) or 0
             sources.append(
@@ -176,6 +183,32 @@ def compute_research_buffs(rows: list[dict]) -> dict:
                     "review_hint": _classify(info["name"], info["description"]),
                 }
             )
+    expanded = []
+    for source in sources:
+        mapping = mappings.get((source["node_id"], source["buff_id"]))
+        if (
+            mapping
+            and source["unit"] == mapping["unit"]
+            and source["description"].strip().casefold()
+            == mapping["description"].strip().casefold()
+        ):
+            for effect in mapping["effects"]:
+                expanded.append(
+                    {
+                        **source,
+                        "id": source["id"] + ":" + effect,
+                        "effect": effect,
+                        "contexts": mapping["contexts"],
+                        "conditions": mapping["conditions"],
+                        "status": "reviewed",
+                        "enabled": False,
+                        "mapping_source": mapping["source"],
+                        "mapping_version": registry["reviewed"],
+                    }
+                )
+        else:
+            expanded.append(source)
+    sources = expanded
     return {
         "buckets": {},
         "conditional": {},
@@ -183,7 +216,20 @@ def compute_research_buffs(rows: list[dict]) -> dict:
         "nodes_done": len(done_level),
         "nodes_counted": len(done_level) - missing_detail,
         "nodes_missing_detail": missing_detail,
-        "warning": "Research values retained per buff in native units. Confirm exact effect and conditions before enabling; existing account totals are preserved.",
+        "buffs_missing_values": missing_values,
+        "mapped_sources": sum(s["status"] == "reviewed" for s in sources),
+        "unreviewed_sources": sum(s["status"] == "unreviewed" for s in sources),
+        "current_rows": sum(r.get("status") == "current" for r in rows),
+        "progress": [
+            {
+                "node_id": key,
+                "name": node_info[key]["name"],
+                "tree": node_info[key].get("tree", ""),
+                "level": level,
+            }
+            for key, level in sorted(done_level.items())
+        ],
+        "warning": "Yes and Current count as completed; the highest completed level is used once. Mapped bonuses start disabled to prevent overlap with manual totals. Unsupported conditions remain unreviewed.",
     }
 
 
@@ -212,13 +258,27 @@ def apply_to_profile(profile: dict, buckets: dict) -> tuple[dict, list[str]]:
                     },
                 }
             )
+        # If an upstream detail/value is missing, retain the old record but disable it;
+        # silently dropping a reviewed source would hide the coverage regression.
+        new_ids = {s["id"] for s in merged}
+        for old in existing:
+            if old.get("origin") == "research_csv" and old["id"] not in new_ids:
+                merged.append(
+                    {
+                        **old,
+                        "enabled": False,
+                        "import_warning": "Not resolved by latest import; retained disabled for review.",
+                    }
+                )
         updated = [s for s in existing if s.get("origin") != "research_csv"] + merged
         profile["combat_sources"] = updated
+        old_progress = profile.get("research_progress", [])
+        profile["research_progress"] = buckets.get("progress", [])
         return profile, (
             [
-                f"Imported {len(merged)} attributed research buffs; manual totals preserved."
+                f"Imported {len(merged)} attributed research buffs; {buckets.get('mapped_sources', 0)} mapped, {buckets.get('unreviewed_sources', 0)} need review. Yes and Current included; manual totals preserved."
             ]
-            if updated != existing
+            if updated != existing or old_progress != profile["research_progress"]
             else []
         )
     diff = []
@@ -278,16 +338,14 @@ def ingest_research_csv(source, apply: bool = False) -> dict:
     """Full pipeline. Returns a report dict; writes the profile when apply=True."""
     rows = parse_research_csv(source)
     result = compute_research_buffs(rows)
-    profile = json.loads(_PROFILE_PATH.read_text(encoding="utf-8"))
+    from service import read_profile, save_profile
+
+    profile, revision = read_profile()
     profile, diff = apply_to_profile(profile, result)
     report = {**result, "diff": diff, "applied": False}
-
     if apply:
-        backup = _PROFILE_PATH.with_suffix(f".json.bak-{int(time.time())}")
-        shutil.copy(_PROFILE_PATH, backup)
-        _PROFILE_PATH.write_text(json.dumps(profile, indent=2, ensure_ascii=False))
+        report["revision"] = save_profile(profile, revision)
         report["applied"] = True
-        report["backup"] = str(backup)
     return report
 
 
@@ -307,4 +365,4 @@ if __name__ == "__main__":
     for d in report["diff"]:
         print(f"  {d}")
     if report["applied"]:
-        print(f"APPLIED. Backup: {report['backup']}")
+        print("APPLIED using revision-checked save and automatic backup.")

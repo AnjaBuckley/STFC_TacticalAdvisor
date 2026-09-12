@@ -93,6 +93,12 @@ def validate_profile(profile):
             "ship_weapon_damage",
             "ship_hull_health",
             "ship_shield_health",
+            "ship_armor",
+            "ship_shield_deflection",
+            "ship_dodge",
+            "ship_armor_piercing",
+            "ship_shield_piercing",
+            "ship_accuracy",
         ),
     )
     numeric(research.get("mirror_tree", {}), ("apex_barrier",))
@@ -146,6 +152,23 @@ def validate_profile(profile):
                     ):
                         raise TypeError(f"Officer {text_field} must be text.")
             if key == "ships":
+                if not isinstance(entry.get("research_bonuses", {}), dict):
+                    raise TypeError("Ship research bonuses must be an object.")
+                numeric(
+                    entry.get("research_bonuses", {}),
+                    (
+                        "ship_weapon_damage",
+                        "ship_hull_health",
+                        "ship_shield_health",
+                        "ship_armor",
+                        "ship_shield_deflection",
+                        "ship_dodge",
+                        "ship_armor_piercing",
+                        "ship_shield_piercing",
+                        "ship_accuracy",
+                    ),
+                )
+
                 if not isinstance(entry.get("base_stats"), dict):
                     raise TypeError("Ship base stats must be an object.")
                 numeric(
@@ -160,11 +183,16 @@ def validate_profile(profile):
                         "repair_cost_total",
                     ),
                 )
-                numeric(entry, ("crit_mitigation_bonus", "crit_chance"), 1)
+                numeric(
+                    entry,
+                    ("crit_mitigation_bonus", "crit_chance", "crit_chance_bonus"),
+                    1,
+                )
                 numeric(
                     entry,
                     (
                         "crit_multiplier",
+                        "crit_damage_bonus",
                         "critical_floor",
                         "isolytic_cascade_bonus",
                         "hyperthermic_stabilizer",
@@ -184,6 +212,14 @@ def validate_profile(profile):
                         if not isinstance(weapon, dict) or "damage" not in weapon:
                             raise ValueError("Each weapon requires damage.")
                         numeric(weapon, ("damage",))
+                        if weapon.get("crit_chance") is not None:
+                            numeric(weapon, ("crit_chance",), 1)
+                        if weapon.get("crit_multiplier") is not None:
+                            numeric(weapon, ("crit_multiplier",), 1000)
+                            if weapon["crit_multiplier"] < 1:
+                                raise ValueError(
+                                    "Weapon critical multiplier must be at least one."
+                                )
                         for field, minimum, maximum in [
                             ("shots", 1, 50),
                             ("warmup", 0, 100),
@@ -299,6 +335,7 @@ def catalog():
         ships.append(
             {
                 "name": names[d["loca_id"]],
+                "catalogue_id": d["id"],
                 "ship_class": {
                     0: "Interceptor",
                     1: "Survey",
