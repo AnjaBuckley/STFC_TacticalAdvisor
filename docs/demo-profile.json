@@ -1,0 +1,229 @@
+{
+  "ops_level": 45,
+  "syndicate_level": 20,
+  "ships": [
+    {
+      "name": "Eviscerator",
+      "ship_class": "Explorer",
+      "tier": 5,
+      "level": 25,
+      "below_deck_slots": 4,
+      "base_stats": {
+        "attack": 45000,
+        "health": 120000,
+        "armor": 12000,
+        "shield_deflection": 18000,
+        "dodge": 9000,
+        "armor_piercing": 14000,
+        "shield_piercing": 20000,
+        "accuracy": 11000
+      },
+      "available": true
+    },
+    {
+      "name": "Saladin",
+      "ship_class": "Interceptor",
+      "tier": 5,
+      "level": 25,
+      "below_deck_slots": 3,
+      "base_stats": {
+        "attack": 28000,
+        "health": 90000,
+        "armor": 12000,
+        "shield_deflection": 18000,
+        "dodge": 9000,
+        "armor_piercing": 14000,
+        "shield_piercing": 20000,
+        "accuracy": 11000
+      },
+      "available": true
+    },
+    {
+      "name": "Franklin",
+      "ship_class": "Explorer",
+      "tier": 5,
+      "level": 25,
+      "below_deck_slots": 2,
+      "base_stats": {
+        "attack": 12000,
+        "health": 50000,
+        "armor": 12000,
+        "shield_deflection": 18000,
+        "dodge": 9000,
+        "armor_piercing": 14000,
+        "shield_piercing": 20000,
+        "accuracy": 11000
+      },
+      "available": true
+    }
+  ],
+  "officers": [
+    {
+      "name": "Kathryn Janeway",
+      "rarity": "E",
+      "group": "Voyager",
+      "description": "CM: When you take hull damage from a non-player hostile os Armada, Increase Shield Mitigation for 1 round (cumulative) OA: At the start of combat, increases Isolytic damage against non-player hostile and armadas",
+      "pvp_relevant": true,
+      "pve_relevant": true,
+      "class": "Command",
+      "rank": 3,
+      "level": 20,
+      "attack": 1000,
+      "defense": 1200,
+      "health": 1500
+    },
+    {
+      "name": "SNW Pike",
+      "rarity": "E",
+      "group": "Strange New Worlds",
+      "description": "CM: When fighting hostiles, increases Shield Mitigation OA: When fighting hostiles, decreases hostile Shield Mitigation",
+      "pvp_relevant": false,
+      "pve_relevant": true,
+      "class": "Science",
+      "rank": 3,
+      "level": 20,
+      "attack": 1200,
+      "defense": 1350,
+      "health": 1700
+    },
+    {
+      "name": "SNW Spock",
+      "rarity": "R",
+      "group": "Strange New Worlds",
+      "description": "CM: When fighting hostiles, SNW Spock decreases hostile critical hit chance OA: Increases Armor, Shield Deflection, and Dodge by % of total Defense when attacking hostile Interceptors from an Explorer",
+      "pvp_relevant": true,
+      "pve_relevant": true,
+      "class": "Engineering",
+      "rank": 3,
+      "level": 20,
+      "attack": 1400,
+      "defense": 1500,
+      "health": 1900
+    },
+    {
+      "name": "SNW Uhura",
+      "rarity": "R",
+      "group": "Strange New Worlds",
+      "description": "CM: When fighting hostiles, SNW Uhura increases critical hit damage OA: Increases Armor, Shield Deflection, and Dodge by % of total Defense when attacking hostile Battleships from an Interceptor",
+      "pvp_relevant": true,
+      "pve_relevant": true,
+      "class": "Command",
+      "rank": 3,
+      "level": 20,
+      "attack": 1600,
+      "defense": 1650,
+      "health": 2100
+    },
+    {
+      "name": "Hugh",
+      "rarity": "E",
+      "group": "Unimatrix Twelve",
+      "description": "BDA: Chance to increase the Critical Hit Chance for 2 rounds after being hit by a hostile. OA: Increases Impulse Speed of ship",
+      "pvp_relevant": false,
+      "pve_relevant": true,
+      "class": "Engineering",
+      "rank": 3,
+      "level": 20,
+      "attack": 2000,
+      "defense": 1950,
+      "health": 2500
+    },
+    {
+      "name": "The Doctor",
+      "rarity": "E",
+      "group": "Voyager",
+      "description": "BDA: Increases all resources dropped by hostiles OA: When taking hull damage from non-player or Armada, Increases Armor, Shield Deflection and Dodge by % of Health for 2 rounds",
+      "pvp_relevant": true,
+      "pve_relevant": true,
+      "class": "Command",
+      "rank": 3,
+      "level": 20,
+      "attack": 2200,
+      "defense": 2100,
+      "health": 2700
+    },
+    {
+      "name": "Ghalenar",
+      "rarity": "R",
+      "group": "Unimatrix Twelve",
+      "description": "BDA: Increases the amount of resources dropped from Actian Apex and Borg hostiles by a percentage of base. OA: Increases Faction Reptation gained from Fed, Kling and Rom hostiles",
+      "pvp_relevant": false,
+      "pve_relevant": true,
+      "class": "Engineering",
+      "rank": 3,
+      "level": 20,
+      "attack": 2600,
+      "defense": 2400,
+      "health": 3100
+    },
+    {
+      "name": "Beverly Crusher",
+      "rarity": "R",
+      "group": "TNG Crew",
+      "description": "CM: When fighting Hostiles and Armadas, restore Shield by % of crew's Health OA: When fighting Hostiles and Armadas, increase mitigation by % of crew's Defence.",
+      "pvp_relevant": false,
+      "pve_relevant": true,
+      "class": "Command",
+      "rank": 3,
+      "level": 20,
+      "attack": 2800,
+      "defense": 2550,
+      "health": 3300
+    },
+    {
+      "name": "Pike",
+      "rarity": "E",
+      "group": "Shakedown Cruise",
+      "description": "CM: Increase the effectiveness of all Officer Abilities that trigger in combat OA: Increase Ship XP earned",
+      "pvp_relevant": false,
+      "pve_relevant": true,
+      "class": "Science",
+      "rank": 3,
+      "level": 20,
+      "attack": 3000,
+      "defense": 2700,
+      "health": 3500
+    },
+    {
+      "name": "Moreau",
+      "rarity": "R",
+      "group": "Shakedown Cruise",
+      "description": "CM: % Shield healed after winning OA: Decrease hostile penetration",
+      "pvp_relevant": false,
+      "pve_relevant": true,
+      "class": "Engineering",
+      "rank": 3,
+      "level": 20,
+      "attack": 3200,
+      "defense": 2850,
+      "health": 3700
+    },
+    {
+      "name": "Chen",
+      "rarity": "U",
+      "group": "Starfleet Academy",
+      "description": "CM: Increase Mitigations against Hostiles OA: Decrease Energy damage dealt by Hostiles",
+      "pvp_relevant": false,
+      "pve_relevant": true,
+      "class": "Command",
+      "rank": 3,
+      "level": 20,
+      "attack": 3400,
+      "defense": 3000,
+      "health": 3900
+    }
+  ],
+  "research": {
+    "combat": {
+      "ship_weapon_damage": 4,
+      "ship_hull_health": 3
+    },
+    "mirror_tree": {
+      "apex_barrier": 10000
+    },
+    "star_path": {
+      "isolytic_damage_bonus": 0.5
+    },
+    "critical_mitigation": {}
+  }
+}

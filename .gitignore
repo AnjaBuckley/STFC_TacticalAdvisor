@@ -1,13 +1,57 @@
+# Python environments and caches
 .venv*/
+venv/
+env/
 __pycache__/
-*.pyc
+*.py[cod]
 .pytest_cache/
 .ruff_cache/
-build/
-dist/
-profiles/*
-!profiles/player_profile.template.json
-!profiles/player_profile.schema.json
+.mypy_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+*.egg-info/
+
+# Build output and local diagnostics
+/build/
+/dist/
 *.log
-docs/screenshots/
+*.log.*
+*.tmp
+*.bak
+*.bak-*
+*.backup-*
+/desktop.json
+/desktop.lock
+
+# Account data: only the blank template and schema belong in Git
+/profiles/*
+!/profiles/player_profile.template.json
+!/profiles/player_profile.schema.json
+/player_profile*.json
+/google_sheet_sync.json
+
+# Credentials and developer-local settings
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.vscode/
+.idea/
+.claude/settings.local.json
+
+# OS files
 .DS_Store
+Thumbs.db
+Desktop.ini
+
+# Only reviewed demo screenshots are published
+/docs/screenshots/*
+!/docs/screenshots/README.md
+!/docs/screenshots/planner.png
+!/docs/screenshots/recommendations.png
+!/docs/screenshots/fleet.png
+!/docs/screenshots/roster.png
+!/docs/screenshots/account.png
