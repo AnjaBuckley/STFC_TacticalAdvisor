@@ -151,6 +151,13 @@
           },
           "available": {
             "type": "boolean"
+          },
+          "stat_basis": {
+            "enum": [
+              "unknown",
+              "base",
+              "account_adjusted"
+            ]
           }
         }
       }
@@ -229,6 +236,10 @@
               },
               "accuracy": {
                 "type": "number"
+              },
+              "shield_health": {
+                "type": "number",
+                "minimum": 0
               }
             },
             "required": [
@@ -278,6 +289,47 @@
           "number",
           "null"
         ]
+      }
+    },
+    "combat_sources": {
+      "type": "array",
+      "description": "Attributed sources; unreviewed imported effects are excluded from combat. See docs/RULES.md.",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "value",
+          "unit",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "value": {
+            "type": "number",
+            "minimum": 0
+          },
+          "unit": {
+            "enum": [
+              "points",
+              "fraction"
+            ]
+          },
+          "status": {
+            "enum": [
+              "manual",
+              "reviewed",
+              "unreviewed"
+            ]
+          },
+          "contexts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
       }
     }
   }

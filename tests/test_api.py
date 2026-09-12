@@ -142,7 +142,7 @@ def test_invalid_profile_is_not_saved(client, change):
 
 def test_end_to_end_recommendation(client):
     r = client.post(
-        "/api/recommend", json={"target_name": "Borg Probe", "level": 35, "top_n": 3}
+        "/api/recommend", json={"target_name": "Actian Apex", "level": 33, "top_n": 3}
     )
     assert r.status_code == 200
     data = r.json()
@@ -153,7 +153,7 @@ def test_end_to_end_recommendation(client):
 
 
 def test_unknown_ship_is_not_replaced_by_fabricated_ship(client):
-    r = client.post("/api/recommend", json={"ship_name": "Unowned Enterprise"})
+    r = client.post("/api/recommend", json={"ship_name": "Unowned Enterprise", "hostile_id":2127541458})
     assert r.status_code == 422
     assert "owned combat ship" in r.json()["detail"]
 
@@ -169,13 +169,13 @@ def test_pvp_requires_opponent_input(client):
     assert r.status_code == 200
 
 
-def test_duo_without_source_is_blocked(client):
+def test_generic_duo_placeholder_is_rejected(client):
     r = client.post(
         "/api/recommend",
         json={"task_type": "duo_wave_defense", "target_name": "Duo Wave Defense"},
     )
     assert r.status_code == 422
-    assert "Critical Mitigation" in r.json()["detail"]
+    assert "known target" in r.json()["detail"]
 
 
 def test_wrong_mission_target_pair_rejected(client):
@@ -199,7 +199,8 @@ def test_academy_ops_gate(client):
         "/api/recommend",
         json={
             "task_type": "pve_academy_drone",
-            "target_name": "Academy Training Drone",
+            "target_name": "Academy Training Drone · Battleship",
+            "level":61,
         },
     )
     assert r.status_code == 422

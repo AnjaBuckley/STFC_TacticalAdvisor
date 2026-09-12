@@ -44,7 +44,10 @@ def calc_critical_mitigation(
 
 
 def aggregate_crit_mitigation_sources(
-    player_profile: dict, task_type: str, active_ship: dict | None = None
+    player_profile: dict,
+    task_type: str,
+    active_ship: dict | None = None,
+    target: dict | None = None,
 ) -> dict:
     research = player_profile.get("research", {}).get("critical_mitigation", {})
     sources, warnings = [], []
@@ -66,7 +69,10 @@ def aggregate_crit_mitigation_sources(
                 legacy += value
                 sources.append({"source": name, "value": value, "legacy": True})
 
-    if task_type in ACADEMY_TASKS:
+    academy = (target is None and task_type in ACADEMY_TASKS) or (target or {}).get(
+        "type"
+    ) == "Academy Drone"
+    if task_type in ACADEMY_TASKS and academy:
         add("Remote Campus", research, "remote_campus_points", "remote_campus_bonus")
     if task_type in PVP_TASKS and research.get("programmable_matter_beam"):
         add(
@@ -89,13 +95,27 @@ def aggregate_crit_mitigation_sources(
     if (
         ship.get("simulacrum_refit")
         and eligible
-        and task_type in PVP_TASKS | ACADEMY_TASKS
+        and (
+            task_type in PVP_TASKS
+            or (
+                academy
+                and (
+                    target is None
+                    or "Training"
+                    in target.get("catalogue_family", target.get("name", ""))
+                )
+            )
+        )
     ):
         add("Simulacrum Refit", ship, "crit_mitigation_points", "crit_mitigation_bonus")
     total = min(1.0, points_to_reduction(points) + legacy)
+    if points:
+        warnings.append(
+            "Critical Mitigation points curve is provisional; current battle-log calibration is required."
+        )
     if task_type == "duo_wave_defense" and total == 0:
         warnings.append(
-            "CRITICAL WARNING: Duo Wave Defense needs an applicable Critical Mitigation source."
+            "No known applicable Critical Mitigation source. This is a coverage warning, not a game-entry restriction."
         )
     elif task_type == "pve_academy_drone" and total == 0:
         warnings.append(
@@ -107,4 +127,6 @@ def aggregate_crit_mitigation_sources(
         "sources": sources,
         "warnings": warnings,
         "legacy_override": legacy > 0,
+        "legacy_reduction": legacy,
+        "curve_status": "provisional",
     }

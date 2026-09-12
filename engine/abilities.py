@@ -57,9 +57,36 @@ for _task in ("galactic_anomaly", "dreadnought"):
 _TARGET_MISS_RELEVANCE = 0.0
 
 
+class AbilityCatalogue(dict):
+    def __init__(self, records):
+        super().__init__(records)
+        from engine.catalogue import identity
+
+        self.aliases = {identity(n): n for n in records}
+        self.aliases.update(
+            {
+                identity(a): b
+                for a, b in {
+                    "Paris": "Tom Paris",
+                    "Christopher Pike": "Pike",
+                    "Marlena Moreau": "Moreau",
+                    "Kathryn Janeway": "Janeway",
+                }.items()
+                if b in records
+            }
+        )
+
+    def get(self, key, default=None):
+        from engine.catalogue import identity
+
+        return super().get(self.aliases.get(identity(key), key), default)
+
+
 @lru_cache(maxsize=1)
 def load_abilities() -> dict:
-    return json.loads(_ABILITIES_PATH.read_text(encoding="utf-8"))["officers"]
+    return AbilityCatalogue(
+        json.loads(_ABILITIES_PATH.read_text(encoding="utf-8"))["officers"]
+    )
 
 
 def parse_pct(val_str: str) -> float:
@@ -84,9 +111,18 @@ def record_relevance(record: dict, task_type: str, target: dict) -> float:
 
     Prefers the ground-truth works_in list (exported game data) over the
     inferred scope; scope is the fallback for records without it."""
+    if record.get("identity_review_required"):
+        return 0.0
+    level = target.get("level", target.get("real_hostile", {}).get("level", 0))
+    if (
+        record.get("max_hostile_level")
+        and task_type not in {"pvp", "pvp_station", "station_raid"}
+        and level > record["max_hostile_level"]
+    ):
+        return 0.0
     works_in = record.get("works_in")
     if works_in is not None:
-        context = TASK_CONTEXT.get(task_type, "pve")
+        context = target.get("encounter_context") or TASK_CONTEXT.get(task_type, "pve")
         if context not in works_in:
             return 0.0
     else:
@@ -112,21 +148,21 @@ def _slot_records(officer_name: str) -> list[tuple[str, dict]]:
 
 
 def ability_strength(officer: dict, slot: str, record: dict) -> float:
-    """
-    0..1 strength of an ability at THIS officer's rank.
-
-    Prefers the per-rank values from the game export (record["values"],
-    ranks 1-5); falls back to parsing the roster's display value. Magnitudes
-    above 5 are absolute stat grants (e.g. Apex Barrier points) - treat as
-    max strength.
-    """
-    values = record.get("values")
-    if values:
-        rank = officer.get("rank") or officer.get("tier") or 1
-        v = values[max(1, min(int(rank), len(values))) - 1]
-        return 1.0 if v > 5 else min(abs(v), 1.0)
-    value_key = "oa_value" if slot == "oa" else "cm_bda_value"
-    return parse_pct(officer.get(value_key, ""))
+    values = record.get("values", [])
+    if not values:
+        return 0.0
+    index = (
+        0
+        if slot == "cm"
+        else max(
+            0,
+            min(
+                int(officer.get("rank") or officer.get("tier") or 1) - 1,
+                len(values) - 1,
+            ),
+        )
+    )
+    return min(1.0, abs(float(values[index])))
 
 
 def officer_combat_scores(

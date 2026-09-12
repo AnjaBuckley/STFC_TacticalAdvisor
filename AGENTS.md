@@ -16,9 +16,10 @@ The app recommends owned ships, bridge crews and below-deck crews for nine missi
 - `sheet_sync.py`: persistent one-way Google Sheets polling every 300 seconds.
 - `paths.py`: bundled resources versus writable per-user data. `STFC_ADVISOR_DATA_DIR` supports isolated testing.
 - `web/`: frontend assets. Escape user/imported text; preserve labels, keyboard access and responsive layouts.
-- `engine/`: combat maths, ability scope/seat effects, synergy and simulation.
+- `engine/`: combat maths, ability scope/seat effects, synergy and simulation; `catalogue.py` handles ship identity/stat curves and `sources.py` validates attributed effects.
 - `optimizer/`: bridge shortlist, captain assignments, below-deck selection and ranking.
 - `ingest/`: research CSV and Officers Tool workbook parsing and merges.
+- `fetch_stfc_space.py`: explicit public-data refresh utility; review generated changes before publishing.
 - `data/`: static game metadata and curated rules. Player ranks, levels and stats belong in the profile, not the catalogue.
 - `profiles/`: only the blank template and JSON schema are tracked.
 - `tests/`: mechanics, import, API, sync and desktop regression checks.
@@ -32,8 +33,8 @@ The app recommends owned ships, bridge crews and below-deck crews for nine missi
 3. Apply Apex once. Critical Mitigation applies only to critical hits and valid sources for the task and ship. Preserve explicit-zero precedence over legacy fields. The point conversion curve is an inference documented in the rules audit.
 4. Abilities must respect their seat and target conditions: captain maneuver on captain, officer ability on bridge, below-deck ability below deck. Unknown effects remain disclosed rather than assigned invented numeric bonuses.
 5. Evaluate every captain assignment within the shortlist. Never duplicate an officer across bridge/below deck or invent an owned ship. Explicit unavailable or locked officers are excluded.
-6. Keep below-deck optimization separate; use actual slot unlocks or explicit overrides. Do not infer extra slots from Syndicate level.
-7. Preserve dedicated mission validation, Academy Operations gates, and Duo Wave Defense Critical Mitigation prerequisites.
+6. Re-evaluate below-deck marginal benefits using ship-specific stat caps; use actual slot unlocks or explicit overrides. Do not infer extra slots from Syndicate level.
+7. Preserve exact hostile identity and Academy Operations gates. Do not invent a Duo Critical Mitigation entry requirement. Label wave/raid/anomaly predictions as individual encounters.
 8. The combat triangle is Interceptor over Battleship, Battleship over Explorer, Explorer over Interceptor. Strike-team bonuses also depend on the player's ship class.
 9. Keep repair-cost-per-kill meaningful when there are no kills. Simulation scores are estimates, not live win probabilities.
 10. Verify new live-game claims against primary sources and update `docs/RULES.md`, `data/rules.json` and relevant regressions together. Older example code is not authoritative evidence.
@@ -73,3 +74,7 @@ Never bundle the live profile or sync configuration. Keep account data outside t
 ## Scope and communication
 
 Make focused, reviewable changes. Inspect repository status before editing and preserve unrelated work. Do not reintroduce Streamlit, rewrite the frontend framework, replace game data wholesale, or rewrite Git history without a task that calls for it. Update README and relevant instructions when workflows change. Report concrete behavior, validation performed and material remaining limits.
+
+## Approved audit corrections — September 2026
+
+The implementation disposition is in `docs/AUDIT_CORRECTIONS.md`. It supersedes historical example formulas and fixed-name heuristic rules. Do not restore raw officer points as ship stats, universal synergy multipliers, inferred extra Syndicate slots, automatic nearest-level substitution, 90% whole-officer cap penalties, or research text matching as numerical authority. Preserve research buff IDs, native units and manual account totals. Public exports and update overlays are partial; unresolved mechanics need explicit omissions and battle-log fixtures. Full game accuracy must never be claimed from passing synthetic tests.

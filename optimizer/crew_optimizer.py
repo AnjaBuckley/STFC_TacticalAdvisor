@@ -1,26 +1,4 @@
-"""
-Main Crew Optimizer — STFC
-
-Scoring formula per crew combination:
-  score = (mitigation_score × 0.30)
-        + (damage_score     × 0.30)
-        + (synergy_bonus    × 0.20)
-        + (task_bonus       × 0.20)
-
-Task bonuses:
-  - Hyperthermic Decay target  → +0.3 to fast-kill crews
-  - Gorn target                → +0.4 to isolytic output
-  - Borg Probe                 → +0.4 to Borg officer crews
-  - PvP Battleship enemy       → +0.3 to Explorer Strike Team
-  - Academy Drone / Duo Wave   → +0.4 to crit_mitigation sources present
-  - Ops >= 40                  → +0.3 to ability-based crews, -0.2 to pure stat crews
-
-Key heuristics:
-  - Ops >= 40: deprioritize stat buffs, prioritize ability-based officers
-  - Mitigation near cap (>65%): switch scoring weight to offense
-  - Buff dilution detected: ability officers score higher than stat officers
-  - Strike Team detection: auto-suggest counter-team for PvP ship class
-"""
+"""Bounded crew search: supported-effects shortlist, then combat outcome ranking."""
 
 from heapq import nlargest
 from itertools import combinations
@@ -28,8 +6,6 @@ from itertools import combinations
 from engine.abilities import (
     load_abilities,
     officer_available,
-    officer_combat_scores,
-    officer_has_effect,
 )
 from engine.combat_simulator import simulate_combat
 from engine.critical_mitigation import aggregate_crit_mitigation_sources
@@ -47,69 +23,30 @@ _MAX_BRIDGE_CANDIDATES = 40
 _SIM_TOP_K = 50
 _SIM_RUNS = 150
 _SIM_SEED = 42  # same random sequence for every candidate — fair ranking
-_SIM_WEIGHT = 0.25
-
-# Task-relevant officer groups for pre-filtering
-_TASK_GROUPS = {
-    "pve_hostile": {
-        "Unimatrix Twelve",
-        "Voyager",
-        "Enterprise Crew",
-        "TNG Crew",
-        "Discovery Crew",
-        "Klingon Patriots",
-        "Deep Space Nine",
-        "Khitomer's Revenge",
-        "SNW Crew",
-        "Picard",
-        "Ex-Borg",
-        "Blood & Honor",
-        "Terran Empire",
-    },
-    "pvp": {
-        "Explorer Strike Team",
-        "Interceptor Strike Team",
-        "Battleship Strike Team",
-        "Explorer Retaliation Squad",
-        "Interceptor Retaliation Squad",
-        "Battleship Retaliation Squad",
-        "Syndicate",
-        "Emerald Chain",
-    },
-    "wave_defense": {
-        "Unimatrix Twelve",
-        "Deep Space Nine",
-        "Voyager",
-        "Enterprise Crew",
-        "Ex-Borg",
-    },
-}
-_RARITY_RANK = {"E": 4, "R": 3, "U": 2, "C": 1}
 
 
 def _prefilter_bridge_candidates(
     officers: list[dict], task_type: str, target: dict | None = None
 ) -> list[dict]:
-    """
-    Return the top _MAX_BRIDGE_CANDIDATES officers most likely to be useful
-    on the bridge for the given task. Prioritises:
-      1. Officers whose group matches the task
-      2. Epic > Rare > Uncommon > Common
-      3. Total raw stats as tiebreaker
-    """
-    relevant_groups = _TASK_GROUPS.get(task_type, set())
+    """Bounded candidate pool from supported effects and raw-stat tie breaks."""
+    from math import log1p
 
-    def _rank(o: dict) -> tuple:
-        group_match = 1 if o.get("group", "") in relevant_groups else 0
-        rarity = _RARITY_RANK.get(o.get("rarity", "C"), 1)
-        stats_total = o.get("attack", 0) + o.get("defense", 0) + o.get("health", 0)
-        scores = officer_combat_scores(o, task_type, target or {}) or {}
-        ability = max(scores.get("offense", 0), scores.get("defense", 0))
-        isolytic_required = (target or {}).get("standard_damage_immune", False)
-        brings_iso = isolytic_required and officer_has_effect(
-            o["name"], {"isolytic_damage"}, task_type, target or {}, slots=("oa", "cm")
+    from engine.effects import ability_plan
+
+    def _rank(o):
+        static, timed, _ = ability_plan([o], [], task_type, target or {})
+        supported = sum(
+            log1p(v / (10000 if k in {"crit_mitigation", "apex_barrier"} else 1))
+            for k, v in static.items()
         )
-        return (brings_iso, ability, group_match, rarity, stats_total, o["name"])
+        supported += sum(log1p(r["value"] * r.get("chance", 1)) for r in timed)
+        if o["name"] in {"SNW Pike", "SNW James Kirk"}:
+            supported += 1
+        return (
+            supported,
+            o.get("attack", 0) + o.get("defense", 0) + o.get("health", 0),
+            o["name"],
+        )
 
     ranked = sorted(officers, key=_rank, reverse=True)
     return ranked[:_MAX_BRIDGE_CANDIDATES]
@@ -148,21 +85,6 @@ def find_optimal_crew(
 
     if not available_ships:
         raise ValueError("Add an owned combat ship before requesting recommendations.")
-    if task_type == "duo_wave_defense":
-        available_ships = [
-            ship
-            for ship in available_ships
-            if aggregate_crit_mitigation_sources(player_profile, task_type, ship)[
-                "total_crit_mitigation"
-            ]
-            > 0
-        ]
-        if not available_ships:
-            raise ValueError(
-                "Duo Wave Defense needs an applicable Critical Mitigation source. "
-                "Enter Remote Campus points or an eligible ship refit in your account."
-            )
-
     # Pre-filter to a manageable bridge candidate pool
     bridge_candidates = _prefilter_bridge_candidates(
         all_officers, task_type, task_profile.get("target", {})
@@ -269,29 +191,39 @@ def find_optimal_crew(
         sim_score = _sim_score(sim)
 
         rec["critical_mitigation"] = aggregate_crit_mitigation_sources(
-            player_profile, task_type, ship
+            player_profile, task_type, ship, target=target
         )
+        if sim["crew_scoped_critical_points"]:
+            rec["critical_mitigation"]["sources"].append(
+                {
+                    "source": "Active crew and scoped inputs (initial round)",
+                    "points": sim["crew_scoped_critical_points"],
+                }
+            )
+        rec["critical_mitigation"]["total_crit_mitigation"] = sim[
+            "initial_critical_mitigation"
+        ]
         rec["search"] = {
             "bridge_candidates": len(bridge_candidates),
             "available_officers": len(all_officers),
-            "method": "Heuristic shortlist; all captain positions; estimated combat",
+            "method": "All captain assignments within shortlist; greedy marginal below-deck selection; model outcomes",
+            "globally_optimal": False,
+            "validated": False,
         }
         rec["heuristic_score"] = rec["score"]
         rec["simulation"] = sim
-        rec["score"] = round(
-            rec["score"] * (1 - _SIM_WEIGHT) + sim_score * _SIM_WEIGHT, 4
-        )
+        rec["score"] = round(sim_score, 4)
         rec["reasoning"].append(
             f"Simulated ({_SIM_RUNS} runs): {sim['survival_probability']:.0f}% survival, "
             f"{sim['kill_probability']:.0f}% kill rate, "
-            f"{sim['avg_rounds_to_kill']:.1f} avg rounds."
+            f"{sim['avg_combat_rounds']:.1f} avg rounds."
         )
 
         # Ship economics (CLAUDE.md rule 6): estimated repair cost per kill —
         # full repair cost scaled by the hull fraction lost, per successful kill
         repair_total = ship.get("repair_cost_total", 0)
-        if repair_total and sim["effective_hp"] and sim["kill_probability"] > 0:
-            damage_fraction = min(1.0, sim["avg_damage_taken"] / sim["effective_hp"])
+        if repair_total and sim["hull_max"] and sim["kill_probability"] > 0:
+            damage_fraction = min(1.0, sim["avg_hull_lost"] / sim["hull_max"])
             kill_rate = max(sim["kill_probability"] / 100, 0.01)
             cost_per_kill = repair_total * damage_fraction / kill_rate
             rec["cost_per_kill"] = round(cost_per_kill)
@@ -301,14 +233,27 @@ def find_optimal_crew(
             )
 
     if task_profile.get("target", {}).get("standard_damage_immune"):
-        finalists = [r for r in finalists if r["simulation"]["isolytic_bonus"] > 0]
+        finalists = [
+            r
+            for r in finalists
+            if r["simulation"]["isolytic_bonus"] > 0
+            or r["simulation"].get("isolytic_cascade_bonus", 0) > 0
+        ]
         if not finalists:
             raise ValueError(
                 "This target is immune to standard damage. No modelled Isolytic Damage "
                 "source was found in the candidate builds. Add a supported isolytic officer "
                 "or enter your ship/research isolytic bonus."
             )
-    finalists.sort(key=lambda x: x["score"], reverse=True)
+    finalists.sort(
+        key=lambda x: (
+            x["simulation"]["kill_probability"],
+            x["simulation"]["survival_probability"],
+            -len(x["simulation"]["unmodelled_abilities"]),
+            x["score"],
+        ),
+        reverse=True,
+    )
     return finalists[:top_n]
 
 
@@ -356,9 +301,7 @@ def _below_deck_slot_count(ship: dict) -> int:
     if by_level:
         level = ship.get("level", 1)
         return sum(1 for unlock in by_level.values() if unlock <= level)
-    return ship.get("below_deck_slots_by_tier", {}).get(
-        str(ship.get("tier", 1)), 3
-    ) + ship.get("syndicate_slot_bonus", 0)
+    return ship.get("below_deck_slots_by_tier", {}).get(str(ship.get("tier", 1)), 0)
 
 
 def _ship_valid_for_task(ship: dict, task_profile: dict) -> bool:
@@ -367,4 +310,5 @@ def _ship_valid_for_task(ship: dict, task_profile: dict) -> bool:
         "Explorer",
         "Battleship",
         "Interceptor",
+        "Survey",
     }

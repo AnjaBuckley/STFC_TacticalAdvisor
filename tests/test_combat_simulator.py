@@ -8,6 +8,7 @@ def _ship():
     return {
         "name": "Test Explorer",
         "ship_class": "Explorer",
+        "officer_bonus": {k: [{"value":60000,"bonus":1}] for k in ("attack","defense","health")},
         "base_stats": {
             "attack": 50000, "defense": 40000, "health": 60000,
             "armor": 15000, "shield_deflection": 20000, "dodge": 10000,

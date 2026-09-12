@@ -65,9 +65,32 @@ def main():
                     expect(page.locator(f"#view-{view}")).to_be_visible()
                     page.evaluate("window.scrollTo(0, 0)")
                     page.screenshot(path=str(output / f"{view}.png"))
+                page.locator('.nav-button[data-view="fleet"]').click()
+                page.locator('[data-edit-ship="0"]').click()
+                page.locator("#edit-shield_health").fill("12345")
+                page.locator("#edit-shred").fill("25")
+                page.locator('#edit-form button[type="submit"]').click()
+                expect(page.locator("#edit-dialog")).not_to_be_visible()
+                page.locator('[data-edit-ship="0"]').click()
+                expect(page.locator("#edit-shield_health")).to_have_value("12345")
+                expect(page.locator("#edit-shred")).to_have_value("25")
+                page.keyboard.press("Escape")
+                page.locator('.nav-button[data-view="account"]').click()
+                expect(page.locator("#combat-sources")).to_have_value("[]")
+                page.locator("#research-def").fill("125")
+                page.locator('#account-form button[type="submit"]').click()
+                expect(page.locator("#toast")).to_contain_text("saved")
+                page.set_viewport_size({"width": 390, "height": 844})
+                page.locator('.nav-button[data-view="planner"]').click()
+                assert page.evaluate(
+                    "document.documentElement.scrollWidth <= window.innerWidth"
+                ), "Mobile horizontal overflow"
+                page.screenshot(path=str(output / "mobile-planner.png"), full_page=True)
                 assert not errors, errors
                 browser.close()
-            print(f"Captured 5 screenshots from the isolated demo account: {output}")
+            print(
+                f"Captured 6 screenshots and verified ship/account edits from the isolated demo account: {output}"
+            )
         finally:
             process.terminate()
             try:

@@ -14,7 +14,7 @@ python -m playwright install chromium
 python tools/capture_screenshots.py
 ```
 
-The script launches its own server on an unused loopback port with a temporary data directory, captures five images, and shuts down that server. Your regular account and running app are unaffected. `STFC_SCREENSHOT_BROWSER` can point to an existing Chromium executable instead of downloading one.
+The script launches its own server on an unused loopback port with a temporary data directory, captures six images, and shuts down that server. It also checks ship/account edits and mobile overflow using the temporary account. Your regular account and running app are unaffected. `STFC_SCREENSHOT_BROWSER` can point to an existing Chromium executable instead of downloading one.
 
 | Image | View |
 | --- | --- |
@@ -23,5 +23,6 @@ The script launches its own server on an unused loopback port with a temporary d
 | `fleet.png` | Three illustrative owned ships |
 | `roster.png` | Synthetic officer ranks and stats |
 | `account.png` | Research controls and disconnected sheet syncing |
+| `mobile-planner.png` | Mission planner at a 390-pixel mobile viewport |
 
 Only these named images and this file are allowed through `.gitignore`. Review the rendered files before staging them; do not rename a private screenshot into the allowlist.

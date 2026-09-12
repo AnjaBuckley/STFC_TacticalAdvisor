@@ -11,10 +11,9 @@ class TestCalcIsolyticDamage:
         assert result["iso_damage"] == 0
         assert result["iso_effective"] is False
 
-    def test_negative_iso_bonus_returns_zero(self):
-        result = calc_isolytic_damage(100000, -0.1, 0.45)
-        assert result["iso_damage"] == 0
-        assert result["iso_effective"] is False
+    def test_negative_iso_bonus_is_rejected(self):
+        with pytest.raises(ValueError):
+            calc_isolytic_damage(100000, -0.1, 0.45)
 
     def test_positive_iso_bonus_is_effective(self):
         result = calc_isolytic_damage(100000, 0.25, 0.0)

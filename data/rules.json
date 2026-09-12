@@ -20,35 +20,35 @@
     },
     {
       "title": "Apex extends effective health",
-      "status": "Verified mechanic",
-      "description": "Every 10,000 Apex Barrier doubles the base amount of damage a ship can sustain. It acts on both incoming damage tracks once.",
+      "status": "Verified basic relation; scoped estimates",
+      "description": "Apex divides incoming standard and Isolytic damage once by 1 + points / 10,000. Each additional 10,000 adds one base-health equivalent, rather than repeatedly doubling total health.",
       "formula": "Effective HP = hull × (1 + Apex Barrier / 10,000)",
-      "coverage": "Implemented as effective health, including an explicit enemy Apex Shred fraction. Scoped research and conditional effects need verified inputs. Armada-specific Apex behavior is not modelled.",
+      "coverage": "Actual hull and shield pools are tracked separately. Player and enemy Shred reduce their opponent’s barrier; mode-specific exclusions still need calibration.",
       "source": "Scopely · Apex Barrier",
       "url": "https://startrekfleetcommand.com/news/new-battle-stat-apex-barrier-modifier/"
     },
     {
       "title": "Critical Mitigation uses points",
-      "status": "Matches official worked example",
-      "description": "Scopely’s example gives 62.41% reduction at 83,000 points. Add point sources before resolving their effective reduction.",
+      "status": "Provisional conversion curve",
+      "description": "The 50,000 denominator matches one published worked example but is not confirmed by that example alone, and later updates rebalance Academy combat.",
       "formula": "Reduction = points / (points + 50,000)",
-      "coverage": "Curve inferred from the official example. Source scope is enforced. Legacy decimal fields remain effective-reduction overrides until replaced with points; they are labelled in recommendations.",
+      "coverage": "Valid sources accumulate in points. Mixed legacy reductions remain explicit compatibility estimates. Current battle logs are required to validate the curve and its Isolytic interaction.",
       "source": "Scopely · Remote Campus",
       "url": "https://startrekfleetcommand.com/news/starfleet-academy-remote-campus-critical-mitigation/"
     },
     {
       "title": "The source must match the encounter",
-      "status": "Verified scope",
-      "description": "Remote Campus applies to Academy encounters. The Programmable Matter Beam’s documented benefit is PvP. Simulacrum refits require eligible ships and a matching PvP or Academy encounter.",
-      "coverage": "Source scope and refit ownership are enforced. Academy access requires Operations 61. Duo recommendations stop if no candidate ship has an applicable source.",
+      "status": "Scoped source model",
+      "description": "Remote Campus applies to Academy drones; Matter Beam to PvP; Simulacrum to eligible ships in PvP and Training Drone combat.",
+      "coverage": "No invented Duo mitigation entry requirement. Typed sources preserve units, contexts and conditions; unreviewed imports cannot silently change global totals.",
       "source": "Scopely · Update 90",
       "url": "https://startrekfleetcommand.com/news/patch-notes-update-90-starfleet-academy-part-1/"
     },
     {
       "title": "The combat triangle has a direction",
       "status": "Verified class preference",
-      "description": "Interceptors are favored against Battleships; Battleships against Explorers; Explorers against Interceptors. Strike teams require their corresponding player ship class.",
-      "coverage": "The PvP planner exposes available baseline counter crews, and the scorer respects the player ship class. A class preference does not guarantee victory. Explorer baseline: Weyoun, Pon and Ikat’ika.",
+      "description": "Interceptors are favored against Battleships; Battleships against Explorers; Explorers against Interceptors.",
+      "coverage": "The PvP panel provides baseline counter-team guidance. Unsupported strike-team mechanics are disclosed and are not a verified numerical advantage.",
       "source": "Scopely · SNW crew examples",
       "url": "https://startrekfleetcommand.com/news/snw-james-t-kirk-takes-the-captains-chair/"
     },
@@ -62,26 +62,46 @@
     },
     {
       "title": "Buffs are additive within a stat category",
-      "status": "Project calculation model",
-      "description": "Large existing bonuses dilute the marginal value of more of the same stat. At +900%, adding +100% yields only a 10% real gain.",
+      "status": "Category model; curve interpolation provisional",
+      "description": "Like-for-like additive bonuses dilute marginal gains. Raw officer points are converted through ship-specific officer-bonus tables rather than added directly as ship damage or hull.",
       "formula": "Marginal gain = new bonus / (1 + existing bonus)",
-      "coverage": "The optimizer scores ability relevance and stat dilution. The existing officer-to-ship stat conversion is approximate; raw officer stats do not establish an exact in-game combat result.",
+      "coverage": "Imported adjusted officer stats are not buffed twice. Missing ship tables and unknown stat provenance are disclosed. Table interpolation needs live calibration.",
       "source": "Project engine specification",
       "url": null
     },
     {
       "title": "The live game keeps evolving",
-      "status": "Coverage boundary",
-      "description": "Later updates modify Academy encounters and introduce additional conditional Critical Mitigation and event effects.",
-      "coverage": "Update 94 station primes, timed anomalies, critical floors, weapon schedules, morale/burning/hull-breach timing, outposts and coordinated waves are not fully implemented. Never interpret the relative score as guaranteed optimality or a live win probability.",
+      "status": "Partial Update 94 overlay",
+      "description": "Toryn and Trelane have sourced records. The Neelix/Harry Kim identity migration is flagged rather than silently assigning progression to another officer.",
+      "coverage": "Complete status chains, ship passives, coordinated waves, station platforms, hauling and anomaly event state remain outside this model. The interface labels individual encounters accordingly.",
       "source": "Scopely · Update 94",
       "url": "https://startrekfleetcommand.com/news/patch-notes-update-94-cause-and-effect/"
+    },
+    {
+      "title": "Exact enemies, levels and IDs",
+      "status": "Catalogue integrity enforced",
+      "description": "No Gorn-to-Actian or generic-wave substitutions. Choose a real family, hull class, level and variant.",
+      "coverage": "The underlying snapshot is versioned; a correct identity does not guarantee all current special abilities are represented."
+    },
+    {
+      "title": "Triggered and timed abilities",
+      "status": "Event model estimates",
+      "description": "Hugh procs once per received weapon attack, with rank-dependent chance and two-round stacks. Selected Seska, Suder and PIC Hugh regeneration and timed effects have separate triggers.",
+      "coverage": "Weapon schedules accept warmup, cooldown and shot count. Missing schedules use a disclosed aggregate attack. Event timing needs battle-log validation.",
+      "source": "Scopely Update M50",
+      "url": "https://startrekfleetcommand.com/news/update-m50-patch-notes/"
+    },
+    {
+      "title": "Synergy and Isolytic Cascade",
+      "status": "Captain-specific values; provisional Cascade model",
+      "description": "Captain arrays represent base and synergy increments, not promotion levels. Unknown class data cannot establish full synergy. Cascade is distinct from ordinary Isolytic damage.",
+      "formula": "Combined Isolytic estimate = raw × [I × (1 + C) + C] / (1 + defense)",
+      "coverage": "The combined Cascade formula is community-derived; conflicting interpretations require calibration."
     }
   ],
   "limitations": [
-    "Mitigation coefficients and the 71.2% cap remain the project’s approximate model, pending battle-log validation.",
-    "Officer stat conversion, shield absorption/regeneration, firing schedules, combat-triangle modifiers, conditional captain synergy, artifacts, forbidden tech, buildings and research scopes are not exhaustively reproduced.",
-    "Wave, anomaly, dreadnought and station modes provide individual encounter crew advice, not a complete multi-ship event simulation.",
-    "Imported base stats can be stale or estimates. Validate ship and target inputs against your account before relying on numerical outcomes."
+    "Results are partial combat-model outcomes, not live win probabilities. Confidence intervals describe random sampling only, not missing mechanics.",
+    "The bounded search and greedy marginal below-deck selection do not prove global optimality. Loot per flight, complete raids, waves and anomaly rewards are not calculated.",
+    "Unknown data and unreviewed sources remain explicitly omitted."
   ]
 }

@@ -1,6 +1,7 @@
 """
 Unit tests for engine/hostile_stats.py
 """
+import pytest
 from engine.hostile_stats import enrich_target, load_hostile_stats
 
 
@@ -14,17 +15,25 @@ class TestEnrichTarget:
         assert 0 < e["crit_chance"] <= 1
         assert "defense_stats" in e
 
-    def test_level_selection_picks_closest(self):
+    def test_level_and_id_selection_is_exact(self):
         target = {"name": "Gorn Hunter", "level_range": [45, 62]}
-        low = enrich_target(target, level=60)
+        low = enrich_target(target, level=60, hostile_id=2127541458)
         high = enrich_target(target, level=71)
         assert low["real_hostile"]["level"] <= high["real_hostile"]["level"]
 
     def test_unknown_target_unchanged(self):
         target = {"name": "Solo Wave Defense", "hp": 12345}
-        assert enrich_target(target) == target
+        assert enrich_target(target)["hp"] == target["hp"]
+        assert enrich_target(target)["missing_mechanics"]
 
     def test_original_not_mutated(self):
         target = {"name": "Gorn Hunter", "level_range": [45, 62], "hp": 1}
         enrich_target(target)
         assert target["hp"] == 1
+
+
+def test_never_substitutes_a_nearby_level_or_ambiguous_variant():
+    with pytest.raises(ValueError, match="No exact"):
+        enrich_target({"name":"Gorn Hunter"}, 45)
+    with pytest.raises(ValueError, match="Several variants"):
+        enrich_target({"name":"Gorn Hunter"}, 60)

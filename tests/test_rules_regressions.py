@@ -103,20 +103,20 @@ def test_enemy_target_mismatch_has_zero_ability_relevance():
 def test_below_deck_ability_cannot_score_as_bridge_offense():
     assert officer_combat_scores({"name": "Hugh"}, "pve_hostile", {})["offense"] == 0
     effect, _ = crew_effects([], [{"name": "Hugh", "rank": 1}], "pve_hostile", {})
-    assert effect["crit_chance"] == 0.25
+    assert "crit_chance" not in effect  # Hugh procs per received weapon, never a permanent buff.
     assert crew_effects([{"name": "Hugh"}], [], "pve_hostile", {})[0] == {}
 
 
 def test_isolytic_ability_respects_rank_and_seat():
     janeway = {"name": "Kathryn Janeway", "rank": 1}
-    assert crew_effects([janeway], [], "pve_hostile", {})[0]["isolytic_damage"] == 0.1
+    assert crew_effects([janeway], [], "pve_hostile", {})[0]["isolytic_cascade"] == 0.1
     assert crew_effects([], [janeway], "pve_hostile", {})[0] == {}
     assert crew_effects([janeway], [], "pvp", {})[0] == {}
 
 
 def test_gorn_hunter_cannot_be_killed_by_ordinary_damage():
     target = mission_target(
-        "pve_hostile", "Gorn Hunter", 45, "Battleship", {"hp": 100, "base_damage": 1}
+        "pve_hostile", "Gorn Hunter", 71, "Battleship", {"hp": 100, "shield_hp":0, "base_damage": 1}
     )
     result = simulate_combat(_ship(), [], [], _profile(), target, "pve_hostile", 2, 1)
     assert result["kill_probability"] == 0
@@ -145,10 +145,10 @@ def test_apex_once_and_critical_reduction_only_on_critical_hits():
     p = _profile()
     p["research"]["mirror_tree"]["apex_barrier"] = 10000
     p["research"]["critical_mitigation"] = {"remote_campus_points": 50000}
-    target = {**_target(), "hp": 1, "crit_chance": 1, "crit_multiplier": 2}
+    target = {**_target(), "type":"Academy Drone", "hp": 1e9, "crit_chance": 1, "crit_multiplier": 2}
     result = simulate_combat(_ship(), [], [], p, target, "pve_academy_drone", 1, 1)
     trace = result["damage_trace"]
-    assert trace["after_apex"] == pytest.approx(trace["after_standard"])
+    assert trace["after_apex"] == pytest.approx(trace["after_standard"] / 2)
     assert trace["after_critical"] == pytest.approx(trace["after_apex"] * 0.5, abs=0.01)
     target["crit_chance"] = 0
     normal = simulate_combat(_ship(), [], [], p, target, "pve_academy_drone", 1, 1)[
@@ -206,8 +206,9 @@ def test_duo_blocks_pvp_only_source():
         "programmable_matter_beam": True,
         "programmable_matter_beam_points": 50000,
     }
-    with pytest.raises(ValueError, match="Critical Mitigation"):
-        find_optimal_crew(p, {"task_type": "duo_wave_defense", "target": {}})
+    result = find_optimal_crew(p, {"task_type": "duo_wave_defense", "target": {}})
+    assert result[0]["critical_mitigation"]["total_points"] == 0
+    assert result[0]["critical_mitigation"]["warnings"]
 
 
 def test_missing_class_cannot_claim_full_synergy():
@@ -268,7 +269,7 @@ def test_zero_kill_outcome_does_not_report_finite_cost_per_kill():
 def test_cli_hostile_enrichment_applies_gorn_immunity():
     from engine.hostile_stats import enrich_target
 
-    assert enrich_target({"name": "Gorn Hunter"}, 45)["standard_damage_immune"] is True
+    assert enrich_target({"name": "Gorn Hunter"}, 71)["standard_damage_immune"] is True
 
 
 def test_pvp_counter_direction_and_strike_team_identity():

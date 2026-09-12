@@ -87,7 +87,7 @@ class TestAggregateCritMitigationSources:
         profile = {"research": {}}
         result = aggregate_crit_mitigation_sources(profile, "duo_wave_defense")
         assert len(result["warnings"]) > 0
-        assert "CRITICAL WARNING" in result["warnings"][0]
+        assert "coverage warning" in result["warnings"][0]
 
     def test_no_warning_when_sources_present(self):
         profile = self._base_profile()

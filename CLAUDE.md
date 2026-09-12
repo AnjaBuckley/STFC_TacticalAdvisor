@@ -18,3 +18,7 @@ Keep these boundaries in view:
 - Windows artifacts must pass the Windows build and packaged startup checks; tray appearance requires a separate desktop check.
 
 Use the verification commands and packaging workflow documented in AGENTS.md. Keep this file short; put shared project rules in AGENTS.md.
+
+## Approved audit corrections — September 2026
+
+The implementation disposition is in `docs/AUDIT_CORRECTIONS.md`. It supersedes historical example formulas and fixed-name heuristic rules. Do not restore raw officer points as ship stats, universal synergy multipliers, inferred extra Syndicate slots, automatic nearest-level substitution, 90% whole-officer cap penalties, or research text matching as numerical authority. Preserve research buff IDs, native units and manual account totals. Public exports and update overlays are partial; unresolved mechanics need explicit omissions and battle-log fixtures. Full game accuracy must never be claimed from passing synthetic tests.

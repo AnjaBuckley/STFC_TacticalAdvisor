@@ -58,7 +58,7 @@ class TestBelowDeckSlotCount:
     def test_legacy_tier_table_fallback(self):
         ship = {"below_deck_slots_by_tier": {"9": 6}, "tier": 9,
                 "syndicate_slot_bonus": 1}
-        assert _below_deck_slot_count(ship) == 7
+        assert _below_deck_slot_count(ship) == 6
 
     def test_explicit_override_beats_level_table(self):
         # Player counted 5 slots in the drydock; the table would say 6

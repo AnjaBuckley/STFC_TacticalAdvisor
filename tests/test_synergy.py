@@ -17,7 +17,7 @@ class TestCalcSynergy:
         result = calc_synergy(captain, o1, o2)
         assert result["full_synergy"] is True
         assert result["partial_synergy"] is False
-        assert result["maneuver_multiplier"] == 2.0
+        assert result["maneuver_multiplier"] == 5.0
         assert "FULL SYNERGY" in result["synergy_label"]
 
     def test_no_synergy_different_group(self):
@@ -28,7 +28,7 @@ class TestCalcSynergy:
         assert result["full_synergy"] is False
         assert result["partial_synergy"] is False
         assert result["maneuver_multiplier"] == 1.0
-        assert result["synergy_label"] == "NO SYNERGY"
+        assert result["synergy_label"] == "NO VERIFIED CAPTAIN MANEUVER"
 
     def test_partial_synergy_one_same_group(self):
         captain = _make_officer("Pike", "SNW Crew", "Command")
@@ -37,7 +37,7 @@ class TestCalcSynergy:
         result = calc_synergy(captain, o1, o2)
         assert result["full_synergy"] is False
         assert result["partial_synergy"] is True
-        assert result["maneuver_multiplier"] == 1.5
+        assert result["maneuver_multiplier"] == pytest.approx(3.0)
         assert "PARTIAL SYNERGY" in result["synergy_label"]
 
     def test_full_synergy_requires_different_classes_among_companions(self):
@@ -56,19 +56,19 @@ class TestCalcSynergy:
         assert isinstance(result["notes"], str)
         assert len(result["notes"]) > 0
 
-    def test_full_synergy_multiplier_is_2x(self):
+    def test_unknown_captain_has_no_invented_full_multiplier(self):
         captain = _make_officer("A", "Group1", "Command")
         o1 = _make_officer("B", "Group1", "Science")
         o2 = _make_officer("C", "Group1", "Engineering")
         result = calc_synergy(captain, o1, o2)
-        assert result["maneuver_multiplier"] == 2.0
+        assert result["maneuver_multiplier"] == 1.0
 
-    def test_partial_synergy_multiplier_is_1_5x(self):
+    def test_unknown_captain_has_no_invented_partial_multiplier(self):
         captain = _make_officer("A", "Group1", "Command")
         o1 = _make_officer("B", "Group1", "Science")
         o2 = _make_officer("C", "Group2", "Engineering")
         result = calc_synergy(captain, o1, o2)
-        assert result["maneuver_multiplier"] == 1.5
+        assert result["maneuver_multiplier"] == 1.0
 
     def test_no_synergy_multiplier_is_1x(self):
         captain = _make_officer("A", "Group1", "Command")
@@ -88,7 +88,7 @@ class TestUnknownClassHandling:
         o2 = _make_officer("Uhura", "SNW Crew", "")
         result = calc_synergy(captain, o1, o2)
         assert result["full_synergy"] is False
-        assert result["maneuver_multiplier"] == 1.5
+        assert result["maneuver_multiplier"] == 1.0
 
     def test_known_same_class_still_blocks_full_synergy(self):
         captain = _make_officer("Pike", "SNW Crew", "Command")

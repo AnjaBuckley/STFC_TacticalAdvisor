@@ -34,10 +34,10 @@ The build is unsigned. Automated Windows checks cover startup, API/assets and du
 | Crew recommendations | Compare captain, bridge and below-deck assignments, estimated combat outcomes, ability coverage and reasoning. Export results as JSON. |
 | My fleet | Add ships from the local catalogue, enter build stats and slot counts, and mark ships unavailable. |
 | Officer roster | Search and filter officers, inspect imported ranks/stats, and exclude officers assigned elsewhere. |
-| Account & research | Edit supported totals, preview CSV/XLSX/JSON imports, and manage Google Sheets auto-sync. |
+| Account & research | Edit supported totals, review attributed research sources, preview CSV/XLSX/JSON imports, and manage Google Sheets auto-sync. |
 | Rules & sources | Inspect sources, supported mechanics, estimates and known gaps in the model. |
 
-PvP estimates require opponent health and damage inputs. Wave, station and event modes estimate an individual encounter; they do not simulate a whole fleet, station or wave sequence.
+PvP estimates require opponent hull health and damage inputs; enter shield health separately. Catalogue targets require an exact level and variant ID when several variants match. Wave, station and event modes estimate an individual encounter; they do not simulate a whole fleet, station or wave sequence.
 
 ## A closer look
 
@@ -49,7 +49,7 @@ PvP estimates require opponent health and damage inputs. Wave, station and event
 | --- | --- |
 | [![Searchable roster with synthetic officer stats](docs/screenshots/roster.png)](docs/screenshots/roster.png) | [![Account research settings and disconnected Google Sheet sync](docs/screenshots/account.png)](docs/screenshots/account.png) |
 
-[How to regenerate these screenshots](docs/screenshots/README.md).
+[Mobile planner screenshot](docs/screenshots/mobile-planner.png) · [How to regenerate these screenshots](docs/screenshots/README.md).
 
 ## Google Sheets syncing
 
@@ -111,7 +111,7 @@ The CLI is available through `python main.py --help`. For a portable Windows bui
 
 This is a **heuristic advisor, not a complete STFC combat simulator**. It evaluates captain positions within a shortlist and simulates finalists; it does not prove a global optimum. Scores and simulation outcomes are estimates, not measured live win probabilities.
 
-The model includes scoped officer effects, additive stat buffs, standard mitigation, isolytic damage, Apex Barrier and Critical Mitigation. Some local data and formulas are inferred. Full weapon timing, shield behavior, every conditional officer trigger, artifacts, forbidden tech, station platforms and multi-wave persistence remain incomplete. Battle-log calibration is still needed.
+The model includes capped officer-to-ship stat conversion, separate hull/shield pools, scoped and selected timed officer effects, weapon schedules, standard mitigation, separate Isolytic/Cascade values, Apex and Critical Mitigation. Missing schedules use a disclosed aggregate attack. Some formulas, stacking and event timing remain provisional; full status chains, ship passives, station platforms and multi-wave persistence are incomplete. Sampling intervals exclude model error. Battle-log calibration is still needed.
 
 Read [the mechanics audit and primary sources](docs/RULES.md) before relying on a numerical prediction. The in-app rules view and recommendation warnings disclose unsupported effects.
 
@@ -148,3 +148,7 @@ docs/ / tools/            Mechanics audit, demo data and screenshot capture
 ```
 
 Independent fan project; not affiliated with Scopely or the Star Trek rights holders. Game names and assets remain the property of their respective owners.
+
+## September 2026 mechanics corrections
+
+Read [the implementation disposition](docs/AUDIT_CORRECTIONS.md) and [calculation conventions](docs/RULES.md) before interpreting results. Select an exact hostile variant; enter hull and shield health separately. Officer-sheet values are treated as already adjusted for the account. Research imports preserve attributed source values for review instead of guessing global buffs. The app shows model omissions and uncertainty; wave, raid and anomaly predictions cover individual encounters only.

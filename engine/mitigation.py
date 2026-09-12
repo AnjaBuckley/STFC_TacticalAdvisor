@@ -8,18 +8,20 @@ Theoretical saturation cap: ~71.2%
 Practical optimization target: 65% (flag above this as diminishing returns)
 
 Coefficients by ship class (defender):
-  Battleship:   cA=0.55, cS=0.25, cD=0.20
-  Explorer:     cA=0.20, cS=0.55, cD=0.25
-  Interceptor:  cA=0.25, cS=0.20, cD=0.55
+  Battleship:   cA=0.55, cS=0.20, cD=0.20
+  Explorer:     cA=0.20, cS=0.55, cD=0.20
+  Interceptor:  cA=0.20, cS=0.20, cD=0.55
 """
 
 import math
 
 SHIP_CLASS_COEFFICIENTS = {
-    "Battleship":   {"armor": 0.55, "shield": 0.25, "dodge": 0.20},
-    "Explorer":     {"armor": 0.20, "shield": 0.55, "dodge": 0.25},
-    "Interceptor":  {"armor": 0.25, "shield": 0.20, "dodge": 0.55},
+    "Battleship": {"armor": 0.55, "shield": 0.20, "dodge": 0.20},
+    "Explorer": {"armor": 0.20, "shield": 0.55, "dodge": 0.20},
+    "Interceptor": {"armor": 0.20, "shield": 0.20, "dodge": 0.55},
 }
+
+SHIP_CLASS_COEFFICIENTS["Survey"] = {"armor": 0.3, "shield": 0.3, "dodge": 0.3}
 
 MITIGATION_CAP = 0.712
 SATURATION_WARNING_THRESHOLD = 0.65
@@ -36,17 +38,35 @@ def calc_mitigation(
     armor_piercing: float,
     shield_piercing: float,
     accuracy: float,
-    ship_class: str
+    ship_class: str,
 ) -> dict:
+    if any(
+        not math.isfinite(v) or v < 0
+        for v in (
+            armor,
+            shield_deflection,
+            dodge,
+            armor_piercing,
+            shield_piercing,
+            accuracy,
+        )
+    ):
+        raise ValueError("Mitigation stats must be finite and nonnegative.")
     coeffs = SHIP_CLASS_COEFFICIENTS[ship_class]
 
-    ratio_armor  = armor / armor_piercing if armor_piercing > 0 else 999
-    ratio_shield = shield_deflection / shield_piercing if shield_piercing > 0 else 999
-    ratio_dodge  = dodge / accuracy if accuracy > 0 else 999
+    ratio_armor = (
+        armor / armor_piercing if armor_piercing > 0 else (999 if armor > 0 else 0)
+    )
+    ratio_shield = (
+        shield_deflection / shield_piercing
+        if shield_piercing > 0
+        else (999 if shield_deflection > 0 else 0)
+    )
+    ratio_dodge = dodge / accuracy if accuracy > 0 else (999 if dodge > 0 else 0)
 
-    m_armor  = coeffs["armor"]  * logistic(ratio_armor)
+    m_armor = coeffs["armor"] * logistic(ratio_armor)
     m_shield = coeffs["shield"] * logistic(ratio_shield)
-    m_dodge  = coeffs["dodge"]  * logistic(ratio_dodge)
+    m_dodge = coeffs["dodge"] * logistic(ratio_dodge)
 
     total_mitigation = 1 - (1 - m_armor) * (1 - m_shield) * (1 - m_dodge)
     total_mitigation = min(total_mitigation, MITIGATION_CAP)
@@ -60,7 +80,8 @@ def calc_mitigation(
         },
         "approaching_cap": total_mitigation >= SATURATION_WARNING_THRESHOLD,
         "cap_warning": (
-            "Mitigation near saturation. Switch to offensive officers."
-            if total_mitigation >= SATURATION_WARNING_THRESHOLD else None
-        )
+            "Mitigation near saturation in the empirical model; compare marginal gains."
+            if total_mitigation >= SATURATION_WARNING_THRESHOLD
+            else None
+        ),
     }

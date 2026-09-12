@@ -9,7 +9,7 @@ from engine.abilities import (
     officer_has_effect, bda_combat_score,
 )
 
-_PROFILE = Path(__file__).parent.parent / "profiles" / "player_profile.json"
+_PROFILE = Path(__file__).parent.parent / "docs" / "demo-profile.json"
 
 VALID_ROLES = {"off", "def", "amp", "util"}
 VALID_SCOPES = {"any", "pvp", "pve", "armada", "station", "node", "mining", "wave_defense"}
@@ -61,7 +61,7 @@ class TestRelevance:
 
     def test_effect_lookup(self):
         assert officer_has_effect(
-            "Kathryn Janeway", {"isolytic_damage"}, "pve_hostile", {"name": "Gorn Hunter"}
+            "Kathryn Janeway", {"isolytic_cascade"}, "pve_hostile", {"name": "Gorn Hunter"}
         )
         assert not officer_has_effect(
             "Arrock", {"isolytic_damage"}, "pve_hostile", {"name": "Gorn Hunter"}
@@ -91,4 +91,4 @@ class TestPerRankValues:
         from engine.abilities import ability_strength
         rec = {}  # no values from export
         officer = {"name": "X", "rank": 5, "oa_value": "40%"}
-        assert ability_strength(officer, "oa", rec) == 0.40
+        assert ability_strength(officer, "oa", rec) == 0.0

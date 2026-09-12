@@ -77,7 +77,26 @@ class StrictModel(BaseModel):
     model_config = ConfigDict(extra="forbid", allow_inf_nan=False)
 
 
+class WeaponStats(StrictModel):
+    damage: float = Field(ge=0, le=1e20)
+    shots: int = Field(default=1, ge=1, le=50)
+    warmup: int = Field(default=0, ge=0, le=100)
+    cooldown: int = Field(default=1, ge=1, le=100)
+    type: str = "manual"
+
+
 class TargetStats(StrictModel):
+    weapons: list[WeaponStats] | None = Field(default=None, min_length=1, max_length=20)
+    shield_mitigation: float | None = Field(default=None, ge=0, le=1)
+    isolytic_cascade_bonus: float | None = Field(default=None, ge=0, le=1e9)
+
+    shield_hp: float | None = Field(default=None, ge=0, le=1e20)
+    armor: float | None = Field(default=None, ge=0, le=1e18)
+    shield_deflection: float | None = Field(default=None, ge=0, le=1e18)
+    dodge: float | None = Field(default=None, ge=0, le=1e18)
+    critical_mitigation_points: float | None = Field(default=None, ge=0, le=1e12)
+    critical_floor: float | None = Field(default=None, ge=1, le=1e9)
+
     hp: float | None = Field(default=None, gt=0, le=1e20)
     base_damage: float | None = Field(default=None, ge=0, le=1e20)
     armor_piercing: float | None = Field(default=None, ge=0, le=1e18)
@@ -98,7 +117,10 @@ class RecommendationRequest(StrictModel):
     level: int = Field(default=60, ge=1, le=100)
     ship_name: str | None = None
     top_n: int = Field(default=3, ge=1, le=10)
-    enemy_class: Literal["Battleship", "Explorer", "Interceptor"] = "Battleship"
+    enemy_class: Literal["Battleship", "Explorer", "Interceptor", "Survey"] = (
+        "Battleship"
+    )
+    hostile_id: int | None = Field(default=None, ge=0)
     target_stats: TargetStats | None = None
     excluded_officers: list[str] = Field(default_factory=list, max_length=1000)
 
@@ -207,6 +229,7 @@ def recommend(body: RecommendationRequest):
                 if body.target_stats
                 else {}
             ),
+            body.hostile_id,
         )
         if (
             body.task_type in {"pve_academy_drone", "duo_wave_defense"}
@@ -300,9 +323,7 @@ def preview_import(
                         "No research rows found. Use a Spocks.club research CSV export."
                     )
                 report = compute_research_buffs(rows)
-                updated, diff = apply_to_profile(
-                    copy.deepcopy(profile), report["buckets"]
-                )
+                updated, diff = apply_to_profile(copy.deepcopy(profile), report)
             elif kind == "officers":
                 from ingest.officer_tool_sheet import (
                     apply_to_profile,

@@ -173,7 +173,8 @@ class TestApplyToProfile:
              "description": "x", "pvp_relevant": False, "pve_relevant": True},
         ]
 
-        _, diff = apply_to_profile(profile, bonuses, roster)
+        migrated, _ = apply_to_profile(profile, bonuses, roster)
+        _, diff = apply_to_profile(migrated, bonuses, roster)
         assert diff == []
 
 

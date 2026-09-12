@@ -1,33 +1,42 @@
-# Mechanics audit — 12 September 2026
+# Mechanics and coverage — 12 September 2026
 
-The user asked for current STFC rules. The live documentation corrects several assumptions in the older AGENTS.md examples. This implementation retains compatible interfaces where possible, but does not claim complete fidelity to the live game.
+This is a partial, uncalibrated combat model. See [audit corrections](AUDIT_CORRECTIONS.md) for the disposition of all 22 findings. Passing tests establishes internal behaviour; it does not establish agreement with the live game.
 
-## Source-backed corrections
+## Implemented calculation conventions
 
-- [Scopely's Isolytic Damage documentation](https://scopely.helpshift.com/hc/en/19-star-trek-fleet-command/faq/7300-isolytic-damage/): calculate the independent track from total outgoing standard damage, before applying the defender's ordinary mitigation.
-- [Update 65](https://startrekfleetcommand.com/news/update-65-gorn-invasion-pt-1/): Gorn **Hunters** are immune to all non-isolytic damage. The other names in the curated Gorn dataset have not been independently verified and do not inherit this property just from their category.
-- [Apex Barrier](https://startrekfleetcommand.com/news/new-battle-stat-apex-barrier-modifier/): 10,000 points add 100% effective health. The model applies it exactly once through effective HP, including against incoming isolytic damage. An explicit enemy Apex Shred fraction reduces the barrier first.
-- [Remote Campus and Critical Mitigation](https://startrekfleetcommand.com/news/starfleet-academy-remote-campus-critical-mitigation/): the worked example of 83,000 points and 62.41% reduction is consistent with `points / (points + 50,000)`. This curve is an **inference from the worked example**, not an assumption that 500 points always adds one percentage point of reduction.
-- [Update 90](https://startrekfleetcommand.com/news/patch-notes-update-90-starfleet-academy-part-1/): Matter Beam mitigation is documented for PvP, not universally. Remote Campus applies to Academy encounters. Simulacrum eligibility is specific to ships. Academy content begins at Ops 61. Explorer Academy drones have non-isolytic immunity.
-- [Update 91](https://startrekfleetcommand.com/news/patch-notes-update-91-starfleet-academy-part-2/): Academy stats were adjusted. Old published magnitudes must not be represented as guaranteed current values.
-- [Update 94](https://startrekfleetcommand.com/news/patch-notes-update-94-cause-and-effect/): conditional station research and event anomalies add mechanics beyond the earlier Update 90 specification. They are disclosed as unsupported rather than invented.
+- Base ship stats receive additive bonuses in their own category. Officer points use the ship catalogue’s capped officer-bonus curves. Interpolation between exported thresholds is provisional. `stat_basis: account_adjusted` officer values are not multiplied by account bonuses a second time; `base` values are. Unknown provenance is disclosed.
+- Hull and shield pools are distinct. Default shield absorption is a disclosed 80% model assumption; overflow reaches hull. A dead unit does not fire. Weapon schedules may specify `damage`, `shots`, `warmup` (rounds before first shot), and `cooldown` (round interval). Missing schedules become one disclosed aggregate attack per round.
+- Standard mitigation uses the community logistic model and weights 0.55/0.20/0.20 for combat classes, 0.30/0.30/0.30 for Survey. The model is empirical, not an official published formula. The 65% warning is an advisory threshold.
+- Ordinary Isolytic damage starts from pre-mitigation damage. Cascade remains separate, with the provisional combined formula shown in the app. Both tracks pass through Apex once. Critical reduction affects critical hits only; its interaction with Isolytic damage is not established.
+- Critical Mitigation points use the provisional `points / (points + 50000)` curve. Legacy decimal overrides remain explicitly identified; they do not become points automatically. Scope is evaluated against the selected ship and actual enemy family. Simulacrum does not apply to Combat Drones simply because they are Academy enemies.
+- Synergy uses captain-specific base/small/large increments. Captain promotion does not choose a different synergy-array entry. Unknown classes leave the maneuver value unconfirmed.
+- Hugh uses a chance per received weapon attack, not a permanent critical chance. Seska, Suder and PIC Hugh have selected timed/repair rules. Unsupported status, captain and ship abilities are omitted with warnings. Decay accepts an explicit stabilizer offset; it is never added to ordinary Swarm targets merely from their name.
 
-## Profile compatibility
+## Source registry and imports
 
-New fields under `research.critical_mitigation` are `remote_campus_points` and `programmable_matter_beam_points`. Ships accept `crit_mitigation_points`. These are **points**, not percentages. An explicit zero takes precedence over the old field. The old `remote_campus_bonus`, `programmable_matter_beam_value`, and `crit_mitigation_bonus` remain effective decimal reductions. Mixed profiles add the resolved point reduction and legacy effective override, clamp to 100%, and expose `legacy_override: true`. This is a compatibility estimate, not verified mixed-unit game stacking. The interface labels legacy values and offers point migration; it never silently rescales user data.
+`combat_sources` is a list of attributed values on a profile or ship. Use `status: manual` or `reviewed`, `effect`, `unit`, `contexts`, optional `conditions`, and a unique `id`. Fractions use 1 for 100%; Apex and Critical Mitigation use points. Examples of contexts: `pve`, `pvp`, `station`, `armada`, `wave_defense`. Conditions can constrain ship name/class or target family/class/ID/faction. Supported non-base-stat effects may have a round duration. Do not duplicate bonuses already entered in account totals.
 
-## Search and simulation
+Research CSV imports preserve each node/buff ID, completed level and raw source unit. They no longer divide decimal percentages by 100, classify every buff by one node-name regex, or overwrite unrelated manual totals. Unreviewed imports remain quarantined until their scope and effect are confirmed in the advanced account editor. Reimporting is idempotent and preserves reviewed mappings. Officer-sheet sync keeps its existing one-way ownership/progression behaviour and tags its calculated stats as account-adjusted.
 
-All three captain assignments are evaluated per triplet within a maximum 40-officer shortlist. Abilities are scored for their assigned station and target scope. Unknown and unavailable officers do not become hypothetical owned officers. Below deck is a separate pass and excludes the bridge. No unowned fallback ship is created. The result remains a **heuristic recommendation**, not a proof of a global optimum.
+## Estimates and mission boundaries
 
-Supported unconditional per-rank effects (OA and BDA) enter numerical simulations. Inferred conditions, unsupported effects and CM arrays with ambiguous synergy semantics are reported in `unmodelled_abilities`. This avoids treating captain synergy entries as officer promotion tiers. A CM/BDA is never activated from the wrong seat. The numerical model still approximates officer stats, shields, simultaneous round exchanges and weapon firing; this is visible in each result.
+Exact enemy family, class, level and ID are required for catalogue encounters. No nearby enemy or generic wave is substituted. Academy source magnitudes may reflect historical published bonuses and require current logs after rebalancing.
 
-Outgoing ordinary damage is reduced using available target defense statistics; isolytic damage bypasses ordinary defense and respects isolytic defense. Both tracks respect target Apex. Incoming Apex is represented by effective HP exactly once. Critical reduction applies to critical hits only. Explicit incoming isolytic and per-round decay parameters can be supplied from a log. The reported damage trace is the first round of the first seeded simulation, not an average or a claimed live-game battle log.
+The optimizer evaluates captain placements within a shortlist, simulates finalists, and ranks feasibility before numerical score. Below-deck choices re-evaluate capped marginal stat benefits; the search is not a proof of optimality. Unsupported effects receive no invented whole-crew benefit. Time-to-kill is absent when no run kills the target, timeouts are distinct, and Wilson intervals quantify sampling uncertainty only.
 
-## Boundaries
+Wave, Duo, Dreadnought, station and anomaly contexts estimate an individual encounter. Allied targeting, complete waves, station platforms, cargo hauling, travel, loot per flight and anomaly phase/reward state are not represented. No complete-mission success claim is made.
 
-The existing logistic mitigation model and ship class coefficients are retained under the project constitution; they are not represented as freshly verified game formulas. Building scope, artifacts, forbidden tech, active buffs, weapon timing, shield absorption, regeneration, critical floors, state transitions, full captain maneuver scaling and every officer's trigger need a richer event-based simulator and battle-log fixtures. Station platforms, multiple waves, allied ships, anomaly schedules and travel/warp constraints are not modelled. The rules view and result warnings make these limits explicit.
+## Evidence
 
-## Combat triangle and baseline PvP crews
+- [Scopely Isolytic documentation](https://scopely.helpshift.com/hc/en/19-star-trek-fleet-command/faq/7300-isolytic-damage/)
+- [Scopely Apex Barrier](https://startrekfleetcommand.com/news/new-battle-stat-apex-barrier-modifier/)
+- [Critical Mitigation worked example](https://startrekfleetcommand.com/news/starfleet-academy-remote-campus-critical-mitigation/)
+- [Update 90 source scopes](https://startrekfleetcommand.com/news/patch-notes-update-90-starfleet-academy-part-1/)
+- [Update 91 rebalance](https://startrekfleetcommand.com/news/patch-notes-update-91-starfleet-academy-part-2/)
+- [Hugh, Update M50](https://startrekfleetcommand.com/news/update-m50-patch-notes/)
+- [Seska and Suder, Update 75](https://startrekfleetcommand.com/news/patch-notes-update-75-year-of-hell-part-2/)
+- [Legacy caps, G7 notes](https://startrekfleetcommand.com/news/the-margins-g7-patch-notes/)
+- [Update 94 identities and sources](https://startrekfleetcommand.com/news/patch-notes-update-94-cause-and-effect/)
+- [Community mitigation calculator](https://stfc-toolbox.vercel.app/)
 
-[Scopely's SNW crew examples](https://startrekfleetcommand.com/news/snw-james-t-kirk-takes-the-captains-chair/) confirm Interceptor vs Battleship, Battleship vs Explorer, and Explorer vs Interceptor. The old project's counter map was reversed. It is corrected in `pvp_logic.py` and used as a modest heuristic preference, not a universal guarantee. [Scopely's Explorer Strike Team page](https://scopely.helpshift.com/hc/en/19-star-trek-fleet-command/faq/8439-explorer-strike-team/) identifies Weyoun, Pon and Ikat'ika as the baseline. The Battleship baseline uses the distinct Strike Team officer variants. Core strike-team bridge kits are not given their offensive/defensive heuristic scores on an incompatible player ship class.
+These sources establish selected mechanics and restrictions, not a complete or internally consistent combat specification. Exact ordering, curves and stacking still require real battle-log regression fixtures.

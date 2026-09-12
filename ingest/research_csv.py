@@ -32,21 +32,33 @@ _PROFILE_PATH = paths.profile_path()
 # Ordered classifiers: first match on the node's name+description wins.
 # bucket -> regex (matched against lowercase "name :: description")
 _CLASSIFIERS = [
-    ("apex_shred",        r"apex shred"),
-    ("apex_barrier",      r"apex barrier"),
-    ("isolytic_defense",  r"isolytic (defense|defence|mitigation)"),
-    ("isolytic_damage",   r"isolytic (damage|cascade)"),
-    ("remote_campus",     r"remote campus"),
-    ("crit_mitigation",   r"(critical mitigation|reduc\w* critical damage taken|decreas\w* critical damage (taken|received))"),
-    ("officer_all",       r"(all (officer|bridge officer) stats|officer stats)"),
-    ("officer_attack",    r"officer\w*'? attack|attack of (all )?officers"),
-    ("officer_defense",   r"officer\w*'? (defense|defence)|(defense|defence) of (all )?officers"),
-    ("officer_health",    r"officer\w*'? health|health of (all )?officers"),
-    ("weapon_damage",     r"(weapon damage|damage of (all )?(ships|weapons)|(energy|kinetic) (weapon )?damage)"),
-    ("hull_health",       r"hull health"),
-    ("shield_health",     r"shield health"),
-    ("mitigation_stats",  r"(armor|shield deflection|dodge)(?!.*(piercing|penetration))"),
-    ("piercing",          r"(piercing|penetration|accuracy)"),
+    ("apex_shred", r"apex shred"),
+    ("apex_barrier", r"apex barrier"),
+    ("isolytic_defense", r"isolytic (defense|defence|mitigation)"),
+    ("isolytic_damage", r"isolytic (damage|cascade)"),
+    ("remote_campus", r"remote campus"),
+    (
+        "crit_mitigation",
+        r"(critical mitigation|reduc\w* critical damage taken|decreas\w* critical damage (taken|received))",
+    ),
+    ("officer_all", r"(all (officer|bridge officer) stats|officer stats)"),
+    ("officer_attack", r"officer\w*'? attack|attack of (all )?officers"),
+    (
+        "officer_defense",
+        r"officer\w*'? (defense|defence)|(defense|defence) of (all )?officers",
+    ),
+    ("officer_health", r"officer\w*'? health|health of (all )?officers"),
+    (
+        "weapon_damage",
+        r"(weapon damage|damage of (all )?(ships|weapons)|(energy|kinetic) (weapon )?damage)",
+    ),
+    ("hull_health", r"hull health"),
+    ("shield_health", r"shield health"),
+    (
+        "mitigation_stats",
+        r"(armor|shield deflection|dodge)(?!.*(piercing|penetration))",
+    ),
+    ("piercing", r"(piercing|penetration|accuracy)"),
 ]
 
 # Buckets whose values are flat stat points, not percentage decimals
@@ -87,14 +99,16 @@ def parse_research_csv(source) -> list[dict]:
         desc = raw_row[len(header) - 1] if len(raw_row) >= len(header) else ""
         if not row.get("id"):
             continue
-        rows.append({
-            "id": row["id"].strip(),
-            "name": row.get("Name", "").strip(),
-            "level": int(row.get("Level", 0) or 0),
-            "tree": row.get("Tree", "").strip(),
-            "done": row.get("Done", "").strip().lower() == "yes",
-            "description": desc.strip(),
-        })
+        rows.append(
+            {
+                "id": row["id"].strip(),
+                "name": row.get("Name", "").strip(),
+                "level": int(row.get("Level", 0) or 0),
+                "tree": row.get("Tree", "").strip(),
+                "done": row.get("Done", "").strip().lower() == "yes",
+                "description": desc.strip(),
+            }
+        )
     return rows
 
 
@@ -102,7 +116,7 @@ def is_research_csv(source) -> bool:
     """Header sniff used by the upload UI to route files."""
     try:
         rows = parse_research_csv(source)
-    except Exception:
+    except (ValueError, TypeError, OSError, StopIteration, UnicodeError, csv.Error):
         return False
     return len(rows) > 0
 
@@ -129,9 +143,10 @@ def compute_research_buffs(rows: list[dict]) -> dict:
         if r["done"]:
             done_level[r["id"]] = max(done_level[r["id"]], r["level"])
 
-    buckets: dict[str, float] = defaultdict(float)
-    conditional: dict[str, float] = defaultdict(float)
-    counted = missing_detail = 0
+    # Preserve each buff's identity and native unit. Text classification is a
+    # review hint, never authority to apply several distinct buffs globally.
+    sources = []
+    missing_detail = 0
     for node_id, level in done_level.items():
         detail_path = _RESEARCH_DIR / f"{node_id}.json"
         if not detail_path.exists():
@@ -139,46 +154,73 @@ def compute_research_buffs(rows: list[dict]) -> dict:
             continue
         detail = json.loads(detail_path.read_text(encoding="utf-8"))
         info = node_info[node_id]
-        bucket = _classify(info["name"], info["description"])
-        if bucket == "other":
-            continue
-        hay = f"{info['name']} {info['description']}"
-        is_conditional = bool(
-            _CONDITIONAL_MARKERS.search(hay) or _SHIP_SCOPED.search(hay)
-        )
-        for buff in detail.get("buffs", []):
+        for index, buff in enumerate(detail.get("buffs", [])):
             values = buff.get("values", [])
-            if not values or level < 1:
+            if not 1 <= level <= len(values):
                 continue
-            value = values[min(level, len(values)) - 1].get("value", 0) or 0
-            if not value:
-                continue
-            # pct-flagged values are percent numbers (26 = 26%) -> decimal.
-            # Flat values only make sense for flat-stat buckets (Apex Barrier);
-            # flat damage/HP grants on other buckets are dropped from the
-            # global multipliers.
-            if buff.get("value_is_percentage"):
-                if bucket in _FLAT_BUCKETS:
-                    continue
-                amount = value / 100.0
-            elif bucket in _FLAT_BUCKETS:
-                amount = value
-            else:
-                continue
-            (conditional if is_conditional else buckets)[bucket] += amount
-        counted += 1
-
+            value = values[level - 1].get("value", 0) or 0
+            sources.append(
+                {
+                    "id": f"research:{node_id}:{buff.get('id', index)}",
+                    "name": info["name"],
+                    "node_id": node_id,
+                    "buff_id": buff.get("id", index),
+                    "level": level,
+                    "value": value,
+                    "unit": "fraction" if buff.get("value_is_percentage") else "points",
+                    "effect": "unreviewed",
+                    "contexts": [],
+                    "status": "unreviewed",
+                    "description": info["description"],
+                    "origin": "research_csv",
+                    "review_hint": _classify(info["name"], info["description"]),
+                }
+            )
     return {
-        "buckets": dict(buckets),
-        "conditional": dict(conditional),
+        "buckets": {},
+        "conditional": {},
+        "sources": sources,
         "nodes_done": len(done_level),
-        "nodes_counted": counted,
+        "nodes_counted": len(done_level) - missing_detail,
         "nodes_missing_detail": missing_detail,
+        "warning": "Research values retained per buff in native units. Confirm exact effect and conditions before enabling; existing account totals are preserved.",
     }
 
 
 def apply_to_profile(profile: dict, buckets: dict) -> tuple[dict, list[str]]:
     """Map buff buckets onto the profile's research fields. Returns (profile, diff)."""
+    if "sources" in buckets:
+        existing = profile.get("combat_sources", [])
+        reviewed = {s["id"]: s for s in existing if s.get("origin") == "research_csv"}
+        merged = []
+        for source in buckets["sources"]:
+            old = reviewed.get(source["id"], {})
+            # A changed level keeps reviewed scope/effect but takes the new value.
+            merged.append(
+                {
+                    **source,
+                    **{
+                        k: old[k]
+                        for k in (
+                            "effect",
+                            "contexts",
+                            "conditions",
+                            "status",
+                            "enabled",
+                        )
+                        if k in old
+                    },
+                }
+            )
+        updated = [s for s in existing if s.get("origin") != "research_csv"] + merged
+        profile["combat_sources"] = updated
+        return profile, (
+            [
+                f"Imported {len(merged)} attributed research buffs; manual totals preserved."
+            ]
+            if updated != existing
+            else []
+        )
     diff = []
     research = profile.setdefault("research", {})
     combat = research.setdefault("combat", {})
@@ -205,10 +247,17 @@ def apply_to_profile(profile: dict, buckets: dict) -> tuple[dict, list[str]]:
     _set_floor(combat, "def_only_research", b.get("officer_defense", 0.0))
     _set_floor(combat, "hth_only_research", b.get("officer_health", 0.0))
     _set_floor(combat, "all_research", b.get("officer_all", 0.0))
-    _set_floor(combat, "total_officer_bonus",
-               b.get("officer_all", 0.0)
-               + (b.get("officer_attack", 0.0) + b.get("officer_defense", 0.0)
-                  + b.get("officer_health", 0.0)) / 3)
+    _set_floor(
+        combat,
+        "total_officer_bonus",
+        b.get("officer_all", 0.0)
+        + (
+            b.get("officer_attack", 0.0)
+            + b.get("officer_defense", 0.0)
+            + b.get("officer_health", 0.0)
+        )
+        / 3,
+    )
     _set_floor(combat, "ship_weapon_damage", b.get("weapon_damage", 0.0))
     _set_floor(combat, "ship_hull_health", b.get("hull_health", 0.0))
     _set_floor(combat, "ship_shield_health", b.get("shield_health", 0.0))
@@ -216,8 +265,11 @@ def apply_to_profile(profile: dict, buckets: dict) -> tuple[dict, list[str]]:
     _set(star, "isolytic_damage_bonus", b.get("isolytic_damage", 0.0))
     _set(star, "isolytic_defense_bonus", b.get("isolytic_defense", 0.0))
     _set(star, "apex_shred_bonus", b.get("apex_shred", 0.0))
-    _set(crit, "remote_campus_bonus",
-         b.get("remote_campus", 0.0) or b.get("crit_mitigation", 0.0))
+    _set(
+        crit,
+        "remote_campus_bonus",
+        b.get("remote_campus", 0.0) or b.get("crit_mitigation", 0.0),
+    )
 
     return profile, diff
 
@@ -227,7 +279,7 @@ def ingest_research_csv(source, apply: bool = False) -> dict:
     rows = parse_research_csv(source)
     result = compute_research_buffs(rows)
     profile = json.loads(_PROFILE_PATH.read_text(encoding="utf-8"))
-    profile, diff = apply_to_profile(profile, result["buckets"])
+    profile, diff = apply_to_profile(profile, result)
     report = {**result, "diff": diff, "applied": False}
 
     if apply:
@@ -244,8 +296,10 @@ if __name__ == "__main__":
         print(__doc__)
         sys.exit(1)
     report = ingest_research_csv(sys.argv[1], apply="--apply" in sys.argv)
-    print(f"nodes done: {report['nodes_done']} (counted {report['nodes_counted']}, "
-          f"missing detail {report['nodes_missing_detail']})")
+    print(
+        f"nodes done: {report['nodes_done']} (counted {report['nodes_counted']}, "
+        f"missing detail {report['nodes_missing_detail']})"
+    )
     print("buckets:")
     for k, v in sorted(report["buckets"].items()):
         print(f"  {k:20s} {v:,.3f}")

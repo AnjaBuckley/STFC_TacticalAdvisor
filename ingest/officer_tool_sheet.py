@@ -38,15 +38,40 @@ _PROFILE_PATH = paths.profile_path()
 _SHEET_ID_RE = re.compile(r"/d/([a-zA-Z0-9_-]{20,})")
 
 # Roster columns without a named range, given relative to the RosterOfficer column.
-_ROSTER_EXTRA_COLS = {"rarity": -1, "group": 6, "cm_bda_value": 7, "oa_value": 8, "description": 12}
+_ROSTER_EXTRA_COLS = {
+    "rarity": -1,
+    "group": 6,
+    "cm_bda_value": 7,
+    "oa_value": 8,
+    "description": 12,
+}
 
 _PVP_KEYWORDS = (
-    "player", "pvp", "strike team", "battleship", "explorer", "interceptor",
-    "hull breach", "burning", "isolytic", "apex shred",
+    "player",
+    "pvp",
+    "strike team",
+    "battleship",
+    "explorer",
+    "interceptor",
+    "hull breach",
+    "burning",
+    "isolytic",
+    "apex shred",
 )
 _PVE_KEYWORDS = (
-    "hostile", "borg", "gorn", "swarm", "xindi", "mining", "cargo",
-    "armada", "wave", "drone", "romulan", "klingon", "federation",
+    "hostile",
+    "borg",
+    "gorn",
+    "swarm",
+    "xindi",
+    "mining",
+    "cargo",
+    "armada",
+    "wave",
+    "drone",
+    "romulan",
+    "klingon",
+    "federation",
 )
 
 
@@ -59,7 +84,9 @@ def fetch_workbook(source, timeout: int = 30):
     """Accepts a Google Sheet URL/ID, a local path, or raw xlsx bytes."""
     if isinstance(source, bytes):
         content = source
-    elif isinstance(source, Path) or (isinstance(source, str) and Path(source).exists()):
+    elif isinstance(source, Path) or (
+        isinstance(source, str) and Path(source).exists()
+    ):
         content = Path(source).read_bytes()
     else:
         sheet_id = _sheet_id(source)
@@ -120,21 +147,26 @@ def parse_roster(wb) -> list[dict]:
     _, _, _, _, healths = _named_column(wb, "RosterHealth")
 
     from openpyxl.utils import column_index_from_string, get_column_letter
+
     name_idx = column_index_from_string(name_col)
     extra_cols = {
         field: get_column_letter(name_idx + offset)
         for field, offset in _ROSTER_EXTRA_COLS.items()
     }
     extra_values = {
-        field: [ws.cell(row=r, column=column_index_from_string(col)).value
-                for r in range(min_row, max_row + 1)]
+        field: [
+            ws.cell(row=r, column=column_index_from_string(col)).value
+            for r in range(min_row, max_row + 1)
+        ]
         for field, col in extra_cols.items()
     }
 
     officers = []
     for i, name in enumerate(names):
         level = levels[i]
-        if not (isinstance(name, str) and name.strip() and isinstance(level, (int, float))):
+        if not (
+            isinstance(name, str) and name.strip() and isinstance(level, (int, float))
+        ):
             continue
 
         description = extra_values["description"][i]
@@ -147,25 +179,36 @@ def parse_roster(wb) -> list[dict]:
         cm_bda = extra_values["cm_bda_value"][i]
         oa = extra_values["oa_value"][i]
 
-        officers.append({
-            "name": name.strip(),
-            "rarity": str(rarity).strip() if rarity else "U",
-            "level": int(level),
-            "rank": int(ranks[i]) if isinstance(ranks[i], (int, float)) else 1,
-            "attack": round(float(attacks[i]), 2) if isinstance(attacks[i], (int, float)) else 0,
-            "defense": round(float(defenses[i]), 2) if isinstance(defenses[i], (int, float)) else 0,
-            "health": round(float(healths[i]), 2) if isinstance(healths[i], (int, float)) else 0,
-            "group": str(group).strip() if group else "",
-            "cm_bda_value": str(cm_bda).strip() if cm_bda else "",
-            "oa_value": str(oa).strip() if oa else "",
-            "description": str(description).strip() if description else "",
-            "pvp_relevant": pvp_relevant,
-            "pve_relevant": pve_relevant,
-        })
+        officers.append(
+            {
+                "name": name.strip(),
+                "stat_basis": "account_adjusted",
+                "rarity": str(rarity).strip() if rarity else "U",
+                "level": int(level),
+                "rank": int(ranks[i]) if isinstance(ranks[i], (int, float)) else 1,
+                "attack": round(float(attacks[i]), 2)
+                if isinstance(attacks[i], (int, float))
+                else 0,
+                "defense": round(float(defenses[i]), 2)
+                if isinstance(defenses[i], (int, float))
+                else 0,
+                "health": round(float(healths[i]), 2)
+                if isinstance(healths[i], (int, float))
+                else 0,
+                "group": str(group).strip() if group else "",
+                "cm_bda_value": str(cm_bda).strip() if cm_bda else "",
+                "oa_value": str(oa).strip() if oa else "",
+                "description": str(description).strip() if description else "",
+                "pvp_relevant": pvp_relevant,
+                "pve_relevant": pve_relevant,
+            }
+        )
     return officers
 
 
-def apply_to_profile(profile: dict, bonuses: dict, roster: list[dict]) -> tuple[dict, list[str]]:
+def apply_to_profile(
+    profile: dict, bonuses: dict, roster: list[dict]
+) -> tuple[dict, list[str]]:
     """Merge sheet data into the profile. Returns (profile, diff).
 
     Officers are upserted by name: sheet-derived fields (level, rank, stats,
@@ -188,13 +231,23 @@ def apply_to_profile(profile: dict, bonuses: dict, roster: list[dict]) -> tuple[
     for sheet_officer in roster:
         name = sheet_officer["name"]
         sheet_fields = {
-            "rarity": sheet_officer["rarity"], "level": sheet_officer["level"],
-            "rank": sheet_officer["rank"], "attack": sheet_officer["attack"],
-            "defense": sheet_officer["defense"], "health": sheet_officer["health"],
-            "group": sheet_officer["group"], "cm_bda_value": sheet_officer["cm_bda_value"],
-            "oa_value": sheet_officer["oa_value"], "description": sheet_officer["description"],
-            "stats": {"attack": sheet_officer["attack"], "defense": sheet_officer["defense"],
-                      "health": sheet_officer["health"]},
+            "stat_basis": "account_adjusted",
+            "stat_source": "Officers Tool calculated roster",
+            "rarity": sheet_officer["rarity"],
+            "level": sheet_officer["level"],
+            "rank": sheet_officer["rank"],
+            "attack": sheet_officer["attack"],
+            "defense": sheet_officer["defense"],
+            "health": sheet_officer["health"],
+            "group": sheet_officer["group"],
+            "cm_bda_value": sheet_officer["cm_bda_value"],
+            "oa_value": sheet_officer["oa_value"],
+            "description": sheet_officer["description"],
+            "stats": {
+                "attack": sheet_officer["attack"],
+                "defense": sheet_officer["defense"],
+                "health": sheet_officer["health"],
+            },
         }
 
         existing = by_name.get(name)
@@ -211,8 +264,10 @@ def apply_to_profile(profile: dict, bonuses: dict, roster: list[dict]) -> tuple[
             by_name[name] = new_officer
             added.append(name)
         else:
-            leveled = (existing.get("level") != sheet_fields["level"]
-                       or existing.get("rank") != sheet_fields["rank"])
+            leveled = (
+                existing.get("level") != sheet_fields["level"]
+                or existing.get("rank") != sheet_fields["rank"]
+            )
             # Any sheet-derived field counts as a change: stats shift whenever a
             # global bonus (Orion, buildings) changes, even at unchanged level/rank.
             changed = any(existing.get(k) != v for k, v in sheet_fields.items())
@@ -275,7 +330,9 @@ if __name__ == "__main__":
         print(__doc__)
         sys.exit(1)
     report = ingest_officer_sheet(sys.argv[1], apply="--apply" in sys.argv)
-    print(f"ops_level: {report['ops_level']}  syndicate_level: {report['syndicate_level']}")
+    print(
+        f"ops_level: {report['ops_level']}  syndicate_level: {report['syndicate_level']}"
+    )
     print(f"officers in sheet: {report['officers_in_sheet']}")
     print("profile changes:" if report["diff"] else "no profile changes")
     for d in report["diff"]:

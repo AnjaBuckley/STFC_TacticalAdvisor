@@ -19,12 +19,12 @@ TASKS = {
     "pve_hostile": "Hostile grinding",
     "pvp": "Player combat",
     "pvp_station": "Base hitting",
-    "station_raid": "Station raid",
-    "wave_defense": "Solo wave defense",
-    "duo_wave_defense": "Duo wave defense",
+    "station_raid": "Station raid · combat only",
+    "wave_defense": "Solo wave · individual encounter",
+    "duo_wave_defense": "Duo wave · individual encounter",
     "pve_academy_drone": "Academy drones",
-    "galactic_anomaly": "Galactic anomaly",
-    "dreadnought": "Dreadnought encounters",
+    "galactic_anomaly": "Anomaly · individual encounter",
+    "dreadnought": "Dreadnought · individual ship estimate",
 }
 
 
@@ -51,6 +51,11 @@ def validate_profile(profile):
                 finite_tree(child)
 
     finite_tree(profile)
+    from engine.sources import validate_sources
+
+    validate_sources(profile.get("combat_sources", []))
+    for ship in profile.get("ships", []):
+        validate_sources(ship.get("combat_sources", []))
     for key, lo, hi in [("ops_level", 1, 100), ("syndicate_level", 0, 200)]:
         v = profile.get(key, lo)
         if not isinstance(v, int) or isinstance(v, bool) or not lo <= v <= hi:
@@ -127,6 +132,14 @@ def validate_profile(profile):
                     raise TypeError("Officer stats must be an object.")
                 numeric(entry.get("stats", {}), ("attack", "health", "defense"))
                 numeric(entry, ("rank", "tier", "level"), 200)
+                if entry.get("stat_basis", "unknown") not in {
+                    "unknown",
+                    "base",
+                    "account_adjusted",
+                }:
+                    raise ValueError(
+                        "Officer stat basis must be unknown, base or account_adjusted."
+                    )
                 for text_field in ("group", "class", "description", "rarity"):
                     if entry.get(text_field) is not None and not isinstance(
                         entry[text_field], str
@@ -137,7 +150,7 @@ def validate_profile(profile):
                     raise TypeError("Ship base stats must be an object.")
                 numeric(
                     entry["base_stats"],
-                    ("armor_piercing", "shield_piercing", "accuracy"),
+                    ("armor_piercing", "shield_piercing", "accuracy", "shield_health"),
                 )
                 numeric(
                     entry,
@@ -148,7 +161,43 @@ def validate_profile(profile):
                     ),
                 )
                 numeric(entry, ("crit_mitigation_bonus", "crit_chance"), 1)
-                numeric(entry, ("crit_multiplier",))
+                numeric(
+                    entry,
+                    (
+                        "crit_multiplier",
+                        "critical_floor",
+                        "isolytic_cascade_bonus",
+                        "hyperthermic_stabilizer",
+                        "apex_barrier",
+                        "current_hull",
+                        "current_shield",
+                    ),
+                )
+                numeric(entry, ("shield_mitigation", "apex_shred"), 1)
+                if entry.get("stat_basis", "base") not in {"base", "displayed"}:
+                    raise ValueError("Ship stat basis must be base or displayed.")
+                if "weapons" in entry:
+                    weapons = entry["weapons"]
+                    if not isinstance(weapons, list) or not 1 <= len(weapons) <= 20:
+                        raise ValueError("A weapon schedule needs 1–20 weapons.")
+                    for weapon in weapons:
+                        if not isinstance(weapon, dict) or "damage" not in weapon:
+                            raise ValueError("Each weapon requires damage.")
+                        numeric(weapon, ("damage",))
+                        for field, minimum, maximum in [
+                            ("shots", 1, 50),
+                            ("warmup", 0, 100),
+                            ("cooldown", 1, 100),
+                        ]:
+                            value = weapon.get(field, minimum)
+                            if (
+                                isinstance(value, bool)
+                                or not isinstance(value, int)
+                                or not minimum <= value <= maximum
+                            ):
+                                raise ValueError(
+                                    f"Weapon {field} outside supported bounds."
+                                )
                 for table in ("below_deck_slots_by_level", "below_deck_slots_by_tier"):
                     if table in entry:
                         if not isinstance(entry[table], dict):
@@ -218,7 +267,9 @@ def save_profile(profile, revision):
 
 @lru_cache(maxsize=1)
 def catalog():
-    hostiles = json.loads(paths.resource_path("data", "hostiles.json").read_text(encoding="utf-8"))
+    hostiles = json.loads(
+        paths.resource_path("data", "hostiles.json").read_text(encoding="utf-8")
+    )
     for target in hostiles:
         if target["name"] == "Gorn Hunter":
             target["standard_damage_immune"] = True
@@ -264,10 +315,17 @@ def catalog():
                 },
             }
         )
+    from engine.hostile_stats import load_hostile_stats
+
+    for target in hostiles:
+        target["variants"] = [
+            {k: v[k] for k in ("id", "level", "strength")}
+            for v in load_hostile_stats().get(target["name"], [])
+        ]
     return {"tasks": TASKS, "hostiles": hostiles, "ships": ships}
 
 
-def mission_target(task, target_name, level, enemy_class, overrides):
+def mission_target(task, target_name, level, enemy_class, overrides, hostile_id=None):
     if task in {"pvp", "pvp_station", "station_raid"}:
         target = {
             "name": "Enemy player" if task == "pvp" else "Player station",
@@ -281,7 +339,7 @@ def mission_target(task, target_name, level, enemy_class, overrides):
             or overrides.get("base_damage") is None
         ):
             raise ValueError(
-                "Enter the opponent's hull + shield health and damage per round in Target stats."
+                "Enter opponent hull health and damage per round; enter shield health separately."
             )
     else:
         target = next(
@@ -294,17 +352,7 @@ def mission_target(task, target_name, level, enemy_class, overrides):
         )
         if target is None:
             raise ValueError("Choose a known target from the mission catalogue.")
-        expected = {
-            "wave_defense": "Solo Wave Defense",
-            "duo_wave_defense": "Duo Wave Defense",
-        }
-        types = {
-            "pve_academy_drone": "Academy Drone",
-            "galactic_anomaly": "Galactic Anomaly",
-            "dreadnought": "Dreadnought",
-        }
-        if task in expected and target["name"] != expected[task]:
-            raise ValueError("This target does not match the selected wave mode.")
+        types = {"pve_academy_drone": "Academy Drone", "dreadnought": "Dreadnought"}
         if task in types and target["type"] != types[task]:
             raise ValueError("This target does not match the selected mission.")
         if task == "pve_hostile" and target["type"] in {
@@ -314,9 +362,21 @@ def mission_target(task, target_name, level, enemy_class, overrides):
             "Dreadnought",
         }:
             raise ValueError("Choose the dedicated mission type for this target.")
-        target = enrich_target(target, level)
+        target = enrich_target(target, level, hostile_id)
     if overrides:
         target.update(overrides)
+        if "hp" in overrides:
+            target["hull_hp"] = overrides["hp"]
+        defense = {
+            k: target.pop(k)
+            for k in ("armor", "shield_deflection", "dodge")
+            if k in target
+        }
+        if defense:
+            target["defense_stats"] = {**target.get("defense_stats", {}), **defense}
+    if task in {"wave_defense", "duo_wave_defense"}:
+        target["encounter_context"] = "wave_defense"
+
     if target.get("standard_damage_immune") is None:
         target.pop("standard_damage_immune", None)
     return target

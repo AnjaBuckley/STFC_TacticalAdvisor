@@ -27,19 +27,19 @@ class TestL71Caps:
         crew = [_officer("Pike"), _officer("Moreau"), _officer("Chen")]
         s70, r70 = _score(crew, 70)
         s71, r71 = _score(crew, 71)
-        assert s71 < s70
-        assert any("hard-capped" in line for line in r71)
-        assert not any("hard-capped" in line for line in r70)
+        assert s71 == s70  # No fabricated whole-officer 90% penalty.
+        assert any("legacy ability cap" in line for line in r71)
+        assert not any("legacy ability cap" in line for line in r70)
 
     def test_uncapped_crew_unaffected(self):
         crew = [_officer("Kang"), _officer("Krell"), _officer("Mara")]
         s70, _ = _score(crew, 70)
         s75, r75 = _score(crew, 75)
-        assert not any("hard-capped" in line for line in r75)
+        assert not any("legacy ability cap" in line for line in r75)
 
     def test_leslie_capped_above_51(self):
         crew = [_officer("Leslie"), _officer("Kang"), _officer("Mara")]
         _, r52 = _score(crew, 52)
         _, r51 = _score(crew, 51)
-        assert any("Leslie" in line and "hard-capped" in line for line in r52)
-        assert not any("hard-capped" in line for line in r51)
+        assert not any("90%" in line for line in r52)
+        assert not any("legacy ability cap" in line for line in r51)
