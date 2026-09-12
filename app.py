@@ -83,6 +83,8 @@ class WeaponStats(StrictModel):
     warmup: int = Field(default=0, ge=0, le=100)
     cooldown: int = Field(default=1, ge=1, le=100)
     type: str = "manual"
+    crit_chance: float | None = Field(default=None, ge=0, le=1)
+    crit_multiplier: float | None = Field(default=None, ge=1, le=1000)
 
 
 class TargetStats(StrictModel):
@@ -117,6 +119,7 @@ class RecommendationRequest(StrictModel):
     level: int = Field(default=60, ge=1, le=100)
     ship_name: str | None = None
     top_n: int = Field(default=3, ge=1, le=10)
+    objective: Literal["combat", "loot"] = "combat"
     enemy_class: Literal["Battleship", "Explorer", "Interceptor", "Survey"] = (
         "Battleship"
     )
@@ -237,7 +240,13 @@ def recommend(body: RecommendationRequest):
         ):
             raise ValueError("Academy content requires Operations level 61 or above.")
         results = find_optimal_crew(
-            profile, {"task_type": body.task_type, "target": target}, body.top_n
+            profile,
+            {
+                "task_type": body.task_type,
+                "target": target,
+                "objective": body.objective,
+            },
+            body.top_n,
         )
     except (ValueError, TypeError, KeyError) as exc:
         raise HTTPException(422, str(exc)) from exc

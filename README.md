@@ -152,3 +152,7 @@ Independent fan project; not affiliated with Scopely or the Star Trek rights hol
 ## September 2026 mechanics corrections
 
 Read [the implementation disposition](docs/AUDIT_CORRECTIONS.md) and [calculation conventions](docs/RULES.md) before interpreting results. Select an exact hostile variant; enter hull and shield health separately. Officer-sheet values are treated as already adjusted for the account. Research imports preserve attributed source values for review instead of guessing global buffs. The app shows model omissions and uncertainty; wave, raid and anomaly predictions cover individual encounters only.
+
+### Combat or loot priority
+
+The mission planner can rank combat outcomes or include supported hostile loot bonuses. Loot priority still puts kill/survival feasibility first; it does not simulate travel, cargo or full-flight yield. Borg officer-stat bonuses, Trip/Archer received-weapon effects and selected Explorer PvP morale effects are now modelled. See [mechanics and remaining assumptions](docs/RULES.md). API requests accept `objective: "combat"` (default) or `"loot"`; loot is unavailable for PvP/station encounters.

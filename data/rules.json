@@ -97,6 +97,30 @@
       "description": "Captain arrays represent base and synergy increments, not promotion levels. Unknown class data cannot establish full synergy. Cascade is distinct from ordinary Isolytic damage.",
       "formula": "Combined Isolytic estimate = raw × [I × (1 + C) + C] / (1 + defense)",
       "coverage": "The combined Cascade formula is community-derived; conflicting interpretations require calibration."
+    },
+    {
+      "title": "Legacy hostile crews and ranking coverage",
+      "status": "Scoped export estimates; uncalibrated",
+      "description": "Chen/T’Laan use typed weapons through level 51; Moreau and selected Pike amplification through level 70. Unsupported effects do not earn a ranking advantage.",
+      "coverage": "Pike amplification only covers these reviewed legacy defenses. NX-01 Aquatic deflection requires explicit weapon shots. Rank uses feasibility, retained hull and continuous kill speed.",
+      "source": "Versioned STFC Space export and Scopely NX-01",
+      "url": "https://scopely.helpshift.com/hc/en/19-star-trek-fleet-command/faq/7830-enterprise-nx-01/"
+    },
+    {
+      "title": "Trip and Archer respond to weapon attacks",
+      "status": "Official ability values; estimated event timing",
+      "description": "Trip reduces enemy critical damage rather than granting Critical Mitigation points. Archer increases player critical damage. Both stack after damaging weapon attacks, not each shot.",
+      "coverage": "Two-round stacks, captain/bridge/below-deck separation and critical floors. Battle logs needed for expiry and buff interactions.",
+      "source": "Scopely Update 62 and 63",
+      "url": "https://startrekfleetcommand.com/news/update-62-patch-notes-enterprise-pt-1/"
+    },
+    {
+      "title": "Explorer strike team requires morale",
+      "status": "Scoped event model; Weyoun timing conflict disclosed",
+      "description": "Weyoun morale precedes Pon, Ikat’ika and Ransom effects. Ransom adds Cascade. All require the player Explorer and PvP context.",
+      "coverage": "Probability separated from effect magnitude. Export morale timing, floor shot rounding and stacking need current logs.",
+      "source": "Scopely Update 48/58; versioned export",
+      "url": "https://startrekfleetcommand.com/news/update-58-lower-decks-ii-part-1/"
     }
   ],
   "limitations": [

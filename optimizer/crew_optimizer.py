@@ -26,7 +26,10 @@ _SIM_SEED = 42  # same random sequence for every candidate — fair ranking
 
 
 def _prefilter_bridge_candidates(
-    officers: list[dict], task_type: str, target: dict | None = None
+    officers: list[dict],
+    task_type: str,
+    target: dict | None = None,
+    ship: dict | None = None,
 ) -> list[dict]:
     """Bounded candidate pool from supported effects and raw-stat tie breaks."""
     from math import log1p
@@ -34,7 +37,7 @@ def _prefilter_bridge_candidates(
     from engine.effects import ability_plan
 
     def _rank(o):
-        static, timed, _ = ability_plan([o], [], task_type, target or {})
+        static, timed, _ = ability_plan([o], [], task_type, target or {}, ship)
         supported = sum(
             log1p(v / (10000 if k in {"crit_mitigation", "apex_barrier"} else 1))
             for k, v in static.items()
@@ -56,6 +59,17 @@ def find_optimal_crew(
     player_profile: dict, task_profile: dict, top_n: int = 5
 ) -> list[dict]:
 
+    objective = task_profile.get("objective", "combat")
+    if objective not in {"combat", "loot"}:
+        raise ValueError("Choose combat or loot as the ranking objective.")
+    if objective == "loot" and task_profile.get("task_type") in {
+        "pvp",
+        "pvp_station",
+        "station_raid",
+    }:
+        raise ValueError(
+            "Loot priority is for hostile encounters; PvP hauling is not simulated."
+        )
     if not 1 <= top_n <= 10:
         raise ValueError("Request between 1 and 10 recommendations.")
     all_officers = list(
@@ -85,11 +99,6 @@ def find_optimal_crew(
 
     if not available_ships:
         raise ValueError("Add an owned combat ship before requesting recommendations.")
-    # Pre-filter to a manageable bridge candidate pool
-    bridge_candidates = _prefilter_bridge_candidates(
-        all_officers, task_type, task_profile.get("target", {})
-    )
-
     # Detect buff dilution for this account (ship-independent)
     research = player_profile.get("research", {})
     combat = research.get("combat", {}) if isinstance(research, dict) else {}
@@ -100,6 +109,9 @@ def find_optimal_crew(
 
     finalists = []
     for ship in available_ships:
+        bridge_candidates = _prefilter_bridge_candidates(
+            all_officers, task_type, target, ship
+        )
         recommendations = []
         below_deck_slots = _below_deck_slot_count(ship)
 
@@ -188,7 +200,9 @@ def find_optimal_crew(
             num_simulations=_SIM_RUNS,
             rng_seed=_SIM_SEED,
         )
-        sim_score = _sim_score(sim)
+        sim_score = _sim_score(sim) * (
+            1 + sim["loot_bonus"] if objective == "loot" else 1
+        )
 
         rec["critical_mitigation"] = aggregate_crit_mitigation_sources(
             player_profile, task_type, ship, target=target
@@ -210,6 +224,16 @@ def find_optimal_crew(
             "globally_optimal": False,
             "validated": False,
         }
+        rec["search"]["objective"] = objective
+        rec["search"]["ranking_confidence"] = (
+            "partial model; unsupported effects may change ordering"
+        )
+        rec["reasoning"].append(
+            "Unsupported abilities are disclosed and never rewarded for being absent. Captain effects are evaluated by seat; no captain-name bonus is applied."
+        )
+        rec["reasoning"].append(
+            f"Modelled loot bonus: {sim['loot_bonus']:.0%}. Priority: {objective}; full-flight yield is not simulated."
+        )
         rec["heuristic_score"] = rec["score"]
         rec["simulation"] = sim
         rec["score"] = round(sim_score, 4)
@@ -249,7 +273,6 @@ def find_optimal_crew(
         key=lambda x: (
             x["simulation"]["kill_probability"],
             x["simulation"]["survival_probability"],
-            -len(x["simulation"]["unmodelled_abilities"]),
             x["score"],
         ),
         reverse=True,
@@ -260,14 +283,15 @@ def find_optimal_crew(
 def _sim_score(sim: dict) -> float:
     """Collapse simulation results into a 0–1 score.
 
-    Survival dominates (a dead ship grinds nothing), then kill reliability,
-    then speed (5 rounds or fewer = full marks)."""
+    Feasibility is sorted separately. Within feasible outcomes retain hull
+    and distinguish all kill durations, including fights below five rounds."""
     survival = sim["survival_probability"] / 100
     kill = sim["kill_probability"] / 100
-    speed = (
-        min(1.0, 5.0 / sim["avg_rounds_to_kill"]) if sim["avg_rounds_to_kill"] else 0.0
-    )
-    return kill * (survival * 0.5 + 0.3 + speed * 0.2)
+    rounds = sim.get("avg_rounds_to_kill")
+    speed = 1 / (1 + max(0, rounds)) if rounds is not None else 0
+    hull = sim.get("hull_max", 0)
+    retained = max(0, min(1, 1 - sim.get("avg_hull_lost", hull) / hull)) if hull else 0
+    return kill * (survival * 0.4 + 0.2 + retained * 0.3 + speed * 0.1)
 
 
 def tier_for_level(level: int, max_tier: int) -> int:

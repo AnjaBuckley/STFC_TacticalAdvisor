@@ -59,6 +59,8 @@ function updateAccountChrome() {
 }
 function updateTargets() {
  const task=$('#task').value, pvp=['pvp','pvp_station','station_raid'].includes(task);
+ $('#objective option[value="loot"]').disabled=pvp;
+ if(pvp) $('#objective').value='combat';
  $('#hostile-control').hidden=pvp;$('#enemy-control').hidden=!pvp;
  const filter=h=>task==='pve_academy_drone'?h.type==='Academy Drone':task==='dreadnought'?h.type==='Dreadnought':task==='pve_hostile'?!['Academy Drone','Dreadnought'].includes(h.type):true;
  $('#target').innerHTML=options(state.hostiles.filter(filter).map(t=>[t.name,t.name]),$('#target').value);
@@ -93,7 +95,7 @@ async function runMission(event) {
  event.preventDefault();if(running)return;
  running=true;clearError();$('#recommend-button').disabled=true;$('#run-status').textContent='Comparing bridge crews…';
  const stats={}; for(const [key,, ,pct] of statFields){const el=$(`#stat-${key}`);if(el.value!=='')stats[key]=Number(el.value)/(pct?100:1);}
- const body={task_type:$('#task').value,target_name:$('#target').value,level:Number($('#target-level').value),top_n:Number($('#top-n').value),ship_name:$('#ship-select').value || null,enemy_class:$('#enemy-class').value,target_stats:stats,hostile_id:$('#target-variant').value?Number($('#target-variant').value):null};
+ const body={objective:$('#objective').value,task_type:$('#task').value,target_name:$('#target').value,level:Number($('#target-level').value),top_n:Number($('#top-n').value),ship_name:$('#ship-select').value || null,enemy_class:$('#enemy-class').value,target_stats:stats,hostile_id:$('#target-variant').value?Number($('#target-variant').value):null};
  $$('#mission-form input, #mission-form select').forEach(el=>el.disabled=true);
  const start=Date.now();
  $('#results').innerHTML='<div class="empty-state"><div class="loading-line"></div><h3>Assembling your away team…</h3><p>Comparing captain positions, assigning below deck, and estimating combat outcomes.</p></div>';
@@ -133,7 +135,7 @@ function renderResults() {
  <details class="notice" open><summary>Model coverage and uncertainty</summary><p>Kill estimate 95% sampling interval: ${sim.kill_interval_95.map(percent).join(' – ')}. This interval excludes model error. Timeouts: ${percent(sim.timeout_probability)}.</p><ul>${sim.limitations.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></details>
  <details class="reasoning" open><summary>Why this crew</summary><ul>${rec.reasoning.map(r=>`<li>${esc(r)}</li>`).join('')}</ul><p class="field-help">${rec.search.bridge_candidates} of ${rec.search.available_officers} available officers in the heuristic bridge shortlist. Every captain position evaluated.</p></details>
  <details class="reasoning"><summary>First simulated round · incoming damage layers</summary><p class="field-help">${trace.raw===undefined?'No incoming weapon hit occurred in this run.':`${trace.is_critical?'Critical':'Normal'} incoming hit, round ${trace.round || '?'} of the first seeded run. Both damage tracks use Apex once.`}</p><div class="trace">${[['raw','Raw damage'],['after_standard','After standard mitigation'],['after_apex','After Apex + critical multiplier'],['after_critical','After Critical Mitigation'],['isolytic','Parallel isolytic'],['decay','Decay']].map(([k,n])=>`<div><small>${n}</small><strong>${number(trace[k])}</strong></div>`).join('')}</div></details>
- ${sim.unmodelled_abilities.length?`<details class="reasoning" open><summary>${sim.unmodelled_abilities.length} ability effects need battle-log verification</summary><p class="field-help">These effects are excluded from numeric simulation and must not be interpreted as verified crew benefits. Conditions, timing, or exact values are incomplete.</p><ul>${sim.unmodelled_abilities.map(a=>`<li>${esc(a)}</li>`).join('')}</ul></details>`:''}</div></article>
+ ${sim.unmodelled_abilities.length?`<details class="reasoning" open><summary>${sim.unmodelled_abilities.length} ability effects need battle-log verification</summary><p class="field-help">These effects are missing or only partly modelled. Review each note: conditions, timing, or exact values still need verification.</p><ul>${sim.unmodelled_abilities.map(a=>`<li>${esc(a)}</li>`).join('')}</ul></details>`:''}</div></article>
  <details class="notice" open><summary>How to read these estimates</summary>${result.warnings.map(w=>`<p>${esc(w)}</p>`).join('')}</details>`;
 }
 async function persist(profile, revision=state.revision) {

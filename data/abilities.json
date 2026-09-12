@@ -1567,8 +1567,12 @@
           0.25,
           0.3
         ],
-        "verification": "unverified export interpretation",
-        "unit": "fraction"
+        "verification": "export description; scoped numerical estimate",
+        "unit": "fraction",
+        "model": "legacy_hostile_defense",
+        "source": "https://stfc.space/officers",
+        "max_hostile_level": 51,
+        "weapon_type": "energy"
       }
     },
     "Culber": {
@@ -2239,13 +2243,13 @@
           "pve",
           "wave_defense"
         ],
-        "conditional": true,
+        "conditional": false,
         "values": [
           0.1,
           0.05,
           0.2
         ],
-        "verification": "unverified export interpretation",
+        "verification": "export Borg target restriction; scoped estimate",
         "unit": "fraction",
         "synergy_values": [
           0.1,
@@ -2272,7 +2276,8 @@
           0.85
         ],
         "verification": "unverified export interpretation",
-        "unit": "fraction"
+        "unit": "fraction",
+        "model": "officer_stat_bonus"
       }
     },
     "Eleven Of Eleven": {
@@ -2614,7 +2619,7 @@
     },
     "Five Of Eleven": {
       "cm": {
-        "effect": "mitigation",
+        "effect": "defense_from_officer_health",
         "role": "def",
         "scope": "any",
         "works_in": [
@@ -2635,7 +2640,8 @@
           2.0,
           2.0,
           4.0
-        ]
+        ],
+        "model": "officer_health_defense"
       },
       "oa": {
         "effect": "loot",
@@ -3685,7 +3691,9 @@
           0.2,
           0.15,
           0.25
-        ]
+        ],
+        "model": "defense_fraction",
+        "ship_class": "Explorer"
       },
       "oa": {
         "effect": "weapon_damage",
@@ -3704,7 +3712,14 @@
           0.8
         ],
         "verification": "unverified export interpretation",
-        "unit": "fraction"
+        "unit": "fraction",
+        "model": "morale_round_effect",
+        "trigger": "round_start",
+        "duration": 3,
+        "ship_class": "Explorer",
+        "requires_state": "morale",
+        "stacking": "add",
+        "source": "https://startrekfleetcommand.com/news/update-48-patch-notes/"
       }
     },
     "Infiltrator Tuvok": {
@@ -3785,7 +3800,7 @@
         "unit": "fraction"
       },
       "oa": {
-        "effect": "isolytic_damage",
+        "effect": "isolytic_cascade",
         "role": "off",
         "scope": "pvp",
         "works_in": [
@@ -3801,7 +3816,14 @@
           1.3
         ],
         "verification": "unverified export interpretation",
-        "unit": "fraction"
+        "unit": "fraction",
+        "model": "morale_round_effect",
+        "trigger": "round_start",
+        "duration": 1,
+        "ship_class": "Explorer",
+        "requires_state": "morale",
+        "stacking": "add",
+        "source": "https://startrekfleetcommand.com/news/update-58-lower-decks-ii-part-1/"
       }
     },
     "Jadzia Dax": {
@@ -4075,7 +4097,7 @@
         "works_in": [
           "pve"
         ],
-        "conditional": true,
+        "conditional": false,
         "values": [
           3.0,
           0.5,
@@ -4106,8 +4128,20 @@
           0.3,
           0.5
         ],
-        "verification": "unverified export interpretation",
-        "unit": "fraction"
+        "verification": "official values; per-weapon event estimate",
+        "unit": "fraction",
+        "trigger": "received_weapon",
+        "duration": 2,
+        "stacking": "add",
+        "conditional": true,
+        "source": "https://startrekfleetcommand.com/news/update-63-patch-notes/",
+        "proc_chances": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
       }
     },
     "Julian Bashir": {
@@ -6125,9 +6159,11 @@
           0.6,
           0.7
         ],
-        "verification": "unverified export interpretation",
+        "verification": "export description; scoped numerical estimate",
         "unit": "fraction",
-        "cap_review_level": 71
+        "cap_review_level": 71,
+        "model": "legacy_hostile_defense",
+        "source": "https://stfc.space/officers"
       }
     },
     "Mudd": {
@@ -6629,13 +6665,13 @@
           "pve",
           "wave_defense"
         ],
-        "conditional": true,
+        "conditional": false,
         "values": [
           0.1,
           0.05,
           0.1
         ],
-        "verification": "unverified export interpretation",
+        "verification": "export Borg target restriction; scoped estimate",
         "unit": "fraction",
         "synergy_values": [
           0.1,
@@ -6662,7 +6698,8 @@
           0.85
         ],
         "verification": "unverified export interpretation",
-        "unit": "fraction"
+        "unit": "fraction",
+        "model": "officer_stat_bonus"
       }
     },
     "Nog": {
@@ -7372,7 +7409,8 @@
           0.4,
           0.8
         ],
-        "cap_review_level": 71
+        "cap_review_level": 71,
+        "model": "legacy_amplifier"
       },
       "oa": {
         "effect": "xp",
@@ -7407,12 +7445,15 @@
           0.0
         ],
         "verification": "unverified export interpretation",
-        "unit": "fraction",
+        "unit": "probability",
         "synergy_values": [
-          3.0,
-          0.0,
-          0.0
-        ]
+          0.1,
+          0.1,
+          0.15
+        ],
+        "model": "defending_delay",
+        "duration": 3,
+        "ship_class": "Explorer"
       },
       "oa": {
         "effect": "enemy_crit_down",
@@ -7431,7 +7472,14 @@
           0.78
         ],
         "verification": "unverified export interpretation",
-        "unit": "fraction"
+        "unit": "fraction",
+        "model": "morale_round_effect",
+        "trigger": "round_start",
+        "duration": 3,
+        "ship_class": "Explorer",
+        "requires_state": "morale",
+        "stacking": "add",
+        "source": "https://startrekfleetcommand.com/news/update-48-patch-notes/"
       }
     },
     "Qa'Ug": {
@@ -8181,12 +8229,17 @@
           0.0
         ],
         "verification": "unverified export interpretation",
-        "unit": "shots",
+        "unit": "probability",
         "synergy_values": [
-          2.0,
-          0.0,
-          0.0
-        ]
+          0.2,
+          0.15,
+          0.35
+        ],
+        "model": "probe_extra_shots",
+        "target_names": [
+          "Borg Tactical Probe"
+        ],
+        "shots": 2
       },
       "oa": {
         "effect": "officer_health",
@@ -8207,7 +8260,8 @@
           1.0
         ],
         "verification": "unverified export interpretation",
-        "unit": "fraction"
+        "unit": "fraction",
+        "model": "officer_stat_bonus"
       }
     },
     "Seven Of Nine": {
@@ -9598,8 +9652,12 @@
           0.15,
           0.2
         ],
-        "verification": "unverified export interpretation",
-        "unit": "fraction"
+        "verification": "export description; scoped numerical estimate",
+        "unit": "fraction",
+        "model": "legacy_hostile_defense",
+        "source": "https://stfc.space/officers",
+        "max_hostile_level": 51,
+        "weapon_type": "kinetic"
       }
     },
     "T'Pol": {
@@ -10535,7 +10593,7 @@
         "unit": "fraction"
       },
       "oa": {
-        "effect": "crit_mitigation",
+        "effect": "enemy_crit_damage_down",
         "role": "def",
         "scope": "any",
         "works_in": [
@@ -10551,8 +10609,20 @@
           1.8,
           2.5
         ],
-        "verification": "unverified export interpretation",
-        "unit": "points"
+        "verification": "official values; per-weapon event estimate",
+        "unit": "fraction",
+        "trigger": "received_weapon",
+        "duration": 2,
+        "stacking": "add",
+        "conditional": true,
+        "source": "https://startrekfleetcommand.com/news/update-62-patch-notes-enterprise-pt-1/",
+        "proc_chances": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
       }
     },
     "Tuvok": {
@@ -11126,16 +11196,21 @@
           1.0,
           1.0
         ],
-        "verification": "unverified export interpretation",
-        "unit": "fraction",
+        "verification": "export timing differs from original Update 48; provisional",
+        "unit": "probability",
         "synergy_values": [
-          1.0,
-          1.0,
-          1.0
-        ]
+          0.2,
+          0.1,
+          0.4
+        ],
+        "model": "morale_round_start",
+        "trigger": "round_start",
+        "duration": 3,
+        "ship_class": "Explorer",
+        "source": "https://startrekfleetcommand.com/news/update-48-patch-notes/"
       },
       "oa": {
-        "effect": "shots",
+        "effect": "shot_bonus",
         "role": "off",
         "scope": "pvp",
         "works_in": [
@@ -11151,7 +11226,14 @@
           1.2
         ],
         "verification": "unverified export interpretation",
-        "unit": "shots"
+        "unit": "fraction",
+        "model": "morale_round_effect",
+        "trigger": "round_start",
+        "duration": 2,
+        "ship_class": "Explorer",
+        "requires_state": "morale",
+        "stacking": "add",
+        "source": "https://startrekfleetcommand.com/news/update-48-patch-notes/"
       }
     },
     "William T. Riker": {

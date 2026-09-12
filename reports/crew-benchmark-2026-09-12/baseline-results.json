@@ -1,0 +1,703 @@
+{
+  "method": "controlled equal-rank/equal-stat synthetic roster; real hostile records",
+  "scenarios": [
+    {
+      "id": "swarm_35",
+      "label": "Level 35 Swarm Cluster",
+      "task": "pve_hostile",
+      "target": {
+        "name": "Swarm Cluster",
+        "type": "Hostile",
+        "level": 35,
+        "ship_class": "Interceptor",
+        "hostile_id": 2292701205,
+        "source": null
+      },
+      "ship": "USS Franklin",
+      "published_crew": [
+        "Pike",
+        "Moreau",
+        "T'Laan"
+      ],
+      "published_rank_in_top_10": null,
+      "published_members_rank_in_top_10": null,
+      "top_recommendations": [
+        {
+          "rank": 1,
+          "crew": [
+            "SNW Pike",
+            "SNW Spock",
+            "Pike"
+          ],
+          "below_deck": [
+            "The Doctor",
+            "T'Laan",
+            "Moreau"
+          ],
+          "kill_probability": 100.0,
+          "survival_probability": 100.0,
+          "avg_rounds": 5.0,
+          "unmodelled": [
+            "SNW Pike: enemy_mitigation_down (OA) requires an unsupported condition/effect",
+            "SNW Spock: stats_triple (OA) requires an unsupported condition/effect"
+          ]
+        },
+        {
+          "rank": 2,
+          "crew": [
+            "SNW Pike",
+            "The Doctor",
+            "Pike"
+          ],
+          "below_deck": [
+            "T'Laan",
+            "SNW Spock",
+            "Moreau"
+          ],
+          "kill_probability": 100.0,
+          "survival_probability": 100.0,
+          "avg_rounds": 5.0,
+          "unmodelled": [
+            "SNW Pike: enemy_mitigation_down (OA) requires an unsupported condition/effect",
+            "The Doctor: stats_triple (OA) requires an unsupported condition/effect"
+          ]
+        },
+        {
+          "rank": 3,
+          "crew": [
+            "SNW Pike",
+            "T'Laan",
+            "Pike"
+          ],
+          "below_deck": [
+            "The Doctor",
+            "SNW Spock",
+            "Moreau"
+          ],
+          "kill_probability": 100.0,
+          "survival_probability": 100.0,
+          "avg_rounds": 5.0,
+          "unmodelled": [
+            "SNW Pike: enemy_mitigation_down (OA) requires an unsupported condition/effect",
+            "T'Laan: enemy_damage_down (OA) requires an unsupported condition/effect"
+          ]
+        },
+        {
+          "rank": 4,
+          "crew": [
+            "SNW Pike",
+            "Pike",
+            "Moreau"
+          ],
+          "below_deck": [
+            "The Doctor",
+            "T'Laan",
+            "SNW Spock"
+          ],
+          "kill_probability": 100.0,
+          "survival_probability": 100.0,
+          "avg_rounds": 5.0,
+          "unmodelled": [
+            "Moreau: enemy_piercing_down (OA) requires an unsupported condition/effect",
+            "SNW Pike: enemy_mitigation_down (OA) requires an unsupported condition/effect"
+          ]
+        },
+        {
+          "rank": 5,
+          "crew": [
+            "SNW Pike",
+            "Pike",
+            "Jaylah"
+          ],
+          "below_deck": [
+            "The Doctor",
+            "T'Laan",
+            "SNW Spock"
+          ],
+          "kill_probability": 100.0,
+          "survival_probability": 100.0,
+          "avg_rounds": 5.0,
+          "unmodelled": [
+            "Jaylah: shots (OA) requires an unsupported condition/effect",
+            "SNW Pike: enemy_mitigation_down (OA) requires an unsupported condition/effect"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "borg_40",
+      "label": "Level 40 Borg Assailant",
+      "task": "pve_hostile",
+      "target": {
+        "name": "Borg Assailant",
+        "type": "Hostile",
+        "level": 40,
+        "ship_class": "Battleship",
+        "hostile_id": 2358001854,
+        "source": null
+      },
+      "ship": "Vi'Dar Talios",
+      "published_crew": [
+        "Five Of Eleven",
+        "Eight Of Eleven",
+        "Nine Of Eleven"
+      ],
+      "published_rank_in_top_10": null,
+      "published_members_rank_in_top_10": null,
+      "top_recommendations": [
+        {
+          "rank": 1,
+          "crew": [
+            "SNW Pike",
+            "Five Of Eleven",
+            "Pike"
+          ],
+          "below_deck": [
+            "Hugh",
+            "T'Laan",
+            "Seven Of Eleven"
+          ],
+          "kill_probability": 100.0,
+          "survival_probability": 100.0,
+          "avg_rounds": 2.0,
+          "unmodelled": [
+            "SNW Pike: enemy_mitigation_down (OA) requires an unsupported condition/effect"
+          ]
+        },
+        {
+          "rank": 2,
+          "crew": [
+            "SNW Pike",
+            "Five Of Eleven",
+            "Hugh"
+          ],
+          "below_deck": [
+            "T'Laan",
+            "Seven Of Eleven",
+            "SNW Uhura"
+          ],
+          "kill_probability": 100.0,
+          "survival_probability": 100.0,
+          "avg_rounds": 2.0,
+          "unmodelled": [
+            "SNW Pike: enemy_mitigation_down (OA) requires an unsupported condition/effect"
+          ]
+        },
+        {
+          "rank": 3,
+          "crew": [
+            "Five Of Eleven",
+            "Pike",
+            "Hugh"
+          ],
+          "below_deck": [
+            "T'Laan",
+            "Seven Of Eleven",
+            "SNW Uhura"
+          ],
+          "kill_probability": 100.0,
+          "survival_probability": 100.0,
+          "avg_rounds": 2.0,
+          "unmodelled": [
+            "Five Of Eleven: captain maneuver not numerically supported"
+          ]
+        },
+        {
+          "rank": 4,
+          "crew": [
+            "T'Laan",
+            "Five Of Eleven",
+            "Pike"
+          ],
+          "below_deck": [
+            "Hugh",
+            "Seven Of Eleven",
+            "SNW Uhura"
+          ],
+          "kill_probability": 100.0,
+          "survival_probability": 100.0,
+          "avg_rounds": 2.0,
+          "unmodelled": [
+            "T'Laan: enemy_damage_down (OA) requires an unsupported condition/effect"
+          ]
+        },
+        {
+          "rank": 5,
+          "crew": [
+            "SNW Pike",
+            "Five Of Eleven",
+            "SNW Uhura"
+          ],
+          "below_deck": [
+            "Hugh",
+            "T'Laan",
+            "Seven Of Eleven"
+          ],
+          "kill_probability": 100.0,
+          "survival_probability": 100.0,
+          "avg_rounds": 2.0,
+          "unmodelled": [
+            "SNW Pike: enemy_mitigation_down (OA) requires an unsupported condition/effect",
+            "SNW Uhura: stats_triple (OA) requires an unsupported condition/effect"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gorn_60",
+      "label": "Level 60 Gorn Hunter",
+      "task": "pve_hostile",
+      "target": {
+        "name": "Gorn Hunter",
+        "type": "Hostile",
+        "level": 60,
+        "ship_class": "Battleship",
+        "hostile_id": 2127541458,
+        "source": null
+      },
+      "ship": "Gorn Eviscerator",
+      "published_crew": [
+        "Kathryn Janeway",
+        "Ent-E Picard",
+        "Ent-E Data"
+      ],
+      "published_rank_in_top_10": 9,
+      "published_members_rank_in_top_10": 1,
+      "top_recommendations": [
+        {
+          "rank": 1,
+          "crew": [
+            "Ent-E Data",
+            "Kathryn Janeway",
+            "Ent-E Picard"
+          ],
+          "below_deck": [
+            "SNW Nurse Chapel",
+            "The Doctor",
+            "T'Laan"
+          ],
+          "kill_probability": 100.0,
+          "survival_probability": 100.0,
+          "avg_rounds": 1.0,
+          "unmodelled": []
+        },
+        {
+          "rank": 2,
+          "crew": [
+            "Ent-E Data",
+            "Kathryn Janeway",
+            "SNW Nurse Chapel"
+          ],
+          "below_deck": [
+            "The Doctor",
+            "T'Laan",
+            "Pike"
+          ],
+          "kill_probability": 100.0,
+          "survival_probability": 100.0,
+          "avg_rounds": 1.0,
+          "unmodelled": []
+        },
+        {
+          "rank": 3,
+          "crew": [
+            "Ent-E Data",
+            "Kathryn Janeway",
+            "Pike"
+          ],
+          "below_deck": [
+            "SNW Nurse Chapel",
+            "The Doctor",
+            "T'Laan"
+          ],
+          "kill_probability": 100.0,
+          "survival_probability": 100.0,
+          "avg_rounds": 1.0,
+          "unmodelled": []
+        },
+        {
+          "rank": 4,
+          "crew": [
+            "SNW Nurse Chapel",
+            "Kathryn Janeway",
+            "Ent-E Data"
+          ],
+          "below_deck": [
+            "The Doctor",
+            "T'Laan",
+            "Pike"
+          ],
+          "kill_probability": 100.0,
+          "survival_probability": 100.0,
+          "avg_rounds": 1.0,
+          "unmodelled": []
+        },
+        {
+          "rank": 5,
+          "crew": [
+            "SNW Nurse Chapel",
+            "Kathryn Janeway",
+            "Ent-E Picard"
+          ],
+          "below_deck": [
+            "The Doctor",
+            "T'Laan",
+            "Pike"
+          ],
+          "kill_probability": 100.0,
+          "survival_probability": 100.0,
+          "avg_rounds": 1.0,
+          "unmodelled": []
+        }
+      ]
+    },
+    {
+      "id": "actian_40",
+      "label": "Level 40 Actian Apex",
+      "task": "pve_hostile",
+      "target": {
+        "name": "Actian Apex",
+        "type": "Hostile",
+        "level": 40,
+        "ship_class": "Interceptor",
+        "hostile_id": 2889358202,
+        "source": null
+      },
+      "ship": "Mantis",
+      "published_crew": [
+        "SNW Pike",
+        "SNW Spock",
+        "SNW Hemmer"
+      ],
+      "published_rank_in_top_10": 8,
+      "published_members_rank_in_top_10": 8,
+      "top_recommendations": [
+        {
+          "rank": 1,
+          "crew": [
+            "SNW Pike",
+            "SNW Hemmer",
+            "Pike"
+          ],
+          "below_deck": [
+            "T'Laan",
+            "SNW Uhura",
+            "SNW Spock"
+          ],
+          "kill_probability": 100.0,
+          "survival_probability": 100.0,
+          "avg_rounds": 2.0,
+          "unmodelled": [
+            "SNW Pike: enemy_mitigation_down (OA) requires an unsupported condition/effect"
+          ]
+        },
+        {
+          "rank": 2,
+          "crew": [
+            "SNW Pike",
+            "SNW Hemmer",
+            "Ghalenar"
+          ],
+          "below_deck": [
+            "T'Laan",
+            "SNW Uhura",
+            "SNW Spock"
+          ],
+          "kill_probability": 100.0,
+          "survival_probability": 100.0,
+          "avg_rounds": 2.0,
+          "unmodelled": [
+            "SNW Pike: enemy_mitigation_down (OA) requires an unsupported condition/effect"
+          ]
+        },
+        {
+          "rank": 3,
+          "crew": [
+            "SNW Pike",
+            "SNW Uhura",
+            "SNW Hemmer"
+          ],
+          "below_deck": [
+            "T'Laan",
+            "SNW Spock",
+            "Pike"
+          ],
+          "kill_probability": 100.0,
+          "survival_probability": 100.0,
+          "avg_rounds": 2.0,
+          "unmodelled": [
+            "SNW Pike: enemy_mitigation_down (OA) requires an unsupported condition/effect"
+          ]
+        },
+        {
+          "rank": 4,
+          "crew": [
+            "SNW Pike",
+            "Pike",
+            "Ghalenar"
+          ],
+          "below_deck": [
+            "T'Laan",
+            "SNW Uhura",
+            "SNW Spock"
+          ],
+          "kill_probability": 100.0,
+          "survival_probability": 100.0,
+          "avg_rounds": 2.0,
+          "unmodelled": [
+            "SNW Pike: enemy_mitigation_down (OA) requires an unsupported condition/effect"
+          ]
+        },
+        {
+          "rank": 5,
+          "crew": [
+            "T'Laan",
+            "SNW Uhura",
+            "SNW Hemmer"
+          ],
+          "below_deck": [
+            "SNW Spock",
+            "SNW Pike",
+            "Pike"
+          ],
+          "kill_probability": 100.0,
+          "survival_probability": 100.0,
+          "avg_rounds": 2.0,
+          "unmodelled": [
+            "T'Laan: enemy_damage_down (OA) requires an unsupported condition/effect"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xindi_48",
+      "label": "Level 48 Xindi-Aquatic Cruiser",
+      "task": "pve_hostile",
+      "target": {
+        "name": "Xindi-Aquatic Cruiser",
+        "type": "Hostile",
+        "level": 48,
+        "ship_class": "Interceptor",
+        "hostile_id": 2855506446,
+        "source": null
+      },
+      "ship": "Enterprise NX-01",
+      "published_crew": [
+        "Jonathan Archer",
+        "Trip Tucker",
+        "Chen"
+      ],
+      "published_rank_in_top_10": null,
+      "published_members_rank_in_top_10": 10,
+      "top_recommendations": [
+        {
+          "rank": 1,
+          "crew": [
+            "Trip Tucker",
+            "Jonathan Archer",
+            "Pike"
+          ],
+          "below_deck": [
+            "The Doctor",
+            "T'Laan",
+            "SNW Spock"
+          ],
+          "kill_probability": 100.0,
+          "survival_probability": 100.0,
+          "avg_rounds": 2.0,
+          "unmodelled": []
+        },
+        {
+          "rank": 2,
+          "crew": [
+            "SNW Pike",
+            "Jonathan Archer",
+            "Trip Tucker"
+          ],
+          "below_deck": [
+            "The Doctor",
+            "T'Laan",
+            "SNW Spock"
+          ],
+          "kill_probability": 100.0,
+          "survival_probability": 100.0,
+          "avg_rounds": 2.0,
+          "unmodelled": [
+            "SNW Pike: enemy_mitigation_down (OA) requires an unsupported condition/effect"
+          ]
+        },
+        {
+          "rank": 3,
+          "crew": [
+            "SNW Pike",
+            "Jonathan Archer",
+            "Pike"
+          ],
+          "below_deck": [
+            "Trip Tucker",
+            "The Doctor",
+            "T'Laan"
+          ],
+          "kill_probability": 100.0,
+          "survival_probability": 100.0,
+          "avg_rounds": 2.0,
+          "unmodelled": [
+            "SNW Pike: enemy_mitigation_down (OA) requires an unsupported condition/effect"
+          ]
+        },
+        {
+          "rank": 4,
+          "crew": [
+            "Jonathan Archer",
+            "Trip Tucker",
+            "Pike"
+          ],
+          "below_deck": [
+            "The Doctor",
+            "T'Laan",
+            "SNW Spock"
+          ],
+          "kill_probability": 100.0,
+          "survival_probability": 100.0,
+          "avg_rounds": 2.0,
+          "unmodelled": [
+            "Jonathan Archer: captain maneuver not numerically supported"
+          ]
+        },
+        {
+          "rank": 5,
+          "crew": [
+            "Trip Tucker",
+            "SNW Pike",
+            "Jonathan Archer"
+          ],
+          "below_deck": [
+            "The Doctor",
+            "T'Laan",
+            "SNW Spock"
+          ],
+          "kill_probability": 100.0,
+          "survival_probability": 100.0,
+          "avg_rounds": 2.0,
+          "unmodelled": [
+            "SNW Pike: enemy_mitigation_down (OA) requires an unsupported condition/effect"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pvp_explorer",
+      "label": "Explorer PvP versus a Battleship",
+      "task": "pvp",
+      "target": {
+        "name": "Enemy player",
+        "type": "PvP",
+        "level": 50,
+        "ship_class": "Battleship",
+        "hostile_id": null,
+        "source": null
+      },
+      "ship": "USS Enterprise",
+      "published_crew": [
+        "Weyoun",
+        "Jack Ransom",
+        "Pon"
+      ],
+      "published_rank_in_top_10": null,
+      "published_members_rank_in_top_10": null,
+      "top_recommendations": [
+        {
+          "rank": 1,
+          "crew": [
+            "Khan",
+            "Pike",
+            "Beverly Crusher"
+          ],
+          "below_deck": [
+            "Weyoun",
+            "Pon",
+            "Moreau"
+          ],
+          "kill_probability": 100.0,
+          "survival_probability": 100.0,
+          "avg_rounds": 2.92,
+          "unmodelled": []
+        },
+        {
+          "rank": 2,
+          "crew": [
+            "Khan",
+            "Moreau",
+            "Beverly Crusher"
+          ],
+          "below_deck": [
+            "Weyoun",
+            "Pon",
+            "Pike"
+          ],
+          "kill_probability": 100.0,
+          "survival_probability": 100.0,
+          "avg_rounds": 2.92,
+          "unmodelled": []
+        },
+        {
+          "rank": 3,
+          "crew": [
+            "Khan",
+            "Weyoun",
+            "Beverly Crusher"
+          ],
+          "below_deck": [
+            "Pon",
+            "Pike",
+            "Moreau"
+          ],
+          "kill_probability": 100.0,
+          "survival_probability": 100.0,
+          "avg_rounds": 2.92,
+          "unmodelled": [
+            "Weyoun: shots (OA) requires an unsupported condition/effect"
+          ]
+        },
+        {
+          "rank": 4,
+          "crew": [
+            "Khan",
+            "Pon",
+            "Beverly Crusher"
+          ],
+          "below_deck": [
+            "Weyoun",
+            "Pike",
+            "Moreau"
+          ],
+          "kill_probability": 100.0,
+          "survival_probability": 100.0,
+          "avg_rounds": 2.92,
+          "unmodelled": [
+            "Pon: enemy_crit_down (OA) requires an unsupported condition/effect"
+          ]
+        },
+        {
+          "rank": 5,
+          "crew": [
+            "Khan",
+            "Pike",
+            "Moreau"
+          ],
+          "below_deck": [
+            "Weyoun",
+            "Pon",
+            "Jack Ransom"
+          ],
+          "kill_probability": 100.0,
+          "survival_probability": 100.0,
+          "avg_rounds": 2.92,
+          "unmodelled": [
+            "Jack Ransom: isolytic_defense (BDA) requires an unsupported condition/effect"
+          ]
+        }
+      ]
+    }
+  ]
+}

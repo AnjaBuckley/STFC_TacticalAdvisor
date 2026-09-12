@@ -91,6 +91,8 @@ def crew_stats(crew, profile):
 def ship_stats(ship, crew, profile, effects=None):
     effects = effects or {}
     totals, warnings = crew_stats(crew, profile)
+    for stat in totals:
+        totals[stat] *= 1 + effects.get(f"officer_{stat}", 0)
     record = ship_record(ship)
     tables = ship.get("officer_bonus", record.get("officer_bonus", {}))
     bonuses = {k: officer_bonus(v, tables.get(k, [])) for k, v in totals.items()}
@@ -117,6 +119,14 @@ def ship_stats(ship, crew, profile, effects=None):
             1 if displayed else 1 + c.get(research, 0) + bonuses.get(officer_stat, 0)
         )
         result[stat] = b.get(stat, 0) * max(0, multiplier + effects.get(effect, 0))
+    for stat in ("armor", "shield_deflection", "dodge"):
+        result[stat] += totals["health"] * effects.get("defense_from_officer_health", 0)
+    if effects.get("defense_from_officer_health") or any(
+        effects.get(f"officer_{s}") for s in totals
+    ):
+        warnings.append(
+            "Officer ability stat bonuses use supplied officer totals; interactions with existing officer research buffs require calibration."
+        )
     if displayed:
         warnings.append(
             "Displayed ship stats include the existing crew; comparisons cannot reconstruct an uncrewed base. Enter base stats for crew comparisons."

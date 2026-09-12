@@ -153,7 +153,10 @@ def test_end_to_end_recommendation(client):
 
 
 def test_unknown_ship_is_not_replaced_by_fabricated_ship(client):
-    r = client.post("/api/recommend", json={"ship_name": "Unowned Enterprise", "hostile_id":2127541458})
+    r = client.post(
+        "/api/recommend",
+        json={"ship_name": "Unowned Enterprise", "hostile_id": 2127541458},
+    )
     assert r.status_code == 422
     assert "owned combat ship" in r.json()["detail"]
 
@@ -200,7 +203,7 @@ def test_academy_ops_gate(client):
         json={
             "task_type": "pve_academy_drone",
             "target_name": "Academy Training Drone · Battleship",
-            "level":61,
+            "level": 61,
         },
     )
     assert r.status_code == 422
@@ -285,3 +288,23 @@ def test_updated_schema_accepts_real_profile_and_blank_template():
     schema = json.loads((base / "player_profile.schema.json").read_text())
     for name in ["player_profile.json", "player_profile.template.json"]:
         jsonschema.validate(json.loads((base / name).read_text()), schema)
+
+
+def test_recommendation_objective_validation_and_forwarding(client, monkeypatch):
+    import app as api_module
+
+    captured = {}
+
+    def recommend(profile, task, top_n):
+        captured.update(task)
+        return []
+
+    monkeypatch.setattr(api_module, "find_optimal_crew", recommend)
+    response = client.post(
+        "/api/recommend", json={"objective": "loot", "hostile_id": 2127541458}
+    )
+    assert response.status_code == 200
+    assert captured["objective"] == "loot"
+    assert (
+        client.post("/api/recommend", json={"objective": "invented"}).status_code == 422
+    )

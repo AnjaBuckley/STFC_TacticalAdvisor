@@ -78,3 +78,7 @@ Make focused, reviewable changes. Inspect repository status before editing and p
 ## Approved audit corrections — September 2026
 
 The implementation disposition is in `docs/AUDIT_CORRECTIONS.md`. It supersedes historical example formulas and fixed-name heuristic rules. Do not restore raw officer points as ship stats, universal synergy multipliers, inferred extra Syndicate slots, automatic nearest-level substitution, 90% whole-officer cap penalties, or research text matching as numerical authority. Preserve research buff IDs, native units and manual account totals. Public exports and update overlays are partial; unresolved mechanics need explicit omissions and battle-log fixtures. Full game accuracy must never be claimed from passing synthetic tests.
+
+## Specialist model boundaries
+
+See [specialist follow-up](reports/crew-benchmark-2026-09-12/SPECIALIST_FOLLOWUP.md). Preserve per-weapon critical overrides, received-weapon procs, explicit defending/ship-class conditions and the Combat/Loot objective distinction. Weyoun timing, Seven cadence and shot rounding remain provisional. Do not import raw hostile weapon components without verifying units and hostile abilities.

@@ -19,6 +19,7 @@ def score_combination(
         [],
         task_profile.get("task_type", "pve_general"),
         task_profile.get("target", {}),
+        ship,
     )
     stats, _, _ = ship_stats(ship, bridge_crew, player_profile, effects)
     base = ship.get("base_stats", {})
@@ -34,6 +35,8 @@ def score_combination(
         )
     )
     for effect, value in effects.items():
+        if effect == "loot" and task_profile.get("objective") != "loot":
+            continue
         score += log1p(
             value / (10000 if effect in {"apex_barrier", "crit_mitigation"} else 1)
         )

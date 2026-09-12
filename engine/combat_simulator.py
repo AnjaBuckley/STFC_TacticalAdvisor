@@ -8,7 +8,7 @@ import math
 import random
 from collections import defaultdict
 
-from engine.catalogue import ship_stats
+from engine.catalogue import identity, ship_stats
 from engine.critical_mitigation import (
     aggregate_crit_mitigation_sources,
     points_to_reduction,
@@ -117,7 +117,12 @@ def _single_combat_run(
             - effects.get("enemy_shield_mitigation_down", 0),
         ),
     )
-    mitigation = _mitigation(stats, target, ship["ship_class"])
+    effective_piercing = dict(target)
+    for key in ("armor_piercing", "shield_piercing", "accuracy"):
+        effective_piercing[key] = target.get(key, 0) * (
+            1 - min(1, effects.get("enemy_piercing_down", 0))
+        )
+    mitigation = _mitigation(stats, effective_piercing, ship["ship_class"])
     enemy_mit = (
         _mitigation(
             target["defense_stats"], stats, target.get("ship_class", "Battleship")
@@ -132,6 +137,14 @@ def _single_combat_run(
     totals = {"hull": 0.0, "shield": 0.0}
     stacks, trace, rounds = [], {}, 0
     event_log = []
+    morale_until = 0
+    delayed_until = 0
+    probe_shots = 0
+    for rec in timed:
+        if rec.get("model") == "defending_delay" and rng.random() < rec["chance"]:
+            delayed_until = rec["duration"]
+        if rec.get("model") == "probe_extra_shots" and rng.random() < rec["chance"]:
+            probe_shots += rec["value"]
     previous_hull_damage = 0
     iso_bonus = (
         star.get("isolytic_damage_bonus", 0)
@@ -160,6 +173,19 @@ def _single_combat_run(
             current[key] += value
         for effect, value, _ in stacks:
             current[effect] += value
+        # Captain's Maneuver resolves before morale-dependent officer abilities.
+        for rec in timed:
+            if (
+                rec.get("model") == "morale_round_start"
+                and rng.random() < rec["chance"]
+            ):
+                morale_until = rounds + rec["duration"] - 1
+        for rec in timed:
+            if rec.get("model") == "morale_round_effect" and morale_until >= rounds:
+                stacks.append(
+                    (rec["effect"], rec["value"], rounds + rec["duration"] - 1)
+                )
+                current[rec["effect"]] += rec["value"]
         for rec in timed:
             if rec.get("trigger") == "combat_start" and rounds <= rec.get(
                 "duration", 1
@@ -211,32 +237,68 @@ def _single_combat_run(
                 if rounds <= warmup or (rounds - warmup - 1) % cooldown:
                     continue
                 received = False
-                for _ in range(weapon.get("shots", 1)):
+                shots = weapon.get("shots", 1)
+                if side == "enemy" and rounds <= delayed_until:
+                    continue
+                if side == "player":
+                    # Fractional shot rounding is provisional, explicitly disclosed.
+                    shots = max(
+                        0, int(shots * (1 + current.get("shot_bonus", 0))) + probe_shots
+                    )
+                if (
+                    side == "enemy"
+                    and task_type in {"pve_hostile", "pve_general"}
+                    and identity(ship.get("name")) == "enterprisenx01"
+                    and target.get("name") == "Xindi-Aquatic Cruiser"
+                    and target.get("weapons")
+                ):
+                    # Polarized Hull removes nine shots per Aquatic weapon.
+                    # Never infer a ten-shot schedule from aggregate damage.
+                    shots = max(0, shots - 9)
+                for _ in range(shots):
                     if player["hull"] <= 0 or enemy["hull"] <= 0:
                         break
                     is_enemy = side == "enemy"
+                    owner = target if is_enemy else ship
+                    weapon_chance = weapon.get("crit_chance")
+                    if weapon_chance is None:
+                        weapon_chance = owner.get("crit_chance", 0.2 if is_enemy else 0)
+                    weapon_multiplier = weapon.get("crit_multiplier")
+                    if weapon_multiplier is None:
+                        weapon_multiplier = owner.get("crit_multiplier", 1.5)
                     chance = (
-                        target.get("crit_chance", 0.2)
+                        weapon_chance
+                        - current.get("enemy_crit_down", 0)
                         if is_enemy
-                        else ship.get("crit_chance", 0) + current.get("crit_chance", 0)
+                        else weapon_chance + current.get("crit_chance", 0)
                     )
                     crit = rng.random() < min(1, max(0, chance))
                     multiplier = (
                         max(
                             target.get("critical_floor", 1),
-                            target.get("crit_multiplier", 1.5),
+                            weapon_multiplier
+                            - current.get("enemy_crit_damage_down", 0),
                         )
                         if is_enemy
                         else max(
                             ship.get("critical_floor", 1),
-                            ship.get("crit_multiplier", 1.5)
+                            weapon_multiplier
                             + current.get("crit_damage", 0),
                         )
                     )
                     raw = weapon["damage"] * (multiplier if crit else 1)
                     if side == "player" and ship.get("weapons"):
                         raw *= weapon_damage / max(ship["base_stats"]["attack"], 1)
+                    if side == "player":
+                        raw *= 1 + ship["base_stats"]["attack"] * max(
+                            0,
+                            current.get("weapon_damage", 0)
+                            - effects.get("weapon_damage", 0),
+                        ) / max(weapon_damage, 1)
                     if is_enemy:
+                        raw *= 1 - min(
+                            1, current.get(f"enemy_{weapon.get('type')}_damage_down", 0)
+                        )
                         iso = _iso(
                             raw,
                             target.get("isolytic_damage_bonus", 0),
@@ -262,8 +324,12 @@ def _single_combat_run(
                     else:
                         iso = _iso(
                             raw,
-                            iso_bonus + scoped.get("isolytic_damage", 0),
-                            cascade + scoped.get("isolytic_cascade", 0),
+                            iso_bonus
+                            + current.get("isolytic_damage", 0)
+                            - effects.get("isolytic_damage", 0),
+                            cascade
+                            + current.get("isolytic_cascade", 0)
+                            - effects.get("isolytic_cascade", 0),
                             target.get("iso_defense", 0),
                         )
                         standard = (
@@ -305,12 +371,14 @@ def _single_combat_run(
                                 "side": side,
                                 "critical": crit,
                                 "crit_chance": chance,
+                                "crit_multiplier": multiplier,
+                                "morale": morale_until >= rounds,
                                 "hull_damage": hull,
                                 "shield_damage": shield,
                             }
                         )
                     if is_enemy:
-                        received = True
+                        received = received or hull + shield > 0
                         totals["hull"] += hull
                         totals["shield"] += shield
                         if not trace or trace.get("raw") == 0:
@@ -400,7 +468,7 @@ def simulate_combat(
     if not 1 <= num_simulations <= 10000:
         raise ValueError("Simulation count must be between 1 and 10000.")
     effects, timed, omissions = ability_plan(
-        bridge_crew, below_deck_crew, task_type, target_hostile
+        bridge_crew, below_deck_crew, task_type, target_hostile, ship
     )
     rng = random.Random(rng_seed)
     results = [
@@ -443,7 +511,15 @@ def simulate_combat(
         limitations.append(
             "Player critical chance missing: zero used, not inferred from ship power."
         )
-    if results[0]["isolytic_cascade_bonus"]:
+    if any(
+        r.get("model") in {"morale_round_effect", "probe_extra_shots"} for r in timed
+    ):
+        limitations.append(
+            "Status-dependent shot count uses floor rounding and export durations; proc timing and stacking require live battle-log calibration."
+        )
+    if results[0]["isolytic_cascade_bonus"] or any(
+        r.get("effect") == "isolytic_cascade" for r in timed
+    ):
         limitations.append(
             "Combined Cascade formula is community-derived and provisional."
         )
@@ -483,6 +559,7 @@ def simulate_combat(
         ),
         "kill_interval_95": _wilson(kills, len(results)),
         "survival_interval_95": _wilson(survivors, len(results)),
+        "loot_bonus": effects.get("loot", 0),
         "avg_damage_taken": avg("total_damage_taken"),
         "avg_hull_damage": avg("hull_damage_taken"),
         "avg_hull_lost": avg("hull_lost"),

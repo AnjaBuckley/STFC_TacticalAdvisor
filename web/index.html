@@ -29,6 +29,7 @@
 <div id="hostile-control"><label for="target">Target hostile</label><select id="target" name="target"></select></div>
 <div id="enemy-control" hidden><label for="enemy-class">Opponent ship class</label><select id="enemy-class"><option>Battleship</option><option>Explorer</option><option>Interceptor</option></select></div>
 <div class="field-row"><div><label for="target-variant">Exact hostile variant</label><select id="target-variant"></select><label for="target-level">Target level</label><input id="target-level" type="number" min="1" max="100" value="60" required></div><div><label for="top-n">Recommendations</label><select id="top-n"><option>3</option><option>5</option><option>10</option><option>1</option></select></div></div>
+<label for="objective">Priority</label><select id="objective"><option value="combat">Combat survival and speed</option><option value="loot">Loot with combat feasibility first</option></select><p class="field-help">Loot priority includes supported loot bonuses. Travel, cargo limits and full-flight yield remain estimates.</p>
 <label for="ship-select">Deploy from your fleet</label><select id="ship-select"></select>
 <div class="field-help" id="fleet-help">Only your available ships and officers are considered.</div>
 <details class="target-details"><summary>Target stats <span>Optional overrides</span></summary><p>Use values from your battle log. Blank fields use the target catalogue. Percentages use 0–100.</p><div class="stats-input-grid" id="target-stats"></div></details>

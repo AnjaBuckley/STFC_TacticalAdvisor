@@ -35,7 +35,7 @@ def optimize_below_deck(
     target = task_profile.get("target", {})
 
     def utility(crew):
-        effects, timed, _ = ability_plan(bridge_crew, crew, task_type, target)
+        effects, timed, _ = ability_plan(bridge_crew, crew, task_type, target, ship)
         stats, _, _ = ship_stats(ship, bridge_crew + crew, player_profile, effects)
         total = sum(
             log1p(stats.get(k, 0) / max(1, ship.get("base_stats", {}).get(k, 0)))
