@@ -17,6 +17,7 @@ plus an officer ability ("oa"). Each record carries:
   targets - optional conditions (hostile types, factions, enemy ship classes)
 """
 
+import hashlib
 import json
 import re
 from functools import lru_cache
@@ -63,6 +64,17 @@ class AbilityCatalogue(dict):
         from engine.catalogue import identity
 
         self.aliases = {identity(n): n for n in records}
+        alias_path = _ABILITIES_PATH.with_name("officer_aliases.json")
+        if alias_path.exists():
+            self.aliases.update(
+                {
+                    identity(a): b
+                    for a, b in json.loads(
+                        alias_path.read_text(encoding="utf-8")
+                    ).items()
+                    if b in records
+                }
+            )
         self.aliases.update(
             {
                 identity(a): b
@@ -106,12 +118,45 @@ def parse_pct(val_str: str) -> float:
     return min(raw / 100.0, 1.0)
 
 
+@lru_cache(maxsize=512)
+def officer_record_hash(ident):
+    from engine.catalogue import BASE
+
+    try:
+        return hashlib.sha256(
+            (BASE / "officer" / f"{ident}.json").read_bytes()
+        ).hexdigest()
+    except OSError:
+        return None
+
+
+@lru_cache(maxsize=1)
+def officer_descriptions():
+    from engine.catalogue import BASE
+
+    return {
+        r["id"]: r["text"]
+        for r in json.loads(
+            (BASE / "en_officer_buffs.json").read_text(encoding="utf-8")
+        )
+        if r["key"] == "officer_ability_desc"
+    }
+
+
+def officer_source_current(record):
+    ref = record.get("catalogue_reference")
+    return not ref or (
+        officer_record_hash(ref["officer_id"]) == ref["sha256"]
+        and officer_descriptions().get(ref["loca_id"], "") == ref["description"]
+    )
+
+
 def record_relevance(record: dict, task_type: str, target: dict) -> float:
     """0..1 relevance of a single ability record for the task/target.
 
     Prefers the ground-truth works_in list (exported game data) over the
     inferred scope; scope is the fallback for records without it."""
-    if record.get("identity_review_required"):
+    if record.get("identity_review_required") or not officer_source_current(record):
         return 0.0
     level = target.get("level", target.get("real_hostile", {}).get("level", 0))
     if (
@@ -237,6 +282,14 @@ def bda_combat_score(officer: dict, task_type: str, target: dict) -> float | Non
         return 0.0
     strength = ability_strength(officer, "bda", rec)
     return rel * (0.6 + 0.4 * strength)
+
+
+def officer_identity(officer):
+    from engine.catalogue import identity
+
+    return load_abilities().aliases.get(
+        identity(officer["name"]), identity(officer["name"])
+    )
 
 
 def officer_available(officer: dict) -> bool:

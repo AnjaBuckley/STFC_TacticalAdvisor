@@ -1,3 +1,4 @@
+import './searchable-select.js';
 const $ = (s, root = document) => root.querySelector(s);
 const $$ = (s, root = document) => [...root.querySelectorAll(s)];
 const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -5,7 +6,7 @@ const pretty = v => String(v ?? '').replaceAll('_', ' ');
 const number = v => new Intl.NumberFormat('en', {maximumFractionDigits:1, notation:Math.abs(v) >= 100000 ? 'compact' : 'standard'}).format(v || 0);
 const percent = v => `${Number(v || 0).toFixed(1)}%`;
 const initials = name => name.replace(/[^\p{L}\p{N} ]/gu,'').split(' ').filter(Boolean).slice(0,2).map(s=>s[0]).join('');
-let syncState, syncPolling = false;
+let syncState, syncPolling = false, researchCatalogue;
 let shipBuildPreview = null, shipBuildSeq = 0;
 const shipResearchFields = [["weapon_damage","Weapon damage"],["hull_health","Hull health"],["shield_health","Shield health"],["armor","Armor"],["shield_deflection","Shield deflection"],["dodge","Dodge"],["armor_piercing","Armor piercing"],["shield_piercing","Shield piercing"],["accuracy","Accuracy"]];
 let state, result, selectedResult = 0, preview, editingShip, running = false, rosterPage = 0, runClock;
@@ -105,7 +106,7 @@ async function runMission(event) {
  event.preventDefault();if(running)return;
  running=true;clearError();$('#recommend-button').disabled=true;$('#run-status').textContent='Comparing bridge crews…';
  const stats={}; for(const [key,, ,pct] of statFields){const el=$(`#stat-${key}`);if(el.value!=='')stats[key]=Number(el.value)/(pct?100:1);}
- const body={objective:$('#objective').value,task_type:$('#task').value,target_name:$('#target').value,level:Number($('#target-level').value),top_n:Number($('#top-n').value),ship_name:$('#ship-select').value || null,enemy_class:$('#enemy-class').value,target_stats:stats,hostile_id:$('#target-variant').value?Number($('#target-variant').value):null};
+ const body={opponent_ops_level:['pvp','pvp_station','station_raid'].includes($('#task').value) && $('#opponent-ops').value?Number($('#opponent-ops').value):null,objective:$('#objective').value,task_type:$('#task').value,target_name:$('#target').value,level:Number($('#target-level').value),top_n:Number($('#top-n').value),ship_name:$('#ship-select').value || null,enemy_class:$('#enemy-class').value,target_stats:stats,hostile_id:$('#target-variant').value?Number($('#target-variant').value):null};
  $$('#mission-form input, #mission-form select').forEach(el=>el.disabled=true);
  const start=Date.now();
  $('#results').innerHTML='<div class="empty-state"><div class="loading-line"></div><h3>Assembling your away team…</h3><p>Comparing captain positions, assigning below deck, and estimating combat outcomes.</p></div>';
@@ -170,6 +171,7 @@ function openShip(index=null) {
  $('#edit-title').textContent=index===null?'Add an owned ship':`Edit ${ship.name}`;
  $('#edit-fields').innerHTML=`${index===null?`<label for="catalog-ship">Ship catalogue</label><select id="catalog-ship">${options([['','Enter a ship manually'],...state.ships.map(s=>[s.name,s.name])])}</select>`:''}<label for="edit-name">Ship name</label><input id="edit-name" required value="${esc(ship.name || '')}"><div class="dialog-grid"><div><label for="edit-class">Ship class</label><select id="edit-class">${options(['Explorer','Battleship','Interceptor','Survey'].map(s=>[s,s]),ship.ship_class || 'Explorer')}</select></div>${field('edit-level','Level',ship.level || 1,1,200,1)}${field('edit-tier','Tier',ship.tier || 1,1,30,1)}${field('edit-slots','Below-deck slots (blank: auto)',ship.below_deck_slots,0,20,1)}</div><p class="field-help">Level changes hull/shield bonuses and slots; tier and components determine the build. Autofill replaces base fields only.</p><div class="dialog-grid">${[['attack','Weapon damage / round (no criticals)'],['health','Hull health'],['shield_health','Shield health'],['armor','Armor'],['shield_deflection','Shield deflection'],['dodge','Dodge'],['armor_piercing','Armor piercing'],['shield_piercing','Shield piercing'],['accuracy','Accuracy']].map(([k,l])=>field(`edit-${k}`,l,ship.base_stats?.[k] ?? (k==='health'?1:0),k==='health'?1:0)).join('')}${field('edit-iso','Ship isolytic bonus (%)',(ship.isolytic_damage_bonus || 0)*100)}${field('edit-cascade','Ship Cascade (%)',(ship.isolytic_cascade_bonus || 0)*100)}${field('edit-shred','Apex Shred (%)',(ship.apex_shred || 0)*100,0,100)}${field('edit-stabilizer','Hyperthermic Stabilizer (%)',(ship.hyperthermic_stabilizer || 0)*100)}${field('edit-critical-chance','Critical chance (%)',(ship.crit_chance || 0)*100,0,100)}${field('edit-critical-multiplier','Critical multiplier (×)',ship.crit_multiplier ?? 1.5,1)}${field('edit-crit-points','Refit Critical Mitigation points',ship.crit_mitigation_points)}</div><label class="checkbox-label" style="margin-top:20px"><input id="edit-refit" type="checkbox" ${ship.simulacrum_refit?'checked':''}> Simulacrum refit owned</label><p class="field-help">Refit eligibility is checked by ship name or faction, grade and rarity. Leave points blank to retain an existing legacy percentage.</p>`;
  $('#edit-fields').insertAdjacentHTML('beforeend',`<div class="settings-section"><label class="checkbox-label"><input id="edit-autofill" type="checkbox" ${index===null || ship.stat_source?.provider==='STFC Space'?'checked':''}> Autofill base stats from bundled catalogue</label><p class="field-help">Existing manual builds stay manual until enabled. Account and ship-specific bonuses are retained.</p><div id="build-status" role="status"></div><div id="build-components" class="dialog-grid"></div><div id="build-reference" class="field-help"></div><details><summary>Abilities, refits and crew reference</summary><div id="catalogue-reference"></div></details></div><details class="settings-section"><summary>Extra research bonuses for this ship</summary><p class="field-help">Additional additive percentages for this ship/class only. Exclude bonuses already entered in Account & research.</p><div class="dialog-grid">${shipResearchFields.map(([k,l])=>field(`ship-research-${k}`,`${l} (%)`,(ship.research_bonuses?.[`ship_${k}`] || 0)*100)).join('')}</div></details><details class="settings-section"><summary>Movement, cargo and weapon schedule</summary><p class="field-help">Movement/cargo are base reference values; travel and hauling are not simulated. Weapon schedules are used in combat.</p><div class="dialog-grid">${[['warp_range','Warp range'],['warp_speed','Warp speed'],['impulse_speed','Impulse speed'],['cargo_capacity','Cargo capacity'],['protected_cargo','Protected cargo'],['apex_barrier','Ship Apex Barrier points']].map(([k,l])=>field(`ship-extra-${k}`,l,ship[k] || 0)).join('')}${field('ship-critical-chance-bonus','Extra critical chance (percentage points)',(ship.crit_chance_bonus || 0)*100,0,100)}${field('ship-critical-damage-bonus','Extra critical damage (%)',(ship.crit_damage_bonus || 0)*100)}${field('ship-shield-absorption','Shield absorption (%)',(ship.shield_mitigation ?? .8)*100,0,100)}</div><label for="ship-weapons">Weapons JSON (blank: aggregate attack)</label><textarea id="ship-weapons" rows="7">${esc(ship.weapons?JSON.stringify(ship.weapons,null,2):'')}</textarea></details>`);
+ $('#edit-fields').insertAdjacentHTML('beforeend','<details class="settings-section"><summary>Equipped Forbidden &amp; Chaos Tech</summary><p>Choose equipment you own and its actual tier and level. Only mapped bonuses apply to this ship. Leave activation off if included in manual totals.</p><div id="ship-technologies">Loading equipment…</div></details>');loadShipTechnology(ship);
  markRequiredFields(['edit-name','edit-class','edit-level','edit-tier','edit-attack','edit-health','edit-armor','edit-shield_deflection','edit-dodge']);
  const buildSection=$('#edit-autofill').closest('.settings-section');$('#edit-fields').insertBefore(buildSection,$('#edit-fields > .field-help').nextElementSibling);
  $('#dialog-error').textContent='';$('#edit-dialog').showModal();
@@ -203,6 +205,19 @@ async function autofillShip(componentTiers={}) {
  }catch(e){if(seq===shipBuildSeq)$('#build-status').textContent=e.message;}
  finally{if(seq===shipBuildSeq)button.disabled=false;}
 }
+async function loadShipTechnology(ship) {
+ const host=$('#ship-technologies');
+ try {
+  const rows=await api('/api/technologies');
+  if(!host.isConnected)return;
+  host.innerHTML=[0,1].map(type=>{
+   const selected=(ship.technologies || []).find(t=>rows.some(r=>r.id===t.id && r.tech_type===type)) || {};
+   return `<fieldset><legend>${type===0?'Forbidden Tech':'Chaos Tech'}</legend><label for="tech-${type}">Equipped item</label><select id="tech-${type}">${options([['','None'],...rows.filter(r=>r.tech_type===type).map(r=>[String(r.id),`${r.name} · ${r.reviewed_buffs} mapped buffs`])],String(selected.id || ''))}</select><div class="dialog-grid">${field(`tech-tier-${type}`,'Tier',selected.tier || 1,1,12,1)}${field(`tech-level-${type}`,'Level',selected.level || 1,1,60,1)}</div><label class="checkbox-label"><input type="checkbox" id="tech-enabled-${type}" ${selected.enabled?'checked':''}> Apply reviewed bonuses; excluded from my manual totals</label><p id="tech-range-${type}" class="field-help"></p></fieldset>`;
+  }).join('');
+  function showRange(type){const r=rows.find(r=>String(r.id)===$(`#tech-${type}`).value);for(const kind of ['tier','level']){const id=`tech-${kind}-${type}`,input=$(`#${id}`);input.required=Boolean(r);if(r)markRequiredFields([id]);else $(`label[for="${id}"] .required-label`)?.remove();}$(`#tech-range-${type}`).textContent=r?`Tier limits: ${r.tiers.map(t=>`${t.rank}: level up to ${t.max_level}`).join(' · ')}. Unmapped effects are omitted from estimates.`:'';}
+  for(const type of [0,1]){$(`#tech-${type}`).addEventListener('change',()=>showRange(type));showRange(type);}
+ }catch(e){host.textContent=e.message;}
+}
 async function saveShip(event) {
  event.preventDefault();const button=$('#edit-form button[type=submit]');button.disabled=true;
  try {
@@ -212,6 +227,7 @@ async function saveShip(event) {
   const ship={...selected,...old,...(shipBuildPreview || {}),name:$('#edit-name').value.trim(),ship_class:$('#edit-class').value,level:Number($('#edit-level').value),tier:Number($('#edit-tier').value),base_stats:{...old.base_stats},simulacrum_refit:$('#edit-refit').checked,isolytic_damage_bonus:Number($('#edit-iso').value)/100};
   for(const k of ['attack','health','shield_health','armor','shield_deflection','dodge','armor_piercing','shield_piercing','accuracy'])ship.base_stats[k]=Number($(`#edit-${k}`).value);
   for(const [id,key] of [['edit-cascade','isolytic_cascade_bonus'],['edit-shred','apex_shred'],['edit-stabilizer','hyperthermic_stabilizer'],['edit-critical-chance','crit_chance']])ship[key]=Number($(`#${id}`).value)/100;
+  if($('#tech-0') && $('#tech-1'))ship.technologies=[0,1].filter(t=>$(`#tech-${t}`).value).map(t=>({id:Number($(`#tech-${t}`).value),tier:Number($(`#tech-tier-${t}`).value),level:Number($(`#tech-level-${t}`).value),enabled:$(`#tech-enabled-${t}`).checked}));
   ship.research_bonuses={...old.research_bonuses};
   for(const [k] of shipResearchFields)ship.research_bonuses[`ship_${k}`]=Number($(`#ship-research-${k}`).value)/100;
   for(const k of ['warp_range','warp_speed','impulse_speed','cargo_capacity','protected_cargo','apex_barrier'])ship[k]=Number($(`#ship-extra-${k}`).value);
@@ -243,6 +259,23 @@ function renderAccount() {
  <div><div id="sheet-sync-panel" class="panel settings-panel" style="margin-bottom:20px"></div><div class="panel settings-panel"><h2>Import your progress</h2><p>Preview the changes before updating your account.</p>${[['research','Spocks.club research','Import attributed research values for scope review; existing totals are preserved.','.csv'],['officers','STFC Officers Tool','Upload the Excel workbook to refresh officer ranks, levels and stats.','.xlsx'],['profile','Restore an account','Load a previously exported STFC account JSON file.','.json']].map(([kind,title,desc,accept])=>`<form class="import-option" data-import-kind="${kind}"><h3>${title}</h3><p>${desc}</p><input type="file" accept="${accept}" aria-label="${title} file" required>${kind==='research'?'<label class="checkbox-label"><input type="checkbox" name="enable-mapped"> Enable reviewed research effects. My manual account and ship totals exclude these bonuses.</label>':''}<button class="secondary-button" type="submit">Preview import</button></form>`).join('')}<form id="sheet-import-form" class="import-option"><h3>Import from Google Sheets</h3><p>Paste your shared STFC Officers Tool link. The sheet needs viewer access via the link.</p><label for="sheet-url">Google Sheets URL</label><input id="sheet-url" value="${esc(syncState?.url || '')}" type="url" placeholder="https://docs.google.com/spreadsheets/d/…" required><button class="secondary-button" type="submit">Preview sheet</button><button class="primary-button" id="enable-sheet-sync" type="button">Enable auto-sync</button></form></div><div id="import-preview"></div><div class="notice"><p>These are local settings. Saving here does not modify your in-game account.</p></div></div></div>`;
  markRequiredFields(['account-ops-input','sheet-url']);
  renderSyncStatus();
+ $('#view-account').insertAdjacentHTML('beforeend','<details class="panel settings-panel" style="margin-top:20px"><summary>Research database coverage</summary><div id="research-coverage"><p>Loading catalogue coverage…</p></div></details>');
+ renderResearchCoverage();
+}
+async function renderResearchCoverage() {
+ try {
+  researchCatalogue ||= await api('/api/research/catalogue');
+  if(!$('#research-coverage'))return;
+  const c=researchCatalogue, sources=state.profile.combat_sources || [], imported=state.profile.research_import_summary;
+  $('#research-coverage').innerHTML=`<p>${c.node_count} catalogue records checked · ${c.counts.mapped || 0} nodes mapped for combat · ${c.counts.not_modelled || 0} not modelled · ${c.counts.other_progression || 0} other progression · ${c.counts.no_numeric_buff || 0} without numeric buffs.</p><p>Mapped does not mean active. Import your completed research CSV, then enable reviewed effects only if manual account totals exclude them. Public database updates cannot discover your completed levels. Mappings changed since an earlier import require reimporting progress.</p><p>${sources.filter(s=>s.origin==='research_csv' && s.enabled===true).length} imported effect records marked enabled; eligibility is checked per encounter.${imported?` Last import: ${imported.nodes_done} completed nodes; ${imported.invalid_levels?.length || 0} invalid levels; ${imported.nodes_missing_detail || 0} missing records.`:''}</p><label for="research-search">Find research by name, tree or ID</label><input id="research-search" type="search" placeholder="e.g. Prime Damage"><label for="research-coverage-filter">Coverage</label><select id="research-coverage-filter">${options([['','All records'],['mapped','Mapped for combat'],['not_modelled','Not modelled'],['other_progression','Other progression'],['no_numeric_buff','No numeric buff'],['data_issue','Data issue']])}</select><div id="research-coverage-rows"></div>`;
+  $('#research-search').addEventListener('input',renderResearchRows);$('#research-coverage-filter').addEventListener('change',renderResearchRows);renderResearchRows();
+ }catch(e){if($('#research-coverage'))$('#research-coverage').textContent=e.message;}
+}
+function renderResearchRows() {
+ const q=$('#research-search').value.toLowerCase(),filter=$('#research-coverage-filter').value;
+ const rows=researchCatalogue.nodes.filter(r=>(!filter || r.status===filter) && `${r.name} ${r.tree} ${r.node_id}`.toLowerCase().includes(q));
+ const progress=new Map((state.profile.research_progress || []).map(r=>[String(r.node_id),r.level]));
+ $('#research-coverage-rows').innerHTML=`<p>${rows.length} matches · showing up to 50. Narrow the search for more.</p>${rows.slice(0,50).map(r=>`<details class="settings-section"><summary>${esc(r.name)} · ${esc(pretty(r.status))}</summary><p>${esc(r.tree)} · Maximum level ${r.max_level} · Imported level ${progress.get(r.node_id) ?? 'unknown'}</p><p>${esc(r.description.replace(/<[^>]*>/g,''))}</p><p>${esc(r.reason)}</p>${r.effects.length?`<p>Effects: ${esc(r.effects.map(pretty).join(', '))}</p>`:''}<a href="${esc(r.source)}" target="_blank" rel="noopener noreferrer">STFC Space reference ↗</a></details>`).join('')}`;
 }
 async function saveAccount(event) {
  event.preventDefault();const button=$('#account-form button[type=submit]');button.disabled=true;
@@ -306,8 +339,18 @@ async function configureSheetSync(url, enabled) {
  toast(enabled?'Auto-sync enabled. The sheet will be checked now.':'Google Sheets auto-sync paused.');
 }
 
+async function renderCatalogueCoverage() {
+ const host=$('#game-coverage');
+ try {
+  const data=await api('/api/catalogue/coverage');if(!host.isConnected)return;
+  host.innerHTML=`<h2>Public database coverage</h2><p>Snapshot ${esc(data.version)}. Every downloaded record is inventoried; catalogue presence does not mean all mechanics are simulated.</p><label for="game-category">Category</label><select id="game-category">${options(Object.keys(data.categories).map(k=>[k,`${pretty(k)} (${data.categories[k].length})`]))}</select><label for="game-search">Search records</label><input id="game-search" type="search" placeholder="Name or ID"><div id="game-rows"></div>`;
+  const render=()=>{const q=$('#game-search').value.toLowerCase(),key=$('#game-category').value,rows=data.categories[key].filter(r=>`${r.name} ${r.id}`.toLowerCase().includes(q));$('#game-rows').innerHTML=`<p>${rows.length} matches · showing up to 50</p>`+rows.slice(0,50).map(r=>`<p><strong>${esc(r.name)}</strong> · ${esc(r.id)}<br>${esc(r.coverage)}<br><a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">Source ↗</a></p>`).join('');};
+  $('#game-search').addEventListener('input',render);$('#game-category').addEventListener('change',render);render();
+ }catch(e){host.textContent=e.message;}
+}
 function renderRules() {
  $('#view-rules').innerHTML=heading('Know the rules behind the result.','Verified mechanics, documented assumptions, and the limits of the current model.')+`<div class="notice"><p>Sources checked ${esc(state.rules.checked)}. The application is an advisor, not an exhaustive recreation of the live game. Some imported officer records are inferred, and numerical estimates need battle-log calibration.</p></div><div class="rules-grid">${state.rules.rules.map(r=>`<article class="panel rule-card"><span class="pill">${esc(r.status)}</span><h2>${esc(r.title)}</h2><p>${esc(r.description)}</p>${r.formula?`<div class="code-note">${esc(r.formula)}</div>`:''}<p>${esc(r.coverage)}</p>${r.url?`<a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.source)} ↗</a>`:''}</article>`).join('')}</div><div class="panel settings-panel" style="margin-top:20px"><h2>What still needs modelling</h2><p>${esc(state.rules.limitations.join(' '))}</p></div>`;
+ $('#view-rules').insertAdjacentHTML('beforeend','<div id="game-coverage" class="panel settings-panel" style="margin-top:20px">Loading public catalogue coverage…</div>');renderCatalogueCoverage();
 }
 
 document.addEventListener('click', async event=>{

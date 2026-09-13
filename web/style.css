@@ -10,3 +10,10 @@
 #build-status, #build-reference { overflow-wrap: anywhere; margin: 12px 0; font-size: 12px; line-height: 1.6; color: var(--muted); }
 
 .required-label { color: var(--gold, #dfbc78); font-size: .75rem; font-weight: 600; margin-left: .35rem; }
+
+#ship-technologies fieldset{min-width:0;border:1px solid var(--line);border-radius:6px;margin:12px 0;padding:14px}#ship-technologies legend{padding:0 6px;font-weight:600}#game-rows{max-height:540px;overflow:auto;overflow-wrap:anywhere}#game-rows>p{padding:12px 0;border-bottom:1px solid var(--line)}
+
+/* Searchable selects retain the native control as the form's source of truth. */
+.searchable-select{position:relative;min-width:0;width:100%}.searchable-select[hidden]{display:none}.searchable-native{display:none!important;position:absolute!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none;margin:0!important;padding:0!important;clip-path:inset(50%)}
+.select-search{width:100%;padding-right:30px!important;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Cpath d='m3 5 4 4 4-4' fill='none' stroke='%23b3c1d1' stroke-width='1.5'/%3E%3C/svg%3E")!important;background-position:right 12px center!important;background-repeat:no-repeat!important;cursor:pointer}.select-search:focus{cursor:text}.select-search:disabled{opacity:.55;cursor:not-allowed}
+.select-popup{position:fixed;z-index:1000;overflow:auto;overscroll-behavior:contain;background:var(--panel,#162333);color:var(--text,#e6edf5);border:1px solid #53748b;border-radius:7px;box-shadow:0 8px 25px #0007;padding:5px}.select-popup[hidden]{display:none}.select-option{padding:11px 12px;font-size:13px;line-height:1.4;cursor:pointer;border-radius:4px;overflow-wrap:anywhere}.select-option:hover,.select-option.active-option{background:#244556}.select-option[aria-selected="true"]{font-weight:600;color:var(--cyan,#8ed8df)}.select-option[aria-disabled="true"]{opacity:.45;cursor:not-allowed}.select-search-status{font-size:11px;padding:9px 12px;color:var(--muted,#a3b4c5);border-top:1px solid var(--line,#324355)}

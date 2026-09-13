@@ -11,6 +11,31 @@
  },
  {
   "id": null,
+  "key": "bulk_research_costs_label",
+  "text": "Research Costs"
+ },
+ {
+  "id": null,
+  "key": "bulk_research_details_label",
+  "text": "Research Details"
+ },
+ {
+  "id": null,
+  "key": "bulk_research_name",
+  "text": "Bulk Research:"
+ },
+ {
+  "id": 0,
+  "key": "bulk_research_requirements",
+  "text": "REQUIREMENTS NOT MET"
+ },
+ {
+  "id": 1,
+  "key": "bulk_research_requirements",
+  "text": "RESEARCH PROJECTS THAT WILL AUTOCOMPLETE AT THE END OF THE TIMER"
+ },
+ {
+  "id": null,
   "key": "collect_label",
   "text": "COLLECT"
  },
@@ -33,6 +58,11 @@
   "id": null,
   "key": "next_level_bonus",
   "text": "Next Level"
+ },
+ {
+  "id": null,
+  "key": "no_dependent_requirements",
+  "text": "All Requirements for the selected Level have been met."
  },
  {
   "id": null,
@@ -178,6 +208,11 @@
   "id": null,
   "key": "research_combat_information",
   "text": "Increase Ship and Station Power"
+ },
+ {
+  "id": 22,
+  "key": "research_error",
+  "text": "Unable to start a bulk research job when any of its requirements are in progress as part of another research job."
  },
  {
   "id": null,
@@ -11855,9 +11890,384 @@
   "text": "Base repair speed for Explorers is increased."
  },
  {
+  "id": 931001,
+  "key": "research_project_description",
+  "text": "Rapid Ascension grants Ascend Keys to advance to Operations 40. When your server is eligible, you'll receive a gift containing Ascension Commission Approvals needed to unlock this research."
+ },
+ {
+  "id": 931002,
+  "key": "research_project_description",
+  "text": "Rewards an Officer Preset which allows you to quickly change the entire bridge crew of a ship."
+ },
+ {
+  "id": 931003,
+  "key": "research_project_description",
+  "text": "Unlocks Ex-Borg Faction and rewards Ex-Borg Reputation."
+ },
+ {
+  "id": 931004,
+  "key": "research_project_description",
+  "text": "Rewards Artifact Gallery Schematics and unlocks access to additional an Artifact Gallery Schematics exchange in Artifacts Refinery."
+ },
+ {
+  "id": 931005,
+  "key": "research_project_description",
+  "text": "Rewards Kirk's Phaser Rifle Artifact Shards."
+ },
+ {
+  "id": 931006,
+  "key": "research_project_description",
+  "text": "Rewards Guinan's Magus Weapon Artifact Shards."
+ },
+ {
+  "id": 931007,
+  "key": "research_project_description",
+  "text": "Rewards U.S.S. Hydra Ship Blueprints."
+ },
+ {
+  "id": 931008,
+  "key": "research_project_description",
+  "text": "Rewards B'Chor Ship Blueprints."
+ },
+ {
+  "id": 931009,
+  "key": "research_project_description",
+  "text": "Rewards Vorta Vor Ship Blueprints."
+ },
+ {
+  "id": 931010,
+  "key": "research_project_description",
+  "text": "Increases the U.S.S. Hydra's Protected Cargo."
+ },
+ {
+  "id": 931011,
+  "key": "research_project_description",
+  "text": "Increases the B'Chor's Protected Cargo."
+ },
+ {
+  "id": 931012,
+  "key": "research_project_description",
+  "text": "Increases the Vorta Vor's Protected Cargo."
+ },
+ {
+  "id": 931013,
+  "key": "research_project_description",
+  "text": "Rewards Enterprise NX-01 Ship Blueprints."
+ },
+ {
+  "id": 931014,
+  "key": "research_project_description",
+  "text": "Rewards Three Of Eleven Officer Shards."
+ },
+ {
+  "id": 931015,
+  "key": "research_project_description",
+  "text": "Rewards Eleven of Eleven Officer Shards."
+ },
+ {
+  "id": 931016,
+  "key": "research_project_description",
+  "text": "Rewards Four of Eleven Officer Shards."
+ },
+ {
+  "id": 931017,
+  "key": "research_project_description",
+  "text": "Rewards U.S.S. Kelvin Ship Blueprints."
+ },
+ {
+  "id": 931018,
+  "key": "research_project_description",
+  "text": "Rewards K'T'inga Ship Blueprints."
+ },
+ {
+  "id": 931019,
+  "key": "research_project_description",
+  "text": "Rewards Valdore Ship Blueprints."
+ },
+ {
+  "id": 931020,
+  "key": "research_project_description",
+  "text": "Increases the U.S.S. Kelvin's weapon Damage versus Player Ships."
+ },
+ {
+  "id": 931021,
+  "key": "research_project_description",
+  "text": "Increases the K'T'inga's weapon Damage versus Player Ships."
+ },
+ {
+  "id": 931022,
+  "key": "research_project_description",
+  "text": "Increases the Valdore's weapon Damage versus Player Ships."
+ },
+ {
+  "id": 931023,
+  "key": "research_project_description",
+  "text": "Increases the U.S.S. Kelvin's Isolytic Damage versus hostiles."
+ },
+ {
+  "id": 931024,
+  "key": "research_project_description",
+  "text": "Increases the K'T'inga's Isolytic Damage versus hostiles."
+ },
+ {
+  "id": 931025,
+  "key": "research_project_description",
+  "text": "Increases the Valdore's Isolytic Damage versus hostiles."
+ },
+ {
+  "id": 931026,
+  "key": "research_project_description",
+  "text": "Rewards Quantum Communicators needed to upgrade the Command Center."
+ },
+ {
+  "id": 931027,
+  "key": "research_project_description",
+  "text": "Rewards Gabriel Lorca Fleet Commander Shards."
+ },
+ {
+  "id": 931028,
+  "key": "research_project_description",
+  "text": "Rewards Changeling Kira Officer Shards."
+ },
+ {
+  "id": 931029,
+  "key": "research_project_description",
+  "text": "Rewards Benjamin Sisko Officer Shards."
+ },
+ {
+  "id": 931030,
+  "key": "research_project_description",
+  "text": "Rewards Miles O'Brien Officer Shards."
+ },
+ {
+  "id": 931031,
+  "key": "research_project_description",
+  "text": "Rewards U.S.S. Newton Ship Blueprints."
+ },
+ {
+  "id": 931032,
+  "key": "research_project_description",
+  "text": "Rewards Korinar Ship Blueprints."
+ },
+ {
+  "id": 931033,
+  "key": "research_project_description",
+  "text": "Rewards Pilum Ship Blueprints."
+ },
+ {
+  "id": 931034,
+  "key": "research_project_description",
+  "text": "Increases the U.S.S. Newton's weapon Damage versus Player Ships."
+ },
+ {
+  "id": 931035,
+  "key": "research_project_description",
+  "text": "Increases the Korinar's weapon Damage versus Player Ships."
+ },
+ {
+  "id": 931036,
+  "key": "research_project_description",
+  "text": "Increases the Pilum's weapon Damage versus Player Ships."
+ },
+ {
+  "id": 931037,
+  "key": "research_project_description",
+  "text": "Increases the U.S.S. Newton's Isolytic Damage versus hostiles."
+ },
+ {
+  "id": 931038,
+  "key": "research_project_description",
+  "text": "Increases the Korinar's Isolytic Damage versus hostiles."
+ },
+ {
+  "id": 931039,
+  "key": "research_project_description",
+  "text": "Increases the Pilum's Isolytic Damage versus hostiles."
+ },
+ {
+  "id": 931040,
+  "key": "research_project_description",
+  "text": "Rewards Vindicator Ship Blueprints."
+ },
+ {
+  "id": 931041,
+  "key": "research_project_description",
+  "text": "Rewards U.S.S. Enterprise-A Ship Blueprints."
+ },
+ {
+  "id": 931042,
+  "key": "research_project_description",
+  "text": "Rewards Hegh'ta Ship Blueprints."
+ },
+ {
+  "id": 931043,
+  "key": "research_project_description",
+  "text": "Rewards Tribune Ship Blueprints."
+ },
+ {
+  "id": 931044,
+  "key": "research_project_description",
+  "text": "Increases the Enterprise-A's weapon Damage versus Player Ships."
+ },
+ {
+  "id": 931045,
+  "key": "research_project_description",
+  "text": "Increases the Hegh'ta's weapon Damage versus Player Ships."
+ },
+ {
+  "id": 931046,
+  "key": "research_project_description",
+  "text": "Increases the Tribune's weapon Damage versus Player Ships."
+ },
+ {
+  "id": 931047,
+  "key": "research_project_description",
+  "text": "Increases the Enterprise-A's Isolytic Damage versus hostiles."
+ },
+ {
+  "id": 931048,
+  "key": "research_project_description",
+  "text": "Increases the Hegh'ta's Isolytic Damage versus hostiles."
+ },
+ {
+  "id": 931049,
+  "key": "research_project_description",
+  "text": "Increases the Tribune's Isolytic Damage versus hostiles."
+ },
+ {
+  "id": 931050,
+  "key": "research_project_description",
+  "text": "Rewards Temporal Conduit Chaos Tech Shards."
+ },
+ {
+  "id": 931051,
+  "key": "research_project_description",
+  "text": "Rewards Kir'shara Artifact Shards."
+ },
+ {
+  "id": 93501,
+  "key": "research_project_description",
+  "text": "Increases the Ra'Ul Reaver's Warp Range."
+ },
+ {
+  "id": 93950,
+  "key": "research_project_description",
+  "text": "Increases <color=#6bb7ff>Apex Barrier</color> by {0:#,#} on all Federation, Klingon, and Romulan ships."
+ },
+ {
+  "id": 93951,
+  "key": "research_project_description",
+  "text": "Hostile damage is multiplied by {0:#,#%} after round 4 of combat."
+ },
+ {
+  "id": 93952,
+  "key": "research_project_description",
+  "text": "Hostiles have a {1:#,#%} chance to apply Assimilated each round of combat."
+ },
+ {
+  "id": 93953,
+  "key": "research_project_description",
+  "text": "Hostiles ignore {0:#,#%} of standard damage."
+ },
+ {
+  "id": 93954,
+  "key": "research_project_description",
+  "text": "Your Federation, Klingon, and Romulan ships gain {0:#,#%} of their standard damage as Isolytic damage."
+ },
+ {
+  "id": 93955,
+  "key": "research_project_description",
+  "text": "All positive Federation, Klingon, and Romulan reputation gains are multiplied by {0:#,#%}."
+ },
+ {
+  "id": 93956,
+  "key": "research_project_description",
+  "text": "All negative Federation, Klingon, and Romulan reputation losses are multiplied by {0:#,#%}."
+ },
+ {
+  "id": 93957,
+  "key": "research_project_description",
+  "text": "Hostile damage bypasses {0:#,#%} of shields."
+ },
+ {
+  "id": 93958,
+  "key": "research_project_description",
+  "text": "Hostile damage is multiplied by {0:#,#%}."
+ },
+ {
+  "id": 93959,
+  "key": "research_project_description",
+  "text": "Hostile Apex Shred is increased by {0:#,#%}."
+ },
+ {
+  "id": 93964,
+  "key": "research_project_description",
+  "text": "Increases base Σ-Parsteel Vault Protection values."
+ },
+ {
+  "id": 93965,
+  "key": "research_project_description",
+  "text": "Increases base Σ-Tritanium Vault Protection values."
+ },
+ {
+  "id": 93966,
+  "key": "research_project_description",
+  "text": "Increases base Σ-Dilithium Vault Protection values."
+ },
+ {
   "id": 94,
   "key": "research_project_description",
   "text": "Unlocks the Defense Technology building."
+ },
+ {
+  "id": 94001,
+  "key": "research_project_description",
+  "text": "Increases base Critical Mitigation on combat start for 2 rounds against player Stations for the U.S.S. Vengeance and 7⇵+ FKR ships."
+ },
+ {
+  "id": 94002,
+  "key": "research_project_description",
+  "text": "Reduces the cooldown of U.S.S. Athena's Regenerate ability."
+ },
+ {
+  "id": 94003,
+  "key": "research_project_description",
+  "text": "Increases the quantity of Maverick Credits gained from completing Maverick Tasks by 40%.\n\nThis buff activates at the next task refresh after completing this Research Node."
+ },
+ {
+  "id": 94004,
+  "key": "research_project_description",
+  "text": "Increases base Critical Mitigation on combat start for 2 rounds against player Stations for the U.S.S. Vengeance and 6⇵+ FKR ships."
+ },
+ {
+  "id": 94301,
+  "key": "research_project_description",
+  "text": "Increases the quantity of Solo Outpost Credits and Elite Solo Outpost Credits gained for all ships <color=#40FF60>(150% at level 12)</color>."
+ },
+ {
+  "id": 94302,
+  "key": "research_project_description",
+  "text": "Increases base Isolytic Damage against Outposts and Outpost Retaliation Hostiles for all ships <color=#40FF60>(300% at level 12)</color>."
+ },
+ {
+  "id": 94303,
+  "key": "research_project_description",
+  "text": "Increases base Apex Barrier against Outposts and Outpost Retaliation Hostiles for all ships <color=#40FF60>(7500 at level 12)</color>."
+ },
+ {
+  "id": 94304,
+  "key": "research_project_description",
+  "text": "Increases the quantity of loot gained from <color=#E1651F>Origin Sector [OGN]</color> Hostiles <color=#40FF60>(125% at level 12)</color>."
+ },
+ {
+  "id": 94305,
+  "key": "research_project_description",
+  "text": "Increases base Isolytic Defense against V'ger Hostiles <color=#40FF60>(150% at level 12)</color>."
+ },
+ {
+  "id": 94306,
+  "key": "research_project_description",
+  "text": "Increases base Critical Mitigation against Academy Training and Combat Drones, including in Duo Wave Defense <color=#40FF60>(400000 at level 12)</color>."
  },
  {
   "id": 95,
@@ -19932,7 +20342,7 @@
  {
   "id": 63600,
   "key": "research_project_name",
-  "text": "NX-01 Refit (ENTERPRISE NX-01)"
+  "text": "NX-01 Picard (ENTERPRISE NX-01)"
  },
  {
   "id": 64,
@@ -24162,7 +24572,7 @@
  {
   "id": 88401,
   "key": "research_project_name",
-  "text": "Phoenix Refit"
+  "text": "Phoenix (REALTA)"
  },
  {
   "id": 88600,
@@ -25445,9 +25855,384 @@
   "text": "Explorer Repairs"
  },
  {
+  "id": 931001,
+  "key": "research_project_name",
+  "text": "Rapid Ascension"
+ },
+ {
+  "id": 931002,
+  "key": "research_project_name",
+  "text": "Officer Preset Expansion"
+ },
+ {
+  "id": 931003,
+  "key": "research_project_name",
+  "text": "Faction Contact: Ex-Borg"
+ },
+ {
+  "id": 931004,
+  "key": "research_project_name",
+  "text": "Station Commission: Artifact Hall"
+ },
+ {
+  "id": 931005,
+  "key": "research_project_name",
+  "text": "Artifact Restoration: Kirk's Phaser Rifle"
+ },
+ {
+  "id": 931006,
+  "key": "research_project_name",
+  "text": "Artifact Restoration: Guinan's Magus Weapon"
+ },
+ {
+  "id": 931007,
+  "key": "research_project_name",
+  "text": "Ship Commission: U.S.S. Hydra"
+ },
+ {
+  "id": 931008,
+  "key": "research_project_name",
+  "text": "Ship Commission: B'Chor"
+ },
+ {
+  "id": 931009,
+  "key": "research_project_name",
+  "text": "Ship Commission: Vorta Vor"
+ },
+ {
+  "id": 931010,
+  "key": "research_project_name",
+  "text": "Cargo Protection: U.S.S. Hydra"
+ },
+ {
+  "id": 931011,
+  "key": "research_project_name",
+  "text": "Cargo Protection: B'Chor"
+ },
+ {
+  "id": 931012,
+  "key": "research_project_name",
+  "text": "Cargo Protection: Vorta Vor"
+ },
+ {
+  "id": 931013,
+  "key": "research_project_name",
+  "text": "Ship Commission: Enterprise NX-01"
+ },
+ {
+  "id": 931014,
+  "key": "research_project_name",
+  "text": "Recruit: Three Of Eleven"
+ },
+ {
+  "id": 931015,
+  "key": "research_project_name",
+  "text": "Recruit: Eleven of Eleven"
+ },
+ {
+  "id": 931016,
+  "key": "research_project_name",
+  "text": "Recruit: Four of Eleven"
+ },
+ {
+  "id": 931017,
+  "key": "research_project_name",
+  "text": "Ship Commission: U.S.S. Kelvin"
+ },
+ {
+  "id": 931018,
+  "key": "research_project_name",
+  "text": "Ship Commission: K'T'inga"
+ },
+ {
+  "id": 931019,
+  "key": "research_project_name",
+  "text": "Ship Commission: Valdore"
+ },
+ {
+  "id": 931020,
+  "key": "research_project_name",
+  "text": "Advanced Maneuvers: U.S.S. Kelvin"
+ },
+ {
+  "id": 931021,
+  "key": "research_project_name",
+  "text": "Advanced Maneuvers: K'T'inga"
+ },
+ {
+  "id": 931022,
+  "key": "research_project_name",
+  "text": "Advanced Maneuvers: Valdore"
+ },
+ {
+  "id": 931023,
+  "key": "research_project_name",
+  "text": "Isolytic Training: U.S.S. Kelvin"
+ },
+ {
+  "id": 931024,
+  "key": "research_project_name",
+  "text": "Isolytic Training: K'T'inga"
+ },
+ {
+  "id": 931025,
+  "key": "research_project_name",
+  "text": "Isolytic Training: Valdore"
+ },
+ {
+  "id": 931026,
+  "key": "research_project_name",
+  "text": "Station Commission: Command Center"
+ },
+ {
+  "id": 931027,
+  "key": "research_project_name",
+  "text": "Fleet Commander Recruit: Gabriel Lorca"
+ },
+ {
+  "id": 931028,
+  "key": "research_project_name",
+  "text": "Recruit: Changeling Kira"
+ },
+ {
+  "id": 931029,
+  "key": "research_project_name",
+  "text": "Recruit: Benjamin Sisko"
+ },
+ {
+  "id": 931030,
+  "key": "research_project_name",
+  "text": "Recruit: Miles O'Brien"
+ },
+ {
+  "id": 931031,
+  "key": "research_project_name",
+  "text": "Ship Commission: U.S.S. Newton"
+ },
+ {
+  "id": 931032,
+  "key": "research_project_name",
+  "text": "Ship Commission: Korinar"
+ },
+ {
+  "id": 931033,
+  "key": "research_project_name",
+  "text": "Ship Commission: Pilum"
+ },
+ {
+  "id": 931034,
+  "key": "research_project_name",
+  "text": "Advanced Maneuvers: U.S.S. Newton"
+ },
+ {
+  "id": 931035,
+  "key": "research_project_name",
+  "text": "Advanced Maneuvers: Korinar"
+ },
+ {
+  "id": 931036,
+  "key": "research_project_name",
+  "text": "Advanced Maneuvers: Pilum"
+ },
+ {
+  "id": 931037,
+  "key": "research_project_name",
+  "text": "Isolytic Training: U.S.S. Newton"
+ },
+ {
+  "id": 931038,
+  "key": "research_project_name",
+  "text": "Isolytic Training: Korinar"
+ },
+ {
+  "id": 931039,
+  "key": "research_project_name",
+  "text": "Isolytic Training: Pilum"
+ },
+ {
+  "id": 931040,
+  "key": "research_project_name",
+  "text": "Ship Commission: Vindicator"
+ },
+ {
+  "id": 931041,
+  "key": "research_project_name",
+  "text": "Ship Commission: U.S.S. Enterprise-A"
+ },
+ {
+  "id": 931042,
+  "key": "research_project_name",
+  "text": "Ship Commission: Hegh'ta"
+ },
+ {
+  "id": 931043,
+  "key": "research_project_name",
+  "text": "Ship Commission: Tribune"
+ },
+ {
+  "id": 931044,
+  "key": "research_project_name",
+  "text": "Advanced Maneuvers: Enterprise-A"
+ },
+ {
+  "id": 931045,
+  "key": "research_project_name",
+  "text": "Advanced Maneuvers: Hegh'ta"
+ },
+ {
+  "id": 931046,
+  "key": "research_project_name",
+  "text": "Advanced Maneuvers: Tribune"
+ },
+ {
+  "id": 931047,
+  "key": "research_project_name",
+  "text": "Isolytic Training: Enterprise-A"
+ },
+ {
+  "id": 931048,
+  "key": "research_project_name",
+  "text": "Isolytic Training: Hegh'ta"
+ },
+ {
+  "id": 931049,
+  "key": "research_project_name",
+  "text": "Isolytic Training: Tribune"
+ },
+ {
+  "id": 931050,
+  "key": "research_project_name",
+  "text": "Chaos Technology: Temporal Conduit"
+ },
+ {
+  "id": 931051,
+  "key": "research_project_name",
+  "text": "Artifact Restoration: Kir'shara"
+ },
+ {
+  "id": 93501,
+  "key": "research_project_name",
+  "text": "Ra'Ul Reaver Warp Range"
+ },
+ {
+  "id": 93950,
+  "key": "research_project_name",
+  "text": "Overcharged Barriers"
+ },
+ {
+  "id": 93951,
+  "key": "research_project_name",
+  "text": "Energy Overload"
+ },
+ {
+  "id": 93952,
+  "key": "research_project_name",
+  "text": "Assimilation"
+ },
+ {
+  "id": 93953,
+  "key": "research_project_name",
+  "text": "Adapt and Overcome"
+ },
+ {
+  "id": 93954,
+  "key": "research_project_name",
+  "text": "Isolytic Surge"
+ },
+ {
+  "id": 93955,
+  "key": "research_project_name",
+  "text": "Faction War Bounties"
+ },
+ {
+  "id": 93956,
+  "key": "research_project_name",
+  "text": "Faction War Crimes"
+ },
+ {
+  "id": 93957,
+  "key": "research_project_name",
+  "text": "Disrupted Energy Shields"
+ },
+ {
+  "id": 93958,
+  "key": "research_project_name",
+  "text": "Technological Advancement"
+ },
+ {
+  "id": 93959,
+  "key": "research_project_name",
+  "text": "Anti-Barrier Innovations"
+ },
+ {
+  "id": 93964,
+  "key": "research_project_name",
+  "text": "<color=#fac710>Prime</color> Sigma Parsteel Vault Protection"
+ },
+ {
+  "id": 93965,
+  "key": "research_project_name",
+  "text": "<color=#fac710>Prime</color> Sigma Tritanium Vault Protection"
+ },
+ {
+  "id": 93966,
+  "key": "research_project_name",
+  "text": "<color=#fac710>Prime</color> Sigma Dilithium Vault Protection"
+ },
+ {
   "id": 94,
   "key": "research_project_name",
   "text": "Defense Technology"
+ },
+ {
+  "id": 94001,
+  "key": "research_project_name",
+  "text": "<color=#fac710>Prime</color> G7 FKR Vengeance Station Crit Mitigation"
+ },
+ {
+  "id": 94002,
+  "key": "research_project_name",
+  "text": "<color=#fac710>Prime</color> U.S.S. Athena Regenerate Efficiency"
+ },
+ {
+  "id": 94003,
+  "key": "research_project_name",
+  "text": "<color=#fac710>Prime</color> Maverick Credits"
+ },
+ {
+  "id": 94004,
+  "key": "research_project_name",
+  "text": "<color=#fac710>Prime</color> G6+ FKR Vengeance Station Crit Mitigation"
+ },
+ {
+  "id": 94301,
+  "key": "research_project_name",
+  "text": "Benny Russell's Typewriter"
+ },
+ {
+  "id": 94302,
+  "key": "research_project_name",
+  "text": "Picard's Earl Grey Tea Cup"
+ },
+ {
+  "id": 94303,
+  "key": "research_project_name",
+  "text": "Kirk's Spectacles"
+ },
+ {
+  "id": 94304,
+  "key": "research_project_name",
+  "text": "Janeway's Antigen Bomb"
+ },
+ {
+  "id": 94305,
+  "key": "research_project_name",
+  "text": "Archer's Polo Ball"
+ },
+ {
+  "id": 94306,
+  "key": "research_project_name",
+  "text": "Trelane's Medals"
  },
  {
   "id": 95,
@@ -26193,5 +26978,15 @@
   "id": null,
   "key": "search_research_header",
   "text": "Search For Projects"
+ },
+ {
+  "id": null,
+  "key": "sigma_reuirement_tooltip",
+  "text": "This requirement uses a Sigma Timer."
+ },
+ {
+  "id": null,
+  "key": "single_level_available",
+  "text": "One Level Remaining"
  }
 ]

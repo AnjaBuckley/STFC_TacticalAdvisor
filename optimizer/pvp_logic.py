@@ -4,7 +4,7 @@ Sources are listed in docs/RULES.md. Strike teams require the player's matching
 ship class; their names do not imply that they counter that same enemy class.
 """
 
-from engine.abilities import officer_available
+from engine.abilities import officer_available, officer_identity
 
 STRIKE_TEAMS = {
     "Explorer": {
@@ -38,9 +38,11 @@ def suggest_pvp_counter(enemy_ship_class: str, player_officers: list[dict]) -> d
     if not counter_class:
         return {"error": f"No combat-triangle counter for {enemy_ship_class}."}
     team = STRIKE_TEAMS[counter_class]
-    owned = {o["name"] for o in player_officers if officer_available(o)}
-    available = [n for n in team["officers"] if n in owned]
-    missing = [n for n in team["officers"] if n not in owned]
+    owned = {officer_identity(o) for o in player_officers if officer_available(o)}
+    available = [n for n in team["officers"] if officer_identity({"name": n}) in owned]
+    missing = [
+        n for n in team["officers"] if officer_identity({"name": n}) not in owned
+    ]
     return {
         "recommended_team": team["name"],
         "recommended_ship_class": counter_class,

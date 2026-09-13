@@ -58,6 +58,14 @@ def ability_plan(bridge, below_deck, task_type, target, ship=None):
             if boost is not None:
                 amplifier += boost
     for index, officer in enumerate(bridge + below_deck):
+        from engine.catalogue import identity
+
+        officer = {
+            **officer,
+            "name": load_abilities().aliases.get(
+                identity(officer["name"]), officer["name"]
+            ),
+        }
         entry = load_abilities().get(officer["name"])
         if entry is None:
             omissions.append(f"{officer['name']}: ability data unavailable")
@@ -68,6 +76,13 @@ def ability_plan(bridge, below_deck, task_type, target, ship=None):
         for slot in slots:
             rec = entry.get(slot)
             if not rec:
+                continue
+            from engine.abilities import officer_source_current
+
+            if not officer_source_current(rec):
+                omissions.append(
+                    f"{officer['name']}: public ability record changed; review mapping before applying"
+                )
                 continue
             if rec.get("identity_review_required"):
                 omissions.append(

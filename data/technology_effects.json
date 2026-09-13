@@ -1,0 +1,851 @@
+{
+  "checked": "2026-09-13",
+  "mappings": [
+    {
+      "tech_id": 3266867064,
+      "buff_id": 2947407271,
+      "description": "Against players, increase Shield Health.",
+      "effects": [
+        "shield_health"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pvp"
+      ],
+      "conditions": {},
+      "sha256": "139534c4484e1a76ad91dfeed6995ef5f2e543f776df8f35d6588c37df9d50e7",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/3266867064"
+    },
+    {
+      "tech_id": 473132032,
+      "buff_id": 4290762758,
+      "description": "Increases Battleship Hull Health",
+      "effects": [
+        "hull_health"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "conditions": {
+        "ship_class": "Battleship"
+      },
+      "sha256": "859b5de64474459aa7cf2d4c090c45b7eb80620aee82a570d9c3659b3f0d7592",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/473132032"
+    },
+    {
+      "tech_id": 2923149282,
+      "buff_id": 119934526,
+      "description": "Increases Damage against players",
+      "effects": [
+        "weapon_damage"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pvp"
+      ],
+      "conditions": {},
+      "sha256": "e2b37012bd355ae240da108a3ea5208dca905a88bebf0a4aaa0add208ddc292c",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/2923149282"
+    },
+    {
+      "tech_id": 2923149282,
+      "buff_id": 4063817401,
+      "description": "Increases Hull Health",
+      "effects": [
+        "hull_health"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "conditions": {},
+      "sha256": "e2b37012bd355ae240da108a3ea5208dca905a88bebf0a4aaa0add208ddc292c",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/2923149282"
+    },
+    {
+      "tech_id": 733381942,
+      "buff_id": 3479241830,
+      "description": "Increases Critical Damage against hostiles",
+      "effects": [
+        "crit_damage"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pve",
+        "wave_defense"
+      ],
+      "conditions": {},
+      "sha256": "2b1da593fa5f102bd9eb599fb5efcd131ab79e4feeec8370e05856787d26caa7",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/733381942"
+    },
+    {
+      "tech_id": 3126332652,
+      "buff_id": 52715685,
+      "description": "Increases Damage against hostiles",
+      "effects": [
+        "weapon_damage"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pve",
+        "wave_defense"
+      ],
+      "conditions": {},
+      "sha256": "102a6a6fdc032f7bcf8fd2eb07da3dab0193dbfe9f6e89c695e11e0c999f95a9",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/3126332652"
+    },
+    {
+      "tech_id": 482782456,
+      "buff_id": 488045092,
+      "description": "Increases Hull Health",
+      "effects": [
+        "hull_health"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "conditions": {},
+      "sha256": "d210eb2acadaebb58e40152d87f14475ec4156884330360178c253bcda0f808c",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/482782456"
+    },
+    {
+      "tech_id": 482782456,
+      "buff_id": 3207768523,
+      "description": "Increases Shield Health",
+      "effects": [
+        "shield_health"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "conditions": {},
+      "sha256": "d210eb2acadaebb58e40152d87f14475ec4156884330360178c253bcda0f808c",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/482782456"
+    },
+    {
+      "tech_id": 1003489828,
+      "buff_id": 1603016538,
+      "description": "Increases Critical Damage against hostiles",
+      "effects": [
+        "crit_damage"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pve",
+        "wave_defense"
+      ],
+      "conditions": {},
+      "sha256": "82f1c1c774f98f4cecc0c59902faa912ee148732de6e813571fa1e4f5c405b47",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/1003489828"
+    },
+    {
+      "tech_id": 1240927405,
+      "buff_id": 913757396,
+      "description": "Increases base HHP.",
+      "effects": [
+        "hull_health"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "conditions": {},
+      "sha256": "74506efe6fe30e48262dd3ba63c61cfd37f55fa91f8015648208e9f7ed59d159",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/1240927405"
+    },
+    {
+      "tech_id": 1206498925,
+      "buff_id": 4065760487,
+      "description": "Increases Interceptor Isolytic Damage against Armadas",
+      "effects": [
+        "isolytic_damage"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "armada"
+      ],
+      "conditions": {
+        "ship_class": "Interceptor"
+      },
+      "sha256": "9ab7a708ea7b18d4379f592107d7023ddff6e590cacc355dadf0189d702d0605",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/1206498925"
+    },
+    {
+      "tech_id": 1206498925,
+      "buff_id": 4247742340,
+      "description": "Increases Interceptor Shield Piercing, Armor Piercing, and Accuracy against Armadas",
+      "effects": [
+        "shield_piercing",
+        "armor_piercing",
+        "accuracy"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "armada"
+      ],
+      "conditions": {
+        "ship_class": "Interceptor"
+      },
+      "sha256": "9ab7a708ea7b18d4379f592107d7023ddff6e590cacc355dadf0189d702d0605",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/1206498925"
+    },
+    {
+      "tech_id": 1206498925,
+      "buff_id": 3481926486,
+      "description": "Increases Interceptor Critical Damage against Armadas",
+      "effects": [
+        "crit_damage"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "armada"
+      ],
+      "conditions": {
+        "ship_class": "Interceptor"
+      },
+      "sha256": "9ab7a708ea7b18d4379f592107d7023ddff6e590cacc355dadf0189d702d0605",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/1206498925"
+    },
+    {
+      "tech_id": 1206498925,
+      "buff_id": 803755984,
+      "description": "Increases Interceptor Critical Hit Chance against Armadas",
+      "effects": [
+        "crit_chance"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "armada"
+      ],
+      "conditions": {
+        "ship_class": "Interceptor"
+      },
+      "sha256": "9ab7a708ea7b18d4379f592107d7023ddff6e590cacc355dadf0189d702d0605",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/1206498925"
+    },
+    {
+      "tech_id": 1930376004,
+      "buff_id": 1828759518,
+      "description": "Increases Damage against players",
+      "effects": [
+        "weapon_damage"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pvp"
+      ],
+      "conditions": {},
+      "sha256": "cf55603eb841f6bace674c7ba5a93aec5f10cb77bec33d1eed67d9f1b99dd374",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/1930376004"
+    },
+    {
+      "tech_id": 1930376004,
+      "buff_id": 4121011370,
+      "description": "Increases Hull Health",
+      "effects": [
+        "hull_health"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "conditions": {},
+      "sha256": "cf55603eb841f6bace674c7ba5a93aec5f10cb77bec33d1eed67d9f1b99dd374",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/1930376004"
+    },
+    {
+      "tech_id": 2423550592,
+      "buff_id": 2775846787,
+      "description": "Increases Explorer Hull Health",
+      "effects": [
+        "hull_health"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "conditions": {
+        "ship_class": "Explorer"
+      },
+      "sha256": "a8843598f4f59038861f7ca1bbbcc2c90dbb3b0b4d4408c9f7d6c2aec8cb965e",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/2423550592"
+    },
+    {
+      "tech_id": 1296092881,
+      "buff_id": 274083612,
+      "description": "Increases Damage against players",
+      "effects": [
+        "weapon_damage"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pvp"
+      ],
+      "conditions": {},
+      "sha256": "9db885a4d5fb3be450e7197bb40e3b5e8b500e38b28d1ee6900ae4075925cb43",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/1296092881"
+    },
+    {
+      "tech_id": 1296092881,
+      "buff_id": 2073002029,
+      "description": "Increases Hull Health",
+      "effects": [
+        "hull_health"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "conditions": {},
+      "sha256": "9db885a4d5fb3be450e7197bb40e3b5e8b500e38b28d1ee6900ae4075925cb43",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/1296092881"
+    },
+    {
+      "tech_id": 3643189775,
+      "buff_id": 2108941546,
+      "description": "Increases base Weapon Damage against hostiles.",
+      "effects": [
+        "weapon_damage"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pve",
+        "wave_defense"
+      ],
+      "conditions": {},
+      "sha256": "688ba475d21627e6694b9859386cafcc50f1480a986f62dcbedb8474075f1796",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/3643189775"
+    },
+    {
+      "tech_id": 2278545156,
+      "buff_id": 1780467108,
+      "description": "Increases base Crit Damage.",
+      "effects": [
+        "crit_damage"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "conditions": {},
+      "sha256": "ef4869faa12df2223650ebf46ea396308be6fc110fffdb58ed413cd3756c2ff6",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/2278545156"
+    },
+    {
+      "tech_id": 4017333545,
+      "buff_id": 835348251,
+      "description": "Increases base Hull Health.",
+      "effects": [
+        "hull_health"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "conditions": {},
+      "sha256": "30d2ff8dd01e6f717d3a41b15e58584e7a3add9e3240b6266e4be72b6835614a",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/4017333545"
+    },
+    {
+      "tech_id": 587246835,
+      "buff_id": 4122925361,
+      "description": "Increases base SHP.",
+      "effects": [
+        "shield_health"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "conditions": {},
+      "sha256": "0cff7b22b839a93df03a010076a5c1bd64f09f375fafeb6de872462f9fb93baa",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/587246835"
+    },
+    {
+      "tech_id": 3814128430,
+      "buff_id": 988491671,
+      "description": "Increases Hull Health",
+      "effects": [
+        "hull_health"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "conditions": {},
+      "sha256": "370a2f82e9570c24fa90482565b62356619bf49c1013986dba8ac20026b767a1",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/3814128430"
+    },
+    {
+      "tech_id": 2088471777,
+      "buff_id": 1323445866,
+      "description": "Increases Explorer Isolytic Damage against Armadas",
+      "effects": [
+        "isolytic_damage"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "armada"
+      ],
+      "conditions": {
+        "ship_class": "Explorer"
+      },
+      "sha256": "cdfb15c1c6be575825ae97561ff569ad57409cb955024fa9723437e892763589",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/2088471777"
+    },
+    {
+      "tech_id": 2088471777,
+      "buff_id": 2539247425,
+      "description": "Increases Explorer Shield Piercing, Armor Piercing, and Accuracy against Armadas",
+      "effects": [
+        "shield_piercing",
+        "armor_piercing",
+        "accuracy"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "armada"
+      ],
+      "conditions": {
+        "ship_class": "Explorer"
+      },
+      "sha256": "cdfb15c1c6be575825ae97561ff569ad57409cb955024fa9723437e892763589",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/2088471777"
+    },
+    {
+      "tech_id": 2088471777,
+      "buff_id": 2695549374,
+      "description": "Increases Explorer Critical Damage against Armadas",
+      "effects": [
+        "crit_damage"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "armada"
+      ],
+      "conditions": {
+        "ship_class": "Explorer"
+      },
+      "sha256": "cdfb15c1c6be575825ae97561ff569ad57409cb955024fa9723437e892763589",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/2088471777"
+    },
+    {
+      "tech_id": 2088471777,
+      "buff_id": 1190445923,
+      "description": "Increases Explorer Critical Hit Chance against Armadas",
+      "effects": [
+        "crit_chance"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "armada"
+      ],
+      "conditions": {
+        "ship_class": "Explorer"
+      },
+      "sha256": "cdfb15c1c6be575825ae97561ff569ad57409cb955024fa9723437e892763589",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/2088471777"
+    },
+    {
+      "tech_id": 850351327,
+      "buff_id": 1271566143,
+      "description": "Increases Damage against hostiles",
+      "effects": [
+        "weapon_damage"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pve",
+        "wave_defense"
+      ],
+      "conditions": {},
+      "sha256": "df561496573171f2d1207db8445928be5fd1b34881c326b004f5afcaa2b84f49",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/850351327"
+    },
+    {
+      "tech_id": 850351327,
+      "buff_id": 2336395336,
+      "description": "Increases Hull Health",
+      "effects": [
+        "hull_health"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "conditions": {},
+      "sha256": "df561496573171f2d1207db8445928be5fd1b34881c326b004f5afcaa2b84f49",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/850351327"
+    },
+    {
+      "tech_id": 850351327,
+      "buff_id": 1379995620,
+      "description": "Increases Critical Damage against hostiles",
+      "effects": [
+        "crit_damage"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pve",
+        "wave_defense"
+      ],
+      "conditions": {},
+      "sha256": "df561496573171f2d1207db8445928be5fd1b34881c326b004f5afcaa2b84f49",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/850351327"
+    },
+    {
+      "tech_id": 704754072,
+      "buff_id": 1299146674,
+      "description": "Against players, increase base weapon Damage.",
+      "effects": [
+        "weapon_damage"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pvp"
+      ],
+      "conditions": {},
+      "sha256": "b166c3d7ef5bdea51cf3680e8cdfac65cb3c412b08d2d2b596bd75cedb2a2c64",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/704754072"
+    },
+    {
+      "tech_id": 2439729135,
+      "buff_id": 1746739507,
+      "description": "Increases Critical Hit Chance",
+      "effects": [
+        "crit_chance"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "conditions": {},
+      "sha256": "653119cf9f487c719693e610403091b1c9ef5b2f82788975f6777b701e0ce28f",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/2439729135"
+    },
+    {
+      "tech_id": 2439729135,
+      "buff_id": 331547130,
+      "description": "Increases base SHP",
+      "effects": [
+        "shield_health"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "conditions": {},
+      "sha256": "653119cf9f487c719693e610403091b1c9ef5b2f82788975f6777b701e0ce28f",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/2439729135"
+    },
+    {
+      "tech_id": 240329436,
+      "buff_id": 2849759026,
+      "description": "Increases Hull Health",
+      "effects": [
+        "hull_health"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "conditions": {},
+      "sha256": "9b7b42744b59ab84557d57ff2a3792ffb4e1c71a99359b3b9284a31ca83c4870",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/240329436"
+    },
+    {
+      "tech_id": 240329436,
+      "buff_id": 1158811838,
+      "description": "Increases Damage against players",
+      "effects": [
+        "weapon_damage"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pvp"
+      ],
+      "conditions": {},
+      "sha256": "9b7b42744b59ab84557d57ff2a3792ffb4e1c71a99359b3b9284a31ca83c4870",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/240329436"
+    },
+    {
+      "tech_id": 3289179957,
+      "buff_id": 3217776820,
+      "description": "Increases Hull Health",
+      "effects": [
+        "hull_health"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "conditions": {},
+      "sha256": "7e53be34e2df59d06dde1d4f4c2803044ddc91d0cb3e17f4de991fa72c7244a6",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/3289179957"
+    },
+    {
+      "tech_id": 3289179957,
+      "buff_id": 3023328707,
+      "description": "Increases Damage against non-Armada hostiles",
+      "effects": [
+        "weapon_damage"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pve",
+        "wave_defense"
+      ],
+      "conditions": {},
+      "sha256": "7e53be34e2df59d06dde1d4f4c2803044ddc91d0cb3e17f4de991fa72c7244a6",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/3289179957"
+    },
+    {
+      "tech_id": 1382120997,
+      "buff_id": 4090757056,
+      "description": "Increases Battleship Isolytic Damage against Armadas",
+      "effects": [
+        "isolytic_damage"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "armada"
+      ],
+      "conditions": {
+        "ship_class": "Battleship"
+      },
+      "sha256": "e149cc0b7807eba49d081f7eac094867937e38091ef0632b6f73e14e41ee192d",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/1382120997"
+    },
+    {
+      "tech_id": 1382120997,
+      "buff_id": 2754139134,
+      "description": "Increases Battleship Shield Piercing, Armor Piercing, and Accuracy against Armadas",
+      "effects": [
+        "shield_piercing",
+        "armor_piercing",
+        "accuracy"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "armada"
+      ],
+      "conditions": {
+        "ship_class": "Battleship"
+      },
+      "sha256": "e149cc0b7807eba49d081f7eac094867937e38091ef0632b6f73e14e41ee192d",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/1382120997"
+    },
+    {
+      "tech_id": 1382120997,
+      "buff_id": 1684714860,
+      "description": "Increases Battleship Critical Damage against Armadas",
+      "effects": [
+        "crit_damage"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "armada"
+      ],
+      "conditions": {
+        "ship_class": "Battleship"
+      },
+      "sha256": "e149cc0b7807eba49d081f7eac094867937e38091ef0632b6f73e14e41ee192d",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/1382120997"
+    },
+    {
+      "tech_id": 1382120997,
+      "buff_id": 2327238776,
+      "description": "Increases Battleship Critical Hit Chance against Armadas",
+      "effects": [
+        "crit_chance"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "armada"
+      ],
+      "conditions": {
+        "ship_class": "Battleship"
+      },
+      "sha256": "e149cc0b7807eba49d081f7eac094867937e38091ef0632b6f73e14e41ee192d",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/1382120997"
+    },
+    {
+      "tech_id": 2766262625,
+      "buff_id": 1294477235,
+      "description": "Increases base Weapon Damage vs Group and Solo Armadas.",
+      "effects": [
+        "weapon_damage"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "armada"
+      ],
+      "conditions": {},
+      "sha256": "d4f541e136fff1b35486515711f394c17ca16128f559703ca6027dd6c91377ab",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/2766262625"
+    },
+    {
+      "tech_id": 2766262625,
+      "buff_id": 2811269766,
+      "description": "Increases base Weapon Damage against Hostiles and Armadas.",
+      "effects": [
+        "weapon_damage"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pve",
+        "armada",
+        "wave_defense"
+      ],
+      "conditions": {},
+      "sha256": "d4f541e136fff1b35486515711f394c17ca16128f559703ca6027dd6c91377ab",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/2766262625"
+    },
+    {
+      "tech_id": 1364700249,
+      "buff_id": 3473529830,
+      "description": "Increases Interceptor Hull Health",
+      "effects": [
+        "hull_health"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "conditions": {
+        "ship_class": "Interceptor"
+      },
+      "sha256": "19422e92e6c7558823614eece5bc53c005abbd025ca1f24140dff55ff86f228d",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/1364700249"
+    },
+    {
+      "tech_id": 4187367166,
+      "buff_id": 404321260,
+      "description": "Increases base Hull Health",
+      "effects": [
+        "hull_health"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "conditions": {},
+      "sha256": "b350243829ef12fbea4871694b3d4018f7f08fd212280b896653a76154aa14d8",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/4187367166"
+    },
+    {
+      "tech_id": 4187367166,
+      "buff_id": 627258195,
+      "description": "Increases base Damage vs Hostiles",
+      "effects": [
+        "weapon_damage"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pve",
+        "wave_defense"
+      ],
+      "conditions": {},
+      "sha256": "b350243829ef12fbea4871694b3d4018f7f08fd212280b896653a76154aa14d8",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/4187367166"
+    },
+    {
+      "tech_id": 1151304323,
+      "buff_id": 1545583564,
+      "description": "Increases Shield Health",
+      "effects": [
+        "shield_health"
+      ],
+      "unit": "fraction",
+      "contexts": [
+        "pve",
+        "pvp",
+        "station",
+        "armada",
+        "wave_defense"
+      ],
+      "conditions": {},
+      "sha256": "22ac9afb59bd8c86aba5b4070706643a66768efe8882a6da62eaecf4940e0591",
+      "source": "https://stfc.space/forbidden_and_chaos_tech/1151304323"
+    }
+  ]
+}

@@ -22,6 +22,7 @@ from collections import defaultdict
 from pathlib import Path
 
 import paths
+from engine.research_catalogue import mapping_matches, research_metadata
 
 _BASE = Path(__file__).parent.parent
 _RESEARCH_DIR = _BASE / "data" / "stfc_space" / "research"
@@ -147,6 +148,9 @@ def compute_research_buffs(rows: list[dict]) -> dict:
     # Preserve each buff's identity and native unit. Text classification is a
     # review hint, never authority to apply several distinct buffs globally.
     sources = []
+    metadata = research_metadata()
+    invalid_levels = []
+    no_buffs = 0
     registry = json.loads(
         (_BASE / "data" / "research_effects.json").read_text(encoding="utf-8")
     )
@@ -158,27 +162,52 @@ def compute_research_buffs(rows: list[dict]) -> dict:
         if not detail_path.exists():
             missing_detail += 1
             continue
-        detail = json.loads(detail_path.read_text(encoding="utf-8"))
+        raw = detail_path.read_bytes()
+        detail = json.loads(raw)
         info = node_info[node_id]
+        meta = metadata.get(node_id, {})
+        valid_levels = {r["id"] for r in detail.get("levels", [])}
+        if valid_levels and level not in valid_levels:
+            invalid_levels.append(
+                {
+                    "node_id": node_id,
+                    "level": level,
+                    "reason": "Level is not defined by the catalogue.",
+                }
+            )
+            continue
+        if not detail.get("buffs"):
+            no_buffs += 1
         for index, buff in enumerate(detail.get("buffs", [])):
             values = buff.get("values", [])
             if not 1 <= level <= len(values):
                 missing_values += 1
                 continue
-            value = values[level - 1].get("value", 0) or 0
+            value = values[level - 1].get("value")
+            if value is None:
+                missing_values += 1
+                continue
+            mapping = mappings.get((node_id, buff.get("id")))
+            verified = bool(mapping and mapping_matches(mapping, raw, meta, buff))
             sources.append(
                 {
                     "id": f"research:{node_id}:{buff.get('id', index)}",
-                    "name": info["name"],
+                    "name": meta.get("name", info["name"]),
                     "node_id": node_id,
                     "buff_id": buff.get("id", index),
                     "level": level,
                     "value": value,
-                    "unit": "fraction" if buff.get("value_is_percentage") else "points",
+                    "unit": mapping["unit"]
+                    if verified
+                    else ("fraction" if buff.get("value_is_percentage") else "points"),
+                    "mapping_verified": verified,
+                    "export_percentage": buff.get("value_is_percentage"),
+                    "chance": values[level - 1].get("chance"),
+                    "enabled": False,
                     "effect": "unreviewed",
                     "contexts": [],
                     "status": "unreviewed",
-                    "description": info["description"],
+                    "description": meta.get("description", info["description"]),
                     "origin": "research_csv",
                     "review_hint": _classify(info["name"], info["description"]),
                 }
@@ -186,12 +215,7 @@ def compute_research_buffs(rows: list[dict]) -> dict:
     expanded = []
     for source in sources:
         mapping = mappings.get((source["node_id"], source["buff_id"]))
-        if (
-            mapping
-            and source["unit"] == mapping["unit"]
-            and source["description"].strip().casefold()
-            == mapping["description"].strip().casefold()
-        ):
+        if mapping and source.pop("mapping_verified", False):
             for effect in mapping["effects"]:
                 expanded.append(
                     {
@@ -207,6 +231,7 @@ def compute_research_buffs(rows: list[dict]) -> dict:
                     }
                 )
         else:
+            source.pop("mapping_verified", None)
             expanded.append(source)
     sources = expanded
     return {
@@ -214,7 +239,9 @@ def compute_research_buffs(rows: list[dict]) -> dict:
         "conditional": {},
         "sources": sources,
         "nodes_done": len(done_level),
-        "nodes_counted": len(done_level) - missing_detail,
+        "nodes_counted": len(done_level) - missing_detail - len(invalid_levels),
+        "invalid_levels": invalid_levels,
+        "nodes_without_buffs": no_buffs,
         "nodes_missing_detail": missing_detail,
         "buffs_missing_values": missing_values,
         "mapped_sources": sum(s["status"] == "reviewed" for s in sources),
@@ -224,7 +251,9 @@ def compute_research_buffs(rows: list[dict]) -> dict:
             {
                 "node_id": key,
                 "name": node_info[key]["name"],
-                "tree": node_info[key].get("tree", ""),
+                "tree": metadata.get(key, {}).get(
+                    "tree", node_info[key].get("tree", "")
+                ),
                 "level": level,
             }
             for key, level in sorted(done_level.items())
@@ -241,6 +270,13 @@ def apply_to_profile(profile: dict, buckets: dict) -> tuple[dict, list[str]]:
         merged = []
         for source in buckets["sources"]:
             old = reviewed.get(source["id"], {})
+            if source.get("mapping_source"):
+                # Refresh reviewed registry scopes rather than restoring stale imported rules.
+                old = {"enabled": old["enabled"]} if "enabled" in old else {}
+            elif old.get("mapping_source") or old.get("description") != source.get(
+                "description"
+            ):
+                old = {}
             # A changed level keeps reviewed scope/effect but takes the new value.
             merged.append(
                 {
@@ -272,13 +308,29 @@ def apply_to_profile(profile: dict, buckets: dict) -> tuple[dict, list[str]]:
                 )
         updated = [s for s in existing if s.get("origin") != "research_csv"] + merged
         profile["combat_sources"] = updated
+        old_summary = profile.get("research_import_summary", {})
         old_progress = profile.get("research_progress", [])
         profile["research_progress"] = buckets.get("progress", [])
+        profile["research_import_summary"] = {
+            k: buckets[k]
+            for k in (
+                "nodes_done",
+                "mapped_sources",
+                "unreviewed_sources",
+                "nodes_missing_detail",
+                "buffs_missing_values",
+                "invalid_levels",
+                "nodes_without_buffs",
+            )
+            if k in buckets
+        }
         return profile, (
             [
-                f"Imported {len(merged)} attributed research buffs; {buckets.get('mapped_sources', 0)} mapped, {buckets.get('unreviewed_sources', 0)} need review. Yes and Current included; manual totals preserved."
+                f"Imported {len(merged)} attributed research buffs; {buckets.get('mapped_sources', 0)} mapped, {buckets.get('unreviewed_sources', 0)} need review. Yes and Current included; manual totals preserved. Skipped {len(buckets.get('invalid_levels', []))} invalid levels, {buckets.get('nodes_missing_detail', 0)} missing records and {buckets.get('buffs_missing_values', 0)} missing values."
             ]
-            if updated != existing or old_progress != profile["research_progress"]
+            if updated != existing
+            or old_progress != profile["research_progress"]
+            or old_summary != profile["research_import_summary"]
             else []
         )
     diff = []
@@ -337,6 +389,8 @@ def apply_to_profile(profile: dict, buckets: dict) -> tuple[dict, list[str]]:
 def ingest_research_csv(source, apply: bool = False) -> dict:
     """Full pipeline. Returns a report dict; writes the profile when apply=True."""
     rows = parse_research_csv(source)
+    if not rows:
+        raise ValueError("No research rows found; account unchanged.")
     result = compute_research_buffs(rows)
     from service import read_profile, save_profile
 

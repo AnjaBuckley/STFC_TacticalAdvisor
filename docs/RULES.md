@@ -68,4 +68,10 @@ The fleet editor now resolves base builds from exact level/tier/component choice
 
 ### Research progression follow-up
 
-Spock's Club Current rows represent selected completed levels, not queued research (verified in its public research export JavaScript). Import joins the highest Yes/Current level to native catalogue buffs. The explicit 21-node mapping registry preserves faction, minimum grade, ship class and PvP conditions. Remaining sources require review; enabling mapped sources requires excluding their bonuses from manual totals. See [SHIP_DATA.md](SHIP_DATA.md). Vengeance ability/refit references are now visible, but catalogue visibility does not imply those effects are simulated.
+Spock's Club Current rows represent selected completed levels, not queued research (verified in its public research export JavaScript). Import joins the highest Yes/Current level to native catalogue buffs. The explicit 136-node mapping registry preserves faction, minimum grade, ship class and PvP conditions. Remaining sources require review; enabling mapped sources requires excluding their bonuses from manual totals. See [SHIP_DATA.md](SHIP_DATA.md). Vengeance ability/refit references are now visible, but catalogue visibility does not imply those effects are simulated.
+
+Research audit, 13 September: all 2,587 public records inventoried; 136 nodes mapped with 164 effects. See [coverage and correction details](RESEARCH_AUDIT.md). Keep reviewed record hashes, actual level bounds, native units, once-only damage application and explicit activation. Remaining records are not automatically simulated.
+
+## Full public catalogue audit
+
+See [catalogue audit](CATALOGUE_AUDIT.md) for the September 13 snapshot: 115 ships, 292 officers, 71 equipment items, 5,513 hostiles and 80 PvP bands. Rules & sources exposes searchable coverage. Ship editing supports separate Forbidden/Chaos equipment, explicit tier/level and opt-in mapped bonuses. PvP checks use opponent Operations independently of ship level. Source presence does not mean complete simulation support. Preserve native magnitudes versus trigger probabilities, canonical officer identity, stale-source guards and explicit equipment activation. Refresh with `refresh_game_catalogues.py`, then audit with `audit_game_catalogues.py`; review changed mechanics before shipping.

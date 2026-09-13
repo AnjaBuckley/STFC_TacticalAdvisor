@@ -165,4 +165,12 @@ In **My fleet**, select an owned catalogue ship, enter its level and actual tier
 
 The bundle contains 115 public ship records and 102 static Officers Tool Ship Stats references as of 12 September 2026. It works offline; no ship database polling or private sheet connection is bundled. Source version is shown after autofill. See [data provenance and limitations](docs/SHIP_DATA.md).
 
-Research CSV imports now include Spock's Club `Current` levels. Preview preserves manual totals and retains unsupported effects for review. An optional checkbox activates the 21 explicitly mapped research nodes; use it only when manual totals exclude those bonuses. Ship autofill also displays ability, refit and crew references. See [ship and research data coverage](docs/SHIP_DATA.md).
+Research CSV imports now include Spock's Club `Current` levels. Preview preserves manual totals and retains unsupported effects for review. An optional checkbox activates the 136 explicitly mapped research nodes; use it only when manual totals exclude those bonuses. Ship autofill also displays ability, refit and crew references. See [ship and research data coverage](docs/SHIP_DATA.md).
+
+Research audit, 13 September: all 2,587 public records inventoried; 136 nodes mapped with 164 effects. See [coverage and correction details](docs/RESEARCH_AUDIT.md). Keep reviewed record hashes, actual level bounds, native units, once-only damage application and explicit activation. Remaining records are not automatically simulated.
+
+## Full public catalogue audit
+
+See [catalogue audit](docs/CATALOGUE_AUDIT.md) for the September 13 snapshot: 115 ships, 292 officers, 71 equipment items, 5,513 hostiles and 80 PvP bands. Rules & sources exposes searchable coverage. Ship editing supports separate Forbidden/Chaos equipment, explicit tier/level and opt-in mapped bonuses. PvP checks use opponent Operations independently of ship level. Source presence does not mean complete simulation support. Preserve native magnitudes versus trigger probabilities, canonical officer identity, stale-source guards and explicit equipment activation. Refresh with `refresh_game_catalogues.py`, then audit with `audit_game_catalogues.py`; review changed mechanics before shipping.
+
+All dropdowns support search: focus a field and type to filter its options. Use Arrow keys and Enter to choose, or Escape to cancel the search. Typed text does not replace a saved selection until an option is chosen.

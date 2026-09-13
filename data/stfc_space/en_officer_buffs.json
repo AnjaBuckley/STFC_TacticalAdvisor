@@ -1977,12 +1977,12 @@
  {
   "id": 55005,
   "key": "officer_ability_desc",
-  "text": "<color=#309BBF>Are We Friends?</color>\nHarry Kim increases all positive Reputation gains by <color=#40FF60>{0:0.#%}</color>.\n\n<color=#B8DEE5>Officer Abilities are activated when assigned to the bridge of a ship</color>."
+  "text": "<color=#309BBF>Are We Friends?</color>\nIncreases all positive Reputation gains by <color=#40FF60>{0:0.#%}</color>.\n\n<color=#B8DEE5>Officer Abilities are activated when assigned to the bridge of a ship</color>."
  },
  {
   "id": 55006,
   "key": "officer_ability_desc",
-  "text": "<color=#309BBF>To the Journey!</color>\nAt the start of a round, Harry Kim has a <color=#40FF60>{0:0.#%}</color> chance to apply Morale to your ship for 1 round when fighting non-Player hostiles or Armadas.\n\n<color=#B8DEE5>Below-Decks Abilities are only activated when assigned to a below-decks slot on a ship</color>."
+  "text": "<color=#309BBF>To the Journey!</color>\n<color=#40FF60>{0:0.#%}</color> chance to apply Morale to your ship for 1 round when fighting non-Player hostiles or Armadas.\n\n<color=#B8DEE5>Below-Decks Abilities are only activated when assigned to a below-decks slot on a ship</color>."
  },
  {
   "id": 56,
@@ -3352,7 +3352,7 @@
  {
   "id": 92005,
   "key": "officer_ability_desc",
-  "text": "<color=#309BBF>Isolytic Diversity</color>\nFemale Spock increases Isolytic Damage vs <color=#E1651F>Origin Sector [OGN]</color> Hostiles and Armadas by <color=#40FF60>{0:#,#%} ({1:#,#%} at rank {2:#,#})</color>.\n\n<color=#B8DEE5>Officer Abilities are activated when assigned to the bridge of a ship.</color>"
+  "text": "<color=#309BBF>Isolytic Diversity</color>\nFemale Spock increases Isolytic Cascade Damage vs <color=#E1651F>Origin Sector [OGN]</color> Hostiles and Armadas by <color=#40FF60>{0:#,#%} ({1:#,#%} at rank {2:#,#})</color>.\n\n<color=#B8DEE5>Officer Abilities are activated when assigned to the bridge of a ship.</color>"
  },
  {
   "id": 92006,
@@ -3393,6 +3393,31 @@
   "id": 94,
   "key": "officer_ability_desc",
   "text": "<color=#309BBF>Blood Oath</color>\nAt the start of battle, Kang increases the Accuracy of the ship by <color=#40FF60>{0:#.#%}</color> of the Attack of the crew on the ship.\n\n<color=#B8DEE5>Officer Abilities are activated when assigned to the bridge of a ship.</color>"
+ },
+ {
+  "id": 94103,
+  "key": "officer_ability_desc",
+  "text": "<color=#309BBF>Chain of Command</color>\nThis Officer does not have a Captain's Maneuver. Equipping this Officer as the captain of a ship provides no benefit.\n\n<color=#B8DEE5>Captain's Maneuvers are activated when an officer is captain of a ship.</color>"
+ },
+ {
+  "id": 94104,
+  "key": "officer_ability_desc",
+  "text": "<color=#309BBF>Tritanium Reaver</color>\nIncreases the proportion of <color=#FFC926>Σ-Tritanium</color> raided by the Ra'Ul Reaver by <color=#40FF60>{0:#,#} ({1:#,#} at rank {2:#,#})</color>.\n\n<b>Σ-Parsteel:Σ-Tritanium:Σ-Dilithium Proportion</b>\nDefault — 10:2:1 (77% : 15% : 8%)\nRank 1 — 10:4:1 (66.6% : 26.6% : 6.6%)\nRank 2 — 10:6:1 (59% : 35% : 6%)\nRank 3 — 10:9:1 (50% : 45% : 5%)\nRank 4 — 10:14:1 (40% : 56% : 4%)\nRank 5 — 10:22:1 (30% : 67% : 3%)\n\n<color=#B8DEE5>Officer Abilities are activated when assigned to the bridge of a ship.</color>"
+ },
+ {
+  "id": 94105,
+  "key": "officer_ability_desc",
+  "text": "<color=#309BBF>General of Gothos</color>\nIncreases your ship's base Shield Mitigation by <color=#40FF60>{0:#,#%}</color> on combat start during Wave Defense.\n\n<i>(This ability does not gain synergy group benefits.)</i>\n\n<color=#B8DEE5>Captain's Maneuvers are activated when an officer is captain of a ship.</color>"
+ },
+ {
+  "id": 94106,
+  "key": "officer_ability_desc",
+  "text": "<color=#309BBF>Child's Play</color> \nIncreases your ship's base <color=#6BB7FF>Apex Barrier</color> by <color=#40FF60>{0:#,#} ({1:#,#} at rank {2:#,#})</color> during Wave Defense.\n\nThis ability does not trigger when Tal is assigned to the bridge of your ship. \n\n<color=#6BB7FF>Apex Barrier</color> provides <b>true damage mitigation</b> from all sources <i>after</i> all other bonuses. Every 100 Apex Barrier increases the damage you can take by 1%.\n\n<color=#B8DEE5>Officer Abilities are activated when assigned to the bridge of a ship.</color>"
+ },
+ {
+  "id": 94107,
+  "key": "officer_ability_desc",
+  "text": "<color=#309BBF>Andorian Resolve</color>\nIncreases Critical Mitigation against players by <color=#40FF60>{0:#,#} ({1:#,#} at rank {2:#,#})</color>.\n\nCritical Mitigation provides <b>true critical damage mitigation</b> from all sources <i>after</i> all other bonuses. Every 500 Critical Mitigation increases the critical damage you can take by 1%.\n\n<color=#B8DEE5>Below-Deck Abilities are only activated when assigned to a below-decks slot on a ship.</color>"
  },
  {
   "id": 95,
@@ -6840,6 +6865,31 @@
   "text": "Blood Oath"
  },
  {
+  "id": 94103,
+  "key": "officer_ability_name",
+  "text": "Chain of Command"
+ },
+ {
+  "id": 94104,
+  "key": "officer_ability_name",
+  "text": "Tritanium Reaver"
+ },
+ {
+  "id": 94105,
+  "key": "officer_ability_name",
+  "text": "General of Gothos"
+ },
+ {
+  "id": 94106,
+  "key": "officer_ability_name",
+  "text": "Child's Play"
+ },
+ {
+  "id": 94107,
+  "key": "officer_ability_name",
+  "text": "Andorian Resolve"
+ },
+ {
   "id": 95,
   "key": "officer_ability_name",
   "text": "Icy Analyst"
@@ -10212,7 +10262,7 @@
  {
   "id": 92005,
   "key": "officer_ability_short_desc",
-  "text": "Increases Isolytic Damage vs <color=#E1651F>Origin Sector [OGN]</color> Hostiles and Armadas by <color=#40FF60>{0:#,#%}</color>."
+  "text": "Increases Isolytic Cascade Damage vs <color=#E1651F>Origin Sector [OGN]</color> Hostiles and Armadas by <color=#40FF60>{0:#,#%}</color>."
  },
  {
   "id": 92006,
@@ -10253,6 +10303,31 @@
   "id": 94,
   "key": "officer_ability_short_desc",
   "text": "<color=#40FF60>{0:#.#%}</color> of the crew's Attack bonus to Accuracy"
+ },
+ {
+  "id": 94103,
+  "key": "officer_ability_short_desc",
+  "text": "No effect."
+ },
+ {
+  "id": 94104,
+  "key": "officer_ability_short_desc",
+  "text": "Increases the proportion of <color=#FFC926>Σ-Tritanium</color> raided by the Ra'Ul Reaver by <color=#40FF60>{0:#,#}</color>.\nIncreases the <color=#FFC926>Σ-Tritanium</color> ratio from the total resources received with the Sigma Feast ability with each Rank."
+ },
+ {
+  "id": 94105,
+  "key": "officer_ability_short_desc",
+  "text": "<color=#40FF60>+{0:0,#%}</color> to your ship's base Shield Mitigation during Wave Defense."
+ },
+ {
+  "id": 94106,
+  "key": "officer_ability_short_desc",
+  "text": "<color=#40FF60>+{0:0,#}</color> to your ship's base <color=#6BB7FF>Apex Barrier</color> during Wave Defense."
+ },
+ {
+  "id": 94107,
+  "key": "officer_ability_short_desc",
+  "text": "Increases Critical Mitigation against players by <color=#40FF60>{0:#,#}</color>."
  },
  {
   "id": 95,

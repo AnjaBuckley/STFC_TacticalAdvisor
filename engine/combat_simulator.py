@@ -295,7 +295,7 @@ def _single_combat_run(
                         raw *= 1 + ship["base_stats"]["attack"] * max(
                             0,
                             current.get("weapon_damage", 0)
-                            - effects.get("weapon_damage", 0),
+                            - stat_effects.get("weapon_damage", 0),
                         ) / max(weapon_damage, 1)
                     if is_enemy:
                         raw *= 1 - min(

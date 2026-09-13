@@ -152,6 +152,10 @@ def validate_profile(profile):
                     ):
                         raise TypeError(f"Officer {text_field} must be text.")
             if key == "ships":
+                from engine.technology import validate_technologies
+
+                if "technologies" in entry:
+                    validate_technologies(entry["technologies"])
                 if not isinstance(entry.get("research_bonuses", {}), dict):
                     raise TypeError("Ship research bonuses must be an object.")
                 numeric(

@@ -1,5 +1,5 @@
 {
-  "checked": "2026-09-12",
+  "checked": "2026-09-13",
   "rules": [
     {
       "title": "Isolytic damage has its own track",
@@ -130,12 +130,21 @@
       "coverage": "115 bundled ships with explicit weapon schedules; 102 static sheet references. Full live-game calibration and conditional ability coverage remain incomplete.",
       "source": "STFC Space snapshot; see docs/SHIP_DATA.md",
       "url": "https://stfc.space/ships"
+    },
+    {
+      "title": "Public catalogue and equipped technology",
+      "status": "partial coverage",
+      "description": "All public ships, officers, technologies, hostiles and PvP bands are inventoried. Only explicit mapped technology buffs apply to an equipped ship at its selected tier/level and encounter scope.",
+      "coverage": "48 of 242 technology buffs mapped; unknown effects omitted. Officer source values and probabilities remain distinct. PvP Operations bands are standard references; event exceptions are not modelled.",
+      "source": "STFC Space and Scopely Chaos Tech FAQ",
+      "url": "https://scopely.helpshift.com/hc/en/19-star-trek-fleet-command/faq/8140-chaos-tech/"
     }
   ],
   "limitations": [
     "Results are partial combat-model outcomes, not live win probabilities. Confidence intervals describe random sampling only, not missing mechanics.",
     "The bounded search and greedy marginal below-deck selection do not prove global optimality. Loot per flight, complete raids, waves and anomaly rewards are not calculated.",
     "Unknown data and unreviewed sources remain explicitly omitted.",
-    "Research CSV imports include Yes and Current levels. Only 21 explicitly mapped nodes have reviewed effects; new mappings default disabled to prevent overlap with manual totals. Ship ability/refit references do not automatically activate their effects."
+    "Research CSV imports include Yes and Current levels. Only 136 explicitly mapped nodes have reviewed effects; new mappings default disabled to prevent overlap with manual totals. Ship ability/refit references do not automatically activate their effects.",
+    "Full research inventory: 2,587 records; 136 mapped nodes with 164 effects. Record hashes and actual level bounds gate imports. Unmapped, stale or ownership-dependent effects are excluded; see Research database coverage in Account."
   ]
 }

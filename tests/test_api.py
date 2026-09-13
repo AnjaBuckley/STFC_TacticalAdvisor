@@ -334,3 +334,43 @@ def test_research_mapping_activation_is_explicit_and_preview_only(client):
         assert mapped and all(s["enabled"] == enabled for s in mapped)
         assert updated["research"] == original["research"]
         assert client.get("/api/bootstrap").json()["profile"] == original
+
+
+def test_research_catalogue_exposes_public_coverage(client):
+    response = client.get("/api/research/catalogue")
+    assert response.status_code == 200
+    data = response.json()
+    assert data["node_count"] == len(data["nodes"])
+    assert data["counts"]["mapped"] >= 136
+    assert all("source" in r and "reason" in r for r in data["nodes"])
+
+
+def test_game_coverage_equipment_and_profile_validation(client):
+    coverage = client.get("/api/catalogue/coverage")
+    assert coverage.status_code == 200
+    assert len(coverage.json()["categories"]["hostile"]) == 5513
+    tech = client.get("/api/technologies")
+    assert tech.status_code == 200 and len(tech.json()) == 71
+    initial = client.get("/api/bootstrap").json()
+    profile = initial["profile"]
+    profile["ships"][0]["technologies"] = [
+        {"id": 482782456, "tier": 1, "level": 1, "enabled": True}
+    ]
+    assert (
+        client.put(
+            "/api/profile", json={"profile": profile, "revision": initial["revision"]}
+        ).status_code
+        == 200
+    )
+    saved = client.get("/api/bootstrap").json()
+    assert (
+        saved["profile"]["ships"][0]["technologies"]
+        == profile["ships"][0]["technologies"]
+    )
+    profile["ships"][0]["technologies"][0]["level"] = 999
+    assert (
+        client.put(
+            "/api/profile", json={"profile": profile, "revision": saved["revision"]}
+        ).status_code
+        == 422
+    )

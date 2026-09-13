@@ -32,3 +32,11 @@ See [specialist follow-up](reports/crew-benchmark-2026-09-12/SPECIALIST_FOLLOWUP
 See [SHIP_DATA.md](docs/SHIP_DATA.md). `engine/ship_builds.py` resolves base builds; `refresh_ship_database.py` explicitly refreshes the public ship snapshot. Keep SHIP_SNAPSHOT.json separate from other dataset versions. Level is not enough to infer tier, components or account research. Preserve manual-build opt-in, component choices during level changes, native units, and global versus extra ship research totals. Static Ship Stats sheet references never confer ownership or enable unreviewed combat effects.
 
 Research CSV: Yes and Current are completed levels; highest level only. Reviewed mappings live in `data/research_effects.json` and default disabled on first import to prevent manual-total overlap. Preserve unsupported sources and local research progression. See `docs/SHIP_DATA.md` for partial coverage and ship ability/refit reference limits.
+
+Research audit, 13 September: all 2,587 public records inventoried; 136 nodes mapped with 164 effects. See [coverage and correction details](docs/RESEARCH_AUDIT.md). Keep reviewed record hashes, actual level bounds, native units, once-only damage application and explicit activation. Remaining records are not automatically simulated.
+
+## Full public catalogue audit
+
+See [catalogue audit](docs/CATALOGUE_AUDIT.md) for the September 13 snapshot: 115 ships, 292 officers, 71 equipment items, 5,513 hostiles and 80 PvP bands. Rules & sources exposes searchable coverage. Ship editing supports separate Forbidden/Chaos equipment, explicit tier/level and opt-in mapped bonuses. PvP checks use opponent Operations independently of ship level. Source presence does not mean complete simulation support. Preserve native magnitudes versus trigger probabilities, canonical officer identity, stale-source guards and explicit equipment activation. Refresh with `refresh_game_catalogues.py`, then audit with `audit_game_catalogues.py`; review changed mechanics before shipping.
+
+Dropdowns are enhanced globally by `web/searchable-select.js`. Keep native `<select>` elements, IDs, options and change events as the form state; the enhancement provides the searchable combobox and handles dynamically inserted fields. Preserve disabled options, required-state labels, keyboard navigation, and escaping through textContent.

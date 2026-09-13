@@ -6,6 +6,7 @@ from itertools import combinations
 from engine.abilities import (
     load_abilities,
     officer_available,
+    officer_identity,
 )
 from engine.combat_simulator import simulate_combat
 from engine.critical_mitigation import aggregate_crit_mitigation_sources
@@ -43,7 +44,7 @@ def _prefilter_bridge_candidates(
             for k, v in static.items()
         )
         supported += sum(log1p(r["value"] * r.get("chance", 1)) for r in timed)
-        if o["name"] in {"SNW Pike", "SNW James Kirk"}:
+        if officer_identity(o) in {"SNW Pike", "SNW James Kirk"}:
             supported += 1
         return (
             supported,
@@ -74,7 +75,9 @@ def find_optimal_crew(
         raise ValueError("Request between 1 and 10 recommendations.")
     all_officers = list(
         {
-            o["name"]: o for o in player_profile["officers"] if officer_available(o)
+            officer_identity(o): o
+            for o in player_profile["officers"]
+            if officer_available(o)
         }.values()
     )
     if len(all_officers) < 3:

@@ -42,7 +42,7 @@ def test_public_registry_exact_descriptions_and_units():
         assert all(s["enabled"] is False for s in mapped)
         validate_sources(mapped)
         rows[0]["description"] = "Changed upstream description"
-        assert compute_research_buffs(rows)["mapped_sources"] == 0
+        assert compute_research_buffs(rows)["mapped_sources"] == len(entry["effects"])
 
 
 def test_progress_only_change_and_reimport_idempotence():
@@ -94,3 +94,171 @@ def test_vengeance_reference_preserves_effect_boundaries():
     assert "Non-Armada" in reference["abilities"][0]["description"]
     assert "<color" not in str(reference)
     assert "combat_sources" not in data["ship"]
+
+
+def test_padding_beyond_real_max_level_is_not_imported():
+    rows = [
+        {
+            "id": "176472186",
+            "level": 3,
+            "done": True,
+            "name": "Synthetic",
+            "description": "",
+        }
+    ]
+    report = compute_research_buffs(rows)
+    assert report["invalid_levels"] and not report["sources"]
+
+
+def test_registry_change_quarantines_saved_effect():
+    rows = [
+        {
+            "id": "3016411865",
+            "level": 1,
+            "done": True,
+            "name": "Synthetic",
+            "description": "",
+        }
+    ]
+    source = compute_research_buffs(rows)["sources"][0]
+    source["enabled"] = True
+    profile = {"combat_sources": [source]}
+    assert source_effects(profile, {}, "pve_hostile", {})[0]["weapon_damage"] == 1
+    source["mapping_version"] = "obsolete"
+    effects, warnings = source_effects(profile, {}, "pve_hostile", {})
+    assert effects == {} and warnings
+
+
+def test_changed_detail_hash_prevents_mapping(tmp_path, monkeypatch):
+    import ingest.research_csv as mod
+
+    raw = json.loads((mod._RESEARCH_DIR / "3016411865.json").read_text())
+    raw["buffs"][0]["values"][0]["value"] = 42
+    (tmp_path / "3016411865.json").write_text(json.dumps(raw))
+    monkeypatch.setattr(mod, "_RESEARCH_DIR", tmp_path)
+    report = compute_research_buffs(
+        [
+            {
+                "id": "3016411865",
+                "level": 1,
+                "done": True,
+                "name": "Synthetic",
+                "description": "",
+            }
+        ]
+    )
+    assert report["mapped_sources"] == 0
+    assert all(
+        s["status"] == "unreviewed" and not s["enabled"] for s in report["sources"]
+    )
+
+
+def test_reimport_updates_scopes_and_disables_unresolved_old_records():
+    report = compute_research_buffs(
+        [
+            {
+                "id": "3016411865",
+                "level": 1,
+                "done": True,
+                "name": "Synthetic",
+                "description": "",
+            }
+        ]
+    )
+    old = copy.deepcopy(report["sources"][0])
+    old["conditions"] = {"ship_class": "Survey"}
+    old["enabled"] = True
+    profile, _ = apply_to_profile({"combat_sources": [old]}, report)
+    assert profile["combat_sources"][0]["conditions"] == {}
+    assert profile["combat_sources"][0]["enabled"]
+    profile, _ = apply_to_profile(profile, {"sources": []})
+    assert not profile["combat_sources"][0]["enabled"]
+
+
+def test_imported_research_does_not_double_buff_displayed_stats():
+    source = compute_research_buffs(
+        [
+            {
+                "id": "3016411865",
+                "level": 1,
+                "done": True,
+                "name": "Synthetic",
+                "description": "",
+            }
+        ]
+    )["sources"][0]
+    source["enabled"] = True
+    effects, warnings = source_effects(
+        {"combat_sources": [source]}, {"stat_basis": "displayed"}, "pve_hostile", {}
+    )
+    assert effects == {} and warnings
+
+
+def test_scoped_weapon_bonus_matches_manual_total_once():
+    from engine.combat_simulator import simulate_combat
+    from tests.test_combat_simulator import _ship, _target
+
+    for explicit in (False, True):
+        ship = _ship()
+        ship["crit_chance"] = 0
+        if explicit:
+            ship["weapons"] = [
+                {
+                    "damage": 50000,
+                    "shots": 1,
+                    "warmup": 0,
+                    "cooldown": 1,
+                    "type": "energy",
+                }
+            ]
+        target = _target()
+        target["hp"] = 2000000
+        manual = {"research": {"combat": {"ship_weapon_damage": 1}}}
+        imported = {
+            "combat_sources": [
+                {
+                    "id": "synthetic",
+                    "effect": "weapon_damage",
+                    "value": 1,
+                    "unit": "fraction",
+                    "contexts": ["pve"],
+                    "status": "manual",
+                }
+            ]
+        }
+        a = simulate_combat(
+            ship, [], [], manual, target, "pve_hostile", num_simulations=10, rng_seed=42
+        )
+        b = simulate_combat(
+            ship,
+            [],
+            [],
+            imported,
+            target,
+            "pve_hostile",
+            num_simulations=10,
+            rng_seed=42,
+        )
+        for key in [
+            "avg_rounds_to_kill",
+            "avg_damage_taken",
+            "avg_combat_rounds",
+            "kill_probability",
+        ]:
+            assert a[key] == b[key], (explicit, key, a[key], b[key])
+
+
+def test_full_catalogue_coverage_and_snapshot_integrity():
+    import hashlib
+
+    from audit_research_database import audit
+    from engine.catalogue import BASE
+
+    manifest = json.loads((BASE / "RESEARCH_SNAPSHOT.json").read_text())
+    for name, digest in manifest["sha256"].items():
+        assert hashlib.sha256((BASE / name).read_bytes()).hexdigest() == digest
+    report = audit()
+    assert report["node_count"] == manifest["research_count"]
+    assert report["counts"].get("data_issue", 0) == 0
+    assert len({r["node_id"] for r in report["nodes"]}) == report["node_count"]
+    assert all(r["tree_type"] == 0 for r in report["nodes"] if r["status"] == "mapped")

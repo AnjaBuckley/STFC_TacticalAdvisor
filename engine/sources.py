@@ -3,13 +3,19 @@
 from collections import defaultdict
 
 from engine.abilities import TASK_CONTEXT
+from engine.catalogue import ship_record
+from engine.research_catalogue import faction_names, source_is_current
 
 
 def source_effects(profile, ship, task_type, target, round_number=1):
+    from engine.technology import technology_sources
+
     result = defaultdict(float)
-    omissions = []
+    technology, omissions = technology_sources(ship)
     context = target.get("encounter_context") or TASK_CONTEXT.get(task_type, "pve")
-    for source in profile.get("combat_sources", []) + ship.get("combat_sources", []):
+    for source in (
+        profile.get("combat_sources", []) + ship.get("combat_sources", []) + technology
+    ):
         if source.get("enabled", True) is False:
             continue
         if source.get("status") not in {"manual", "reviewed"}:
@@ -17,14 +23,39 @@ def source_effects(profile, ship, task_type, target, round_number=1):
                 f"Source {source.get('name', source.get('id', '?'))}: unreviewed"
             )
             continue
+        if source.get("mapping_source") and not source_is_current(source):
+            omissions.append(
+                f"Research {source.get('name', '?')}: catalogue mapping changed; reimport progress before applying."
+            )
+            continue
+        if (
+            source.get("origin") == "research_csv"
+            and ship.get("stat_basis") == "displayed"
+        ):
+            omissions.append(
+                "Imported research omitted for displayed ship stats to avoid applying existing account bonuses twice; use base stats."
+            )
+            continue
         scopes = source.get("contexts", [])
         if not scopes or context not in scopes:
             continue
         conditions = source.get("conditions", {})
+        identity = (
+            ship_record(ship)
+            if (
+                ("ship_grade_min" in conditions and ship.get("grade") is None)
+                or ("ship_faction" in conditions and not ship.get("faction"))
+            )
+            else {}
+        )
+        grade = ship.get("grade", identity.get("grade"))
+        faction = ship.get("faction") or faction_names().get(
+            (identity.get("faction") or {}).get("loca_id")
+        )
         checks = {
             "ship_class": ship.get("ship_class"),
             "ship_name": ship.get("name"),
-            "ship_faction": ship.get("faction"),
+            "ship_faction": faction,
             "target_class": target.get("ship_class"),
             "target_family": target.get("catalogue_family", target.get("name")),
             "target_id": target.get("hostile_id"),
@@ -32,8 +63,7 @@ def source_effects(profile, ship, task_type, target, round_number=1):
         }
         minimum_grade = conditions.get("ship_grade_min")
         if minimum_grade is not None and (
-            not isinstance(ship.get("grade"), (int, float))
-            or ship["grade"] < minimum_grade
+            not isinstance(grade, (int, float)) or grade < minimum_grade
         ):
             continue
         if any(

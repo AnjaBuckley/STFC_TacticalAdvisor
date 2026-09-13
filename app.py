@@ -123,6 +123,7 @@ class RecommendationRequest(StrictModel):
     enemy_class: Literal["Battleship", "Explorer", "Interceptor", "Survey"] = (
         "Battleship"
     )
+    opponent_ops_level: int | None = Field(default=None, ge=1, le=100)
     hostile_id: int | None = Field(default=None, ge=0)
     target_stats: TargetStats | None = None
     excluded_officers: list[str] = Field(default_factory=list, max_length=1000)
@@ -275,6 +276,14 @@ def recommend(body: RecommendationRequest):
         "Rankings use a heuristic shortlist and estimated combat, not a complete STFC battle replay.",
         "Ship research, officer-to-ship stat conversion, shields and firing order need battle-log calibration.",
     ]
+    pvp_band = None
+    if body.task_type in {"pvp", "pvp_station", "station_raid"}:
+        from engine.pvp_bands import check_band
+
+        pvp_band = check_band(
+            profile["ops_level"], body.opponent_ops_level, body.task_type
+        )
+        warnings.extend([pvp_band["message"], pvp_band["note"]])
     if not target.get("real_hostile"):
         warnings.append(
             "This target uses curated or manually entered stats, not a verified level-specific hostile record."
@@ -316,6 +325,7 @@ def recommend(body: RecommendationRequest):
 
         counter = suggest_pvp_counter(body.enemy_class, profile["officers"])
     return {
+        "pvp_band": pvp_band,
         "pvp_counter": counter,
         "recommendations": results,
         "target": target,
@@ -394,7 +404,51 @@ def preview_import(
         "revision": revision,
         "diff": diff,
         "message": "Preview only. Apply changes to save this account.",
+        "research_summary": updated.get("research_import_summary")
+        if kind == "research"
+        else None,
     }
+
+
+@app.get("/api/catalogue/coverage")
+def game_catalogue_coverage():
+    return json.loads(
+        (paths.resource_path("data") / "catalogue_coverage.json").read_text(
+            encoding="utf-8"
+        )
+    )
+
+
+@app.get("/api/technologies")
+def technologies():
+    from engine.technology import (
+        technology_catalogue,
+        technology_mappings,
+        technology_record,
+    )
+
+    mappings = technology_mappings()
+    return [
+        {
+            **row,
+            "tiers": [
+                {"rank": t["rank"], "max_level": t["max_level"]}
+                for t in technology_record(row["id"])[0]["tiers"]
+                if int(t["rank"]) <= row["tier_max"]
+            ],
+            "reviewed_buffs": sum(m["tech_id"] == row["id"] for m in mappings),
+        }
+        for row in technology_catalogue().values()
+    ]
+
+
+@app.get("/api/research/catalogue")
+def research_catalogue():
+    return json.loads(
+        (paths.resource_path("data") / "research_coverage.json").read_text(
+            encoding="utf-8"
+        )
+    )
 
 
 @app.post("/api/import/sheet-preview")

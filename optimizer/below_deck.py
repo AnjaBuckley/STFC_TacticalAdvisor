@@ -3,7 +3,7 @@
 This bounded search does not prove a globally optimal crew.
 """
 
-from engine.abilities import load_abilities, officer_available
+from engine.abilities import load_abilities, officer_available, officer_identity
 
 
 def optimize_below_deck(
@@ -17,12 +17,14 @@ def optimize_below_deck(
     if num_slots <= 0:
         return []
 
-    bridge_names = {o["name"] for o in bridge_crew}
-    candidates = [
-        o
-        for o in available_officers
-        if o["name"] not in bridge_names and officer_available(o)
-    ]
+    bridge_names = {officer_identity(o) for o in bridge_crew}
+    candidates = list(
+        {
+            officer_identity(o): o
+            for o in available_officers
+            if officer_identity(o) not in bridge_names and officer_available(o)
+        }.values()
+    )
     task_type = task_profile.get("task_type", "pve_general")
     task_profile.get("target", {}).get("name", "").lower()
 
